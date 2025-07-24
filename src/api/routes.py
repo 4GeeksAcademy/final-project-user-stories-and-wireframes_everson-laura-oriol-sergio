@@ -5,18 +5,31 @@ from flask import Flask, request, jsonify, url_for, Blueprint
 from api.models import db, User
 from api.utils import generate_sitemap, APIException
 from flask_cors import CORS
+from api.auth import register_user, login_user, forgot_password,reset_password
+from flask import Blueprint
+from flask_jwt_extended import JWTManager
+from dotenv import load_dotenv
+
+
+load_dotenv()
 
 api = Blueprint('api', __name__)
 
 # Allow CORS requests to this API
 CORS(api)
 
+@api.route('/register', methods=['POST'])
+def register():
+    return register_user()
 
-@api.route('/hello', methods=['POST', 'GET'])
-def handle_hello():
+@api.route('/login', methods=['POST'])
+def login():
+    return login_user()
 
-    response_body = {
-        "message": "Hello! I'm a message that came from the backend, check the network tab on the google inspector and you will see the GET request"
-    }
+@api.route('/forgot-password', methods=['POST'])
+def forgot():
+    return forgot_password()
 
-    return jsonify(response_body), 200
+@api.route('/reset-password', methods=['POST'])
+def reset():
+    return reset_password()

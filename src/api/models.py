@@ -9,6 +9,7 @@ class User(db.Model):
     email: Mapped[str] = mapped_column(String(120), unique=True, nullable=False)
     password: Mapped[str] = mapped_column(nullable=False)
     is_active: Mapped[bool] = mapped_column(Boolean(), nullable=False)
+    reset_token: Mapped[str] = mapped_column(String(256), nullable=True)
 
 
     def serialize(self):
