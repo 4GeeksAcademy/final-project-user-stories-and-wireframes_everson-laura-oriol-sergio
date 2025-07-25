@@ -1,16 +1,216 @@
-<!doctype html>
+<!--PAGINA DE INICIO ANTES DE ENTRAR-->
+
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swipe Stories</title>
     <link rel="icon" type="icon" href="/4geeks.ico" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hello Rigo</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/front/main.jsx"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-  </body>
+    <link rel="stylesheet" href="index.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Shrikhand&family=Sniglet:wght@400;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body class="body">
+    <div class="container-fluid"></div>
+        <div class="navbar p-3">
+            <div class="pageName">
+                Swipe Stories
+            </div>
+            <div>
+                <button id="button-2" class="rounded-3 btn me-2" data-bs-toggle="modal" data-bs-target="#logIn">Inicia sesión</button>
+                    <div class="modal fade" id="logIn" tabindex="-1" data-bs-backdrop="static" aria-labelledby="loginModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content p-4 rounded-5">
+                                <div class="modal-header border-0">
+                                    <h4 class="modal-title w-100 text-center mb-2" id="loginModalLabel">Inicia sesion</h4>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form>
+                                        <div class="mb-3">
+                                            <input type="email" class="form-control form-control-lg rounded-pill" placeholder="Tu correo electrónico">
+                                        </div>
+                                        <div class="mb-3">
+                                            <input type="password" class="form-control form-control-lg rounded-pill" placeholder="Tu contraseña">
+                                        </div>
+                                        <div class="mb-3 text-center">
+                                            <button id="button-3" type="submit" class="btn w-100 rounded-pill py-2">Inicia sesión</button>
+                                        </div>
+                                    </form>
+                                    <div class="d-flex align-items-center my-3">
+                                        <hr class="flex-grow-1">
+                                        <span class="px-2 text-muted">o</span>
+                                        <hr class="flex-grow-1">
+                                    </div>
+                                    <div class="mb-3">
+                                        <button type="button"
+                                            class="btn btn-light w-100 rounded-pill d-flex align-items-center justify-content-center gap-2 py-2">
+                                            <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google" width="20">
+                                            <span>Continua con Google</span>
+                                        </button>
+                                    </div>
+                                    <div class="text-center mb-2 text-muted">
+                                        ¿No tienes cuenta? <a href="#" data-bs-toggle="modal" data-bs-target="#signUp" class="text-decoration-none">Regístrate</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <button id="button-1" class="rounded-3 btn" data-bs-toggle="modal" data-bs-target="#signUp" class="open-button"> Regístrate </button>
+                    <div class="modal fade" data-bs-backdrop="static" id="signUp" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content p-4 rounded-5">
+                                <div class="modal-header border-0">
+                                    <h4 class="modal-title w-100 text-center mb-2" id="loginModalLabel">Bienvenid@</h4>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form>
+                                        <div class="mb-3">
+                                            <input type="text" class="form-control form-control-lg rounded-pill" placeholder="Tu nombre completo">
+                                        </div>
+                                        <div class="mb-3">
+                                            <input type="email" class="form-control form-control-lg rounded-pill" placeholder="Tu correo electrónico">
+                                        </div>
+                                        <div class="mb-3">
+                                            <input type="text" class="form-control form-control-lg rounded-pill" placeholder="Crea tu nombre de usuario">
+                                        </div>
+                                        <div class="mb-3">
+                                            <input type="password" class="form-control form-control-lg rounded-pill" placeholder="Crea una contraseña">
+                                        </div>
+                                        <div class="mb-3">
+                                            <input type="date" class="form-control form-control-lg rounded-pill" placeholder="Fecha de nacimiento">
+                                        </div>
+                                        <div class="d-flex form-check form-switch text-center mb-3 justify-content-center align-content-center">
+                                            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                                            <label class="form-check-label ms-2" for="flexSwitchCheckDefault">Recuérdame</label>
+                                        </div>
+                                        <div class="mb-3 text-center">
+                                            <button type="submit" id="button-3" class="btn w-100 rounded-pill py-2">Regístrame</button>
+                                        </div>
+                                        <div class="text-center mb-3 text-muted">
+                                            ¿Ya tienes cuenta? <a href="#" data-bs-toggle="modal" data-bs-target="#logIn" class="text-decoration-none ">Inicia sesión</a>
+                                        </div>
+                                        <div class="text-center text-muted">
+                                            <small>Al continuar, aceptas nuestras <a href="#" data-bs-toggle="modal" data-bs-target="#condicionesDeServicio" class="text-decoration-none"> Condiciones de servicio </a> y <a href="#" data-bs-toggle="modal" data-bs-target="#politicaPrivacidad" class="text-decoration-none"> Política de privacidad</a>.</small>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+        <!-- MODAL DE CONDICIONES DE SERVICIO -->
+        <div class="modal fade" data-bs-backdrop="static" id="condicionesDeServicio" tabindex="-1" aria-labelledby="condicionesLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable modal-lg">
+            <div class="modal-content p-4 rounded-5">
+                <div class="modal-header">
+                    <h3 id="condicionesLabel">Condiciones de servicio</h3>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#signUp" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="text-center mt-4 mb-4">
+                        <h5>¡Gracias por usar Swipe Stories!</h5>
+                        <small class="text-muted">Última actualización: 24 de julio de 2025</small>
+                    </div>
+                    <h4>1. Uso del sitio</h4>
+                    <p>Swipe Stories está diseñado para ayudarte a descubrir series, libros y películas según tus
+                        gustos. No debes utilizar esta página para actividades ilegales, fraudulentas o que interfieran
+                        con su correcto funcionamiento.</p>
+                    <h4>2. Cuenta de usuario</h4>
+                    <p>En caso de que decidas crear una cuenta, eres responsable de mantener la confidencialidad de tu
+                        contraseña y de toda actividad que ocurra bajo tu cuenta.</p>
+                    <h4>3. Contenido</h4>
+                    <p>Todo el contenido que aparece en Swipe Stories (textos, logos, recomendaciones, etc.) es
+                        propiedad del sitio o de terceros con los que colaboramos. No puedes copiar, reproducir o
+                        redistribuir nuestro contenido sin permiso.</p>
+                    <h4>4. Cambios en las condiciones</h4>
+                    <p>Podemos actualizar estas condiciones en cualquier momento. Te notificaremos si hay cambios
+                        importantes. El uso continuado del sitio después de cualquier modificación implica que aceptas
+                        los nuevos términos.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- MODAL DE POLITICA DE PRIVACIDAD -->
+    <div class="modal fade" data-bs-backdrop="static" id="politicaPrivacidad" tabindex="-1" aria-labelledby="politicaLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-lg">
+        <div class="modal-content p-4 rounded-5">
+            <div class="modal-header">
+                <h3 id="condicionesLabel" class="text-center">Política de privacidad</h3>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#signUp" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+                <div class="text-center mt-4 mb-4">
+                    <h5>¡Gracias por usar Swipe Stories!</h5>
+                    <small class="text-muted">Última actualización: 24 de julio de 2025</small>
+                </div>
+                <h4>1. Información que recopilamos</h4>
+                    <p>Podemos recopilar:
+                    <ul>
+                        <li>Tu nombre, correo electrónico y datos de acceso (si decides registrarte).</li>
+                        <li>Preferencias de contenido (para ofrecerte mejores recomendaciones).</li>
+                        <li>Datos de uso del sitio (como páginas visitadas y tiempo de navegación).</li>
+                    </ul>
+                <h4>2. Uso de tu información</h4>
+                    <p>Usamos tu información para:
+                    <ul>
+                        <li>Mejorar tus recomendaciones personalizadas.</li>
+                        <li>Gestionar tu cuenta de usuario (si procede).</li>
+                        <li>Entender mejor cómo se utiliza la web para seguir mejorándola.</li>
+                    </ul>
+                <h4>3. Cookies</h4>
+                <p>Usamos cookies para analizar el tráfico y mejorar la experiencia del usuario. Puedes desactivarlas desde la configuración de tu navegador.</p>
+                <h4>4. Compartir datos</h4>
+                <p>No vendemos ni compartimos tus datos con terceros, salvo que sea estrictamente necesario para operar el servicio (por ejemplo, servicios de análisis como Google Analytics).</p>
+                <h4>5. Tus derechos</h4>
+                <p>Tienes derecho a acceder, rectificar o eliminar tus datos personales. Para ejercer estos derechos, puedes escribirnos a
+                <a href="mailto:swipestories@gmail.com">swipestories@gmail.com</a>.</p>
+            </div>
+        </div>
+    </div>
+    </div>
+        <div id="slogan" class="slogan text-center my-5">
+            Desliza y Descubre
+        </div>
+
+
+<!--        <div class="container">
+            <div class="box-card">
+                <div class="face front">Front</div>
+                <div class="face back">Back</div>
+                <div class="face right">Right</div>
+                <div class="face left">Left</div>
+                <div class="face top">Top</div>
+                <div class="face bottom">Bottom</div>
+            </div>
+        </div>
+-->
+
+
+        <!--los siguientes div con frases será un dado que rote-->
+        <div class="phrases rounded-5 my-5 mx-auto">
+            Estás a un solo “swipe” de decir adiós al aburrimiento.
+        </div>
+        <div class="phrases rounded-5 my-5 mx-auto">
+            Descubre géneros de los que jamás pensaste que formarías parte.
+        </div>
+        <div class="phrases rounded-5 my-5 mx-auto">
+            Realiza questionarios interactivos y revisa tu historial de respuestas.
+        </div>
+        <div class="phrases rounded-5 my-5 mx-auto">
+            Descubre qué ver. Qué leer. Qué vivir.
+        </div>
+        <div class="phrases rounded-5 my-5 mx-auto">
+            Recomendaciones que te enganchan.
+        </div>
+    </div>
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+</body>
 </html>
