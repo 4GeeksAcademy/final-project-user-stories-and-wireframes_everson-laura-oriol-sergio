@@ -6,7 +6,6 @@ from api.models import db, User
 from api.utils import generate_sitemap, APIException
 from flask_cors import CORS
 from api.auth import register_user, login_user, forgot_password,reset_password
-from flask import Blueprint
 from flask_jwt_extended import JWTManager
 from dotenv import load_dotenv
 
@@ -15,7 +14,7 @@ load_dotenv()
 
 api = Blueprint('api', __name__)
 
-# Allow CORS requests to this API
+
 CORS(api)
 
 @api.route('/register', methods=['POST'])

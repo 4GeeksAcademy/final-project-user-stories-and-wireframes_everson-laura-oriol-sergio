@@ -25,9 +25,14 @@ def register_user():
 
 def login_user():
     data = request.get_json()
+    print("Login payload:", data)
+
+    if not data or not data.get("email") or not data.get("password"):
+        return jsonify({"msg": "Missing email or password"}), 400
+
     user = User.query.filter_by(email=data.get("email")).first()
 
-    if not user or not check_password_hash(user.password, data.get("password")):
+    if not user or not user.password or not check_password_hash(user.password, data.get("password")):
         return jsonify({"msg": "Bad credentials"}), 401
 
     token = create_access_token(identity=user.id, expires_delta=timedelta(days=1))
@@ -51,6 +56,10 @@ def reset_password():
     new_password = data.get("password")
 
     user = User.query.filter_by(reset_token=token).first()
+
+    if not new_password:
+        return jsonify({"msg": "Missing new password"}), 400
+
     if not user:
         return jsonify({"msg": "Invalid or expired token"}), 400
 
