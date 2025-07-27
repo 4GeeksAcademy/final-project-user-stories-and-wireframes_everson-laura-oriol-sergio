@@ -32,3 +32,4 @@ def forgot():
 @api.route('/reset-password', methods=['POST'])
 def reset():
     return reset_password()
+
