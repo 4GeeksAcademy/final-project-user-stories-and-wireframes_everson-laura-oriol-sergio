@@ -1,19 +1,28 @@
 import { Link } from "react-router-dom";
+import { Navbar, Nav, Button, Container, NavDropdown } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 
-export const Navbar = () => {
-
+export const CustomNavbar = () => {
 	return (
-		<nav className="navbar navbar-light bg-light">
-			<div className="container">
-				<Link to="/">
-					<span className="navbar-brand mb-0 h1">React Boilerplate</span>
-				</Link>
-				<div className="ml-auto">
-					<Link to="/demo">
-						<button className="btn btn-primary">Check the Context in action</button>
-					</Link>
-				</div>
-			</div>
-		</nav>
+		<Navbar expand="lg" bg="dark" variant="dark" sticky="top">
+			<Container>
+				<Navbar.Brand as={Link} to="/">WireFrames</Navbar.Brand>
+				<Navbar.Toggle aria-controls="navbar-nav" />
+				<Navbar.Collapse id="navbar-nav">
+					<Nav className="me-auto">
+						<Nav.Link as={Link} to="/">Home</Nav.Link>
+						<Nav.Link as={Link} to="/about">About</Nav.Link>
+						<Nav.Link as={Link} to="/perfil">My Perfil</Nav.Link>
+						<Nav.Link as={Link} to="/history">My History</Nav.Link>
+					</Nav>
+					<div className="d-flex gap-2">
+						<Nav.Link as={Link} to= "/formulary">	
+						<Button variant="outline-light">Close Section</Button>
+						<Button variant="warning">Begin Formulary</Button>
+						</Nav.Link>
+					</div>
+				</Navbar.Collapse>
+			</Container>
+		</Navbar>
 	);
 };

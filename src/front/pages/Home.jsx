@@ -1,52 +1,49 @@
-import React, { useEffect } from "react"
-import rigoImageUrl from "../assets/img/rigo-baby.jpg";
+import React, { useEffect } from "react";
 import useGlobalReducer from "../hooks/useGlobalReducer.jsx";
+import backgroundImage from "../assets/img/biblioteca.jpg";
+
 
 export const Home = () => {
-
-	const { store, dispatch } = useGlobalReducer()
+	const { store, dispatch } = useGlobalReducer();
 
 	const loadMessage = async () => {
 		try {
-			const backendUrl = import.meta.env.VITE_BACKEND_URL
+			const backendUrl = import.meta.env.VITE_BACKEND_URL;
+			if (!backendUrl) throw new Error("VITE_BACKEND_URL is not defined in .env file");
 
-			if (!backendUrl) throw new Error("VITE_BACKEND_URL is not defined in .env file")
+			const response = await fetch(backendUrl + "/api/hello");
+			const data = await response.json();
 
-			const response = await fetch(backendUrl + "/api/hello")
-			const data = await response.json()
-
-			if (response.ok) dispatch({ type: "set_hello", payload: data.message })
-
-			return data
-
+			if (response.ok) dispatch({ type: "set_hello", payload: data.message });
+			return data;
 		} catch (error) {
-			if (error.message) throw new Error(
-				`Could not fetch the message from the backend.
-				Please check if the backend is running and the backend port is public.`
+			throw new Error(
+				"Could not fetch the message from the backend. Please check if the backend is running."
 			);
 		}
-
-	}
+	};
 
 	useEffect(() => {
-		loadMessage()
-	}, [])
+		loadMessage();
+	}, []);
 
 	return (
-		<div className="text-center mt-5">
-			<h1 className="display-4">Hello Rigo!!</h1>
-			<p className="lead">
-				<img src={rigoImageUrl} className="img-fluid rounded-circle mb-3" alt="Rigo Baby" />
-			</p>
-			<div className="alert alert-info">
-				{store.message ? (
-					<span>{store.message}</span>
-				) : (
-					<span className="text-danger">
-						Loading message from the backend (make sure your python 🐍 backend is running)...
-					</span>
-				)}
+		<div
+			className="d-flex justify-content-center align-items-center text-white text-center"
+			style={{
+				height: "100vh",
+				backgroundImage: `url(${backgroundImage})`,
+				backgroundSize: "cover",
+				backgroundPosition: "center",
+				flexDirection: "column",
+			}}
+		>
+			<h1 className="display-1 fw-bold" style={{ textShadow: "2px 2px 4px rgba(0,0,0,0.7)" }}>
+				WireFrames
+			</h1>
+			<p className="lead fs-4">Books,Movies,Podcast & a lot More</p>
+	
 			</div>
-		</div>
+		
 	);
-}; 
+};
