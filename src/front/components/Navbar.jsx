@@ -16,8 +16,10 @@ export const CustomNavbar = () => {
 						<Nav.Link as={Link} to="/history">My History</Nav.Link>
 					</Nav>
 					<div className="d-flex gap-2">
+						<Nav.Link as={Link} to= "/formulary">	
 						<Button variant="outline-light">Close Section</Button>
 						<Button variant="warning">Begin Formulary</Button>
+						</Nav.Link>
 					</div>
 				</Navbar.Collapse>
 			</Container>

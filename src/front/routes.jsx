@@ -10,6 +10,7 @@ import { Demo } from "./pages/Demo";
 import { About } from "./pages/About";
 import { Perfil } from "./pages/Perfil";
 import { History } from "./pages/History";
+import { Formulary } from "./pages/Formulary";
 
 export const router = createBrowserRouter(
     createRoutesFromElements(
@@ -20,6 +21,7 @@ export const router = createBrowserRouter(
             <Route path="/history" element={<History />} />
             <Route path="/single/:theId" element={<Single />} />
             <Route path="/demo" element={<Demo />} />
+            <Route path="/formulary" element={<Formulary />} />
         </Route>
     )
 );

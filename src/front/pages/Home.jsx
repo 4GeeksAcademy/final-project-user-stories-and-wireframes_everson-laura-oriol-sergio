@@ -42,15 +42,8 @@ export const Home = () => {
 				WireFrames
 			</h1>
 			<p className="lead fs-4">Books,Movies,Podcast & a lot More</p>
-			<div className="alert alert-info bg-opacity-75 mt-4">
-				{store.message ? (
-					<span>{store.message}</span>
-				) : (
-					<span className="text-danger">
-						Loading message from backend...
-					</span>
-				)}
+	
 			</div>
-		</div>
+		
 	);
 };
