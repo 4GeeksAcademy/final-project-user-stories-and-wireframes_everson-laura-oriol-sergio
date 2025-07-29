@@ -41,7 +41,7 @@ export const Home = () => {
 			<h1 className="display-1 fw-bold" style={{ textShadow: "2px 2px 4px rgba(0,0,0,0.7)" }}>
 				WireFrames
 			</h1>
-			<p className="lead fs-4">Books,Movies,Podcast & a lot More</p>
+			<p className="lead fs-4">Books,Movies,Music & a lot More</p>
 	
 			</div>
 		
