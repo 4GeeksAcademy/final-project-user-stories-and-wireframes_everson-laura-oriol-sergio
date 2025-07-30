@@ -17,9 +17,9 @@ export const CustomNavbar = () => {
 					</Nav>
 					<div className="d-flex gap-2">
 						<Nav.Link as={Link} to= "/formulary">	
-						<Button variant="outline-light">Close Section</Button>
 						<Button variant="warning">Begin Formulary</Button>
 						</Nav.Link>
+						<Button variant="outline-light">Close Section</Button>
 					</div>
 				</Navbar.Collapse>
 			</Container>
