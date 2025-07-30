@@ -1,6 +1,10 @@
 import React, { useEffect } from "react";
 import useGlobalReducer from "../hooks/useGlobalReducer.jsx";
-import backgroundImage from "../assets/img/biblioteca.jpg";
+import pegatina1 from "../assets/img/pegatina1.png";
+import pegatina2 from "../assets/img/pegatina2.png";
+import pegatina3 from "../assets/img/pegatina3.png";
+import pegatina4 from "../assets/img/pegatina4.png";
+import pegatina5 from "../assets/img/pegatina5.png";
 
 
 export const Home = () => {
@@ -29,21 +33,19 @@ export const Home = () => {
 
 	return (
 		<div
-			className="d-flex justify-content-center align-items-center text-white text-center"
-			style={{
-				height: "100vh",
-				backgroundImage: `url(${backgroundImage})`,
-				backgroundSize: "cover",
-				backgroundPosition: "center",
-				flexDirection: "column",
-			}}
+			className="d-flex justify-content-center align-items-center text-white text-center main "
 		>
-			<h1 className="display-1 fw-bold" style={{ textShadow: "2px 2px 4px rgba(0,0,0,0.7)" }}>
-				WireFrames
-			</h1>
-			<p className="lead fs-4">Books,Movies,Music & a lot More</p>
-	
+			<div class="sticker-container">
+				<img src={pegatina1} class="sticker" draggable="false" id="sticker1" />
+				<img src={pegatina2} class="sticker" draggable="false" id="sticker2" />
+				<img src={pegatina3} class="sticker" draggable="false" id="sticker3" />
+				<img src={pegatina4} class="sticker" draggable="false" id="sticker4" />
+				<img src={pegatina5} class="sticker" draggable="false" id="sticker5" />
 			</div>
-		
+			<h1 className="title">Swipe Stories</h1>
+
+
+		</div>
+
 	);
 };

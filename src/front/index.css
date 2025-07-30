@@ -1,0 +1,474 @@
+.logo {
+  width: 50px;
+  height: 50px;
+}
+.title {
+  color: black;
+}
+.container-main {
+  background-image: linear-gradient(
+    to top,
+    #ca4d0f,
+    #ec5d73,
+    #e788c0,
+    #d1b5ee,
+    #cddbfc
+  );
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  width: 100%;
+  z-index: 0;
+}
+.navbar-hori {
+  position: absolute;
+}
+.navbar-hori a {
+  text-decoration: none;
+}
+
+.main {
+  min-height: 100vh;
+}
+.navbar {
+  margin: 1.4%;
+  margin-top: 0.1%;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.logo {
+  font-size: xx-large;
+  padding-bottom: 1%;
+}
+
+.logo:hover {
+  transform: scale(1.2);
+  transition: transform 0.4s ease-in-out;
+}
+
+#button-1 {
+  color: black;
+  border: 1.5px solid rgba(255, 255, 255, 0);
+  background-color: rgba(255, 255, 255, 0);
+}
+
+#button-1:hover {
+  color: black;
+  border: 1.5px solid black;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+#button-1:active {
+  color: #cddbfc;
+  border: 1.5px solid black;
+  background-color: black;
+}
+
+#button-2 {
+  color: black;
+  border: 1.5px solid black;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+#button-2:hover {
+  color: #cddbfc;
+  border: 1.5px solid black;
+  background-color: black;
+}
+
+#button-2:active {
+  color: black;
+  border: 1.5px solid black;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.slogan {
+  font-weight: 700;
+}
+
+.slogan-2 {
+  font-size: 3rem;
+}
+
+.slogan,
+.slogan-2 {
+  max-width: 90%;
+  margin: 0 auto;
+  word-wrap: break-word;
+}
+
+.modal-title {
+  margin-top: 4%;
+}
+
+.modal {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  border: none;
+}
+
+#button-3 {
+  background-color: #cddbfc;
+  color: #ca4d0f;
+  border: 1.5px solid #cddbfc;
+}
+
+#button-3:hover {
+  background-color: #ca4d0f;
+  color: #cddbfc;
+  font-weight: 500;
+  border: 1.5px solid #ca4d0f;
+}
+
+#button-3:active {
+  background-color: #cddbfc;
+  color: #ca4d0f;
+  border: 1.5px solid #cddbfc;
+}
+
+.text-decoration-none {
+  color: #ca4d0f;
+}
+
+.text-decoration-none:hover {
+  color: #cddbfc;
+}
+
+.text-decoration-none:active {
+  color: #ca4d0f;
+}
+
+.form-check-input:checked {
+  background-color: #cddbfc !important;
+  border: none;
+}
+
+#slider-container {
+  position: relative;
+  width: 60%;
+  overflow: hidden;
+  margin: 50px auto;
+  box-shadow: 0 0 25px white;
+  touch-action: pan-y;
+  background: rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+#slider {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+  min-width: 100%;
+  height: 100px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s ease;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 300;
+  padding: 10%;
+  margin-top: 25px;
+  min-height: 120px;
+  user-select: none;
+}
+
+button#prev,
+button#next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 1;
+  background-color: #00000000;
+}
+
+.fa-angle-left,
+.fa-angle-right {
+  color: white;
+}
+
+#prev {
+  left: 10px;
+}
+
+#next {
+  right: 10px;
+}
+
+#dots {
+  display: flex;
+  justify-content: center;
+  gap: 7.5px;
+  margin-bottom: 10px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ffffff40;
+  transition: background 0.3s ease;
+  cursor: pointer;
+}
+
+.dot.active {
+  background: white;
+}
+
+.sticker-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 999;
+}
+
+.sticker {
+  position: absolute;
+  width: 150px;
+  pointer-events: auto;
+  cursor: grab;
+  transition: transform 0.2s ease;
+  user-select: none;
+}
+
+.sticker:active {
+  cursor: grabbing;
+}
+
+#sticker1 {
+  top: 10%;
+  left: 5%;
+  transform: rotate(-10deg);
+  touch-action: none;
+}
+#sticker2 {
+  top: 20%;
+  right: 5%;
+  transform: rotate(5deg);
+  touch-action: none;
+}
+#sticker3 {
+  bottom: 10%;
+  left: 10%;
+  transform: rotate(12deg);
+  touch-action: none;
+}
+#sticker4 {
+  bottom: 15%;
+  right: 10%;
+  transform: rotate(-8deg);
+  touch-action: none;
+}
+
+#sticker5 {
+  top: 5%;
+  left: 60%;
+  transform: rotate(10deg);
+  touch-action: none;
+}
+
+@media screen and (max-width: 768px) {
+  .slogan {
+    font-size: 3rem;
+    padding: 0 1rem;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    text-align: center;
+  }
+
+  #slider-container {
+    width: 90%;
+    margin: 2rem auto;
+  }
+
+  .slide {
+    font-size: 1.2rem;
+    padding: 5%;
+    height: auto;
+  }
+
+  button#prev,
+  button#next {
+    padding: 5px;
+    font-size: 1.2rem;
+  }
+
+  .modal-dialog {
+    margin: 1rem;
+  }
+
+  .sticker {
+    width: 90px;
+  }
+
+  #sticker1,
+  #sticker2,
+  #sticker3,
+  #sticker4,
+  #sticker5 {
+    max-width: 90px;
+  }
+
+  .pageName {
+    font-size: 1.8rem;
+  }
+
+  #button-1,
+  #button-2 {
+    margin-bottom: 0.5rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .slogan {
+    font-size: 2.2rem;
+  }
+
+  .slide {
+    font-size: 1rem;
+  }
+
+  .modal-content {
+    padding: 1.5rem;
+  }
+
+  #slider-container {
+    width: 55%;
+    padding: 5%;
+  }
+}
+
+.password-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.password-wrapper input {
+  padding-right: 3rem;
+}
+
+.eye-btn {
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  color: #555;
+}
+
+.icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.hidden {
+  display: none;
+}
+
+@media (max-width: 480px) {
+  .slide {
+    padding: 2rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-dialog {
+    margin: 1rem;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .sticker {
+    width: 70px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #button-1,
+  #button-2,
+  #button-3 {
+    font-size: 0.9rem;
+    padding: 0.4rem 1rem;
+  }
+
+  .modal-title {
+    font-size: 1.8rem;
+  }
+}
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.slogan {
+  font-size: clamp(3rem, 7vw, 7rem);
+}
+
+.slogan-2 {
+  font-size: clamp(1.5rem, 3.5vw, 3.5rem);
+}
+
+@media screen and (max-width: 480px) {
+  #button-1,
+  #button-2,
+  #button-3 {
+    font-size: 0.85rem;
+    padding: 0.5rem 0.8rem;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .modal-content {
+    padding: 1rem !important;
+  }
+}
+
+.slide {
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  padding: 1.5rem;
+}
+
+@media screen and (max-width: 768px) {
+  .sticker {
+    width: 80px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .sticker {
+    width: 60px;
+  }
+}
+@media screen and (max-width: 360px) {
+  .sticker {
+    width: 50px;
+  }
+}
