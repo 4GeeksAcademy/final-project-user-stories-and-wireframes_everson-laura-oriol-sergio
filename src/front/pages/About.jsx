@@ -1,5 +1,3 @@
-import backgroundImage from "../assets/img/book-music-movie.jpg"; 
-
 export const About = () => {
   const backgroundStyle = {
     backgroundImage: `url(${backgroundImage})`,

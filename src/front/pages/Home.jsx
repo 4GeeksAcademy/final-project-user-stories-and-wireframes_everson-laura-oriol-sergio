@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import useGlobalReducer from "../hooks/useGlobalReducer.jsx";
+import { Container } from "react-bootstrap";
 import pegatina1 from "../assets/img/pegatina1.png";
 import pegatina2 from "../assets/img/pegatina2.png";
 import pegatina3 from "../assets/img/pegatina3.png";
@@ -32,9 +33,8 @@ export const Home = () => {
 	}, []);
 
 	return (
-		<div
-			className="d-flex justify-content-center align-items-center text-white text-center main "
-		>
+		<div className="justify-content-center align-items-center text-center main">
+			{/*
 			<div class="sticker-container">
 				<img src={pegatina1} class="sticker" draggable="false" id="sticker1" />
 				<img src={pegatina2} class="sticker" draggable="false" id="sticker2" />
@@ -42,10 +42,12 @@ export const Home = () => {
 				<img src={pegatina4} class="sticker" draggable="false" id="sticker4" />
 				<img src={pegatina5} class="sticker" draggable="false" id="sticker5" />
 			</div>
-			<h1 className="title">Swipe Stories</h1>
-
-
+			*/}
+			<div class="slogan text-center">Desliza, descubre</div>
+        	<div class="slogan-2 text-center">— Swipe Stories</div>
+        	<div class="text-center mx-auto mt-4">¿Empezamos?</div>
+        	<div class="text-center mx-auto">¡Pruébame!</div>
+			<div class="text-center mx-auto"><i class="fa-solid fa-angle-down"></i></div>
 		</div>
-
 	);
 };

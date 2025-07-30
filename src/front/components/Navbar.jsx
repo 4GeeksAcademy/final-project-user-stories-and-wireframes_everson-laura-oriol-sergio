@@ -54,8 +54,11 @@ export const CustomNavbar = () => {
 												<span>Continua con Google</span>
 											</button>
 										</div>
-										<div class="text-center mb-2 text-muted">
-											¿No tienes cuenta? <a href="#" data-bs-toggle="modal" data-bs-target="#signUp" class="text-decoration-none">Regístrate</a>
+										<div class="text-center mt-4 mb-2 text-muted">
+											¿Todavía no tienes cuenta? <a href="#" data-bs-toggle="modal" data-bs-target="#signUp" class="text-decoration-none">Regístrate</a>
+										</div>
+										<div class="mt-3 text-center">
+												<a href="#" className="forget">¿Has olvidado tu contraseña?</a>
 										</div>
 									</div>
 								</div>
@@ -106,7 +109,7 @@ export const CustomNavbar = () => {
 												¿Ya tienes cuenta? <a href="#" data-bs-toggle="modal" data-bs-target="#logIn" class="text-decoration-none ">Inicia sesión</a>
 											</div>
 											<div class="text-center text-muted">
-												<small>Al continuar, aceptas nuestras <a href="#" data-bs-toggle="modal" data-bs-target="#condicionesDeServicio" class="text-decoration-none"> Condiciones de servicio </a> y <a href="#" data-bs-toggle="modal" data-bs-target="#politicaPrivacidad" class="text-decoration-none"> Política de privacidad</a>.</small>
+												<small>Al continuar, estás aceptando nuestras <a href="#" data-bs-toggle="modal" data-bs-target="#condicionesDeServicio" class="text-decoration-none"> Condiciones de uso </a> y nuestra <a href="#" data-bs-toggle="modal" data-bs-target="#politicaPrivacidad" class="text-decoration-none"> Política de privacidad</a>.</small>
 											</div>
 										</form>
 									</div>
@@ -120,7 +123,7 @@ export const CustomNavbar = () => {
 				<div class="modal-dialog modal-dialog-scrollable modal-lg">
 					<div class="modal-content p-4 rounded-5">
 						<div class="modal-header">
-							<h3 id="condicionesLabel">Condiciones de servicio</h3>
+							<h3 id="condicionesLabel">Condiciones de uso</h3>
 							<button type="button" class="btn-close" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#signUp" aria-label="Cerrar"></button>
 						</div>
 						<div class="modal-body">
@@ -147,6 +150,42 @@ export const CustomNavbar = () => {
 					</div>
 				</div>
 			</div>
+			<div class="modal fade" data-bs-backdrop="static" id="politicaPrivacidad" tabindex="-1" aria-labelledby="politicaLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-lg">
+        <div class="modal-content p-4 rounded-5">
+            <div class="modal-header">
+                <h3 id="condicionesLabel" class="text-center">Política de privacidad</h3>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#signUp" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+                <div class="text-center mt-4 mb-4">
+                    <h5>¡Gracias por usar Swipe Stories!</h5>
+                    <small class="text-muted">Última actualización: 24 de julio de 2025</small>
+                </div>
+                <h4>1. Información que recopilamos</h4>
+                    <p>Podemos recopilar:</p>
+                    <ul>
+                        <li>Tu nombre, correo electrónico y datos de acceso (si decides registrarte).</li>
+                        <li>Preferencias de contenido (para ofrecerte mejores recomendaciones).</li>
+                        <li>Datos de uso del sitio (como páginas visitadas y tiempo de navegación).</li>
+                    </ul>
+                <h4>2. Uso de tu información</h4>
+                    <p>Usamos tu información para:</p>
+                    <ul>
+                        <li>Mejorar tus recomendaciones personalizadas.</li>
+                        <li>Gestionar tu cuenta de usuario (si procede).</li>
+                        <li>Entender mejor cómo se utiliza la web para seguir mejorándola.</li>
+                    </ul>
+                <h4>3. Cookies</h4>
+                <p>Usamos cookies para analizar el tráfico y mejorar la experiencia del usuario. Puedes desactivarlas desde la configuración de tu navegador.</p>
+                <h4>4. Compartir datos</h4>
+                <p>No vendemos ni compartimos tus datos con terceros, salvo que sea estrictamente necesario para operar el servicio (por ejemplo, servicios de análisis como Google Analytics).</p>
+                <h4>5. Tus derechos</h4>
+                <p>Tienes derecho a acceder, rectificar o eliminar tus datos personales. Para ejercer estos derechos, puedes escribirnos a <a href="mailto:contact@swipestories.com">contact@swipestories.com</a>.</p>
+            </div>
+        </div>
+    </div>
+    </div>
 		</>
 
 	);

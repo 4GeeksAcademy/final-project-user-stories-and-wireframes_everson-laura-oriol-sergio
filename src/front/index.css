@@ -1,9 +1,5 @@
-.logo {
-  width: 50px;
-  height: 50px;
-}
-.title {
-  color: black;
+* {
+  font-family: "Work Sans", sans-serif;
 }
 .container-main {
   background-image: linear-gradient(
@@ -18,11 +14,20 @@
   background-attachment: fixed;
   background-size: cover;
   width: 100%;
+  height: auto;
   z-index: 0;
+  color: black;
 }
+
+.logo {
+  width: 50px;
+  height: 50px;
+}
+
 .navbar-hori {
   position: absolute;
 }
+
 .navbar-hori a {
   text-decoration: none;
 }
@@ -30,6 +35,7 @@
 .main {
   min-height: 100vh;
 }
+
 .navbar {
   margin: 1.4%;
   margin-top: 0.1%;
@@ -89,6 +95,7 @@
 
 .slogan {
   font-weight: 700;
+  padding-top: 7.5%;
 }
 
 .slogan-2 {
@@ -124,7 +131,6 @@
 #button-3:hover {
   background-color: #ca4d0f;
   color: #cddbfc;
-  font-weight: 500;
   border: 1.5px solid #ca4d0f;
 }
 
@@ -270,6 +276,7 @@ button#next {
   transform: rotate(12deg);
   touch-action: none;
 }
+
 #sticker4 {
   bottom: 15%;
   right: 10%;
@@ -471,4 +478,58 @@ body {
   .sticker {
     width: 50px;
   }
+}
+
+footer {
+  background-color: #00000050;
+  color: white;
+  margin-top: 7.5%;
+}
+
+.gap {
+  gap: 1.8em;
+}
+
+.forget {
+  color: #ca4d0f;
+}
+
+a.text-white {
+  text-decoration: none;
+}
+
+a.text-white:hover {
+  text-decoration: underline;
+  text-decoration-style: wavy;
+}
+
+.fa-brands {
+  text-decoration: none;
+}
+
+.fa-brands:hover {
+  text-decoration: underline;
+  text-decoration-style: wavy;
+}
+
+.fa-angle-down {
+  animation: pulse 0.5s infinite ease-in-out alternate;
+}
+@keyframes pulse {
+  from {
+    transform: scale(0.8);
+  }
+  to {
+    transform: scale(1.2);
+  }
+}
+
+.world {
+  width: 0.9em;
+  height: 0.9em;
+}
+
+.navbarlogo {
+  width: 1em;
+  height: 1em;
 }

@@ -12,7 +12,6 @@ export const Layout = () => {
                     <Outlet />
                 <Footer />
             </div>
-            
         </ScrollToTop>
     )
 }
