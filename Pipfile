@@ -19,9 +19,9 @@ flask = "*"
 flask-sqlalchemy = "*"
 flask-cors = "*"
 flask-jwt-extended = "*"
-sendgrid = "*"
 python-dotenv = "*"
 werkzeug = "*"
+sendgrid = "*"
 
 [requires]
 python_version = "3.13"
