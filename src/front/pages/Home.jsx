@@ -43,8 +43,8 @@ export const Home = () => {
 				<img src={pegatina5} class="sticker" draggable="false" id="sticker5" />
 			</div>
 			*/}
-			<div class="slogan text-center">Desliza, descubre</div>
-        	<div class="slogan-2 text-center">— Swipe Stories</div>
+			<div class="slogan text-center">Swipe Stories</div>
+        	<div class="slogan-2 text-center">Desliza, descubre</div>
         	<div class="text-center mx-auto mt-4">¿Empezamos?</div>
         	<div class="text-center mx-auto">¡Pruébame!</div>
 			<div class="text-center mx-auto"><i class="fa-solid fa-angle-down"></i></div>

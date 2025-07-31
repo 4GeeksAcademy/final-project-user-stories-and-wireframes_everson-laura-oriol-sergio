@@ -7,16 +7,16 @@ export const Footer = () => {
     <div>
     <footer className="footer text-white py-4">
       <Container className="gap text-center d-flex justify-content-center">
-        <a href="/" className="text-white">HOME</a>
-        <a href="#" data-bs-toggle="modal" data-bs-target="#about" className="text-white">ABOUT US</a>
+        <a href="/" className="text-white">Home</a>
+        <a href="#" data-bs-toggle="modal" data-bs-target="#about" className="text-white">About us</a>
         <a href="#" className="text-white"><i class="fa-solid fa-moon"></i></a>
-        <a href="#" className="text-white">CONDICIONES DE USO</a>
-        <a href="#" className="text-white">POLITICA DE PRIVACIDAD</a>
+        <a href="#" className="text-white">Condiciones de uso</a>
+        <a href="#" className="text-white">Política de privacidad</a>
         <a href="#" className="text-white"><i class="fa-solid fa-hands"></i></a>
-        <a href="#" data-bs-toggle="modal" data-bs-target="#phone" className="text-white">LLAMANOS</a>
-        <a href="#" data-bs-toggle="modal" data-bs-target="#mail" className="text-white">ESCRIBENOS</a>
+        <a href="#" data-bs-toggle="modal" data-bs-target="#phone" className="text-white">Llámanos</a>
+        <a href="#" data-bs-toggle="modal" data-bs-target="#mail" className="text-white">Escríbenos</a>
         <a href="https://www.instagram.com/" target="_blank" className="text-white"><i class="fa-brands fa-instagram"></i></a>
-        <a href="/" className="text-white">SwipeStories © {new Date().getFullYear()}</a>
+        <a href="/" className="text-white">Swipe Stories © {new Date().getFullYear()}</a>
       </Container>
 
       <div className="modal fade" tabindex="-1" id="phone">
@@ -69,54 +69,6 @@ export const Footer = () => {
           </div>
         </div>
       </div>
-    </footer>
-
-    <footer className="footer text-white py-4 mt-auto">
-      <Container>
-        <Row className="text-center text-md-start">
-
-          <Col md={4} className="mb-3">
-            <h5>Contacto</h5>
-            <p className="mb-1">📧 contacto@wireframes.com</p>
-            <p className="mb-1">📞 +1 234 567 890</p>
-            <p className="mb-0">🏠 Calle Falsa 123, Ciudad</p>
-          </Col>
-
-          <Col md={4} className="d-flex flex-column align-items-center mb-3">
-            <div className="mb-2">
-              <a href="#" className="text-white mx-2 fs-4">
-                <FaFacebook />
-              </a>
-              <a href="#" className="text-white mx-2 fs-4">
-                <FaInstagram />
-              </a>
-              <a href="#" className="text-white mx-2 fs-4">
-                <FaGithub />
-              </a>
-            </div>
-            <small>WireFrames © {new Date().getFullYear()}</small>
-          </Col>
-
-          <Col md={4} className="mb-3 text-md-end text-center">
-            <h5>Enlaces</h5>
-            <p className="mb-1">
-              <a href="/" className="text-white text-decoration-none">
-                Home
-              </a>
-            </p>
-            <p className="mb-1">
-              <a href="/about" className="text-white text-decoration-none">
-                About
-              </a>
-            </p>
-            <p className="mb-0">
-              <a href="/formulary" className="text-warning text-decoration-none">
-                Formulary
-              </a>
-            </p>
-          </Col>
-        </Row>
-      </Container>
     </footer>
     </div>
   );

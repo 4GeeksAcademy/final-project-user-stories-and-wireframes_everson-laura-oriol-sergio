@@ -59,7 +59,7 @@ export const CustomNavbar = () => {
 			<div class="container-fluid navbar-hori">
 				<div class="navbar p-3">
 					<div>
-						<a href="/"><img class="logo" src={logo} /></a>
+						<a href="/">{/*<img class="logo" src={logo} />*/}</a>
 					</div>
 
 					<div>

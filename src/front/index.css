@@ -2,21 +2,14 @@
   font-family: "Work Sans", sans-serif;
 }
 .container-main {
-  background-image: linear-gradient(
-    to top,
-    #ca4d0f,
-    #ec5d73,
-    #e788c0,
-    #d1b5ee,
-    #cddbfc
-  );
+  background-image: linear-gradient(to top, #6080b2, #668ab8, #6d94be, #749dc4, #7da7ca, #8baece, #99b5d2, #a6bcd6, #b8c3d8, #c7cbda, #d3d4db, #dddddd);
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
   width: 100%;
   height: auto;
   z-index: 0;
-  color: black;
+  color: white;
 }
 
 .logo {
@@ -57,37 +50,37 @@
   transition: transform 0.4s ease-in-out;
 }
 
-#button-1 {
-  color: black;
-  border: 1.5px solid rgba(255, 255, 255, 0);
-  background-color: rgba(255, 255, 255, 0);
-}
-
-#button-1:hover {
-  color: black;
-  border: 1.5px solid black;
-  background-color: rgba(255, 255, 255, 0);
-}
-
-#button-1:active {
-  color: #cddbfc;
-  border: 1.5px solid black;
-  background-color: black;
-}
-
 #button-2 {
-  color: black;
-  border: 1.5px solid black;
-  background-color: rgba(255, 255, 255, 0);
+  color: #6080b2;
+  border: 1.5px solid #6080b2;
+  background-color: #ffffff00;
 }
 
 #button-2:hover {
+  color: #dddddd;
+  border: 1.5px solid #6080b2;
+  background-color: #6080b2;
+}
+
+#button-2:active {
   color: #cddbfc;
   border: 1.5px solid black;
   background-color: black;
 }
 
-#button-2:active {
+#button-1 {
+  color: #dddddd;
+  border: 1.5px solid #6080b2;
+  background-image: linear-gradient(to top, #6080b2, #668ab8, #6d94be, #749dc4, #7da7ca, #8baece, #99b5d2, #a6bcd6, #b8c3d8);
+}
+
+#button-1:hover {
+   color: #6080b2;
+  border: 1.5px solid #6080b2;
+  background-color: #ffffff00;
+}
+
+#button-1:active {
   color: black;
   border: 1.5px solid black;
   background-color: rgba(255, 255, 255, 0);
@@ -107,6 +100,7 @@
   max-width: 90%;
   margin: 0 auto;
   word-wrap: break-word;
+  letter-spacing: 0.05em;
 }
 
 .modal-title {
@@ -481,7 +475,7 @@ body {
 }
 
 footer {
-  background-color: #00000050;
+  background-color: #ffffff50;
   color: white;
   margin-top: 7.5%;
 }
@@ -513,7 +507,9 @@ a.text-white:hover {
 }
 
 .fa-angle-down {
+  margin-top: 1.5%;
   animation: pulse 0.5s infinite ease-in-out alternate;
+  font-size: 1.5em;
 }
 @keyframes pulse {
   from {
