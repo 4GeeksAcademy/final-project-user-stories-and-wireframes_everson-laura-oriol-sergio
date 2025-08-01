@@ -2,6 +2,55 @@ import { Container, Row, Col } from "react-bootstrap";
 import { FaFacebook, FaInstagram, FaGithub } from "react-icons/fa";
 
 export const Footer = () => {
+
+  return (
+    <ul className="menu-list footer justify-content-center">
+      <li style={{ '--i': '#6080b2', '--j': '#dddddd' }}>
+        <span className="icon"><ion-icon name="home-outline"></ion-icon></span>
+        <span className="title">Home</span>
+      </li>
+      <li style={{ '--i': '#dddddd', '--j': '#6080b2' }}>
+        <span className="icon"><ion-icon name="information-circle-outline"></ion-icon></span>
+        <span className="title">About us</span>
+      </li>
+      <li style={{ '--i': '#6080b2', '--j': '#dddddd' }}>
+        <span className="icon"><ion-icon name="document-outline"></ion-icon></span>
+        <span className="title uso">Condiciones de uso</span>
+      </li>
+      <li style={{ '--i': '#dddddd', '--j': '#6080b2' }}>
+        <span className="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
+        <span className="title">Política de privacidad</span>
+      </li>
+      <li style={{ '--i': '#6080b2', '--j': '#dddddd' }}>
+        <span className="icon"><ion-icon name="call-outline"></ion-icon></span>
+        <span className="title">+34 000000000</span>
+      </li>
+      <li style={{ '--i': '#dddddd', '--j': '#6080b2' }}>
+        <span className="icon"><ion-icon name="at-outline"></ion-icon></span>
+        <span className="title">contact@swipestories.com</span>
+      </li>
+      <li style={{ '--i': '#6080b2', '--j': '#dddddd' }}>
+        <span className="icon"><ion-icon name="logo-instagram"></ion-icon></span>
+        <span className="title">Instagram</span>
+      </li>
+      <li style={{ '--i': '#dddddd', '--j': '#6080b2' }}>
+        <span className="icon"><ion-icon name="language-outline"></ion-icon></span>
+        <span className="title">Idioma</span>
+      </li>
+      <li style={{ '--i': '#6080b2', '--j': '#dddddd' }}>
+        <span className="icon"><ion-icon name="sunny-outline"></ion-icon></span>
+        <span className="title">Modo claro</span>
+      </li>
+      <li style={{ '--i': '#dddddd', '--j': '#6080b2' }}>
+        <span className="icon"><ion-icon name="moon-outline"></ion-icon></span>
+        <span className="title">Modo oscuro</span>
+      </li>
+    </ul>
+  );
+};
+
+{/*
+export const Footer = () => {
   
   return (
     <div>
@@ -18,58 +67,5 @@ export const Footer = () => {
         <a href="https://www.instagram.com/" target="_blank" className="text-white"><i class="fa-brands fa-instagram"></i></a>
         <a href="/" className="text-white">Swipe Stories © {new Date().getFullYear()}</a>
       </Container>
-
-      <div className="modal fade" tabindex="-1" id="phone">
-        <div class="modal-dialog modal-dialog-centered">
-          <div className="modal-content w-auto rounded-5 m-auto">
-            <div className="modal-body text-center">
-              +00 000 000
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="modal fade" tabindex="-1" id="mail">
-        <div class="modal-dialog modal-dialog-centered">
-          <div className="modal-content w-auto rounded-5 m-auto">
-            <div className="modal-body text-center">
-              contact@swipestories.com
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="modal fade" tabindex="-1" id="location">
-        <div class="modal-dialog modal-dialog-centered">
-          <div className="modal-content w-auto rounded-5 m-auto">
-            <div className="modal-body text-center">
-              Ciudad 00000, País
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="modal fade" tabindex="-1" id="about">
-        <div class="modal-dialog modal-dialog-centered">
-          <div className="modal-content w-auto rounded-5 p-4 m-auto">
-            <div className="modal-body text-center">
-              <h1><strong>About SwipeStories</strong></h1>
-              <hr/>
-              <p>
-                Welcome to WireFrames, your personalized recommendation hub.
-                Through a simple form where you share your tastes and current mood whether you
-                are bored, happy, sad, or looking for self-improvement
-                we will suggest the best music to listen to, series to watch, and books to read.
-              </p>
-              <p>
-                Our mission is to help you discover content that resonates with your 
-                current moment and make your day a little more special.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
-    </div>
   );
-};
+};*/}

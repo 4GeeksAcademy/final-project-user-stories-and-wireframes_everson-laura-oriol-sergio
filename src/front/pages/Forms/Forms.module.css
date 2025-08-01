@@ -1,0 +1,74 @@
+.container {
+  padding-top: 7%;
+  padding-bottom: 9%;
+  text-align: center;
+  font-size: large;
+
+  & a {
+    color: white;
+    text-decoration: none;
+  }
+}
+
+.row {
+  width: 50%;
+  margin-inline: auto;
+}
+
+.row a {
+  text-decoration: none;
+  color: white;
+  padding-bottom: 5px;
+  position: relative;
+}
+
+.zigzagLine {
+  position: absolute;
+  bottom: -5px;
+  height: 6px;
+  width: 0;
+  pointer-events: none;
+  opacity: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 6 L10 0 L20 6 L30 0 L40 6' stroke='%23ffffff' fill='transparent' stroke-width='2'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-size: auto 100%;
+  transition: all 5s ease;
+}
+
+.animateBackground {
+  animation: zigzagMove 20s linear infinite;
+}
+
+@keyframes zigzagMove {
+  from {
+    background-position-x: 0;
+  }
+  to {
+    background-position-x: 40px;
+  }
+}
+
+.masonryGrid {
+  display: flex;
+  margin-left: -1rem;
+  width: auto;
+  padding: 2rem 1rem;
+}
+
+.masonryColumn {
+  padding-left: 1rem;
+  background-clip: padding-box;
+}
+
+.card {
+  margin-bottom: 1rem;
+  background-color: white;
+  border: none;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: scale(1.02);
+}
