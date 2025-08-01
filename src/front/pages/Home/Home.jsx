@@ -1,12 +1,11 @@
 import React, { useEffect } from "react";
-import useGlobalReducer from "../hooks/useGlobalReducer.jsx";
+import useGlobalReducer from "../../hooks/useGlobalReducer.jsx";
 import { Container } from "react-bootstrap";
-import pegatina1 from "../assets/img/pegatina1.png";
-import pegatina2 from "../assets/img/pegatina2.png";
-import pegatina3 from "../assets/img/pegatina3.png";
-import pegatina4 from "../assets/img/pegatina4.png";
-import pegatina5 from "../assets/img/pegatina5.png";
-
+import pegatina1 from "../../assets/img/pegatina1.png";
+import pegatina2 from "../../assets/img/pegatina2.png";
+import pegatina3 from "../../assets/img/pegatina3.png";
+import pegatina4 from "../../assets/img/pegatina4.png";
+import pegatina5 from "../../assets/img/pegatina5.png";
 
 export const Home = () => {
 	const { store, dispatch } = useGlobalReducer();
@@ -44,9 +43,9 @@ export const Home = () => {
 			</div>
 			*/}
 			<div class="slogan text-center">Swipe Stories</div>
-        	<div class="slogan-2 text-center">Desliza, descubre</div>
-        	<div class="text-center mx-auto mt-4">¿Empezamos?</div>
-        	<div class="text-center mx-auto">¡Pruébame!</div>
+			<div class="slogan-2 text-center">Desliza, descubre</div>
+			<div class="text-center mx-auto mt-4">¿Empezamos?</div>
+			<div class="text-center mx-auto">¡Pruébame!</div>
 			<div class="text-center mx-auto"><i class="fa-solid fa-angle-down"></i></div>
 		</div>
 	);
