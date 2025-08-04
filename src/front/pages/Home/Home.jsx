@@ -51,16 +51,36 @@ export const Home = () => {
 		<div className="justify-content-center align-items-center text-center main">
 			<div className="wave-container d-flex w-50 m-auto pt-5">
 				<p className="wave-text slogan text-center">
-					<span>S</span><span>w</span><span>i</span><span>p</span><span>e</span>
+					<span>S</span>
+					<span>w</span>
+					<span>i</span>
+					<span>p</span>
+					<span>e</span>
 				</p>
 				<p className="wave-text slogan text-center">
-					<span>S</span><span>t</span><span>o</span><span>r</span><span>i</span><span>e</span><span>s</span>
+					<span>S</span>
+					<span>t</span>
+					<span>o</span>
+					<span>r</span>
+					<span>i</span>
+					<span>e</span>
+					<span>s</span>
 				</p>
 			</div>
 			<div className="slogan-2 text-center">Desliza, descubre</div>
-			<div className="text-center mx-auto mt-4">¿Empezamos?</div>
-			<div className="text-center mx-auto mt-2">¡Pruébame!</div>
+			<div className="text-center mx-auto mt-5 start">¿Empezamos?</div>
+			<div className="text-center mx-auto mt-2 try">¡Pruébame!</div>
 			<div className="d-flex text-center mx-auto justify-content-center pb-5 pt-4">
+				<div className="text-center"><i className="fa-solid fa-angle-down"></i></div>
+				&nbsp;
+				<div className="text-center"><i className="fa-solid fa-angle-down"></i></div>
+				&nbsp;
+				<div className="text-center"><i className="fa-solid fa-angle-down"></i></div>
+				&nbsp;
+				<div className="text-center"><i className="fa-solid fa-angle-down"></i></div>
+				&nbsp;
+				<div className="text-center"><i className="fa-solid fa-angle-down"></i></div>
+				&nbsp;
 				<div className="text-center"><i className="fa-solid fa-angle-down"></i></div>
 				&nbsp;
 				<div className="text-center"><i className="fa-solid fa-angle-down"></i></div>
@@ -88,11 +108,11 @@ export const Home = () => {
 				removeArrowOnDeviceType={["tablet", "mobile", "desktop"]}
 				itemClass="carousel-item-padding-40-px"
 				className="mt-5 carou">
-				<div className="quote large-quote">"Estás a un solo “swipe” de decir adiós al aburrimiento."</div>
-				<div className="quote large-quote">"Descubre géneros de los que jamás pensaste que formarías parte."</div>
-				<div className="quote large-quote">"Realiza cuestionarios interactivos y revisa tu historial de respuestas."</div>
-				<div className="quote large-quote">"Descubre qué ver. Qué leer. Qué vivir."</div>
-				<div className="quote large-quote">"Recomendaciones que te enganchan."</div>
+				<div className="quote large-quote">Estás a un solo “swipe” de decir adiós al aburrimiento.</div>
+				<div className="quote large-quote">Descubre géneros de los que jamás pensaste que formarías parte.</div>
+				<div className="quote large-quote">Realiza cuestionarios interactivos y revisa tu historial de respuestas.</div>
+				<div className="quote large-quote">Descubre qué ver. Qué leer. Qué vivir.</div>
+				<div className="quote large-quote">Recomendaciones que enganchan, recomendaciones que te cambian.</div>
 			</Carousel>
 		</div>
 	);

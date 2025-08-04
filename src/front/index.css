@@ -8,13 +8,23 @@ body {
 }
 
 .container-main {
-  background: linear-gradient(to top, #f9dce0 75%, #c5d1b3 75%);
+  background: linear-gradient(
+    to bottom,
+    #bdd7de 0%,
+    #bdd7de 25%,
+    #583722 25%,
+    #583722 34%,
+    #ffffff 34%,
+    #dddddd 54%,
+    #cccccc 75%,
+    #bbbbbb 100%
+  );
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-size: cover;
   width: 100%;
   z-index: 0;
-  color: #555;
+  color: black;
   margin-bottom: 0;
   padding: 0;
   height: 100%;
@@ -23,6 +33,11 @@ body {
 .logo {
   width: 50px;
   height: 50px;
+}
+
+.start,
+.try {
+  color: black;
 }
 
 .navbar-hori {
@@ -61,50 +76,50 @@ body {
 }
 
 #button-2 {
-  color: #c5d1b3;
-  border: 1.5px solid #555;
-  background-color: #555;
+  color: #bdd7de;
+  border: 1.5px solid #583722;
+  background-color: #583722;
 }
 
 #button-2:hover {
-  color: #555;
-  border: 1.5px solid #555;
-  background-color: #c5d1b3;
+  color: #583722;
+  border: 1.5px solid #583722;
+  background-color: #bdd7de00;
 }
 
 #button-2:active {
-  color: #c5d1b3;
-  border: 1.5px solid #555;
-  background-color: #555;
+  color: #bdd7de;
+  border: 1.5px solid #583722;
+  background-color: #583722;
 }
 
 #button-1 {
-  color: #555;
-  border: 1.5px solid #555;
-  background-color: #c5d1b3;
+  color: #583722;
+  border: 1.5px solid #583722;
+  background-color: #bdd7de00;
 }
 
 #button-1:hover {
-   color: #c5d1b3;
-  border: 1.5px solid #555;
-  background-color: #555;
+  color: #bdd7de;
+  border: 1.5px solid #583722;
+  background-color: #583722;
 }
 
 #button-1:active {
-  color: #555;
-  border: 1.5px solid #555;
-  background-color: #c5d1b3;
+  color: #583722;
+  border: 1.5px solid #583722;
+  background-color: #bdd7de00;
 }
 
 .slogan {
   font-weight: 800;
   padding-top: 7.5%;
-  color: #f9dce0;
+  color: #583722;
 }
 
 .slogan-2 {
   font-size: 3rem;
-  color: #c5d1b3;
+  color: #bdd7de;
 }
 
 .slogan,
@@ -129,116 +144,41 @@ body {
 }
 
 #button-3 {
-  background-color: #f9dce0;
-  color: #667057;
-  border: 1.5px solid #f9dce0;
+  background-color: #bdd7de;
+  color: #583722;
+  border: 1.5px solid #bdd7de;
+  font-weight: 500;
 }
 
 #button-3:hover {
-  background-color: #667057;
-  color: #f9dce0;
-  border: 1.5px solid #667057;
+  background-color: #583722;
+  color: #bdd7de;
+  border: 1.5px solid #583722;
+  font-weight: 500;
 }
 
 #button-3:active {
-  background-color: #f9dce0;
-  color: #667057;
-  border: 1.5px solid #f9dce0;
+  background-color: #bdd7de;
+  color: #583722;
+  border: 1.5px solid #bdd7de;
+  font-weight: 500;
 }
 
 .text-decoration-none {
-  color: #e8b6bc;
+  color: #bdd7de;
 }
 
 .text-decoration-none:hover {
-  color: #667057;
+  color: #583722;
 }
 
 .text-decoration-none:active {
-  color: #e8b6bc;
+  color: #583722;
 }
 
 .form-check-input:checked {
-  background-color: #e8b6bc !important;
+  background-color: #583722 !important;
   border: none;
-}
-
-#slider-container {
-  position: relative;
-  width: 60%;
-  overflow: hidden;
-  margin: 50px auto;
-  box-shadow: 0 0 25px white;
-  touch-action: pan-y;
-  background: rgba(255, 255, 255, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.7);
-}
-
-#slider {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-}
-
-.slide {
-  min-width: 100%;
-  height: 100px;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: opacity 0.3s ease;
-  text-align: center;
-  font-size: 1.5rem;
-  font-weight: 300;
-  padding: 10%;
-  margin-top: 25px;
-  min-height: 120px;
-  user-select: none;
-}
-
-button#prev,
-button#next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-  z-index: 1;
-  background-color: #00000000;
-}
-
-.fa-angle-left,
-.fa-angle-right {
-  color: white;
-}
-
-#prev {
-  left: 10px;
-}
-
-#next {
-  right: 10px;
-}
-
-#dots {
-  display: flex;
-  justify-content: center;
-  gap: 7.5px;
-  margin-bottom: 10px;
-}
-
-.dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: #ffffff40;
-  transition: background 0.3s ease;
-  cursor: pointer;
-}
-
-.dot.active {
-  background: white;
 }
 
 .sticker-container {
@@ -393,7 +333,7 @@ button#next {
   padding: 0;
   display: flex;
   align-items: center;
-  color: #555;
+  color: #583722;
 }
 
 .icon {
@@ -477,9 +417,7 @@ body {
 
 .slogan-2 {
   font-size: clamp(1.5rem, 3.5vw, 3.5rem);
-  text-shadow: 1px 1px 2.5px #555;
   margin-top: 2%;
-
 }
 
 @media screen and (max-width: 480px) {
@@ -519,7 +457,15 @@ body {
 }
 
 .forget {
-  color: #e8b6bc;
+  color: #bdd7de;
+}
+
+.forget:hover {
+  color: #583722;
+}
+
+.forget:active {
+  color: #bdd7de;
 }
 
 a.text-white {
@@ -530,6 +476,7 @@ a.text-white {
   margin-top: 1.5%;
   animation: pulse 0.5s infinite ease-in-out alternate;
   font-size: 1.5em;
+  color: black;
 }
 @keyframes pulse {
   from {
@@ -550,36 +497,46 @@ a.text-white {
   height: 1em;
 }
 
+.quote {
+  font-style: italic;
+  font-size: 1.5em;
+}
+
+.carousel-item-padding-40-px {
+  background-image: radial-gradient(circle, #bdd7de, #583722);
+  color: white;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  font-weight: 500;
+}
+
 .footer {
-  background-color: #00000075;
+  background-color: #00000050;
   margin-top: 7.5%;
 }
 
-ul {
+.menu-list {
   display: flex;
   position: relative;
   gap: 60px;
   text-align: center;
-  color: white;
 }
 
-ul li {
+.menu-list li {
   position: relative;
   list-style: none;
   width: 50px;
   height: 50px;
-  background: #55555550;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  background: #00000075;
   border-radius: 60px;
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
   transition: 0.5s;
-
 }
 
-ul li::before {
+.menu-list li::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -589,7 +546,7 @@ ul li::before {
   transition: 0.5s;
 }
 
-ul li::after {
+.menu-list li::after {
   content: "";
   position: absolute;
   top: 10px;
@@ -603,39 +560,39 @@ ul li::after {
   opacity: 0;
 }
 
-ul li:hover {
+.menu-list li:hover {
   width: 300px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0);
 }
 
-ul li:hover::before {
+.menu-list li:hover::before {
   opacity: 1;
 }
 
-ul li:hover::after {
+.menu-list li:hover::after {
   opacity: 0.5;
 }
 
-ul li ion-icon {
-  color: #eeeeee;
+.menu-list li ion-icon {
+  color: white;
   font-size: 1.50em;
   transition: 0.5s;
   margin: auto;
   transition-delay: 0.25s;
 }
 
-ul li:hover ion-icon {
+.menu-list li:hover ion-icon {
   transform: scale(0);
-  color: #555;
+  color: white;
   transition-delay: 0s;
 }
 
-ul li span {
+.menu-list li span {
   position: absolute;
 }
 
-ul li .title {
-  color: #555;
+.menu-list li .title {
+  color: white;
+  font-weight: 500;
   font-size: 1em;
   letter-spacing: 0.1em;
   transform: scale(0);
@@ -643,19 +600,20 @@ ul li .title {
   transition-delay: 0s;
 }
 
-ul li:hover .title {
+.menu-list li:hover .title {
   transform: scale(1);
   transition-delay: 0.25s;
 }
 
-.quote {
-  font-style: italic;
-  font-size: large;
+.correo {
+  color: #bdd7de;
+  text-decoration: none;
 }
 
-.carousel-item-padding-40-px {
-  background-color: #c5d1b3;
-  color: #555;
-  padding-top: 1%;
-  padding-bottom: 1%;
+.correo:hover {
+  color: #583722;
+}
+
+.correo:active {
+  color: #bdd7de;
 }

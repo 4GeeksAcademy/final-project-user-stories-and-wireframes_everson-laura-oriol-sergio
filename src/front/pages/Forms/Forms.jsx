@@ -47,7 +47,7 @@ export const Forms = () => {
   }, []);
 
   return (
-    <Container className={style.container} fluid>
+    <Container className={`${style.container} fluid`}>
       <Row className={`${style.row} position-relative`} ref={containerRef}>
         <Col><a href="#">Inicio</a></Col>
         <Col><a href="#">Películas</a></Col>
