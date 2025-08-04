@@ -1,5 +1,5 @@
 import { Container, Row, Col } from "react-bootstrap";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import "https://unpkg.com/open-props/easings.min.css";
 
 export const Footer = () => {
@@ -86,6 +86,7 @@ export const Footer = () => {
           <span className="icon"><ion-icon name="language-outline"></ion-icon></span>
           <span className="title">Idioma</span>
         </li>
+      </ul>
         <button className="theme-toggle" id="theme-toggle" title="Toggles light & dark" aria-label="auto" aria-live="polite">
           <svg className="sun-and-moon" aria-hidden="true" width="24" height="24" viewBox="0 0 24 24">
             <mask className="moon" id="moon-mask">
@@ -105,7 +106,6 @@ export const Footer = () => {
             </g>
           </svg>
         </button>
-      </ul>
     </footer>
   );
 };
