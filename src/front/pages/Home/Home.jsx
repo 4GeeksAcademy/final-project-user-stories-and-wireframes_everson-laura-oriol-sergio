@@ -1,11 +1,27 @@
 import React, { useEffect } from "react";
 import useGlobalReducer from "../../hooks/useGlobalReducer.jsx";
 import { Container } from "react-bootstrap";
-import pegatina1 from "../../assets/img/pegatina1.png";
-import pegatina2 from "../../assets/img/pegatina2.png";
-import pegatina3 from "../../assets/img/pegatina3.png";
-import pegatina4 from "../../assets/img/pegatina4.png";
-import pegatina5 from "../../assets/img/pegatina5.png";
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
+
+const responsive = {
+  superLargeDesktop: {
+    breakpoint: { max: 4000, min: 3000 },
+    items: 1
+  },
+  desktop: {
+    breakpoint: { max: 3000, min: 1024 },
+    items: 1
+  },
+  tablet: {
+    breakpoint: { max: 1024, min: 464 },
+    items: 1
+  },
+  mobile: {
+    breakpoint: { max: 464, min: 0 },
+    items: 1
+  }
+};
 
 export const Home = () => {
 	const { store, dispatch } = useGlobalReducer();
@@ -33,37 +49,51 @@ export const Home = () => {
 
 	return (
 		<div className="justify-content-center align-items-center text-center main">
-			{/*
-			<div class="sticker-container">
-				<img src={pegatina1} class="sticker" draggable="false" id="sticker1" />
-				<img src={pegatina2} class="sticker" draggable="false" id="sticker2" />
-				<img src={pegatina3} class="sticker" draggable="false" id="sticker3" />
-				<img src={pegatina4} class="sticker" draggable="false" id="sticker4" />
-				<img src={pegatina5} class="sticker" draggable="false" id="sticker5" />
-			</div>
-			*/}
 			<div className="wave-container d-flex w-50 m-auto pt-5">
 				<p className="wave-text slogan text-center">
-					<span>S</span>
-					<span>w</span>
-					<span>i</span>
-					<span>p</span>
-					<span>e</span>
+					<span>S</span><span>w</span><span>i</span><span>p</span><span>e</span>
 				</p>
 				<p className="wave-text slogan text-center">
-					<span>S</span>
-					<span>t</span>
-					<span>o</span>
-					<span>r</span>
-					<span>i</span>
-					<span>e</span>
-					<span>s</span>
+					<span>S</span><span>t</span><span>o</span><span>r</span><span>i</span><span>e</span><span>s</span>
 				</p>
 			</div>
 			<div className="slogan-2 text-center">Desliza, descubre</div>
 			<div className="text-center mx-auto mt-4">¿Empezamos?</div>
-			<div className="text-center mx-auto">¡Pruébame!</div>
-			<div className="text-center mx-auto"><i className="fa-solid fa-angle-down"></i></div>
+			<div className="text-center mx-auto mt-2">¡Pruébame!</div>
+			<div className="d-flex text-center mx-auto justify-content-center pb-5 pt-4">
+				<div className="text-center"><i className="fa-solid fa-angle-down"></i></div>
+				&nbsp;
+				<div className="text-center"><i className="fa-solid fa-angle-down"></i></div>
+				&nbsp;
+				<div className="text-center"><i className="fa-solid fa-angle-down"></i></div>
+				&nbsp;
+				<div className="text-center"><i className="fa-solid fa-angle-down"></i></div>
+				&nbsp;
+				<div className="text-center"><i className="fa-solid fa-angle-down"></i></div>
+			</div>
+
+			<Carousel
+				responsive={responsive}
+				swipeable={true}
+				draggable={true}
+				showDots={false}
+				ssr={true}
+				infinite={true}
+				autoPlay={true}
+				autoPlaySpeed={3000}
+				keyBoardControl={true}
+				customTransition="transform 1s ease"
+				transitionDuration={1000}
+				containerClass="carousel-container"
+				removeArrowOnDeviceType={["tablet", "mobile", "desktop"]}
+				itemClass="carousel-item-padding-40-px"
+				className="mt-5 carou">
+				<div className="quote large-quote">"Estás a un solo “swipe” de decir adiós al aburrimiento."</div>
+				<div className="quote large-quote">"Descubre géneros de los que jamás pensaste que formarías parte."</div>
+				<div className="quote large-quote">"Realiza cuestionarios interactivos y revisa tu historial de respuestas."</div>
+				<div className="quote large-quote">"Descubre qué ver. Qué leer. Qué vivir."</div>
+				<div className="quote large-quote">"Recomendaciones que te enganchan."</div>
+			</Carousel>
 		</div>
 	);
 };

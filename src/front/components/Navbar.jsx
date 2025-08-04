@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import { Navbar, Nav, Button, Container, NavDropdown } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import logo from "../assets/img/LOGO.png";
-import { useState } from "react";
+import logo from "../assets/img/logooo.png"
+import { useState, useEffect, useRef } from "react";
 
 export const CustomNavbar = () => {
 
@@ -59,7 +59,7 @@ export const CustomNavbar = () => {
 			<div class="container-fluid navbar-hori">
 				<div class="navbar p-3">
 					<div>
-						<a href="/">{/*<img class="logo" src={logo} />*/}</a>
+						<a href="/"><img class="logo" src={logo} /></a>
 					</div>
 
 					<div>
@@ -127,22 +127,22 @@ export const CustomNavbar = () => {
 							<div class="modal-dialog modal-dialog-centered">
 								<div class="modal-content p-4 rounded-5">
 									<div class="modal-header border-0">
-										<h4 class="modal-title w-100 text-center mb-3" id="loginModalLabel">Registrate a SwipeStories</h4>
+										<h4 class="modal-title w-100 text-center mb-3" id="loginModalLabel">Bienvenid@ a SwipeStories</h4>
 										<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
 									</div>
 									<div class="modal-body">
 										<form onSubmit={handleRegister}>
-											{/* <div class="mb-3">
+											<div class="mb-3">
 												<input type="text" class="form-control form-control-lg rounded-pill" placeholder="Tu nombre completo" />
-											</div> */}
+											</div>
 											<div class="mb-3">
 												<input type="email" class="form-control form-control-lg rounded-pill" placeholder="Tu correo electrónico"
 													value={email}
 													onChange={(e) => setemail(e.target.value)} />
 											</div>
-											{/* 											<div class="mb-3">
+											<div class="mb-3">
 												<input type="text" class="form-control form-control-lg rounded-pill" placeholder="Crea tu nombre de usuario" />
-											</div> */}
+											</div>
 											<div class="password-wrapper mb-3">
 												<input type="password" id="signUpPassword" class="form-control form-control-lg rounded-pill" placeholder="Tu contraseña"
 													value={password}
@@ -158,13 +158,13 @@ export const CustomNavbar = () => {
 													</svg>
 												</button>
 											</div>
-											{/* 											<div class="mb-3">
+											<div class="mb-3">
 												<input type="date" class="form-control form-control-lg rounded-pill" placeholder="Fecha de nacimiento" />
-											</div> */}
-											{/* 											<div class="d-flex form-check form-switch text-center mb-3 justify-content-center align-content-center">
+											</div>
+											<div class="d-flex form-check form-switch text-center mb-3 justify-content-center align-content-center">
 												<input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" />
 												<label class="form-check-label ms-2" for="flexSwitchCheckDefault">Recuérdame</label>
-											</div> */}
+											</div>
 											<div class="mb-3 text-center">
 												<button type="submit" id="button-3" class="btn w-100 rounded-pill py-2">Regístrame</button>
 											</div>

@@ -8,7 +8,7 @@ body {
 }
 
 .container-main {
-  background: linear-gradient(to top, #f9dce0 72%, #c5d1b3 72%);
+  background: linear-gradient(to top, #f9dce0 75%, #c5d1b3 75%);
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-size: cover;
@@ -51,11 +51,13 @@ body {
 .logo {
   font-size: xx-large;
   padding-bottom: 1%;
+  transition: transform 0.5s ease;
 }
 
 .logo:hover {
   transform: scale(1.2);
   transition: transform 0.4s ease-in-out;
+  transform: rotate(270deg);
 }
 
 #button-2 {
@@ -95,7 +97,7 @@ body {
 }
 
 .slogan {
-  font-weight: 700;
+  font-weight: 800;
   padding-top: 7.5%;
   color: #f9dce0;
 }
@@ -127,37 +129,37 @@ body {
 }
 
 #button-3 {
-  background-color: #cddbfc;
-  color: #ca4d0f;
-  border: 1.5px solid #cddbfc;
+  background-color: #f9dce0;
+  color: #667057;
+  border: 1.5px solid #f9dce0;
 }
 
 #button-3:hover {
-  background-color: #ca4d0f;
-  color: #cddbfc;
-  border: 1.5px solid #ca4d0f;
+  background-color: #667057;
+  color: #f9dce0;
+  border: 1.5px solid #667057;
 }
 
 #button-3:active {
-  background-color: #cddbfc;
-  color: #ca4d0f;
-  border: 1.5px solid #cddbfc;
+  background-color: #f9dce0;
+  color: #667057;
+  border: 1.5px solid #f9dce0;
 }
 
 .text-decoration-none {
-  color: #ca4d0f;
+  color: #e8b6bc;
 }
 
 .text-decoration-none:hover {
-  color: #cddbfc;
+  color: #667057;
 }
 
 .text-decoration-none:active {
-  color: #ca4d0f;
+  color: #e8b6bc;
 }
 
 .form-check-input:checked {
-  background-color: #cddbfc !important;
+  background-color: #e8b6bc !important;
   border: none;
 }
 
@@ -442,6 +444,7 @@ body {
 
 .slogan {
   font-size: clamp(3rem, 7vw, 7rem);
+  font-weight:900;
 }
 
 .wave-text span {
@@ -475,6 +478,8 @@ body {
 .slogan-2 {
   font-size: clamp(1.5rem, 3.5vw, 3.5rem);
   text-shadow: 1px 1px 2.5px #555;
+  margin-top: 2%;
+
 }
 
 @media screen and (max-width: 480px) {
@@ -514,7 +519,7 @@ body {
 }
 
 .forget {
-  color: #ca4d0f;
+  color: #e8b6bc;
 }
 
 a.text-white {
@@ -547,6 +552,7 @@ a.text-white {
 
 .footer {
   background-color: #00000075;
+  margin-top: 7.5%;
 }
 
 ul {
@@ -640,4 +646,16 @@ ul li .title {
 ul li:hover .title {
   transform: scale(1);
   transition-delay: 0.25s;
+}
+
+.quote {
+  font-style: italic;
+  font-size: large;
+}
+
+.carousel-item-padding-40-px {
+  background-color: #c5d1b3;
+  color: #555;
+  padding-top: 1%;
+  padding-bottom: 1%;
 }
