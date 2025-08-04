@@ -1,15 +1,23 @@
 * {
   font-family: "Work Sans", sans-serif;
 }
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
 .container-main {
-  background-image: linear-gradient(to top, #6080b2, #668ab8, #6d94be, #749dc4, #7da7ca, #8baece, #99b5d2, #a6bcd6, #b8c3d8, #c7cbda, #d3d4db, #dddddd);
+  background: linear-gradient(to top, #f9dce0 72%, #c5d1b3 72%);
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  background-attachment: scroll;
   background-size: cover;
   width: 100%;
-  height: auto;
   z-index: 0;
-  color: white;
+  color: #555;
+  margin-bottom: 0;
+  padding: 0;
+  height: 100%;
 }
 
 .logo {
@@ -51,48 +59,50 @@
 }
 
 #button-2 {
-  color: #6080b2;
-  border: 1.5px solid #6080b2;
-  background-color: #ffffff00;
+  color: #c5d1b3;
+  border: 1.5px solid #555;
+  background-color: #555;
 }
 
 #button-2:hover {
-  color: #dddddd;
-  border: 1.5px solid #6080b2;
-  background-color: #6080b2;
+  color: #555;
+  border: 1.5px solid #555;
+  background-color: #c5d1b3;
 }
 
 #button-2:active {
-  color: #cddbfc;
-  border: 1.5px solid black;
-  background-color: black;
+  color: #c5d1b3;
+  border: 1.5px solid #555;
+  background-color: #555;
 }
 
 #button-1 {
-  color: #dddddd;
-  border: 1.5px solid #6080b2;
-  background-image: linear-gradient(to top, #6080b2, #668ab8, #6d94be, #749dc4, #7da7ca, #8baece, #99b5d2, #a6bcd6, #b8c3d8);
+  color: #555;
+  border: 1.5px solid #555;
+  background-color: #c5d1b3;
 }
 
 #button-1:hover {
-   color: #6080b2;
-  border: 1.5px solid #6080b2;
-  background-color: #ffffff00;
+   color: #c5d1b3;
+  border: 1.5px solid #555;
+  background-color: #555;
 }
 
 #button-1:active {
-  color: black;
-  border: 1.5px solid black;
-  background-color: rgba(255, 255, 255, 0);
+  color: #555;
+  border: 1.5px solid #555;
+  background-color: #c5d1b3;
 }
 
 .slogan {
   font-weight: 700;
   padding-top: 7.5%;
+  color: #f9dce0;
 }
 
 .slogan-2 {
   font-size: 3rem;
+  color: #c5d1b3;
 }
 
 .slogan,
@@ -100,7 +110,7 @@
   max-width: 90%;
   margin: 0 auto;
   word-wrap: break-word;
-  letter-spacing: 0.05em;
+  font-weight: 600;
 }
 
 .modal-title {
@@ -434,8 +444,37 @@ body {
   font-size: clamp(3rem, 7vw, 7rem);
 }
 
+.wave-text span {
+    display: inline-block;
+    font-size: 6rem;
+    animation: wave 2s ease-in-out infinite;
+}
+
+.wave-text span:nth-child(1) {
+    animation-delay: 0s;
+}
+.wave-text span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+.wave-text span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+.wave-text span:nth-child(4) {
+    animation-delay: 0.6s;
+}
+
+@keyframes wave {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
 .slogan-2 {
   font-size: clamp(1.5rem, 3.5vw, 3.5rem);
+  text-shadow: 1px 1px 2.5px #555;
 }
 
 @media screen and (max-width: 480px) {
@@ -506,15 +545,16 @@ a.text-white {
   height: 1em;
 }
 
+.footer {
+  background-color: #00000075;
+}
+
 ul {
   display: flex;
-  position:relative;
+  position: relative;
   gap: 60px;
   text-align: center;
-  margin: auto;
-  background-color: #ffffff50;
   color: white;
-  padding: 1%;
 }
 
 ul li {
@@ -522,7 +562,7 @@ ul li {
   list-style: none;
   width: 50px;
   height: 50px;
-  background: white;
+  background: #55555550;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   border-radius: 60px;
   cursor: pointer;
@@ -530,6 +570,7 @@ ul li {
   justify-content: center;
   align-items: center;
   transition: 0.5s;
+
 }
 
 ul li::before {
@@ -570,7 +611,7 @@ ul li:hover::after {
 }
 
 ul li ion-icon {
-  color: #6080b2;
+  color: #eeeeee;
   font-size: 1.50em;
   transition: 0.5s;
   margin: auto;
@@ -579,7 +620,7 @@ ul li ion-icon {
 
 ul li:hover ion-icon {
   transform: scale(0);
-  color: #dddddd;
+  color: #555;
   transition-delay: 0s;
 }
 
@@ -588,7 +629,7 @@ ul li span {
 }
 
 ul li .title {
-  color: #fff;
+  color: #555;
   font-size: 1em;
   letter-spacing: 0.1em;
   transform: scale(0);

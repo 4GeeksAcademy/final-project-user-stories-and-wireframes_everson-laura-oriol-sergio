@@ -1,7 +1,6 @@
 import style from "./Forms.module.css";
 import { Container, Col, Row, Card } from "react-bootstrap";
 import { useRef, useEffect } from "react";
-import Masonry from "react-masonry-css";
 
 export const Forms = () => {
   const lineRef = useRef(null);
@@ -47,28 +46,6 @@ export const Forms = () => {
     };
   }, []);
 
-  const lorem = [
-    "Formulario breve.",
-    "Formulario con descripción más larga.",
-    "Formulario con muchísimo contenido de prueba para ver el comportamiento masonry en serio.",
-    "Texto corto.",
-    "Más contenido aquí.",
-    "Registro rápido.",
-    "Tarjeta con más texto para test.",
-    "Contacto básico.",
-    "Formulario largo con párrafos.",
-    "Formulario minimal.",
-    "Altura distinta.",
-    "Último ejemplo visual."
-  ];
-
-  const breakpoints = {
-    default: 4,
-    1200: 3,
-    768: 2,
-    576: 1,
-  };
-
   return (
     <Container className={style.container} fluid>
       <Row className={`${style.row} position-relative`} ref={containerRef}>
@@ -80,20 +57,72 @@ export const Forms = () => {
         <div ref={lineRef} className={style.zigzagLine}></div>
       </Row>
 
-      <Masonry
-        breakpointCols={breakpoints}
-        className={style.masonryGrid}
-        columnClassName={style.masonryColumn}
-      >
-        {lorem.map((text, i) => (
-          <Card key={i} className={style.card}>
-            <Card.Body>
-              <Card.Title>Formulario {i + 1}</Card.Title>
-              <Card.Text>{text}</Card.Text>
-            </Card.Body>
-          </Card>
-        ))}
-      </Masonry>
+      <div className={`${style.cards} d-flex mt-5`}>
+        <div className={`${style.card} card w-25`}>
+          form
+        </div>
+        <div className={`${style.card} card w-50`}>
+          form
+        </div>
+        <div className={`${style.card} card w-25`}>
+          form
+        </div>
+      </div>
+
+      <div className={`${style.cards} d-flex mt-5`}>
+        <div className={`${style.card} card w-25`}>
+          form
+        </div>
+        <div className={`${style.card} card w-25`}>
+          form
+        </div>
+        <div className={`${style.card} card w-25`}>
+          form
+        </div>
+        <div className={`${style.card} card w-25`}>
+          form
+        </div>
+      </div>
+
+      <div className={`${style.cards} d-flex mt-5`}>
+        <div className={`${style.card} card w-50`}>
+          form
+        </div>
+        <div className={`${style.card} card w-50`}>
+          form
+        </div>
+      </div>
+
+      <div className={`${style.cards} d-flex mt-5`}>
+        <div className={`${style.card} card w-50`}>
+          form
+        </div>
+        <div className={`${style.card} card w-25`}>
+          form
+        </div>
+        <div className={`${style.card} card w-25`}>
+          form
+        </div>
+      </div>
+
+      <div className={`${style.cards} d-flex mt-5`}>
+        <div className={`${style.card} card w-25`}>
+          form
+        </div>
+        <div className={`${style.card} card w-25`}>
+          form
+        </div>
+        <div className={`${style.card} card w-50`}>
+          form
+        </div>
+      </div>
+
+      <div className={`${style.cards} d-flex mt-5`}>
+        <div className={`${style.card} card w-100`}>
+          form
+        </div>
+      </div>
+
     </Container>
   );
 };

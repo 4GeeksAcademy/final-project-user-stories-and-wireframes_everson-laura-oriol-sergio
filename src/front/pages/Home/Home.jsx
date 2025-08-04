@@ -42,11 +42,28 @@ export const Home = () => {
 				<img src={pegatina5} class="sticker" draggable="false" id="sticker5" />
 			</div>
 			*/}
-			<div class="slogan text-center">Swipe Stories</div>
-			<div class="slogan-2 text-center">Desliza, descubre</div>
-			<div class="text-center mx-auto mt-4">¿Empezamos?</div>
-			<div class="text-center mx-auto">¡Pruébame!</div>
-			<div class="text-center mx-auto"><i class="fa-solid fa-angle-down"></i></div>
+			<div className="wave-container d-flex w-50 m-auto pt-5">
+				<p className="wave-text slogan text-center">
+					<span>S</span>
+					<span>w</span>
+					<span>i</span>
+					<span>p</span>
+					<span>e</span>
+				</p>
+				<p className="wave-text slogan text-center">
+					<span>S</span>
+					<span>t</span>
+					<span>o</span>
+					<span>r</span>
+					<span>i</span>
+					<span>e</span>
+					<span>s</span>
+				</p>
+			</div>
+			<div className="slogan-2 text-center">Desliza, descubre</div>
+			<div className="text-center mx-auto mt-4">¿Empezamos?</div>
+			<div className="text-center mx-auto">¡Pruébame!</div>
+			<div className="text-center mx-auto"><i className="fa-solid fa-angle-down"></i></div>
 		</div>
 	);
 };

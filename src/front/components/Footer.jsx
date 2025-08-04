@@ -4,52 +4,54 @@ import { FaFacebook, FaInstagram, FaGithub } from "react-icons/fa";
 export const Footer = () => {
 
   return (
-    <ul className="menu-list footer justify-content-center">
-      <li style={{ '--i': '#6080b2', '--j': '#dddddd' }}>
-        <span className="icon"><ion-icon name="home-outline"></ion-icon></span>
-        <span className="title">Home</span>
-      </li>
-      <li style={{ '--i': '#dddddd', '--j': '#6080b2' }}>
-        <span className="icon"><ion-icon name="information-circle-outline"></ion-icon></span>
-        <span className="title">About us</span>
-      </li>
-      <li style={{ '--i': '#6080b2', '--j': '#dddddd' }}>
-        <span className="icon"><ion-icon name="document-outline"></ion-icon></span>
-        <span className="title uso">Condiciones de uso</span>
-      </li>
-      <li style={{ '--i': '#dddddd', '--j': '#6080b2' }}>
-        <span className="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
-        <span className="title">Política de privacidad</span>
-      </li>
-      <li style={{ '--i': '#6080b2', '--j': '#dddddd' }}>
-        <span className="icon"><ion-icon name="call-outline"></ion-icon></span>
-        <span className="title">+34 000000000</span>
-      </li>
-      <li style={{ '--i': '#dddddd', '--j': '#6080b2' }}>
-        <span className="icon"><ion-icon name="at-outline"></ion-icon></span>
-        <span className="title">contact@swipestories.com</span>
-      </li>
-      <li style={{ '--i': '#6080b2', '--j': '#dddddd' }}>
-        <span className="icon"><ion-icon name="logo-instagram"></ion-icon></span>
-        <span className="title">Instagram</span>
-      </li>
-      <li style={{ '--i': '#dddddd', '--j': '#6080b2' }}>
-        <span className="icon"><ion-icon name="language-outline"></ion-icon></span>
-        <span className="title">Idioma</span>
-      </li>
-      <li style={{ '--i': '#6080b2', '--j': '#dddddd' }}>
-        <span className="icon"><ion-icon name="sunny-outline"></ion-icon></span>
-        <span className="title">Modo claro</span>
-      </li>
-      <li style={{ '--i': '#dddddd', '--j': '#6080b2' }}>
-        <span className="icon"><ion-icon name="moon-outline"></ion-icon></span>
-        <span className="title">Modo oscuro</span>
-      </li>
-    </ul>
+    <footer className="footer p-2 pt-4">
+      <ul className="menu-list justify-content-center">
+        <li style={{ '--i': '#c5d1b3', '--j': '#f9dce0' }}>
+          <span className="icon"><ion-icon name="home-outline"></ion-icon></span>
+          <span className="title">Home</span>
+        </li>
+        <li style={{ '--i': '#f9dce0', '--j': '#c5d1b3' }}>
+          <span className="icon"><ion-icon name="information-circle-outline"></ion-icon></span>
+          <span className="title">About us</span>
+        </li>
+        <li style={{ '--i': '#c5d1b3', '--j': '#f9dce0' }}>
+          <span className="icon"><ion-icon name="document-outline"></ion-icon></span>
+          <span className="title uso">Condiciones de uso</span>
+        </li>
+        <li style={{ '--i': '#f9dce0', '--j': '#c5d1b3' }}>
+          <span className="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
+          <span className="title">Política de privacidad</span>
+        </li>
+        <li style={{ '--i': '#c5d1b3', '--j': '#f9dce0' }}>
+          <span className="icon"><ion-icon name="call-outline"></ion-icon></span>
+          <span className="title">+34 000000000</span>
+        </li>
+        <li style={{ '--i': '#f9dce0', '--j': '#c5d1b3' }}>
+          <span className="icon"><ion-icon name="at-outline"></ion-icon></span>
+          <span className="title">contact@swipestories.com</span>
+        </li>
+        <li style={{ '--i': '#c5d1b3', '--j': '#f9dce0' }}>
+          <span className="icon"><ion-icon name="logo-instagram"></ion-icon></span>
+          <span className="title">Instagram</span>
+        </li>
+        <li style={{ '--i': '#f9dce0', '--j': '#c5d1b3' }}>
+          <span className="icon"><ion-icon name="language-outline"></ion-icon></span>
+          <span className="title">Idioma</span>
+        </li>
+        <li style={{ '--i': '#c5d1b3', '--j': '#f9dce0' }}>
+          <span className="icon"><ion-icon name="sunny-outline"></ion-icon></span>
+          <span className="title">Modo claro</span>
+        </li>
+        <li style={{ '--i': '#f9dce0', '--j': '#c5d1b3' }}>
+          <span className="icon"><ion-icon name="moon-outline"></ion-icon></span>
+          <span className="title">Modo oscuro</span>
+        </li>
+      </ul>
+    </footer>
   );
 };
 
-{/*
+/*
 export const Footer = () => {
   
   return (
@@ -68,4 +70,4 @@ export const Footer = () => {
         <a href="/" className="text-white">Swipe Stories © {new Date().getFullYear()}</a>
       </Container>
   );
-};*/}
+};*/
