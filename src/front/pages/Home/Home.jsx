@@ -67,28 +67,10 @@ export const Home = () => {
 					<span>s</span>
 				</p>
 			</div>
-			<div className="slogan-2 text-center">Desliza, descubre</div>
+			<div className="slogan-2 text-center mb-5">Desliza, descubre</div>
 			<div className="text-center mx-auto mt-5 start">¿Empezamos?</div>
 			<div className="text-center mx-auto mt-2 try">¡Pruébame!</div>
-			<div className="d-flex text-center mx-auto justify-content-center pb-5 pt-4">
-				<div className="text-center"><i className="fa-solid fa-angle-down"></i></div>
-				&nbsp;
-				<div className="text-center"><i className="fa-solid fa-angle-down"></i></div>
-				&nbsp;
-				<div className="text-center"><i className="fa-solid fa-angle-down"></i></div>
-				&nbsp;
-				<div className="text-center"><i className="fa-solid fa-angle-down"></i></div>
-				&nbsp;
-				<div className="text-center"><i className="fa-solid fa-angle-down"></i></div>
-				&nbsp;
-				<div className="text-center"><i className="fa-solid fa-angle-down"></i></div>
-				&nbsp;
-				<div className="text-center"><i className="fa-solid fa-angle-down"></i></div>
-				&nbsp;
-				<div className="text-center"><i className="fa-solid fa-angle-down"></i></div>
-				&nbsp;
-				<div className="text-center"><i className="fa-solid fa-angle-down"></i></div>
-				&nbsp;
+			<div className="d-flex text-center mx-auto justify-content-center pt-4">
 				<div className="text-center"><i className="fa-solid fa-angle-down"></i></div>
 			</div>
 
@@ -107,7 +89,7 @@ export const Home = () => {
 				containerClass="carousel-container"
 				removeArrowOnDeviceType={["tablet", "mobile", "desktop"]}
 				itemClass="carousel-item-padding-40-px"
-				className="mt-5 carou">
+				className="mt-4 mx-5 rounded-5">
 				<div className="quote large-quote">Estás a un solo “swipe” de decir adiós al aburrimiento.</div>
 				<div className="quote large-quote">Descubre géneros de los que jamás pensaste que formarías parte.</div>
 				<div className="quote large-quote">Realiza cuestionarios interactivos y revisa tu historial de respuestas.</div>
