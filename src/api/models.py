@@ -8,6 +8,8 @@ db = SQLAlchemy()
 class User(db.Model):
     id: Mapped[int] = mapped_column(primary_key=True)
     email: Mapped[str] = mapped_column(
+        String(120), nullable=False)
+    email: Mapped[str] = mapped_column(
         String(120), unique=True, nullable=False)
     username: Mapped[str] = mapped_column(
         String(120), unique=True, nullable=False)
@@ -19,5 +21,7 @@ class User(db.Model):
         return {
             "id": self.id,
             "email": self.email,
+            "name": self.name,
+            "username": self.username,
             # do not serialize the password, its a security breach
         }

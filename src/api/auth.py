@@ -16,7 +16,9 @@ def register_user():
         return jsonify({"msg": "User already exists"}), 400
 
     new_user = User(
+        name=data["name"],
         email=data["email"],
+        username=data["username"],
         password=generate_password_hash(data["password"]),
         is_active=True
     )
