@@ -1,13 +1,15 @@
 import os
 import json
-#import openai
+from dotenv import load_dotenv
+
+load_dotenv()
 
 USE_AI = os.getenv("USE_AI", "false").lower() == "true"
 
-
+client = None
 if USE_AI:
-    import openai
-    openai.api_key = os.getenv("OPENAI_API_KEY")
+    from openai import OpenAI
+    client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 
 PROMPTS = {
@@ -24,7 +26,7 @@ Devuelve EXACTAMENTE 3 libros en JSON:
 ]
 """,
     "peliculas": """
-Eres un crítico de cine.
+Eres un crítico de cine experto.
 El usuario busca recomendaciones de películas.
 Sus preferencias: {preferences}.
 Devuelve EXACTAMENTE 3 películas en JSON:
@@ -36,7 +38,7 @@ Devuelve EXACTAMENTE 3 películas en JSON:
 ]
 """,
     "series": """
-Eres un especialista en series de TV.
+Eres un experto en series de TV.
 El usuario busca recomendaciones de series.
 Sus preferencias: {preferences}.
 Devuelve EXACTAMENTE 3 series en JSON:
@@ -51,29 +53,22 @@ Devuelve EXACTAMENTE 3 series en JSON:
 
 
 def get_ai_recommendations(category, preferences):
-    """Llama a OpenAI solo si USE_AI=True"""
-    if not USE_AI:
-        return generate_recommendations(category, preferences)  # usa mock
-    
-    prompt_template = PROMPTS.get(category)
-    if not prompt_template:
-        return {"category": category, "recommendations": []}
+    """Genera recomendaciones reales con OpenAI si USE_AI=True"""
+    prompt = PROMPTS[category].format(preferences=preferences)
 
-    prompt = prompt_template.format(preferences=preferences)
-
-    response = openai.ChatCompletion.create(
+    response = client.chat.completions.create(
         model="gpt-3.5-turbo",
         messages=[{"role": "user", "content": prompt}],
-        max_tokens=400,
+        max_tokens=300,
         temperature=0.7
     )
 
-    content = response["choices"][0]["message"]["content"]
+    content = response.choices[0].message.content
 
     try:
         recommendations = json.loads(content)
     except json.JSONDecodeError:
-        recommendations = [{"title": "Resultado AI", "description": content}]
+        recommendations = [{"title": content, "description": ""}]
 
     return {
         "category": category,
@@ -82,7 +77,7 @@ def get_ai_recommendations(category, preferences):
 
 
 def generate_recommendations(category, preferences):
-    """Mock local para pruebas sin OpenAI"""
+    """Devuelve recomendaciones mock cuando USE_AI=False"""
     mock_data = {
         "libros": [
             {"title": "Dune", "description": "Clásico de ciencia ficción."},
@@ -105,3 +100,10 @@ def generate_recommendations(category, preferences):
         "category": category,
         "recommendations": mock_data.get(category, [])
     }
+
+
+def get_recommendations(category, preferences):
+    """Decide si usar AI real o mock"""
+    if USE_AI and client:
+        return get_ai_recommendations(category, preferences)
+    return generate_recommendations(category, preferences)
