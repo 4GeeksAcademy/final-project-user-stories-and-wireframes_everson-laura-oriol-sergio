@@ -6,6 +6,7 @@ from datetime import timedelta
 from api.mail import send_reset_email
 import uuid
 
+
 def register_user():
     data = request.get_json()
     if not data.get("email") or not data.get("password"):
@@ -23,6 +24,7 @@ def register_user():
     db.session.commit()
     return jsonify({"msg": "User registered successfully"}), 201
 
+
 def login_user():
     data = request.get_json()
     print("Login payload:", data)
@@ -35,8 +37,10 @@ def login_user():
     if not user or not user.password or not check_password_hash(user.password, data.get("password")):
         return jsonify({"msg": "Bad credentials"}), 401
 
-    token = create_access_token(identity=user.id, expires_delta=timedelta(days=1))
-    return jsonify({ "token": token, "user": user.serialize() }), 200
+    token = create_access_token(
+        identity=user.id, expires_delta=timedelta(days=1))
+    return jsonify({"token": token, "user": user.serialize()}), 200
+
 
 def forgot_password():
     data = request.get_json()
@@ -49,6 +53,7 @@ def forgot_password():
     db.session.commit()
     send_reset_email(user.email, token)
     return jsonify({"msg": "Password reset email sent"}), 200
+
 
 def reset_password():
     data = request.get_json()

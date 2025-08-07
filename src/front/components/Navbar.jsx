@@ -8,6 +8,8 @@ export const CustomNavbar = () => {
 
 	const [email, setemail] = useState("")
 	const [password, setpassword] = useState("")
+	const [username, setUsername] = useState("")
+	const [name, setName] = useState("")
 	const backendUrl = import.meta.env.VITE_BACKEND_URL
 
 	const handleLogin = async (e) => {
@@ -42,8 +44,11 @@ export const CustomNavbar = () => {
 					"Content-Type": "application/json"
 				},
 				body: JSON.stringify({
+					name: name,
 					email: email,
+					username: username,
 					password: password
+
 				}
 
 				)
@@ -132,17 +137,21 @@ export const CustomNavbar = () => {
 									</div>
 									<div class="modal-body">
 										<form onSubmit={handleRegister}>
-											{/* <div class="mb-3">
-												<input type="text" class="form-control form-control-lg rounded-pill" placeholder="Tu nombre completo" />
-											</div> */}
+											<div class="mb-3">
+												<input type="text" class="form-control form-control-lg rounded-pill" placeholder="Tu nombre completo"
+													value={name}
+													onChange={(e) => setName(e.target.value)} />
+											</div>
 											<div class="mb-3">
 												<input type="email" class="form-control form-control-lg rounded-pill" placeholder="Tu correo electrónico"
 													value={email}
 													onChange={(e) => setemail(e.target.value)} />
 											</div>
-											{/* 											<div class="mb-3">
-												<input type="text" class="form-control form-control-lg rounded-pill" placeholder="Crea tu nombre de usuario" />
-											</div> */}
+											<div class="mb-3">
+												<input type="text" class="form-control form-control-lg rounded-pill" placeholder="Crea tu nombre de usuario"
+													value={username}
+													onChange={(e) => setUsername(e.target.value)} />
+											</div>
 											<div class="password-wrapper mb-3">
 												<input type="password" id="signUpPassword" class="form-control form-control-lg rounded-pill" placeholder="Tu contraseña"
 													value={password}
