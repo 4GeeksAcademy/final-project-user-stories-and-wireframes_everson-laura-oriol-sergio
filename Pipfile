@@ -22,6 +22,7 @@ flask-jwt-extended = "*"
 python-dotenv = "*"
 werkzeug = "*"
 sendgrid = "*"
+openai = "*"
 
 [requires]
 python_version = "3.13"
