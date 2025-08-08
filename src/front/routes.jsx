@@ -11,7 +11,9 @@ import { About } from "./pages/About/About";
 import { Perfil } from "./pages/Perfil";
 import { History } from "./pages/History";
 import { Formulary } from "./pages/Formulary";
+
 import { Forms } from "./pages/Forms/Forms";
+
 
 export const router = createBrowserRouter(
     createRoutesFromElements(
