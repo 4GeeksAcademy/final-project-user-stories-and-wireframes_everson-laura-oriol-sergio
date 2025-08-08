@@ -1,5 +1,5 @@
 import style from "./Forms.module.css";
-import { Container, Col, Row, Card } from "react-bootstrap";
+import { Container, Col, Row } from "react-bootstrap";
 import { useRef, useEffect } from "react";
 
 export const Forms = () => {
@@ -47,7 +47,7 @@ export const Forms = () => {
   }, []);
 
   return (
-    <Container className={`${style.container} fluid`}>
+    <Container className={`${style.container} container`}>
       <Row className={`${style.row} position-relative`} ref={containerRef}>
         <Col><a href="#">Inicio</a></Col>
         <Col><a href="#">Películas</a></Col>
@@ -57,72 +57,17 @@ export const Forms = () => {
         <div ref={lineRef} className={style.zigzagLine}></div>
       </Row>
 
-      <div className={`${style.cards} d-flex mt-5`}>
-        <div className={`${style.card} card w-25`}>
-          form
-        </div>
-        <div className={`${style.card} card w-50`}>
-          form
-        </div>
-        <div className={`${style.card} card w-25`}>
-          form
-        </div>
+      <div className={style.grid}>
+        {[...Array(10)].map((_, i) => (
+          <div
+            key={i}
+            className={style.item}
+            style={{ height: `${150 + Math.random() * 150}px` }}
+          >
+            Item {i}
+          </div>
+        ))}
       </div>
-
-      <div className={`${style.cards} d-flex mt-5`}>
-        <div className={`${style.card} card w-25`}>
-          form
-        </div>
-        <div className={`${style.card} card w-25`}>
-          form
-        </div>
-        <div className={`${style.card} card w-25`}>
-          form
-        </div>
-        <div className={`${style.card} card w-25`}>
-          form
-        </div>
-      </div>
-
-      <div className={`${style.cards} d-flex mt-5`}>
-        <div className={`${style.card} card w-50`}>
-          form
-        </div>
-        <div className={`${style.card} card w-50`}>
-          form
-        </div>
-      </div>
-
-      <div className={`${style.cards} d-flex mt-5`}>
-        <div className={`${style.card} card w-50`}>
-          form
-        </div>
-        <div className={`${style.card} card w-25`}>
-          form
-        </div>
-        <div className={`${style.card} card w-25`}>
-          form
-        </div>
-      </div>
-
-      <div className={`${style.cards} d-flex mt-5`}>
-        <div className={`${style.card} card w-25`}>
-          form
-        </div>
-        <div className={`${style.card} card w-25`}>
-          form
-        </div>
-        <div className={`${style.card} card w-50`}>
-          form
-        </div>
-      </div>
-
-      <div className={`${style.cards} d-flex mt-5`}>
-        <div className={`${style.card} card w-100`}>
-          form
-        </div>
-      </div>
-
     </Container>
   );
 };
