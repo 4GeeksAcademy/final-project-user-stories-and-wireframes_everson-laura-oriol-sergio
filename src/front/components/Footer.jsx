@@ -63,8 +63,7 @@ export const Footer = () => {
   }, []);
 
   return (
-    <footer className="footer p-2 pt-4">
-      <hr className="mb-4" />
+    <footer className="footer pb-4 pt-5 mt-5">
       <ul className="menu-list justify-content-center">
         <li style={{ '--i': '#583722', '--j': '#bdd7de' }}>
           <span className="icon"><ion-icon name="home-outline"></ion-icon></span>
@@ -82,20 +81,20 @@ export const Footer = () => {
           <span className="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
           <span className="title">Política de privacidad</span>
         </li>
-        <li style={{ '--i': '#583722', '--j': '#bdd7de' }}>
-          <span className="icon"><ion-icon name="call-outline"></ion-icon></span>
-          <span className="title">+34 000000000</span>
-        </li>
         <li style={{ '--i': '#bdd7de', '--j': '#583722' }}>
           <span className="icon"><ion-icon name="at-outline"></ion-icon></span>
           <span className="title">contact@swipestories.com</span>
         </li>
-        <li className="me-5" style={{ '--i': '#583722', '--j': '#bdd7de' }}>
-          <span className="icon"><ion-icon name="logo-instagram"></ion-icon></span>
-          <span className="title">Instagram</span>
-        </li>
-        <p className="name my-auto ms-5">Swipe Stories © {new Date().getFullYear()}</p>
-        <button id="language" className="btn rounded-5">LANG</button>
+        <p className="name my-auto">Swipe Stories © {new Date().getFullYear()}</p>
+        <div className="btn-group dropup dropup-center">
+          <button id="language" type="button" className="btn px-3 dropdown-toggle no-caret" data-bs-toggle="dropdown">
+            <i className="fa-solid fa-globe"></i>
+          </button>
+          <ul className="dropdown-menu idiomas p-2">
+            <li className="idioma mb-1"><a className="dropdown-item" href="#">Español</a></li>
+            <li className="idioma"><a className="dropdown-item" href="#">Inglés</a></li>
+          </ul>
+        </div>
         <button
           className="theme-toggle btn"
           id="theme-toggle"

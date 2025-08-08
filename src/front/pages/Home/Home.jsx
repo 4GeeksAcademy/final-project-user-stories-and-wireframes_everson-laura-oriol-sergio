@@ -49,7 +49,7 @@ export const Home = () => {
 
 	return (
 		<div className="justify-content-center align-items-center text-center main">
-			<div className="wave-container d-flex w-50 m-auto pt-5">
+			<div className="wave-container d-flex w-50 m-auto pt-4">
 				<p className="wave-text slogan text-center">
 					<span>S</span>
 					<span>w</span>
@@ -89,7 +89,7 @@ export const Home = () => {
 				containerClass="carousel-container"
 				removeArrowOnDeviceType={["tablet", "mobile", "desktop"]}
 				itemClass="carousel-item-padding-40-px"
-				className="mt-4 mx-5 rounded-5">
+				className="my-4 mx-5 rounded-5 mb-5">
 				<div className="quote large-quote">Estás a un solo “swipe” de decir adiós al aburrimiento.</div>
 				<div className="quote large-quote">Descubre géneros de los que jamás pensaste que formarías parte.</div>
 				<div className="quote large-quote">Realiza cuestionarios interactivos y revisa tu historial de respuestas.</div>

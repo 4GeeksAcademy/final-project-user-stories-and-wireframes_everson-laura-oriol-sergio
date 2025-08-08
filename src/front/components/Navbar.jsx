@@ -60,7 +60,7 @@ export const CustomNavbar = () => {
 			console.log(error)
 		}
 	}
-
+	
 	return (
 		<>
 			<div class="container-fluid navbar-hori">
