@@ -1,95 +1,64 @@
 .container {
-  padding-top: 7%;
-  padding-bottom: 9%;
-  text-align: center;
-  font-size: large;
-
-  & a {
-    color: #555;
-    text-decoration: none;
-  }
-}
-
-.row {
-  width: 50%;
-  margin-inline: auto;
-}
-
-.row a {
-  text-decoration: none;
-  color: #555;
-  padding-bottom: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
   position: relative;
 }
 
-.zigzagLine {
-  position: absolute;
-  bottom: -5px;
-  height: 6px;
-  width: 0;
-  pointer-events: none;
-  opacity: 0;
-  background-image: url("data:image/svg+xml,%3Csvg width='40' height='6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 6 L10 0 L20 6 L30 0 L40 6' stroke='%23ffffff' fill='transparent' stroke-width='2'/%3E%3C/svg%3E");
-  background-repeat: repeat-x;
-  background-size: auto 100%;
-  transition: all 5s ease;
-}
-
-.animateBackground {
-  animation: zigzagMove 20s linear infinite;
-}
-
-@keyframes zigzagMove {
-  from {
-    background-position-x: 0;
-  }
-  to {
-    background-position-x: 40px;
-  }
-}
-
 .card {
-  margin-bottom: 1rem;
-  background-color: #555;
-  border: none;
-  color: white;
-  border-radius: 0.75rem;
-  transition: transform 0.2s ease;
-  background-attachment: scroll;
+  color: black;
+  position: absolute;
+  width: 280px;
+  max-width: 90%;
+  height: 400px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  text-align: center;
+  font-size: 20px;
+  user-select: none;
+  touch-action: none;
+  will-change: transform;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: transform 0.3s ease;
 }
 
-.card:hover {
-  transform: scale(1.05);
+.emoji {
+  font-size: 60px;
+  margin-bottom: 20px;
 }
 
-.cards {
-  gap: 1em;
+.text {
+  font-size: 20px;
+  line-height: 1.3;
+  font-weight: 500;
 }
 
-.grid {
-  column-count: 3;
-  column-gap: 1rem;
-  padding: 1rem;
+.label {
+  position: absolute;
+  top: 20px;
+  font-size: 2rem;
+  font-weight: bold;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 10;
 }
 
-.item {
-  background-color: #f6f6f6;
-  margin-bottom: 1rem;
-  break-inside: avoid;
-  padding: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+.yes {
+  left: 20px;
+  color: green;
 }
 
-/* Responsive Masonry */
-@media (max-width: 992px) {
-  .grid {
-    column-count: 2;
-  }
+.no {
+  right: 20px;
+  color: red;
 }
 
-@media (max-width: 576px) {
-  .grid {
-    column-count: 1;
-  }
-}
+
+

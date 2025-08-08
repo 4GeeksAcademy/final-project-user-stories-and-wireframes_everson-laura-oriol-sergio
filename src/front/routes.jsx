@@ -11,6 +11,7 @@ import { About } from "./pages/About/About";
 import { Perfil } from "./pages/Perfil";
 import { History } from "./pages/History";
 import { Formulary } from "./pages/Formulary";
+import { Forms } from "./pages/Forms/Forms";
 
 import { Forms } from "./pages/Forms/Forms";
 
@@ -25,7 +26,8 @@ export const router = createBrowserRouter(
             <Route path="/single/:theId" element={<Single />} />
             <Route path="/demo" element={<Demo />} />
             <Route path="/formulary" element={<Formulary />} />
-            <Route path="/forms" element={<Forms />} />
+             <Route path="/forms" element={<Forms />} />
+
         </Route>
     )
 );
