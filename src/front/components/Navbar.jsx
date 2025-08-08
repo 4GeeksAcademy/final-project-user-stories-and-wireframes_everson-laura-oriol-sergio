@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import { Navbar, Nav, Button, Container, NavDropdown } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import logo from "../assets/img/LOGO.png";
-import { useState } from "react";
+import logo from "../assets/img/logo.png"
+import { useState, useEffect, useRef } from "react";
 
 export const CustomNavbar = () => {
 
@@ -133,6 +133,7 @@ export const CustomNavbar = () => {
 										</div>
 									</div>
 								</div>
+
 								<button id="button-1" class="rounded-3 btn" data-bs-toggle="modal" data-bs-target="#signUp" > Regístrate </button>
 								<div class="modal fade" data-bs-backdrop="static" id="signUp" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
 									<div class="modal-dialog modal-dialog-centered">
@@ -263,7 +264,7 @@ export const CustomNavbar = () => {
 							<h4>4. Compartir datos</h4>
 							<p>No vendemos ni compartimos tus datos con terceros, salvo que sea estrictamente necesario para operar el servicio (por ejemplo, servicios de análisis como Google Analytics).</p>
 							<h4>5. Tus derechos</h4>
-							<p>Tienes derecho a acceder, rectificar o eliminar tus datos personales. Para ejercer estos derechos, puedes escribirnos a <a href="mailto:contact@swipestories.com">contact@swipestories.com</a>.</p>
+							<p>Tienes derecho a acceder, rectificar o eliminar tus datos personales. Para ejercer estos derechos, puedes escribirnos a <a className="correo" href="mailto:contact@swipestories.com">contact@swipestories.com</a>.</p>
 						</div>
 					</div>
 				</div>
