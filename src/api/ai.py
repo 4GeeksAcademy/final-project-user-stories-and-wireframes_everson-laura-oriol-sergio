@@ -1,61 +1,101 @@
 import os
+import re
 import json
 from dotenv import load_dotenv
 
 load_dotenv()
 
-
-client = None
 try:
     from openai import OpenAI
     client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
     print("Cliente OpenAI inicializado correctamente.")
 except Exception as e:
     print("Error al inicializar OpenAI:", e)
+    client = None
 
 PROMPTS = {
     "libros": """
-Eres un experto en literatura.
+Eres un asistente experto en literatura.
 El usuario busca recomendaciones de libros.
 Sus preferencias: {preferences}.
-Devuelve EXACTAMENTE 3 libros en JSON:
 
-[
-  {{ "title": "", "description": "" }},
-  {{ "title": "", "description": "" }},
-  {{ "title": "", "description": "" }}
-]
+⚠️ INSTRUCCIONES:
+- RESPONDE ÚNICAMENTE con un objeto JSON válido.
+- NO escribas texto antes o después del JSON.
+- NO incluyas explicaciones, comentarios ni frases adicionales.
+- Asegúrate de que la sintaxis sea correcta y que pueda ser parseada con JSON.parse o json.loads.
+
+Ejemplo de formato EXACTO:
+
+{{
+  "category": "libros",
+  "recommendations": [
+    {{ "title": "Título 1", "description": "Descripción 1" }},
+    {{ "title": "Título 2", "description": "Descripción 2" }},
+    {{ "title": "Título 3", "description": "Descripción 3" }}
+  ]
+}}
 """,
     "peliculas": """
 Eres un crítico de cine experto.
 El usuario busca recomendaciones de películas.
 Sus preferencias: {preferences}.
-Devuelve EXACTAMENTE 3 películas en JSON:
 
-[
-  {{ "title": "", "description": "" }},
-  {{ "title": "", "description": "" }},
-  {{ "title": "", "description": "" }}
-]
+⚠️ INSTRUCCIONES:
+- RESPONDE ÚNICAMENTE con un objeto JSON válido.
+- NO escribas texto antes o después del JSON.
+- NO incluyas explicaciones, comentarios ni frases adicionales.
+- Asegúrate de que la sintaxis sea correcta y que pueda ser parseada con JSON.parse o json.loads.
+
+Ejemplo de formato EXACTO:
+
+{{
+  "category": "peliculas",
+  "recommendations": [
+    {{ "title": "Título 1", "description": "Descripción 1" }},
+    {{ "title": "Título 2", "description": "Descripción 2" }},
+    {{ "title": "Título 3", "description": "Descripción 3" }}
+  ]
+}}
 """,
     "series": """
-Eres un experto en series de TV.
+Eres un experto en series de televisión.
 El usuario busca recomendaciones de series.
 Sus preferencias: {preferences}.
-Devuelve EXACTAMENTE 3 series en JSON:
 
-[
-  {{ "title": "", "description": "" }},
-  {{ "title": "", "description": "" }},
-  {{ "title": "", "description": "" }}
-]
+⚠️ INSTRUCCIONES:
+- RESPONDE ÚNICAMENTE con un objeto JSON válido.
+- NO escribas texto antes o después del JSON.
+- NO incluyas explicaciones, comentarios ni frases adicionales.
+- Asegúrate de que la sintaxis sea correcta y que pueda ser parseada con JSON.parse o json.loads.
+
+Ejemplo de formato EXACTO:
+
+{{
+  "category": "series",
+  "recommendations": [
+    {{ "title": "Título 1", "description": "Descripción 1" }},
+    {{ "title": "Título 2", "description": "Descripción 2" }},
+    {{ "title": "Título 3", "description": "Descripción 3" }}
+  ]
+}}
 """
 }
 
+def extract_json(text):
+    """
+    Extrae el primer bloque JSON válido de un texto usando regex.
+    Retorna None si no encuentra un bloque.
+    """
+    match = re.search(r'\{[\s\S]*\}', text)
+    if match:
+        return match.group(0)
+    return None
+
 def get_ai_recommendations(category, preferences):
-    """Genera recomendaciones reales con OpenAI"""
+    """Intenta generar recomendaciones con OpenAI y limpia la respuesta para asegurar formato JSON"""
     if not client:
-        raise ValueError("OpenAI client no inicializado.")
+        raise RuntimeError("Cliente OpenAI no inicializado.")
 
     prompt = PROMPTS.get(category)
     if not prompt:
@@ -63,33 +103,47 @@ def get_ai_recommendations(category, preferences):
 
     prompt = prompt.format(preferences=preferences)
 
-    try:
-        response = client.chat.completions.create(
-            model="gpt-3.5-turbo",
-            messages=[{"role": "user", "content": prompt}],
-            max_tokens=300,
-            temperature=0.7
-        )
+    response = client.chat.completions.create(
+        model="gpt-3.5-turbo",
+        messages=[{"role": "user", "content": prompt}],
+        max_tokens=400,
+        temperature=0.7
+    )
 
-        content = response.choices[0].message.content.strip()
-        try:
-            recommendations = json.loads(content)
-        except json.JSONDecodeError:
-            recommendations = [{"title": "Respuesta inválida", "description": content}]
+    content = response.choices[0].message.content.strip()
 
+    
+    json_str = extract_json(content)
+    if not json_str:
         return {
             "category": category,
-            "recommendations": recommendations
+            "recommendations": [
+                {"title": "Respuesta inválida", "description": content}
+            ]
         }
 
-    except Exception as e:
+    try:
+        parsed = json.loads(json_str)
+        # Validar que tenga la estructura esperada
+        if "category" in parsed and "recommendations" in parsed:
+            return parsed
+        else:
+            return {
+                "category": category,
+                "recommendations": [
+                    {"title": "Formato inesperado", "description": content}
+                ]
+            }
+    except json.JSONDecodeError:
         return {
             "category": category,
-            "recommendations": [{"title": "Error con OpenAI", "description": str(e)}]
+            "recommendations": [
+                {"title": "Respuesta inválida", "description": content}
+            ]
         }
 
 def generate_recommendations(category, preferences):
-    """Recomendaciones mock"""
+    """Genera recomendaciones mock"""
     mock_data = {
         "libros": [
             {"title": "Dune", "description": "Clásico de ciencia ficción."},
@@ -107,8 +161,15 @@ def generate_recommendations(category, preferences):
             {"title": "The Expanse", "description": "Intriga política y ciencia ficción espacial."}
         ]
     }
-
     return {
         "category": category,
         "recommendations": mock_data.get(category, [])
     }
+
+def get_recommendations(category, preferences):
+    """Usa AI si es posible, si falla usa mock"""
+    try:
+        return get_ai_recommendations(category, preferences)
+    except Exception as e:
+        print(f" AI falló, usando mock: {e}")
+        return generate_recommendations(category, preferences)
