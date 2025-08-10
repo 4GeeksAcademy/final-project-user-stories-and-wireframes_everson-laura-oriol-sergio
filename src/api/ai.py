@@ -4,13 +4,14 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-USE_AI = os.getenv("USE_AI", "false").lower() == "true"
 
 client = None
-if USE_AI:
+try:
     from openai import OpenAI
     client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
-
+    print("Cliente OpenAI inicializado correctamente.")
+except Exception as e:
+    print("Error al inicializar OpenAI:", e)
 
 PROMPTS = {
     "libros": """
@@ -51,33 +52,44 @@ Devuelve EXACTAMENTE 3 series en JSON:
 """
 }
 
-
 def get_ai_recommendations(category, preferences):
-    """Genera recomendaciones reales con OpenAI si USE_AI=True"""
-    prompt = PROMPTS[category].format(preferences=preferences)
+    """Genera recomendaciones reales con OpenAI"""
+    if not client:
+        raise ValueError("OpenAI client no inicializado.")
 
-    response = client.chat.completions.create(
-        model="gpt-3.5-turbo",
-        messages=[{"role": "user", "content": prompt}],
-        max_tokens=300,
-        temperature=0.7
-    )
+    prompt = PROMPTS.get(category)
+    if not prompt:
+        return {"category": category, "recommendations": []}
 
-    content = response.choices[0].message.content
+    prompt = prompt.format(preferences=preferences)
 
     try:
-        recommendations = json.loads(content)
-    except json.JSONDecodeError:
-        recommendations = [{"title": content, "description": ""}]
+        response = client.chat.completions.create(
+            model="gpt-3.5-turbo",
+            messages=[{"role": "user", "content": prompt}],
+            max_tokens=300,
+            temperature=0.7
+        )
 
-    return {
-        "category": category,
-        "recommendations": recommendations
-    }
+        content = response.choices[0].message.content.strip()
+        try:
+            recommendations = json.loads(content)
+        except json.JSONDecodeError:
+            recommendations = [{"title": "Respuesta inválida", "description": content}]
 
+        return {
+            "category": category,
+            "recommendations": recommendations
+        }
+
+    except Exception as e:
+        return {
+            "category": category,
+            "recommendations": [{"title": "Error con OpenAI", "description": str(e)}]
+        }
 
 def generate_recommendations(category, preferences):
-    """Devuelve recomendaciones mock cuando USE_AI=False"""
+    """Recomendaciones mock"""
     mock_data = {
         "libros": [
             {"title": "Dune", "description": "Clásico de ciencia ficción."},
@@ -100,10 +112,3 @@ def generate_recommendations(category, preferences):
         "category": category,
         "recommendations": mock_data.get(category, [])
     }
-
-
-def get_recommendations(category, preferences):
-    """Decide si usar AI real o mock"""
-    if USE_AI and client:
-        return get_ai_recommendations(category, preferences)
-    return generate_recommendations(category, preferences)
