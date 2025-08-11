@@ -1,0 +1,26 @@
+.container {
+    display: flex;
+    width: 100%;
+    gap: 2rem;
+    justify-content: center;
+    padding-top: 10%;
+    padding-bottom: 5%;
+}
+
+.left {
+    text-align: center;
+    padding: 10%;
+    width: 30%;
+
+    color: white;
+    background-color: black;
+}
+
+.right {
+    text-align: center;
+    padding: 10%;
+    width: 60%;
+
+    color: white;
+    background-color: black;
+}

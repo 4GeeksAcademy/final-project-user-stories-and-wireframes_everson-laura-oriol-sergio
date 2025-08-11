@@ -1,8 +1,14 @@
+import style from "../pages/Perfil.module.css"
+
 export const Perfil = () => {
     return (
-        <div className="container  main">
-            <h1>My Perfil</h1>
-            <p>Here goes your profile information.</p>
+        <div className={style.container}>
+            <div className={`${style.left} rounded-5`}>
+                Tu perfil
+            </div>
+            <div className={`${style.right} rounded-5`}>
+                Tu información
+            </div>
         </div>
     );
 };
