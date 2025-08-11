@@ -41,10 +41,10 @@ def login_user():
     if not user or not user.password or not check_password_hash(user.password, data.get("password")):
         return jsonify({"msg": "Bad credentials"}), 401
 
-
-    token = create_access_token(identity=user.id, expires_delta=timedelta(days=JWT_EXPIRE_DAYS))
-     test
-      return jsonify({"token": token, "user": user.serialize()}), 200
+    token = create_access_token(
+        identity=user.id, expires_delta=timedelta(days=JWT_EXPIRE_DAYS))
+    
+    return jsonify({"token": token, "user": user.serialize()}), 200
 
 
 def forgot_password():
