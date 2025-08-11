@@ -9,9 +9,7 @@ from flask_cors import CORS
 from api.auth import register_user, login_user, forgot_password,reset_password
 from flask_jwt_extended import JWTManager
 from dotenv import load_dotenv
-from api.ai import generate_recommendations, get_ai_recommendations
-
-
+from api.ai import get_recommendations
 
 load_dotenv()
 
@@ -48,10 +46,5 @@ def recommendations():
     if not preferences:
         return jsonify({"msg": "Debes enviar tus preferencias"}), 400
 
-    # Usa IA si hay API Key, si no usa mock
-    if os.getenv("OPENAI_API_KEY"):
-        results = get_ai_recommendations(category, preferences)
-    else:
-        results = generate_recommendations(category, preferences)
-
+    results = get_recommendations(category, preferences)
     return jsonify(results), 200
