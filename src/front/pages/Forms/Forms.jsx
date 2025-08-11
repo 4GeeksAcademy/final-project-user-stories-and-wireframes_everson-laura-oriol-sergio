@@ -70,41 +70,41 @@ export const Forms = () => {
 
       <div className={style.columns}>
         <div className={style.firstColumn}>
-          <div className={`${style.firstColumnFirstElement} card`}>
+          <div className={`${style.firstColumnFirstElement} card rounded-5`}>
             a
           </div>
-          <div className={`${style.firstColumnSecondElement} card`}>
+          <div className={`${style.firstColumnSecondElement} card rounded-5`}>
             b
           </div>
-          <div className={`${style.firstColumnThirdElement} card`}>
+          <div className={`${style.firstColumnThirdElement} card rounded-5`}>
             c
           </div>
-          <div className={`${style.firstColumnFourthElement} card`}>
+          <div className={`${style.firstColumnFourthElement} card rounded-5`}>
             d
           </div>
         </div>
-        <div className={`${style.secondColumn} card`}>
-          <div className={`${style.secondColumnFirstElement} card`}>
+        <div className={style.secondColumn}>
+          <div className={`${style.secondColumnFirstElement} card rounded-5`}>
             a
           </div>
-          <div className={`${style.secondColumnSecondElement} card`}>
+          <div className={`${style.secondColumnSecondElement} card rounded-5`}>
             b
           </div>
-          <div className={`${style.secondColumnThirdElement} card`}>
+          <div className={`${style.secondColumnThirdElement} card rounded-5`}>
             c
           </div>
         </div>
-        <div className={`${style.thirdColumn} card`}>
-          <div className={`${style.thirdColumnFirstElement} card`}>
+        <div className={style.thirdColumn}>
+          <div className={`${style.thirdColumnFirstElement} card rounded-5`}>
             a
           </div>
-          <div className={`${style.thirdColumnSecondElement} card`}>
+          <div className={`${style.thirdColumnSecondElement} card rounded-5`}>
             b
           </div>
-          <div className={`${style.thirdColumnThirdElement} card`}>
+          <div className={`${style.thirdColumnThirdElement} card rounded-5`}>
             c
           </div>
-          <div className={`${style.thirdColumnFourthElement} card`}>
+          <div className={`${style.thirdColumnFourthElement} card rounded-5`}>
             d
           </div>
         </div>
