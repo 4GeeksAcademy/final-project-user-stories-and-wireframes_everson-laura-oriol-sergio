@@ -19,7 +19,7 @@ Eres un asistente experto en literatura.
 El usuario busca recomendaciones de libros.
 Sus preferencias: {preferences}.
 
-⚠️ INSTRUCCIONES:
+  INSTRUCCIONES:
 - RESPONDE ÚNICAMENTE con un objeto JSON válido.
 - NO escribas texto antes o después del JSON.
 - NO incluyas explicaciones, comentarios ni frases adicionales.
@@ -41,7 +41,7 @@ Eres un crítico de cine experto.
 El usuario busca recomendaciones de películas.
 Sus preferencias: {preferences}.
 
-⚠️ INSTRUCCIONES:
+ INSTRUCCIONES:
 - RESPONDE ÚNICAMENTE con un objeto JSON válido.
 - NO escribas texto antes o después del JSON.
 - NO incluyas explicaciones, comentarios ni frases adicionales.
@@ -63,7 +63,7 @@ Eres un experto en series de televisión.
 El usuario busca recomendaciones de series.
 Sus preferencias: {preferences}.
 
-⚠️ INSTRUCCIONES:
+  INSTRUCCIONES:
 - RESPONDE ÚNICAMENTE con un objeto JSON válido.
 - NO escribas texto antes o después del JSON.
 - NO incluyas explicaciones, comentarios ni frases adicionales.
