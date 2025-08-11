@@ -2,88 +2,6 @@ import { useState, useRef, useEffect } from "react";
 import style from "./Forms.module.css";
 import { Container, Col, Row } from "react-bootstrap";
 
-const cardsData = [
-  { text: "¿Te sientes con energía mental?", emoji: "🧠" },
-  { text: "¿Prefieres algo que dure poco tiempo?", emoji: "⏰" },
-  { text: "¿Te gusta usar tu imaginación?", emoji: "✨" },
-  { text: "¿Quieres algo emocionante?", emoji: "🎬" },
-  { text: "¿Te gusta aprender cosas nuevas?", emoji: "📚" },
-];
-
-// Componente del formulario deslizable tipo Tinder, adaptado para que no desaparezca
-const SwipeCard = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [dragStyle, setDragStyle] = useState({});
-  const [labelOpacity, setLabelOpacity] = useState({ yes: 0, no: 0 });
-  const startPos = useRef(null);
-
-  const handleStart = (x) => {
-    startPos.current = x;
-  };
-
-  const handleMove = (x) => {
-    if (startPos.current !== null) {
-      const deltaX = x - startPos.current;
-      setDragStyle({
-        transform: `translateX(${deltaX}px) rotate(${deltaX / 10}deg)`,
-      });
-      setLabelOpacity({
-        yes: deltaX > 0 ? Math.min(deltaX / 100, 1) : 0,
-        no: deltaX < 0 ? Math.min(-deltaX / 100, 1) : 0,
-      });
-    }
-  };
-
-  const handleEnd = (x) => {
-    const deltaX = x - startPos.current;
-    if (deltaX > 100) {
-      resetPosition();
-    } else if (deltaX < -100) {
-      resetPosition();
-    } else {
-      resetPosition();
-    }
-    startPos.current = null;
-  };
-
-  const resetPosition = () => {
-    setDragStyle({ transform: "translateX(0px) rotate(0deg)", transition: "transform 0.3s ease" });
-    setLabelOpacity({ yes: 0, no: 0 });
-    setTimeout(() => {
-      setDragStyle({});
-    }, 300);
-  };
-
-  const card = cardsData[currentIndex];
-
-  return (
-    <div
-      className={style.card}
-      style={{
-        transform: dragStyle.transform || "translateX(0px) rotate(0deg)",
-        transition: dragStyle.transition || "transform 0.3s ease",
-        cursor: "grab",
-      }}
-      onMouseDown={(e) => handleStart(e.clientX)}
-      onMouseMove={(e) => startPos.current !== null && handleMove(e.clientX)}
-      onMouseUp={(e) => handleEnd(e.clientX)}
-      onMouseLeave={(e) => startPos.current !== null && handleEnd(e.clientX)}
-      onTouchStart={(e) => handleStart(e.touches[0].clientX)}
-      onTouchMove={(e) => handleMove(e.touches[0].clientX)}
-      onTouchEnd={(e) => handleEnd(e.changedTouches[0].clientX)}
-    >
-      <div className={`${style.label} ${style.yes}`} style={{ opacity: labelOpacity.yes }}>
-        YES
-      </div>
-      <div className={`${style.label} ${style.no}`} style={{ opacity: labelOpacity.no }}>
-        NO
-      </div>
-      <span className={style.emoji}>{card.emoji}</span>
-      <p className={style.text}>{card.text}</p>
-    </div>
-  );
-};
-
 export const Forms = () => {
   const lineRef = useRef(null);
   const containerRef = useRef(null);
@@ -130,7 +48,7 @@ export const Forms = () => {
   }, []);
 
   return (
-    <Container className={`${style.container} container`}>
+    <Container className={style.container}>
       <Row className={`${style.row} position-relative`} ref={containerRef}>
         <Col>
           <a href="#">Inicio</a>
@@ -152,56 +70,44 @@ export const Forms = () => {
 
       <div className={style.columns}>
         <div className={style.firstColumn}>
-          <div className={style.firstColumnFirstElement}>
+          <div className={`${style.firstColumnFirstElement} card`}>
             a
           </div>
-          <div className={style.firstColumnSecondElement}>
+          <div className={`${style.firstColumnSecondElement} card`}>
             b
           </div>
-          <div className={style.firstColumnThirdElement}>
+          <div className={`${style.firstColumnThirdElement} card`}>
             c
           </div>
-          <div className={style.firstColumnFourthElement}>
+          <div className={`${style.firstColumnFourthElement} card`}>
             d
           </div>
         </div>
-        <div className={style.secondColumn}>
-          <div className={style.secondColumnFirstElement}>
+        <div className={`${style.secondColumn} card`}>
+          <div className={`${style.secondColumnFirstElement} card`}>
             a
           </div>
-          <div className={style.secondColumnSecondElement}>
+          <div className={`${style.secondColumnSecondElement} card`}>
             b
           </div>
-          <div className={style.secondColumnThirdElement}>
+          <div className={`${style.secondColumnThirdElement} card`}>
             c
           </div>
         </div>
-        <div className={style.thirdColumn}>
-          <div className={style.thirdColumnFirstElement}>
+        <div className={`${style.thirdColumn} card`}>
+          <div className={`${style.thirdColumnFirstElement} card`}>
             a
           </div>
-          <div className={style.thirdColumnSecondElement}>
+          <div className={`${style.thirdColumnSecondElement} card`}>
             b
           </div>
-          <div className={style.thirdColumnThirdElement}>
+          <div className={`${style.thirdColumnThirdElement} card`}>
             c
           </div>
-          <div className={style.thirdColumnFourthElement}>
+          <div className={`${style.thirdColumnFourthElement} card`}>
             d
           </div>
         </div>
-      </div>
-
-      <div className={style.grid}>
-        {[...Array(11)].map((_, i) => (
-          <div
-            key={i}
-            className={style.item}
-            style={{ height: `${150 + Math.random() * 150}px` }}
-          >
-            <SwipeCard />
-          </div>
-        ))}
       </div>
     </Container>
   );
