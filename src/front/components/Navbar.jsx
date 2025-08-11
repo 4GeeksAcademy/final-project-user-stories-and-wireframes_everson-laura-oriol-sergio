@@ -11,6 +11,7 @@ export const CustomNavbar = () => {
 	const [username, setUsername] = useState("")
 	const [name, setName] = useState("")
 	const backendUrl = import.meta.env.VITE_BACKEND_URL
+	const [resetEmail, setResetEmail] = useState("")
 
 	const token = localStorage.getItem("token")
 
@@ -74,7 +75,25 @@ export const CustomNavbar = () => {
 			modal.hide();
 		}
 	}
+	const handleForgotPassword = async (e) => {
+		e.preventDefault();
 
+		const res = await fetch(backendUrl + "api/forgot-password", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify({
+				email: resetEmail
+			})
+		});
+		if (res.ok) {
+			alert("Se ha enviado un enlace de recuperación a tu correo electrónico.");
+			closeModal("forgotPassword");
+		} else {
+			alert("Error al enviar el enlace de recuperación. Por favor, inténtalo de nuevo.");
+		}
+	};
 
 	return (
 		<>
