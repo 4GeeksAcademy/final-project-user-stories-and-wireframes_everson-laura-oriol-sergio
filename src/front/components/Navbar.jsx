@@ -40,7 +40,7 @@ export const CustomNavbar = () => {
 	const handleRegister = async (e) => {
 		e.preventDefault()
 		try {
-			const res = await fetch(backendUrl + "api/", {
+			const res = await fetch(backendUrl + "api/register", {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json"
