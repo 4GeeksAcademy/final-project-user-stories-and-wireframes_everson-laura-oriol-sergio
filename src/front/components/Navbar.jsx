@@ -14,6 +14,11 @@ export const CustomNavbar = () => {
 
 	const token = localStorage.getItem("token")
 
+	const handleLogout = () => {
+		localStorage.removeItem("token");
+		window.location.reload();
+	}
+
 	const handleLogin = async (e) => {
 		e.preventDefault()
 		try {
@@ -29,9 +34,10 @@ export const CustomNavbar = () => {
 
 				)
 			});
-			const data = res.json
+			const data = await res.json()
 			localStorage.setItem("token", data.token)
-
+			closeModal("logIn");
+			window.location.reload();
 		} catch (error) {
 			console.log(error)
 		}
@@ -55,11 +61,20 @@ export const CustomNavbar = () => {
 
 				)
 			});
-
+			closeModal("signUp");
 		} catch (error) {
 			console.log(error)
 		}
 	}
+
+	const closeModal = (modalId) => {
+		const modalElement = document.getElementById(modalId);
+		const modal = window.bootstrap.Modal.getInstance(modalElement);
+		if (modal) {
+			modal.hide();
+		}
+	}
+
 
 	return (
 		<>
@@ -70,7 +85,7 @@ export const CustomNavbar = () => {
 					</div>
 					{
 						token ? (
-							<button class="rounded-3 btn me-2" >Cerrar sesión</button>
+							<button class="rounded-3 btn me-2" onClick={handleLogout}>Cerrar sesión</button>
 
 						) : (
 							<div>
