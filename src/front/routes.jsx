@@ -4,15 +4,15 @@ import {
     Route,
 } from "react-router-dom";
 import { Layout } from "./pages/Layout";
-import { Home } from "./pages/Home";
+import { Home } from "./pages/Home/Home";
 import { Single } from "./pages/Single";
 import { Demo } from "./pages/Demo";
-import { About } from "./pages/About";
+import { About } from "./pages/About/About";
 import { Perfil } from "./pages/Perfil";
 import { History } from "./pages/History";
 import { Formulary } from "./pages/Formulary";
-import { Login } from "./pages/Login";
-import { Register } from "./pages/Register";
+import { Forms } from "./pages/Forms/Forms";
+
 
 export const router = createBrowserRouter(
     createRoutesFromElements(
@@ -24,8 +24,8 @@ export const router = createBrowserRouter(
             <Route path="/single/:theId" element={<Single />} />
             <Route path="/demo" element={<Demo />} />
             <Route path="/formulary" element={<Formulary />} />
-            <Route path="/Login" element={<Login />} />
-            <Route path="/Register" element={<Register />} />
+            <Route path="/forms" element={<Forms />} />
+
         </Route>
     )
 );

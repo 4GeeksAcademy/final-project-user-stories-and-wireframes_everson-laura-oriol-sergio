@@ -10,6 +10,7 @@ from api.mail import send_reset_email
 
 JWT_EXPIRE_DAYS = int(os.getenv("JWT_EXPIRE_DAYS", 1))
 
+
 def register_user():
     data = request.get_json()
     if not data.get("email") or not data.get("password"):
@@ -19,7 +20,9 @@ def register_user():
         return jsonify({"msg": "User already exists"}), 400
 
     new_user = User(
+        name=data["name"],
         email=data["email"],
+        username=data["username"],
         password=generate_password_hash(data["password"]),
         is_active=True
     )
@@ -38,8 +41,10 @@ def login_user():
     if not user or not user.password or not check_password_hash(user.password, data.get("password")):
         return jsonify({"msg": "Bad credentials"}), 401
 
+
     token = create_access_token(identity=user.id, expires_delta=timedelta(days=JWT_EXPIRE_DAYS))
-    return jsonify({"token": token, "user": user.serialize()}), 200
+     test
+      return jsonify({"token": token, "user": user.serialize()}), 200
 
 
 def forgot_password():

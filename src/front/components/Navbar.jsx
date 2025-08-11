@@ -1,14 +1,23 @@
 import { Link } from "react-router-dom";
 import { Navbar, Nav, Button, Container, NavDropdown } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import logo from "../assets/img/LOGO.png";
-import { useState } from "react";
+import logo from "../assets/img/logo.png"
+import { useState, useEffect, useRef } from "react";
 
 export const CustomNavbar = () => {
 
 	const [email, setemail] = useState("")
 	const [password, setpassword] = useState("")
+	const [username, setUsername] = useState("")
+	const [name, setName] = useState("")
 	const backendUrl = import.meta.env.VITE_BACKEND_URL
+
+	const token = localStorage.getItem("token")
+
+	const handleLogout = () => {
+		localStorage.removeItem("token");
+		window.location.reload();
+	}
 
 	const handleLogin = async (e) => {
 		e.preventDefault()
@@ -25,9 +34,10 @@ export const CustomNavbar = () => {
 
 				)
 			});
-			const data = res.json
+			const data = await res.json()
 			localStorage.setItem("token", data.token)
-
+			closeModal("logIn");
+			window.location.reload();
 		} catch (error) {
 			console.log(error)
 		}
@@ -36,23 +46,35 @@ export const CustomNavbar = () => {
 	const handleRegister = async (e) => {
 		e.preventDefault()
 		try {
-			const res = await fetch(backendUrl + "api/Register", {
+			const res = await fetch(backendUrl + "api/register", {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json"
 				},
 				body: JSON.stringify({
+					name: name,
 					email: email,
+					username: username,
 					password: password
+
 				}
 
 				)
 			});
-
+			closeModal("signUp");
 		} catch (error) {
 			console.log(error)
 		}
 	}
+
+	const closeModal = (modalId) => {
+		const modalElement = document.getElementById(modalId);
+		const modal = window.bootstrap.Modal.getInstance(modalElement);
+		if (modal) {
+			modal.hide();
+		}
+	}
+
 
 	return (
 		<>
@@ -61,127 +83,172 @@ export const CustomNavbar = () => {
 					<div>
 						<a href="/"><img class="logo" src={logo} /></a>
 					</div>
+					{
+						token ? (
+							<button class="rounded-3 btn me-2" onClick={handleLogout}>Cerrar sesión</button>
 
-					<div>
-						<button id="button-2" class="rounded-3 btn me-2" data-bs-toggle="modal" data-bs-target="#logIn">Inicia sesión</button>
-						<div class="modal fade" id="logIn" tabindex="-1" data-bs-backdrop="static" aria-labelledby="loginModalLabel" aria-hidden="true">
-							<div class="modal-dialog modal-dialog-centered">
-								<div class="modal-content p-4 rounded-5">
-									<div class="modal-header border-0">
-										<h4 class="modal-title w-100 text-center mb-3" id="loginModalLabel">Bienvenid@ a SwipeStories</h4>
-										<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+						) : (
+							<div>
+								<button id="button-2" class="rounded-3 btn me-2" data-bs-toggle="modal" data-bs-target="#logIn">Inicia sesión</button>
+								<div class="modal fade" id="logIn" tabindex="-1" data-bs-backdrop="static" aria-labelledby="loginModalLabel" aria-hidden="true">
+									<div class="modal-dialog modal-dialog-centered">
+										<div class="modal-content p-4 rounded-5">
+											<div class="modal-header border-0">
+												<h4 class="modal-title w-100 text-center mb-3" id="loginModalLabel">Bienvenid@ a SwipeStories</h4>
+												<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+											</div>
+											<div class="modal-body">
+												<form onSubmit={handleLogin}>
+													<div class="mb-3">
+														<input type="email" class="form-control form-control-lg rounded-pill" placeholder="Tu correo electrónico"
+															value={email}
+															onChange={(e) => setemail(e.target.value)}
+															required />
+													</div>
+													<div class="password-wrapper mb-3">
+														<input type="password"
+															id="password"
+															class="form-control form-control-lg rounded-pill"
+															placeholder="Tu contraseña"
+															value={password}
+															onChange={(e) => setpassword(e.target.value)}
+															required
+														/>
+														<button type="button" id="togglePassword" class="eye-btn" aria-label="Mostrar/Ocultar contraseña">
+															<svg id="eyeOpen" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
+																<path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+																<path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+															</svg>
+															<svg id="eyeClosed" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon hidden">
+																<path stroke-linecap="round" stroke-linejoin="round" d="M3.98 8.223A10.477 10.477 0 0 0 1.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.451 10.451 0 0 1 12 4.5c4.756 0 8.773 3.162 10.065 7.498a10.522 10.522 0 0 1-4.293 5.774M6.228 6.228 3 3m3.228 3.228 3.65 3.65m7.894 7.894L21 21m-3.228-3.228-3.65-3.65m0 0a3 3 0 1 0-4.243-4.243m4.242 4.242L9.88 9.88" />
+															</svg>
+														</button>
+													</div>
+													<div class="mb-3 text-center">
+														<button id="button-3" type="submit" class="btn w-100 rounded-pill py-2">Inicia sesión</button>
+													</div>
+												</form>
+												<div class="d-flex align-items-center my-3">
+													<hr class="flex-grow-1" />
+													<span class="px-2 text-muted">o</span>
+													<hr class="flex-grow-1" />
+												</div>
+												<div class="mb-3">
+													<button type="button"
+														class="btn btn-light w-100 rounded-pill d-flex align-items-center justify-content-center gap-2 py-2">
+														<img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google" width="20" />
+														<span>Continua con Google</span>
+													</button>
+												</div>
+												<div class="text-center mt-4 mb-2 text-muted">
+													¿Todavía no tienes cuenta? <a href="#" data-bs-toggle="modal" data-bs-target="#signUp" class="text-decoration-none">Regístrate</a>
+												</div>
+												<div class="mt-3 text-center">
+													<a href="#" data-bs-toggle="modal" data-bs-target="#forgotPassword" className="forget">¿Has olvidado tu contraseña?</a>
+												</div>
+											</div>
+										</div>
 									</div>
-									<div class="modal-body">
-										<form onSubmit={handleLogin}>
-											<div class="mb-3">
-												<input type="email" class="form-control form-control-lg rounded-pill" placeholder="Tu correo electrónico"
-													value={email}
-													onChange={(e) => setemail(e.target.value)} />
+								</div>
+
+								<button id="button-1" class="rounded-3 btn" data-bs-toggle="modal" data-bs-target="#signUp" > Regístrate </button>
+								<div class="modal fade" data-bs-backdrop="static" id="signUp" tabindex="-1" aria-labelledby="signUpModalLabel" aria-hidden="true">
+									<div class="modal-dialog modal-dialog-centered">
+										<div class="modal-content p-4 rounded-5">
+											<div class="modal-header border-0">
+												<h4 class="modal-title w-100 text-center mb-3" id="signUpModalLabel">Registrate a SwipeStories</h4>
+												<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
 											</div>
-											<div class="password-wrapper mb-3">
-												<input type="password"
-													id="password"
-													class="form-control form-control-lg rounded-pill"
-													placeholder="Tu contraseña"
-													value={password}
-													onChange={(e) => setpassword(e.target.value)}
-												/>
-												<button type="submit" id="togglePassword" class="eye-btn" aria-label="Mostrar/Ocultar contraseña">
-													<svg id="eyeOpen" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
-														<path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
-														<path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-													</svg>
-													<svg id="eyeClosed" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon hidden">
-														<path stroke-linecap="round" stroke-linejoin="round" d="M3.98 8.223A10.477 10.477 0 0 0 1.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.451 10.451 0 0 1 12 4.5c4.756 0 8.773 3.162 10.065 7.498a10.522 10.522 0 0 1-4.293 5.774M6.228 6.228 3 3m3.228 3.228 3.65 3.65m7.894 7.894L21 21m-3.228-3.228-3.65-3.65m0 0a3 3 0 1 0-4.243-4.243m4.242 4.242L9.88 9.88" />
-													</svg>
-												</button>
+											<div class="modal-body">
+												<form onSubmit={handleRegister}>
+													<div class="mb-3">
+														<input type="text" class="form-control form-control-lg rounded-pill" placeholder="Tu nombre completo"
+															value={name}
+															onChange={(e) => setName(e.target.value)}
+															required />
+													</div>
+													<div class="mb-3">
+														<input type="email" class="form-control form-control-lg rounded-pill" placeholder="Tu correo electrónico"
+															value={email}
+															onChange={(e) => setemail(e.target.value)}
+															required />
+													</div>
+													<div class="mb-3">
+														<input type="text" class="form-control form-control-lg rounded-pill" placeholder="Crea tu nombre de usuario"
+															value={username}
+															onChange={(e) => setUsername(e.target.value)}
+															required />
+													</div>
+													<div class="password-wrapper mb-3">
+														<input type="password" id="signUpPassword" class="form-control form-control-lg rounded-pill" placeholder="Tu contraseña"
+															value={password}
+															onChange={(e) => setpassword(e.target.value)}
+															required
+														/>
+														<button type="button" id="toggleSignupPassword" class="eye-btn" aria-label="Mostrar/Ocultar contraseña">
+															<svg id="eyeSignupOpen" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
+																<path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+																<path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+															</svg>
+															<svg id="eyeSignupClosed" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon hidden">
+																<path stroke-linecap="round" stroke-linejoin="round" d="M3.98 8.223A10.477 10.477 0 0 0 1.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.451 10.451 0 0 1 12 4.5c4.756 0 8.773 3.162 10.065 7.498a10.522 10.522 0 0 1-4.293 5.774M6.228 6.228 3 3m3.228 3.228 3.65 3.65m7.894 7.894L21 21m-3.228-3.228-3.65-3.65m0 0a3 3 0 1 0-4.243-4.243m4.242 4.242L9.88 9.88" />
+															</svg>
+														</button>
+													</div>
+													<div class="mb-3 text-center">
+														<button type="submit" id="button-3" class="btn w-100 rounded-pill py-2">Regístrame</button>
+													</div>
+													<div class="text-center mb-3 text-muted">
+														¿Ya tienes cuenta? <a href="#" data-bs-toggle="modal" data-bs-target="#logIn" class="text-decoration-none ">Inicia sesión</a>
+													</div>
+													<div class="text-center text-muted">
+														<small>Al continuar, estás aceptando nuestras <a href="#" data-bs-toggle="modal" data-bs-target="#condicionesDeServicio" class="text-decoration-none"> Condiciones de uso </a> y nuestra <a href="#" data-bs-toggle="modal" data-bs-target="#politicaPrivacidad" class="text-decoration-none"> Política de privacidad</a>.</small>
+													</div>
+												</form>
 											</div>
-											<div class="mb-3 text-center">
-												<button id="button-3" type="submit" class="btn w-100 rounded-pill py-2">Inicia sesión</button>
-											</div>
-										</form>
-										<div class="d-flex align-items-center my-3">
-											<hr class="flex-grow-1" />
-											<span class="px-2 text-muted">o</span>
-											<hr class="flex-grow-1" />
-										</div>
-										<div class="mb-3">
-											<button type="button"
-												class="btn btn-light w-100 rounded-pill d-flex align-items-center justify-content-center gap-2 py-2">
-												<img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google" width="20" />
-												<span>Continua con Google</span>
-											</button>
-										</div>
-										<div class="text-center mt-4 mb-2 text-muted">
-											¿Todavía no tienes cuenta? <a href="#" data-bs-toggle="modal" data-bs-target="#signUp" class="text-decoration-none">Regístrate</a>
-										</div>
-										<div class="mt-3 text-center">
-											<a href="#" className="forget">¿Has olvidado tu contraseña?</a>
 										</div>
 									</div>
 								</div>
 							</div>
+						)
+					}
+				</div>
+			</div>
+
+			<div class="modal fade" data-bs-backdrop="static" id="forgotPassword" tabindex="-1" aria-labelledby="forgotPasswordLabel" aria-hidden="true">
+				<div class="modal-dialog modal-dialog-centered">
+					<div class="modal-content p-4 rounded-5">
+						<div class="modal-header border-0">
+							<h4 class="modal-title w-100 text-center mb-3" id="forgotPasswordLabel">Recuperar contraseña</h4>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
 						</div>
-						<button id="button-1" class="rounded-3 btn" data-bs-toggle="modal" data-bs-target="#signUp" > Regístrate </button>
-						<div class="modal fade" data-bs-backdrop="static" id="signUp" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-							<div class="modal-dialog modal-dialog-centered">
-								<div class="modal-content p-4 rounded-5">
-									<div class="modal-header border-0">
-										<h4 class="modal-title w-100 text-center mb-3" id="loginModalLabel">Registrate a SwipeStories</h4>
-										<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-									</div>
-									<div class="modal-body">
-										<form onSubmit={handleRegister}>
-											{/* <div class="mb-3">
-												<input type="text" class="form-control form-control-lg rounded-pill" placeholder="Tu nombre completo" />
-											</div> */}
-											<div class="mb-3">
-												<input type="email" class="form-control form-control-lg rounded-pill" placeholder="Tu correo electrónico"
-													value={email}
-													onChange={(e) => setemail(e.target.value)} />
-											</div>
-											{/* 											<div class="mb-3">
-												<input type="text" class="form-control form-control-lg rounded-pill" placeholder="Crea tu nombre de usuario" />
-											</div> */}
-											<div class="password-wrapper mb-3">
-												<input type="password" id="signUpPassword" class="form-control form-control-lg rounded-pill" placeholder="Tu contraseña"
-													value={password}
-													onChange={(e) => setpassword(e.target.value)}
-												/>
-												<button type="button" id="toggleSignupPassword" class="eye-btn" aria-label="Mostrar/Ocultar contraseña">
-													<svg id="eyeSignupOpen" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
-														<path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
-														<path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-													</svg>
-													<svg id="eyeSignupClosed" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon hidden">
-														<path stroke-linecap="round" stroke-linejoin="round" d="M3.98 8.223A10.477 10.477 0 0 0 1.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.451 10.451 0 0 1 12 4.5c4.756 0 8.773 3.162 10.065 7.498a10.522 10.522 0 0 1-4.293 5.774M6.228 6.228 3 3m3.228 3.228 3.65 3.65m7.894 7.894L21 21m-3.228-3.228-3.65-3.65m0 0a3 3 0 1 0-4.243-4.243m4.242 4.242L9.88 9.88" />
-													</svg>
-												</button>
-											</div>
-											{/* 											<div class="mb-3">
-												<input type="date" class="form-control form-control-lg rounded-pill" placeholder="Fecha de nacimiento" />
-											</div> */}
-											{/* 											<div class="d-flex form-check form-switch text-center mb-3 justify-content-center align-content-center">
-												<input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" />
-												<label class="form-check-label ms-2" for="flexSwitchCheckDefault">Recuérdame</label>
-											</div> */}
-											<div class="mb-3 text-center">
-												<button type="submit" id="button-3" class="btn w-100 rounded-pill py-2">Regístrame</button>
-											</div>
-											<div class="text-center mb-3 text-muted">
-												¿Ya tienes cuenta? <a href="#" data-bs-toggle="modal" data-bs-target="#logIn" class="text-decoration-none ">Inicia sesión</a>
-											</div>
-											<div class="text-center text-muted">
-												<small>Al continuar, estás aceptando nuestras <a href="#" data-bs-toggle="modal" data-bs-target="#condicionesDeServicio" class="text-decoration-none"> Condiciones de uso </a> y nuestra <a href="#" data-bs-toggle="modal" data-bs-target="#politicaPrivacidad" class="text-decoration-none"> Política de privacidad</a>.</small>
-											</div>
-										</form>
-									</div>
+						<div class="modal-body">
+							<div class="text-center mb-4">
+								<p class="text-muted">Ingresa tu correo electrónico y te enviaremos un enlace para recuperar tu contraseña.</p>
+							</div>
+							<form onSubmit={handleForgotPassword}>
+								<div class="mb-4">
+									<input
+										type="email"
+										class="form-control form-control-lg rounded-pill"
+										placeholder="Tu correo electrónico"
+										value={resetEmail}
+										onChange={(e) => setResetEmail(e.target.value)}
+										required
+									/>
 								</div>
+								<div class="mb-3 text-center">
+									<button type="submit" id="button-3" class="btn w-100 rounded-pill py-2">Enviar enlace de recuperación</button>
+								</div>
+							</form>
+							<div class="text-center mt-4 text-muted">
+								¿Recordaste tu contraseña? <a href="#" data-bs-toggle="modal" data-bs-target="#logIn" class="text-decoration-none">Inicia sesión</a>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
+
 			<div class="modal fade" data-bs-backdrop="static" id="condicionesDeServicio" tabindex="-1" aria-labelledby="condicionesLabel" aria-hidden="true">
 				<div class="modal-dialog modal-dialog-scrollable modal-lg">
 					<div class="modal-content p-4 rounded-5">
@@ -213,11 +280,12 @@ export const CustomNavbar = () => {
 					</div>
 				</div>
 			</div>
+
 			<div class="modal fade" data-bs-backdrop="static" id="politicaPrivacidad" tabindex="-1" aria-labelledby="politicaLabel" aria-hidden="true">
 				<div class="modal-dialog modal-dialog-scrollable modal-lg">
 					<div class="modal-content p-4 rounded-5">
 						<div class="modal-header">
-							<h3 id="condicionesLabel" class="text-center">Política de privacidad</h3>
+							<h3 id="politicaLabel" class="text-center">Política de privacidad</h3>
 							<button type="button" class="btn-close" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#signUp" aria-label="Cerrar"></button>
 						</div>
 						<div class="modal-body">
@@ -244,12 +312,11 @@ export const CustomNavbar = () => {
 							<h4>4. Compartir datos</h4>
 							<p>No vendemos ni compartimos tus datos con terceros, salvo que sea estrictamente necesario para operar el servicio (por ejemplo, servicios de análisis como Google Analytics).</p>
 							<h4>5. Tus derechos</h4>
-							<p>Tienes derecho a acceder, rectificar o eliminar tus datos personales. Para ejercer estos derechos, puedes escribirnos a <a href="mailto:contact@swipestories.com">contact@swipestories.com</a>.</p>
+							<p>Tienes derecho a acceder, rectificar o eliminar tus datos personales. Para ejercer estos derechos, puedes escribirnos a <a className="correo" href="mailto:contact@swipestories.com">contact@swipestories.com</a>.</p>
 						</div>
 					</div>
 				</div>
 			</div>
 		</>
-
 	);
 };
