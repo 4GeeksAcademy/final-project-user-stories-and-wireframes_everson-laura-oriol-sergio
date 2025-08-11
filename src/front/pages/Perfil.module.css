@@ -6,7 +6,7 @@
     padding-top: 10%;
     padding-bottom: 5%;
     min-height: 100vh;
-    background-color: #fef9f7;
+    background: #fef9f7;
     background-repeat: no-repeat;
     background-attachment: scroll;
     background-size: cover;
@@ -14,20 +14,32 @@
 
 .left {
     text-align: center;
+    width: 30%;
+    color: #2e2e2e;
+    background-color: #2e2e2e50;
+    border: 2px solid #2e2e2e;
+    display: flex;           
     align-items: center;
     justify-content: center;
-    width: 30%;
-
-    color: white;
-    background-color: black;
 }
 
 .right {
     text-align: center;
-    align-items: center;
-    justify-content: center;
     width: 60%;
+    color: #2e2e2e;
+    background-color: #2e2e2e50;
+    border: 2px solid #2e2e2e;
+    display: flex;         
+    align-items: center; 
+    justify-content: center;
+}
 
-    color: white;
-    background-color: black;
+.userPhoto {
+    padding-left: 25%;
+    padding-right: 25%;
+    padding-top: 40%;
+    padding-bottom: 30%;
+    border: 2px solid #2e2e2e;
+    text-align: center;
+    margin-bottom: 2rem;
 }
