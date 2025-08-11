@@ -1,10 +1,14 @@
+import os
+import uuid
 from flask import request, jsonify
 from werkzeug.security import generate_password_hash, check_password_hash
 from api.models import db, User
 from flask_jwt_extended import create_access_token
 from datetime import timedelta
 from api.mail import send_reset_email
-import uuid
+
+
+JWT_EXPIRE_DAYS = int(os.getenv("JWT_EXPIRE_DAYS", 1))
 
 
 def register_user():
@@ -29,8 +33,6 @@ def register_user():
 
 def login_user():
     data = request.get_json()
-    print("Login payload:", data)
-
     if not data or not data.get("email") or not data.get("password"):
         return jsonify({"msg": "Missing email or password"}), 400
 
@@ -39,9 +41,10 @@ def login_user():
     if not user or not user.password or not check_password_hash(user.password, data.get("password")):
         return jsonify({"msg": "Bad credentials"}), 401
 
-    token = create_access_token(
-        identity=user.id, expires_delta=timedelta(days=1))
-    return jsonify({"token": token, "user": user.serialize()}), 200
+
+    token = create_access_token(identity=user.id, expires_delta=timedelta(days=JWT_EXPIRE_DAYS))
+     test
+      return jsonify({"token": token, "user": user.serialize()}), 200
 
 
 def forgot_password():
@@ -53,6 +56,7 @@ def forgot_password():
     token = str(uuid.uuid4())
     user.reset_token = token
     db.session.commit()
+
     send_reset_email(user.email, token)
     return jsonify({"msg": "Password reset email sent"}), 200
 
