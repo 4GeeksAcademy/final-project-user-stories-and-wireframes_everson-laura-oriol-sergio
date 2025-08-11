@@ -1,6 +1,6 @@
 .container {
   padding-top: 7%;
-  padding-bottom: 9%;
+  padding-bottom: 5%;
   text-align: center;
   font-size: large;
   width: 100vw;
@@ -52,61 +52,77 @@
 .columns {
   display: inline-flex;
   margin-top: 6%;
-  gap: 5rem;
+  gap: 2rem;
 }
 
-.firstColumn {
-
+.firstColumn,
+.secondColumn,
+.thirdColumn {
+  background-color: #2e2e2e00;
+  border: 2px solid #2e2e2e00;
 }
 
-.firstColumnfirstElement {
-  
+.firstColumnFirstElement,
+.firstColumnSecondElement,
+.firstColumnThirdElement,
+.firstColumnFourthElement,
+.secondColumnFirstElement,
+.secondColumnSecondElement,
+.secondColumnThirdElement,
+.thirdColumnFirstElement,
+.thirdColumnSecondElement,
+.thirdColumnThirdElement,
+.thirdColumnFourthElement {
+  background-color: #2e2e2e50;
+  color: #2e2e2e;
+  display: flex;           
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 53vh;
+  margin-bottom: 2rem;
+  border: 2px solid #2e2e2e;
+}
+
+.firstColumnFirstElement {
+  height: 30vh;
 }
 
 .firstColumnSecondElement {
-  
+  height: 40vh;
 }
 
 .firstColumnThirdElement {
-  
+  height: 20vh;
 }
 
 .firstColumnFourthElement {
-  
+  height: 26vh;
 }
 
-.secondColumn {
-  
-}
-
-.secondColumnfirstElement {
-  
+.secondColumnFirstElement {
+  height: 50vh;
 }
 
 .secondColumnSecondElement {
-  
+  height: 30vh;
 }
 
 .secondColumnThirdElement {
-  
+  height: 40vh;
 }
 
-.thirdColumn {
-  
-}
-
-.thirdColumnfirstElement {
-  
+.thirdColumnFirstElement {
+  height: 26vh;
 }
 
 .thirdColumnSecondElement {
-  
+  height: 20vh;
 }
 
 .thirdColumnThirdElement {
-  
+  height: 40vh;
 }
-
 .thirdColumnFourthElement {
-  
+  height: 30vh;
 }
