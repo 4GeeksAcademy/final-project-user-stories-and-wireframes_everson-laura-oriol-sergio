@@ -3,6 +3,12 @@
   padding-bottom: 9%;
   text-align: center;
   font-size: large;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #fef9f7;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
 
   & a {
     color: #555;
@@ -81,4 +87,10 @@
   .grid {
     column-count: 1;
   }
+}
+
+.columns {
+  display: inline-flex;
+  margin-top: 6%;
+  gap: 5rem;
 }

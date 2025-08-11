@@ -150,6 +150,48 @@ export const Forms = () => {
         <div ref={lineRef} className={style.zigzagLine}></div>
       </Row>
 
+      <div className={style.columns}>
+        <div className={style.firstColumn}>
+          <div className={style.firstColumnFirstElement}>
+            a
+          </div>
+          <div className={style.firstColumnSecondElement}>
+            b
+          </div>
+          <div className={style.firstColumnThirdElement}>
+            c
+          </div>
+          <div className={style.firstColumnFourthElement}>
+            d
+          </div>
+        </div>
+        <div className={style.secondColumn}>
+          <div className={style.secondColumnFirstElement}>
+            a
+          </div>
+          <div className={style.secondColumnSecondElement}>
+            b
+          </div>
+          <div className={style.secondColumnThirdElement}>
+            c
+          </div>
+        </div>
+        <div className={style.thirdColumn}>
+          <div className={style.thirdColumnFirstElement}>
+            a
+          </div>
+          <div className={style.thirdColumnSecondElement}>
+            b
+          </div>
+          <div className={style.thirdColumnThirdElement}>
+            c
+          </div>
+          <div className={style.thirdColumnFourthElement}>
+            d
+          </div>
+        </div>
+      </div>
+
       <div className={style.grid}>
         {[...Array(11)].map((_, i) => (
           <div
