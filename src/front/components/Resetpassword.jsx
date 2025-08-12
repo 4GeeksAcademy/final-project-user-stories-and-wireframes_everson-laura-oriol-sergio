@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+
 
 export const Resetpassword = () => {
-
 
     return (
         <div className="container mt-5" style={{ maxWidth: "400px" }}>
