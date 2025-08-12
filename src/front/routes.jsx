@@ -12,6 +12,7 @@ import { Perfil } from "./pages/Perfil";
 import { History } from "./pages/History";
 import { Formulary } from "./pages/Formulary";
 import { Forms } from "./pages/Forms/Forms";
+import { Resetpassword } from "./components/Resetpassword";
 
 
 export const router = createBrowserRouter(
@@ -25,6 +26,7 @@ export const router = createBrowserRouter(
             <Route path="/demo" element={<Demo />} />
             <Route path="/formulary" element={<Formulary />} />
             <Route path="/forms" element={<Forms />} />
+            <Route path="/resetpassword" element={<Resetpassword />} />
 
         </Route>
     )
