@@ -1,20 +1,31 @@
+from flask_mail import Message, Mail
+from flask import current_app
+from itsdangerous import URLSafeTimedSerializer
 import os
-from sendgrid import SendGridAPIClient
-from sendgrid.helpers.mail import Mail
+
+mail = Mail()  
+
+def generate_reset_token(email):
+    serializer = URLSafeTimedSerializer(current_app.config['SECRET_KEY'])
+    return serializer.dumps(email, salt="password-reset-salt")
 
 def send_reset_email(to_email, token):
     frontend_url = os.getenv("FRONTEND_URL", "http://localhost:3000")
     reset_url = f"{frontend_url}/reset-password/{token}"
-    
-    message = Mail(
-        from_email=os.getenv("EMAIL_SENDER", "proyectswireframes@gmail.com"),
-        to_emails=to_email,
-        subject='Password Reset Request',
-        html_content=f"<p>Haz click aquí para restablecer tu contraseña: <a href='{reset_url}'>{reset_url}</a></p>"
+
+    msg = Message(
+        subject="Recuperación de contraseña",
+        recipients=[to_email],
+        html=f"""
+            <p>Hola,</p>
+            <p>Has solicitado restablecer tu contraseña. Haz clic en el enlace de abajo para continuar:</p>
+            <p><a href="{reset_url}">{reset_url}</a></p>
+            <p>Si no solicitaste este cambio, ignora este mensaje.</p>
+        """
     )
+
     try:
-        sg = SendGridAPIClient(os.getenv("SENDGRID_API_KEY"))
-        sg.send(message)
-        print(f"Email de reseteo enviado a {to_email}")
+        mail.send(msg)
+        print(f"Correo enviado correctamente a {to_email}")
     except Exception as e:
-        print(f"Error enviando email: {e}")
+        print(f"Error enviando correo: {e}")
