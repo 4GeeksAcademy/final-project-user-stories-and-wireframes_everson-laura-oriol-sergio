@@ -1,3 +1,4 @@
+import email
 import os
 import uuid
 from flask import request, jsonify
@@ -19,12 +20,14 @@ def register_user():
     if User.query.filter_by(email=data["email"]).first():
         return jsonify({"msg": "User already exists"}), 400
 
+    is_admin
+
     new_user = User(
         name=data["name"],
         email=data["email"],
         username=data["username"],
         password=generate_password_hash(data["password"]),
-        is_active=True
+        is_active=True,
     )
     db.session.add(new_user)
     db.session.commit()
@@ -43,7 +46,7 @@ def login_user():
 
     token = create_access_token(
         identity=user.id, expires_delta=timedelta(days=JWT_EXPIRE_DAYS))
-    
+
     return jsonify({"token": token, "user": user.serialize()}), 200
 
 
