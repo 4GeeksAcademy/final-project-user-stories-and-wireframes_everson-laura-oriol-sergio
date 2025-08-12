@@ -20,7 +20,7 @@ export const router = createBrowserRouter(
             <Route path="/single/:theId" element={<Single />} />
             <Route path="/demo" element={<Demo />} />
             <Route path="/forms" element={<Forms />} />
-            <Route path="/resetpassword" element={<Resetpassword />} />
+            <Route path="/reset-password/:token" element={<Resetpassword />} />
 
         </Route>
     )

@@ -1,3 +1,4 @@
+import email
 import os
 from datetime import timedelta
 from flask import request, jsonify
@@ -18,12 +19,14 @@ def register_user():
     if User.query.filter_by(email=data["email"]).first():
         return jsonify({"msg": "User already exists"}), 400
 
+    is_admin
+
     new_user = User(
         name=data.get("name"),
         email=data["email"],
         username=data.get("username"),
         password=generate_password_hash(data["password"]),
-        is_active=True
+        is_active=True,
     )
     db.session.add(new_user)
     db.session.commit()
@@ -41,8 +44,9 @@ def login_user():
         return jsonify({"msg": "Bad credentials"}), 401
 
     token = create_access_token(
-        identity=user.id, expires_delta=timedelta(days=JWT_EXPIRE_DAYS)
-    )
+
+        identity=user.id, expires_delta=timedelta(days=JWT_EXPIRE_DAYS))
+
 
     return jsonify({"token": token, "user": user.serialize()}), 200
 

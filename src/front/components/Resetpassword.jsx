@@ -1,6 +1,8 @@
+import { useParams } from "react-router-dom";
 
 
 export const Resetpassword = () => {
+    const { token } = useParams();
 
     return (
         <div className="container mt-5" style={{ maxWidth: "400px" }}>
