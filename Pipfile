@@ -23,6 +23,7 @@ python-dotenv = "*"
 werkzeug = "*"
 sendgrid = "*"
 openai = "*"
+flask-mail = "*"
 
 [requires]
 python_version = "3.13"

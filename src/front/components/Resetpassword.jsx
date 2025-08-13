@@ -1,9 +1,37 @@
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
-
 
 export const Resetpassword = () => {
     const { token } = useParams();
+    const [password, setPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
+    const [message, setMessage] = useState("");
+    const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        if (password !== confirmPassword) {
+            setMessage("Las contraseñas no coinciden.");
+            return;
+        }
+        try {
+            const res = await fetch(backendUrl + "api/reset-password", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ password, token })
+            });
+            const data = await res.json();
+            if (res.ok) {
+                setMessage("Contraseña restablecida correctamente.");
+            } else {
+                setMessage(data.msg || "Error al restablecer la contraseña.");
+            }
+        } catch (error) {
+            setMessage("Error al conectar con el servidor.");
+        }
+    };
     return (
         <div className="container mt-5" style={{ maxWidth: "400px" }}>
             <h2>Restablecer contraseña</h2>
