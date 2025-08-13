@@ -1,14 +1,14 @@
 .container {
-    width: 100%;
-    gap: 2rem;
-    justify-content: center;
-    padding-top: 10%;
-    padding-bottom: 5%;
-    min-height: 100vh;
-    background: #fef9f7;
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-    background-size: cover;
+  width: 100%;
+  gap: 2rem;
+  justify-content: center;
+  padding-top: 10%;
+  padding-bottom: 5%;
+  min-height: 100vh;
+  background: #fef9f7;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
 }
 
 .container {
@@ -31,8 +31,14 @@
   padding-bottom: 5px;
 }
 
-.row {
+.navs {
   width: 75%;
+  gap: 5rem;
+  margin-inline: auto;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .zigzagLine {
@@ -74,8 +80,6 @@
   border: 2px solid #2e2e2e00;
 }
 
-foto, nombre, apellidos, correo electrónico, fecha de nacimiento, enlaces a redes sociales, 
-
 .firstColumnFirstElement,
 .firstColumnSecondElement,
 .firstColumnThirdElement,
@@ -89,7 +93,7 @@ foto, nombre, apellidos, correo electrónico, fecha de nacimiento, enlaces a red
 .thirdColumnFourthElement {
   background-color: #2e2e2e50;
   color: #2e2e2e;
-  display: flex;           
+  display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
@@ -123,7 +127,7 @@ foto, nombre, apellidos, correo electrónico, fecha de nacimiento, enlaces a red
 }
 
 .secondColumnThirdElement {
-  height: 40vh;
+  height: 38vh;
 }
 
 .thirdColumnFirstElement {
@@ -140,4 +144,15 @@ foto, nombre, apellidos, correo electrónico, fecha de nacimiento, enlaces a red
 
 .thirdColumnFourthElement {
   height: 30vh;
+}
+
+.link {
+  color: #2e2e2e !important;
+}
+
+.link:hover,
+.link:focus,
+.link:active {
+  color: #2e2e2e !important;
+  text-decoration: none;
 }
