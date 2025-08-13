@@ -13,8 +13,6 @@ import { History } from "./pages/History";
 import { Formulary } from "./pages/Formulary";
 import { Forms } from "./pages/Forms/Forms";
 
-import { Forms } from "./pages/Forms/Forms";
-
 
 export const router = createBrowserRouter(
     createRoutesFromElements(
