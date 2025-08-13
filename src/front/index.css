@@ -19,10 +19,10 @@ body {
   height: 100%;
   background: linear-gradient(
     to bottom,
-    #bdd7de 0%,
-    #bdd7de 25%,
-    #583722 25%,
-    #583722 34%,
+    #fef9f7 0%,
+    #fef9f7 25%,
+    #2e2e2e 25%,
+    #2e2e2e 34%,
     #fef9f7 34%,
     #fef9f7 100%
   );
@@ -74,50 +74,50 @@ body {
 }
 
 #button-2 {
-  color: #583722;
-  border: 1.5px solid #583722;
-  background-color: #bdd7de00;
+  color: #2e2e2e;
+  border: 1.5px solid #2e2e2e;
+  background-color: #fef9f7;
 }
 
 #button-2:hover {
-  color: #bdd7de;
-  border: 1.5px solid #583722;
-  background-color: #583722;
+  color: #fef9f7;
+  border: 1.5px solid #2e2e2e;
+  background-color: #2e2e2e;
 }
 
 #button-2:active {
-  color: #583722;
-  border: 1.5px solid #583722;
-  background-color: #bdd7de00;
+  color: #2e2e2e;
+  border: 1.5px solid #2e2e2e;
+  background-color: #fef9f7;
 }
 
 #button-1 {
-  color: #583722;
-  border: 1.5px solid #583722;
-  background-color: #bdd7de00;
+  color: #2e2e2e;
+  border: 1.5px solid #2e2e2e;
+  background-color: #fef9f7;
 }
 
 #button-1:hover {
-  color: #bdd7de;
-  border: 1.5px solid #583722;
-  background-color: #583722;
+  color: #fef9f7;
+  border: 1.5px solid #2e2e2e;
+  background-color: #2e2e2e;
 }
 
 #button-1:active {
-  color: #583722;
-  border: 1.5px solid #583722;
-  background-color: #bdd7de00;
+  color: #2e2e2e;
+  border: 1.5px solid #2e2e2e;
+  background-color: #fef9f7;
 }
 
 .slogan {
   font-weight: 800;
   padding-top: 7.5%;
-  color: #583722;
+  color: #2e2e2e;
 }
 
 .slogan-2 {
   font-size: 3rem;
-  color: #bdd7de;
+  color: #fef9f7;
 }
 
 .slogan,
@@ -142,40 +142,40 @@ body {
 }
 
 #button-3 {
-  background-color: #bdd7de;
-  color: #583722;
-  border: 1.5px solid #bdd7de;
+  background-color: #fef9f7;
+  color: #2e2e2e;
+  border: 1.5px solid #2e2e2e;
   font-weight: 500;
 }
 
 #button-3:hover {
-  background-color: #583722;
-  color: #bdd7de;
-  border: 1.5px solid #583722;
+  background-color: #2e2e2e;
+  color: #fef9f7;
+  border: 1.5px solid #2e2e2e;
   font-weight: 500;
 }
 
 #button-3:active {
-  background-color: #bdd7de;
-  color: #583722;
-  border: 1.5px solid #bdd7de;
+  background-color: #fef9f7;
+  color: #2e2e2e;
+  border: 1.5px solid #2e2e2e;
   font-weight: 500;
 }
 
 .text-decoration-none {
-  color: #bdd7de;
+  color: #2e2e2e50;
 }
 
 .text-decoration-none:hover {
-  color: #583722;
+  color: #2e2e2e;
 }
 
 .text-decoration-none:active {
-  color: #583722;
+  color: #2e2e2e50;
 }
 
 .form-check-input:checked {
-  background-color: #583722 !important;
+  background-color: #2e2e2e !important;
   border: none;
 }
 
@@ -455,15 +455,15 @@ body {
 }
 
 .forget {
-  color: #bdd7de;
+  color: #2e2e2e50;
 }
 
 .forget:hover {
-  color: #583722;
+  color: #2e2e2e;
 }
 
 .forget:active {
-  color: #bdd7de;
+  color: #2e2e2e50;
 }
 
 a.text-white {
@@ -500,7 +500,7 @@ a.text-white {
 }
 
 .carousel-item-padding-40-px {
-  background-image: radial-gradient(circle, #583722, #bdd7de);
+  background-color: #2e2e2e;
   color: #fef9f7;
   padding-top: 1%;
   padding-bottom: 1%;
@@ -603,11 +603,11 @@ a.text-white {
 }
 
 .correo:hover {
-  color: #583722;
+  color: #2e2e2e;
 }
 
 .correo:active {
-  color: #bdd7de;
+  color: #fef9f7;
 }
 
 .name {
