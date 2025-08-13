@@ -14,7 +14,6 @@ flask-admin = "*"
 typing-extensions = "*"
 wtforms = "==3.1.2"
 sqlalchemy = "*"
-flask = "*"
 flask-sqlalchemy = "*"
 flask-cors = "*"
 flask-jwt-extended = "*"
@@ -23,10 +22,8 @@ werkzeug = "*"
 sendgrid = "*"
 openai = "*"
 flask-mail = "*"
-<<<<<<< HEAD
-=======
 flask-migrate = "*"
->>>>>>> 5d9b14055c5cc035b2e06bbef48fb31cf75f1683
+flask = "*"
 
 [requires]
 python_version = "3.13"
