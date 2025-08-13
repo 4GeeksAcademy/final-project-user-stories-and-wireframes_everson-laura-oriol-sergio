@@ -6,7 +6,6 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-flask-migrate = "*"
 flask-swagger = "*"
 psycopg2-binary = "*"
 gunicorn = "*"
@@ -24,6 +23,10 @@ werkzeug = "*"
 sendgrid = "*"
 openai = "*"
 flask-mail = "*"
+<<<<<<< HEAD
+=======
+flask-migrate = "*"
+>>>>>>> 5d9b14055c5cc035b2e06bbef48fb31cf75f1683
 
 [requires]
 python_version = "3.13"
