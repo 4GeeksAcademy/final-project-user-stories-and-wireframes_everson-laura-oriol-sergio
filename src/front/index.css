@@ -41,7 +41,9 @@ body {
 .navbar-hori {
   position: absolute;
 }
-
+.z-index-f {
+  z-index: 100000;
+}
 .navbar-hori a {
   text-decoration: none;
 }

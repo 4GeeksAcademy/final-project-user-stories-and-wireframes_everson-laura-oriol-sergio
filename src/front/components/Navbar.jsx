@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import logo from "../assets/img/logo.png"
 import { useState, useEffect, useRef } from "react";
 
+
 export const CustomNavbar = () => {
 
 	const [email, setemail] = useState("")
@@ -12,6 +13,8 @@ export const CustomNavbar = () => {
 	const [name, setName] = useState("")
 	const backendUrl = import.meta.env.VITE_BACKEND_URL
 	const [resetEmail, setResetEmail] = useState("")
+	const [showModal, setShowModal] = useState(false)
+	const [showPassword, setShowPassword] = useState(false)
 
 	const token = localStorage.getItem("token")
 
@@ -75,6 +78,7 @@ export const CustomNavbar = () => {
 		if (modal) {
 			modal.hide();
 		}
+		handleModal(false);
 	}
 	const handleForgotPassword = async (e) => {
 		e.preventDefault();
@@ -95,10 +99,17 @@ export const CustomNavbar = () => {
 			alert("Error al enviar el enlace de recuperación. Por favor, inténtalo de nuevo.");
 		}
 	};
-
+	const handleModal = () => {
+		setemail("")
+		setpassword("")
+		setShowModal(false)
+		setShowPassword(false)
+	}
 	return (
+
+
 		<>
-			<div class="container-fluid navbar-hori">
+			<div class={`container-fluid navbar-hori ${!showModal && "z-index-f"}`}>
 				<div class="navbar p-3">
 					<div>
 						<a href="/"><img class="logo" src={logo} /></a>
@@ -109,13 +120,13 @@ export const CustomNavbar = () => {
 
 						) : (
 							<div>
-								<button id="button-2" class="rounded-3 btn me-2" data-bs-toggle="modal" data-bs-target="#logIn">Inicia sesión</button>
+								<button id="button-2" class="rounded-3 btn me-2" data-bs-toggle="modal" data-bs-target="#logIn" onClick={() => setShowModal(true)}>Inicia sesión</button>
 								<div class="modal fade" id="logIn" tabindex="-1" data-bs-backdrop="static" aria-labelledby="loginModalLabel" aria-hidden="true">
 									<div class="modal-dialog modal-dialog-centered">
 										<div class="modal-content p-4 rounded-5">
 											<div class="modal-header border-0">
 												<h4 class="modal-title w-100 text-center mb-3" id="loginModalLabel">Bienvenid@ a SwipeStories</h4>
-												<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+												<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar" onClick={() => handleModal()}></button>
 											</div>
 											<div class="modal-body">
 												<form onSubmit={handleLogin}>
@@ -126,7 +137,8 @@ export const CustomNavbar = () => {
 															required />
 													</div>
 													<div class="password-wrapper mb-3">
-														<input type="password"
+														<input
+															type={showPassword ? "text" : "password"}
 															id="password"
 															class="form-control form-control-lg rounded-pill"
 															placeholder="Tu contraseña"
@@ -134,14 +146,19 @@ export const CustomNavbar = () => {
 															onChange={(e) => setpassword(e.target.value)}
 															required
 														/>
-														<button type="button" id="togglePassword" class="eye-btn" aria-label="Mostrar/Ocultar contraseña">
-															<svg id="eyeOpen" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
-																<path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
-																<path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-															</svg>
-															<svg id="eyeClosed" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon hidden">
-																<path stroke-linecap="round" stroke-linejoin="round" d="M3.98 8.223A10.477 10.477 0 0 0 1.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.451 10.451 0 0 1 12 4.5c4.756 0 8.773 3.162 10.065 7.498a10.522 10.522 0 0 1-4.293 5.774M6.228 6.228 3 3m3.228 3.228 3.65 3.65m7.894 7.894L21 21m-3.228-3.228-3.65-3.65m0 0a3 3 0 1 0-4.243-4.243m4.242 4.242L9.88 9.88" />
-															</svg>
+														<button onClick={() => setShowPassword(!showPassword)} type="button" id="togglePassword" class="eye-btn" aria-label="Mostrar/Ocultar contraseña">
+															{
+																showPassword ? (
+																	<svg id="eyeOpen" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
+																		<path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+																		<path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+																	</svg>
+																) : (
+																	<svg id="eyeClosed" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
+																		<path stroke-linecap="round" stroke-linejoin="round" d="M3.98 8.223A10.477 10.477 0 0 0 1.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.451 10.451 0 0 1 12 4.5c4.756 0 8.773 3.162 10.065 7.498a10.522 10.522 0 0 1-4.293 5.774M6.228 6.228 3 3m3.228 3.228 3.65 3.65m7.894 7.894L21 21m-3.228-3.228-3.65-3.65m0 0a3 3 0 1 0-4.243-4.243m4.242 4.242L9.88 9.88" />
+																	</svg>
+																)
+															}
 														</button>
 													</div>
 													<div class="mb-3 text-center">
@@ -171,14 +188,14 @@ export const CustomNavbar = () => {
 									</div>
 								</div>
 
-								<button id="button-1" class="rounded-3 btn" data-bs-toggle="modal" data-bs-target="#signUp" > Regístrate </button>
+								<button id="button-1" class="rounded-3 btn" data-bs-toggle="modal" data-bs-target="#signUp" onClick={() => setShowModal(true)}> Regístrate </button>
 								<div class="modal fade" data-bs-backdrop="static" id="signUp" tabindex="-1" aria-labelledby="signUpModalLabel" aria-hidden="true">
 									<div class="modal-dialog modal-dialog-centered">
 										<div class="modal-content p-4 rounded-5">
 											<div class="modal-header border-0">
 
 												<h4 class="modal-title w-100 text-center mb-3" id="signUpModalLabel">Registrate a SwipeStories</h4>
-												<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+												<button onClick={() => handleModal()} type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
 											</div>
 											<div class="modal-body">
 												<form onSubmit={handleRegister}>
@@ -201,19 +218,26 @@ export const CustomNavbar = () => {
 															required />
 													</div>
 													<div class="password-wrapper mb-3">
-														<input type="password" id="signUpPassword" class="form-control form-control-lg rounded-pill" placeholder="Tu contraseña"
+														<input
+															type={showPassword ? "text" : "password"}
+															id="signUpPassword" class="form-control form-control-lg rounded-pill" placeholder="Tu contraseña"
 															value={password}
 															onChange={(e) => setpassword(e.target.value)}
 															required
 														/>
-														<button type="button" id="toggleSignupPassword" class="eye-btn" aria-label="Mostrar/Ocultar contraseña">
-															<svg id="eyeSignupOpen" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
-																<path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
-																<path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-															</svg>
-															<svg id="eyeSignupClosed" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon hidden">
-																<path stroke-linecap="round" stroke-linejoin="round" d="M3.98 8.223A10.477 10.477 0 0 0 1.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.451 10.451 0 0 1 12 4.5c4.756 0 8.773 3.162 10.065 7.498a10.522 10.522 0 0 1-4.293 5.774M6.228 6.228 3 3m3.228 3.228 3.65 3.65m7.894 7.894L21 21m-3.228-3.228-3.65-3.65m0 0a3 3 0 1 0-4.243-4.243m4.242 4.242L9.88 9.88" />
-															</svg>
+														<button onClick={() => setShowPassword(!showPassword)} type="button" id="togglePassword" class="eye-btn" aria-label="Mostrar/Ocultar contraseña">
+															{
+																showPassword ? (
+																	<svg id="eyeOpen" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
+																		<path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+																		<path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+																	</svg>
+																) : (
+																	<svg id="eyeClosed" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
+																		<path stroke-linecap="round" stroke-linejoin="round" d="M3.98 8.223A10.477 10.477 0 0 0 1.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.451 10.451 0 0 1 12 4.5c4.756 0 8.773 3.162 10.065 7.498a10.522 10.522 0 0 1-4.293 5.774M6.228 6.228 3 3m3.228 3.228 3.65 3.65m7.894 7.894L21 21m-3.228-3.228-3.65-3.65m0 0a3 3 0 1 0-4.243-4.243m4.242 4.242L9.88 9.88" />
+																	</svg>
+																)
+															}
 														</button>
 													</div>
 													<div class="mb-3 text-center">
