@@ -5,47 +5,25 @@ import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 
 const responsive = {
-  superLargeDesktop: {
-    breakpoint: { max: 4000, min: 3000 },
-    items: 1
-  },
-  desktop: {
-    breakpoint: { max: 3000, min: 1024 },
-    items: 1
-  },
-  tablet: {
-    breakpoint: { max: 1024, min: 464 },
-    items: 1
-  },
-  mobile: {
-    breakpoint: { max: 464, min: 0 },
-    items: 1
-  }
+	superLargeDesktop: {
+		breakpoint: { max: 4000, min: 3000 },
+		items: 1
+	},
+	desktop: {
+		breakpoint: { max: 3000, min: 1024 },
+		items: 1
+	},
+	tablet: {
+		breakpoint: { max: 1024, min: 464 },
+		items: 1
+	},
+	mobile: {
+		breakpoint: { max: 464, min: 0 },
+		items: 1
+	}
 };
 
 export const Home = () => {
-	const { store, dispatch } = useGlobalReducer();
-
-	const loadMessage = async () => {
-		try {
-			const backendUrl = import.meta.env.VITE_BACKEND_URL;
-			if (!backendUrl) throw new Error("VITE_BACKEND_URL is not defined in .env file");
-
-			const response = await fetch(backendUrl + "/api/hello");
-			const data = await response.json();
-
-			if (response.ok) dispatch({ type: "set_hello", payload: data.message });
-			return data;
-		} catch (error) {
-			throw new Error(
-				"Could not fetch the message from the backend. Please check if the backend is running."
-			);
-		}
-	};
-
-	useEffect(() => {
-		loadMessage();
-	}, []);
 
 	return (
 		<div className="justify-content-center align-items-center text-center main">

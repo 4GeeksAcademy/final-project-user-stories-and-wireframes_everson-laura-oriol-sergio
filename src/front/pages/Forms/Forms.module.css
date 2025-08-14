@@ -10,6 +10,7 @@
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-size: cover;
+
 }
 
 .card {
@@ -64,3 +65,4 @@
   right: 20px;
   color: red;
 }
+
