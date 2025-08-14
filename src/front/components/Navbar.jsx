@@ -178,7 +178,7 @@ export const CustomNavbar = () => {
 													</button>
 												</div>
 												<div class="text-center mt-4 mb-2 text-muted">
-													¿Todavía no tienes cuenta? <a href="#" data-bs-toggle="modal" data-bs-target="#signUp" class="text-decoration-none">Regístrate</a>
+													¿Todavía no tienes cuenta? <a href="#" data-bs-toggle="modal" data-bs-target="#signUp" class="text-decoration-none" onClick={() => handleModal()}>Regístrate</a>
 												</div>
 												<div class="mt-3 text-center">
 													<a href="#" data-bs-toggle="modal" data-bs-target="#forgotPassword" className="forget">¿Has olvidado tu contraseña?</a>
@@ -244,7 +244,7 @@ export const CustomNavbar = () => {
 														<button type="submit" id="button-3" class="btn w-100 rounded-pill py-2">Regístrame</button>
 													</div>
 													<div class="text-center mb-3 text-muted">
-														¿Ya tienes cuenta? <a href="#" data-bs-toggle="modal" data-bs-target="#logIn" class="text-decoration-none ">Inicia sesión</a>
+														¿Ya tienes cuenta? <a href="#" data-bs-toggle="modal" data-bs-target="#logIn" class="text-decoration-none " onClick={()=>handleModal()}>Inicia sesión</a>
 													</div>
 													<div class="text-center text-muted">
 														<small>Al continuar, estás aceptando nuestras <a href="#" data-bs-toggle="modal" data-bs-target="#condicionesDeServicio" class="text-decoration-none"> Condiciones de uso </a> y nuestra <a href="#" data-bs-toggle="modal" data-bs-target="#politicaPrivacidad" class="text-decoration-none"> Política de privacidad</a>.</small>
