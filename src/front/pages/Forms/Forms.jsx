@@ -2,6 +2,7 @@ import { useState, useRef } from "react";
 import style from "./Forms.module.css";
 import { Container } from "react-bootstrap";
 
+
 const initialCards = [
   { text: "¿Quieres ver una pelicula?", emoji: "🎬", value: "Pelicula" },
   { text: "¿Quieres leer un libro?", emoji: "📚", value: "Libro" },
@@ -38,7 +39,6 @@ export const Forms = () => {
   const [labelOpacity, setLabelOpacity] = useState({ yes: 0, no: 0 });
   const startPos = useRef(null);
   const [answers, setAnswers] = useState([]);
-
 
 
   const handleStart = (x) => {
@@ -87,7 +87,8 @@ export const Forms = () => {
   };
 
   return (
-    <Container className={style.container}>
+    <Container fluid className={style.container}>
+
       {
         answers.length === 0 ? (
           <>

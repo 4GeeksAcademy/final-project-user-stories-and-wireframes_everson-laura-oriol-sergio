@@ -68,6 +68,7 @@ export const CustomNavbar = () => {
 		}
 	}
 
+
 	const closeModal = (modalId) => {
 		const modalElement = document.getElementById(modalId);
 		const modal = window.bootstrap.Modal.getInstance(modalElement);
@@ -175,6 +176,7 @@ export const CustomNavbar = () => {
 									<div class="modal-dialog modal-dialog-centered">
 										<div class="modal-content p-4 rounded-5">
 											<div class="modal-header border-0">
+
 												<h4 class="modal-title w-100 text-center mb-3" id="signUpModalLabel">Registrate a SwipeStories</h4>
 												<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
 											</div>
