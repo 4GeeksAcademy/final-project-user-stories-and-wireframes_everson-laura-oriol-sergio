@@ -57,14 +57,14 @@ export const Perfil = () => {
                     <li className={`${style.links} nav-item`} role="presentation">
                         <a href="#" className={`${style.link} nav-link`} id="historial" role="tab" aria-controls="pills-historial" aria-selected="false" data-bs-toggle="pill" data-bs-target="#pills-historial"> Mi historial </a>
                     </li>
-                    <li className={`${style.links} nav-item`} role="presentation">
-                        <a href="#" className={`${style.link} nav-link`} id="favoritos" role="tab" aria-controls="pills-favoritos" aria-selected="false" data-bs-toggle="pill" data-bs-target="#pills-favoritos"> Mis favoritos </a>
-                    </li>
                     <div ref={lineRef} className={style.zigzagLine}></div>
                 </ul>
             </Row>
             <div className="tab-content" id="pills-tabContent">
-                <div className={`${style.perfil} tab-pane fade show active`} id="pills-perfil" role="tabpanel" aria-labelledby="perfil">
+                <div className={`${style.perfil} tab-pane fade mt-5`} id="pills-perfil" role="tabpanel" aria-labelledby="perfil">
+                    Perfil de usuario
+                </div>
+                <div className={`${style.historial} tab-pane fade show active`} id="pills-historial" role="tabpanel" aria-labelledby="historial">
                     <div className={style.columns}>
                         <div className={style.firstColumn}>
                             <div className={`${style.firstColumnFirstElement} card rounded-5`}>
@@ -106,12 +106,6 @@ export const Perfil = () => {
                             </div>
                         </div>
                     </div>
-                </div>
-                <div className={`${style.historial} tab-pane fade mt-5`} id="pills-historial" role="tabpanel" aria-labelledby="historial">
-                    Contenido de historial
-                </div>
-                <div className={`${style.favoritos} tab-pane fade mt-5`} id="pills-favoritos" role="tabpanel" aria-labelledby="favoritos">
-                    Contenido de favoritos
                 </div>
             </div>
         </Container>
