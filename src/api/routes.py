@@ -10,6 +10,7 @@ from api.auth import register_user, login_user, forgot_password, reset_password
 from flask_jwt_extended import JWTManager
 from dotenv import load_dotenv
 from api.ai import get_recommendations
+from api.cards import cards_bp
 
 load_dotenv()
 
@@ -18,6 +19,7 @@ api = Blueprint('api', __name__)
 
 CORS(api)
 
+api.register_blueprint(cards_bp, url_prefix="/api")
 
 @api.route('/register', methods=['POST'])
 def register():

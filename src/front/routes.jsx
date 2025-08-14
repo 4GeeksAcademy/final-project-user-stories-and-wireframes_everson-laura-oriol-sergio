@@ -10,7 +10,7 @@ import { Demo } from "./pages/Demo";
 import { Perfil } from "./pages/Perfil";
 import { Forms } from "./pages/Forms/Forms";
 import { Resetpassword } from "./components/Resetpassword";
-
+import { AdminDashboard } from "./pages/Admin/AdminDashboard"; 
 
 export const router = createBrowserRouter(
     createRoutesFromElements(
@@ -21,7 +21,7 @@ export const router = createBrowserRouter(
             <Route path="/demo" element={<Demo />} />
             <Route path="/forms" element={<Forms />} />
             <Route path="/reset-password/:token" element={<Resetpassword />} />
-
+            <Route path="/admin" element={<AdminDashboard />} /> 
         </Route>
     )
 );
