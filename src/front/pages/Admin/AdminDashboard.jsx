@@ -1,14 +1,29 @@
-// src/pages/Admin/AdminDashboard.jsx
 import { useEffect, useState } from "react";
 import { Container, Row, Col, Card, Button, Modal, Form, InputGroup } from "react-bootstrap";
 
-const API = import.meta.env.VITE_BACKEND_URL + "/api";
+const BASE = (import.meta.env.VITE_BACKEND_URL || "").replace(/\/+$/,"");
+const API = `${BASE}/api`;
+
+// Lee el token guardado tras el login: localStorage.setItem("auth", JSON.stringify({ token, user }))
+function getAuthHeaders() {
+  try {
+    const raw = localStorage.getItem("auth"); // { token, user }
+    if (!raw) return { "Content-Type": "application/json" };
+    const { token } = JSON.parse(raw);
+    if (!token) return { "Content-Type": "application/json" };
+    return {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${token}`,
+    };
+  } catch {
+    return { "Content-Type": "application/json" };
+  }
+}
 
 export const AdminDashboard = () => {
   const [cards, setCards] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // modal crear/editar
   const [show, setShow] = useState(false);
   const [editing, setEditing] = useState(null);
   const [form, setForm] = useState({
@@ -24,9 +39,10 @@ export const AdminDashboard = () => {
     try {
       const res = await fetch(`${API}/cards`);
       const data = await res.json();
-      setCards(data);
+      setCards(Array.isArray(data) ? data : []);
     } catch (e) {
       console.error(e);
+      setCards([]);
     } finally {
       setLoading(false);
     }
@@ -62,14 +78,20 @@ export const AdminDashboard = () => {
   };
 
   const saveCard = async () => {
+    if (!form.text || !form.value || !form.relation) {
+      alert("Texto, Valor y Relación son obligatorios");
+      return;
+    }
     try {
       const method = editing ? "PUT" : "POST";
       const url = editing ? `${API}/cards/${editing}` : `${API}/cards`;
       const res = await fetch(url, {
         method,
-        headers: { "Content-Type": "application/json" },
+        headers: getAuthHeaders(), // ← token aquí
         body: JSON.stringify(form)
       });
+      if (res.status === 401) return alert("Debes iniciar sesión.");
+      if (res.status === 403) return alert("Acceso solo para administradores.");
       if (!res.ok) throw new Error("Error guardando la carta");
       await fetchCards();
       closeModal();
@@ -82,7 +104,9 @@ export const AdminDashboard = () => {
   const deleteCard = async (id) => {
     if (!confirm("¿Eliminar esta carta?")) return;
     try {
-      const res = await fetch(`${API}/cards/${id}`, { method: "DELETE" });
+      const res = await fetch(`${API}/cards/${id}`, { method: "DELETE", headers: getAuthHeaders() });
+      if (res.status === 401) return alert("Debes iniciar sesión.");
+      if (res.status === 403) return alert("Acceso solo para administradores.");
       if (!res.ok) throw new Error("Error eliminando la carta");
       setCards((prev) => prev.filter((c) => c.id !== id));
     } catch (e) {
