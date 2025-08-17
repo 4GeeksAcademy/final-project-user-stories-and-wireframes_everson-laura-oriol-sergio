@@ -1,24 +1,9 @@
 import { useEffect, useState } from "react";
 import { Container, Row, Col, Card, Button, Modal, Form, InputGroup } from "react-bootstrap";
 
-const BASE = (import.meta.env.VITE_BACKEND_URL || "").replace(/\/+$/,"");
+const BASE = (import.meta.env.VITE_BACKEND_URL || "").replace(/\/+$/, "");
 const API = `${BASE}/api`;
 
-// Lee el token guardado tras el login: localStorage.setItem("auth", JSON.stringify({ token, user }))
-function getAuthHeaders() {
-  try {
-    const raw = localStorage.getItem("auth"); // { token, user }
-    if (!raw) return { "Content-Type": "application/json" };
-    const { token } = JSON.parse(raw);
-    if (!token) return { "Content-Type": "application/json" };
-    return {
-      "Content-Type": "application/json",
-      "Authorization": `Bearer ${token}`,
-    };
-  } catch {
-    return { "Content-Type": "application/json" };
-  }
-}
 
 export const AdminDashboard = () => {
   const [cards, setCards] = useState([]);
@@ -33,6 +18,20 @@ export const AdminDashboard = () => {
     relation: "", // Pelicula | Serie | Libro
     img: ""
   });
+  const token = localStorage.getItem("token"); // { token, user }
+
+  function getAuthHeaders() {
+    try {
+      if (!token) return { "Content-Type": "application/json" };
+      return {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`,
+      };
+    } catch {
+      return { "Content-Type": "application/json" };
+    }
+  }
+
 
   const fetchCards = async () => {
     setLoading(true);
@@ -207,6 +206,13 @@ export const AdminDashboard = () => {
                   <option value="Pelicula">Pelicula</option>
                   <option value="Serie">Serie</option>
                   <option value="Libro">Libro</option>
+                  {
+                    cards.map((c) => {
+                      return (
+                        <option value={`${c.value}`}>{c.value}</option>
+                      )
+                    })
+                  }
                 </Form.Select>
               </Form.Group>
 
