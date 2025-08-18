@@ -156,3 +156,15 @@
   color: #2e2e2e !important;
   text-decoration: none;
 }
+
+.profile {
+  border: 1.5px solid #2e2e2e;
+  background-color: #2e2e2e50;
+  text-align: center;
+  align-items: center;
+  align-content: center;
+}
+
+label {
+  margin: 1rem;
+}
