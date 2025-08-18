@@ -1,0 +1,158 @@
+.container {
+  width: 100%;
+  gap: 2rem;
+  justify-content: center;
+  padding-top: 10%;
+  padding-bottom: 5%;
+  min-height: 100vh;
+  background: #fef9f7;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
+}
+
+.container {
+  padding-top: 7%;
+  padding-bottom: 5%;
+  text-align: center;
+  font-size: large;
+  width: 100vw;
+  min-height: 100vh;
+  background-color: #fef9f7;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  max-width: 100% !important;
+}
+
+.container a {
+  color: #2e2e2e;
+  text-decoration: none;
+  padding-bottom: 5px;
+}
+
+.navs {
+  width: 75%;
+  gap: 5rem;
+  margin-inline: auto;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.zigzagLine {
+  position: absolute;
+  bottom: -5px;
+  height: 6px;
+  width: 0;
+  pointer-events: none;
+  opacity: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 6 L10 0 L20 6 L30 0 L40 6' stroke='%232e2e2e' fill='transparent' stroke-width='2'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-size: auto 100%;
+  transition: all 5s ease;
+}
+
+.animateBackground {
+  animation: zigzagMove 20s linear infinite;
+}
+
+@keyframes zigzagMove {
+  from {
+    background-position-x: 0;
+  }
+  to {
+    background-position-x: 40px;
+  }
+}
+
+.columns {
+  display: inline-flex;
+  margin-top: 6%;
+  gap: 1rem;
+}
+
+.firstColumn,
+.secondColumn,
+.thirdColumn {
+  background-color: #2e2e2e00;
+  border: 2px solid #2e2e2e00;
+}
+
+.firstColumnFirstElement,
+.firstColumnSecondElement,
+.firstColumnThirdElement,
+.firstColumnFourthElement,
+.secondColumnFirstElement,
+.secondColumnSecondElement,
+.secondColumnThirdElement,
+.thirdColumnFirstElement,
+.thirdColumnSecondElement,
+.thirdColumnThirdElement,
+.thirdColumnFourthElement {
+  background-color: #2e2e2e50;
+  color: #2e2e2e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 53vh;
+  margin-bottom: 1rem;
+  border: 2px solid #2e2e2e;
+}
+
+.firstColumnFirstElement {
+  height: 30vh;
+}
+
+.firstColumnSecondElement {
+  height: 40vh;
+}
+
+.firstColumnThirdElement {
+  height: 20vh;
+}
+
+.firstColumnFourthElement {
+  height: 26vh;
+}
+
+.secondColumnFirstElement {
+  height: 50vh;
+}
+
+.secondColumnSecondElement {
+  height: 30vh;
+}
+
+.secondColumnThirdElement {
+  height: 38vh;
+}
+
+.thirdColumnFirstElement {
+  height: 26vh;
+}
+
+.thirdColumnSecondElement {
+  height: 20vh;
+}
+
+.thirdColumnThirdElement {
+  height: 40vh;
+}
+
+.thirdColumnFourthElement {
+  height: 30vh;
+}
+
+.link {
+  color: #2e2e2e !important;
+}
+
+.link:hover,
+.link:focus,
+.link:active {
+  color: #2e2e2e !important;
+  text-decoration: none;
+}
