@@ -19,28 +19,33 @@ body {
   height: 100%;
   background: linear-gradient(
     to bottom,
-    #ffffd6 0%,
-    #ffffd6 25%,
-    #CCCCFF 25%,
-    #CCCCFF 34%,
-    #fef9f7 34%,
+    #ffffcc 0%,
+    #ffffcc 24%,
+    #CCCCFF 24%,
+    #CCCCFF 32%,
+    #fef9f7 32%,
     #fef9f7 100%
   );
 }
 
 .logo {
   width: 50px;
-  height: 50px;
+}
+
+.start {
+  margin-top: 6%;
 }
 
 .start,
 .try {
   color: #2e2e2e;
+  font-size: medium;
 }
 
 .navbar-hori {
   position: absolute;
 }
+
 .z-index-f {
   z-index: 100000;
 }
@@ -75,51 +80,33 @@ body {
   transform: rotate(270deg);
 }
 
-#button-2 {
+#button-2, #button-1 {
   color: #2e2e2e;
   border: 1.5px solid #2e2e2e;
-  background-color: #fef9f7;
+  background-color: #fef9f700;
 }
 
-#button-2:hover {
+#button-2:hover, #button-1:hover {
   color: #fef9f7;
   border: 1.5px solid #2e2e2e;
   background-color: #2e2e2e;
 }
 
-#button-2:active {
+#button-2:active, #button-1:active {
   color: #2e2e2e;
   border: 1.5px solid #2e2e2e;
-  background-color: #fef9f7;
-}
-
-#button-1 {
-  color: #2e2e2e;
-  border: 1.5px solid #2e2e2e;
-  background-color: #fef9f7;
-}
-
-#button-1:hover {
-  color: #fef9f7;
-  border: 1.5px solid #2e2e2e;
-  background-color: #2e2e2e;
-}
-
-#button-1:active {
-  color: #2e2e2e;
-  border: 1.5px solid #2e2e2e;
-  background-color: #fef9f7;
+  background-color: #fef9f700;
 }
 
 .slogan {
   font-weight: 800;
-  padding-top: 7.5%;
+  padding-top: 5%;
   color: #ccccff;
 }
 
 .slogan-2 {
   font-size: 3rem;
-  color: #ffffd6;
+  color: #ffffcc;
 }
 
 .slogan,
@@ -144,28 +131,22 @@ body {
 }
 
 #button-3 {
-  background-color: #fef9f7;
+  background-color: #ffffcc;
   color: #2e2e2e;
-  border: 1.5px solid #2e2e2e;
-  font-weight: 500;
 }
 
 #button-3:hover {
   background-color: #2e2e2e;
-  color: #fef9f7;
-  border: 1.5px solid #2e2e2e;
-  font-weight: 500;
+  color: #ffffcc;
 }
 
 #button-3:active {
-  background-color: #fef9f7;
+  background-color: #ffffcc;
   color: #2e2e2e;
-  border: 1.5px solid #2e2e2e;
-  font-weight: 500;
 }
 
 .text-decoration-none {
-  color: #2e2e2e50;
+  color: #ccccff;
 }
 
 .text-decoration-none:hover {
@@ -173,7 +154,7 @@ body {
 }
 
 .text-decoration-none:active {
-  color: #2e2e2e50;
+  color: #ccccff;
 }
 
 .form-check-input:checked {
@@ -238,6 +219,7 @@ body {
 }
 
 @media screen and (max-width: 768px) {
+  
   .slogan {
     font-size: 3rem;
     padding: 0 1rem;
@@ -386,6 +368,12 @@ body {
   font-weight: 900;
 }
 
+.slogan-3 {
+  color: #2e2e2e;
+  font-size: large;
+  margin-bottom: 5%;
+}
+
 .wave-text span {
   display: inline-block;
   font-size: 6rem;
@@ -457,7 +445,7 @@ body {
 }
 
 .forget {
-  color: #2e2e2e50;
+  color: #ccccff;
 }
 
 .forget:hover {
@@ -472,7 +460,7 @@ a.text-white {
   text-decoration: none;
 }
 
-.fa-angle-down {
+.fa-angle-down, .fa-angle-up {
   margin-top: 1.5%;
   animation: pulse 0.5s infinite ease-in-out alternate;
   font-size: 1.5em;
@@ -502,11 +490,11 @@ a.text-white {
 }
 
 .carousel-item-padding-40-px {
-  background-color: #2e2e2e;
-  color: #fef9f7;
-  padding-top: 1%;
-  padding-bottom: 1%;
-  font-weight: 400;
+  background-image: radial-gradient(circle, #ffffcc, #ccccff);
+  color: #2e2e2e;
+  padding: 0.5%;
+  margin-top: 0.25%;
+  font-size: x-small;
 }
 
 @media screen and (max-width: 390px) {
@@ -598,6 +586,18 @@ a.text-white {
   transition: 0.5s;
 }
 
+.menu-list a {
+  color: #2e2e2e;
+}
+
+.menu-list a:hover {
+  color: #2e2e2e;
+}
+
+.menu-list a:active {
+  color: #2e2e2e;
+}
+
 .menu-list li::after {
   content: "";
   position: absolute;
@@ -643,7 +643,7 @@ a.text-white {
 }
 
 .menu-list li .title {
-  color: #fef9f7;
+  color: #2e2e2e;
   font-weight: 400;
   font-size: 1em;
   letter-spacing: 0.1em;
@@ -658,7 +658,7 @@ a.text-white {
 }
 
 .correo {
-  color: #bdd7de;
+  color: #ccccff;
   text-decoration: none;
 }
 
@@ -791,10 +791,6 @@ a.text-white {
   background-color: #2e2e2e50;
 }
 
-.idiomas .idioma a {
-  color: #2e2e2e;
-}
-
 @media (max-width: 768px) {
   .menu-list {
     flex-wrap: wrap;
@@ -844,3 +840,7 @@ a.text-white {
   }
 }
 
+.aboutUs {
+  justify-content: center;
+  align-content: center;
+}

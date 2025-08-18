@@ -247,7 +247,7 @@ export const CustomNavbar = () => {
 														¿Ya tienes cuenta? <a href="#" data-bs-toggle="modal" data-bs-target="#logIn" class="text-decoration-none " onClick={()=>handleModal()}>Inicia sesión</a>
 													</div>
 													<div class="text-center text-muted">
-														<small>Al continuar, estás aceptando nuestras <a href="#" data-bs-toggle="modal" data-bs-target="#condicionesDeServicio" class="text-decoration-none"> Condiciones de uso </a> y nuestra <a href="#" data-bs-toggle="modal" data-bs-target="#politicaPrivacidad" class="text-decoration-none"> Política de privacidad</a>.</small>
+														<small>Al continuar, estás aceptando nuestras <a href="#" data-bs-toggle="modal" data-bs-target="#condicionesDeServicio" className="text-decoration-none"> Condiciones de uso </a> y nuestra <a href="#" data-bs-toggle="modal" data-bs-target="#politicaPrivacidad" class="text-decoration-none"> Política de privacidad</a>.</small>
 													</div>
 												</form>
 											</div>

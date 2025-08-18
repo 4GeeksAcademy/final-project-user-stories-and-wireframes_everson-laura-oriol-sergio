@@ -67,85 +67,6 @@
   }
 }
 
-.columns {
-  display: inline-flex;
-  margin-top: 6%;
-  gap: 1rem;
-}
-
-.firstColumn,
-.secondColumn,
-.thirdColumn {
-  background-color: #2e2e2e00;
-  border: 2px solid #2e2e2e00;
-}
-
-.firstColumnFirstElement,
-.firstColumnSecondElement,
-.firstColumnThirdElement,
-.firstColumnFourthElement,
-.secondColumnFirstElement,
-.secondColumnSecondElement,
-.secondColumnThirdElement,
-.thirdColumnFirstElement,
-.thirdColumnSecondElement,
-.thirdColumnThirdElement,
-.thirdColumnFourthElement {
-  background-color: #2e2e2e50;
-  color: #2e2e2e;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  width: 53vh;
-  margin-bottom: 1rem;
-  border: 2px solid #2e2e2e;
-}
-
-.firstColumnFirstElement {
-  height: 30vh;
-}
-
-.firstColumnSecondElement {
-  height: 40vh;
-}
-
-.firstColumnThirdElement {
-  height: 20vh;
-}
-
-.firstColumnFourthElement {
-  height: 26vh;
-}
-
-.secondColumnFirstElement {
-  height: 50vh;
-}
-
-.secondColumnSecondElement {
-  height: 30vh;
-}
-
-.secondColumnThirdElement {
-  height: 38vh;
-}
-
-.thirdColumnFirstElement {
-  height: 26vh;
-}
-
-.thirdColumnSecondElement {
-  height: 20vh;
-}
-
-.thirdColumnThirdElement {
-  height: 40vh;
-}
-
-.thirdColumnFourthElement {
-  height: 30vh;
-}
-
 .link {
   color: #2e2e2e !important;
 }
@@ -160,4 +81,13 @@
 .profile {
   border: 1.5px solid #2e2e2e;
   background-color: #2e2e2e50;
+  text-align: center;
+  gap: 5rem;
+}
+
+
+
+input {
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
 }

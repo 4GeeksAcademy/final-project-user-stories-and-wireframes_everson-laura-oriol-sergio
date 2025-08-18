@@ -27,7 +27,7 @@ export const Home = () => {
 
 	return (
 		<div className="justify-content-center align-items-center text-center main">
-			<div className="wave-container d-flex w-50 m-auto pt-4">
+			<div className="wave-container d-flex w-50 m-auto pt-5">
 				<p className="wave-text slogan text-center">
 					<span>S</span>
 					<span>w</span>
@@ -46,7 +46,7 @@ export const Home = () => {
 				</p>
 			</div>
 			<div className="slogan-2 text-center mb-5">Desliza, descubre</div>
-			<div className="text-center mx-auto mt-5 start">¿Empezamos?</div>
+			<div className="text-center mx-auto start">¿Empezamos?</div>
 			<div className="text-center mx-auto mt-2 try">¡Pruébame!</div>
 			<div className="d-flex text-center mx-auto justify-content-center pt-4">
 				<div className="text-center"><i className="fa-solid fa-angle-down"></i></div>
@@ -67,13 +67,19 @@ export const Home = () => {
 				containerClass="carousel-container"
 				removeArrowOnDeviceType={["tablet", "mobile", "desktop"]}
 				itemClass="carousel-item-padding-40-px"
-				className="my-4 mx-5 rounded-5 mb-5">
-				<div className="quote large-quote">Estás a un solo “swipe” de decir adiós al aburrimiento.</div>
+				className="mt-2 mb-5">
+				<div className="quote large-quote">Estás a un solo swipe de decir adiós al aburrimiento.</div>
 				<div className="quote large-quote">Descubre géneros de los que jamás pensaste que formarías parte.</div>
-				<div className="quote large-quote">Realiza cuestionarios interactivos y revisa tu historial de respuestas.</div>
-				<div className="quote large-quote">Descubre qué ver. Qué leer. Qué vivir.</div>
-				<div className="quote large-quote">Recomendaciones que enganchan, recomendaciones que te cambian.</div>
+				<div className="quote large-quote">Realiza formularios deslizables y almacena tus respuestas.</div>
+				<div className="quote large-quote">Descubre qué ver, qué leer, qué vivir.</div>
+				<div className="quote large-quote">Recomendaciones que te enganchan y te cambian.</div>
 			</Carousel>
+
+			<div className="d-flex text-center mx-auto justify-content-center pb-4">
+				<div className="text-center"><i className="fa-solid fa-angle-up"></i></div>
+			</div>
+
+			<div className="text-center slogan-3">Deslízame y descubrirás todo lo que te ofrecemos.</div>
 		</div>
 	);
 };

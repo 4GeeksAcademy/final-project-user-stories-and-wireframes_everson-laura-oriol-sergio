@@ -62,18 +62,19 @@ export const Perfil = () => {
             </Row>
             <div className="tab-content" id="pills-tabContent">
                 <div className={`${style.perfil} tab-pane fade mt-5 show active`} id="pills-perfil" role="tabpanel" aria-labelledby="perfil">
-                    <div className={`${style.profile} rounded-5`}>
-                        <label htmlFor=""> Nombre y apellidos </label> <input type="text" placeholder=""/>
-                        <label htmlFor=""> Descripción y biografía </label> <input type="text" placeholder=""/>
-                        <label htmlFor=""> Género </label> <input type="text" placeholder=""/>
-                        <label htmlFor=""> Nacionalidad </label> <input type="text" placeholder=""/>
-                        <label htmlFor=""> Foto de usuario </label> <input type="text" placeholder=""/>
-                        <label htmlFor=""> Fecha de nacimiento </label> <input type="text" placeholder=""/>
-                        <label htmlFor=""> Enlaces a redes sociales </label> <input type="text" placeholder=""/>
-                        <label htmlFor=""> Nombre de usuario </label> <input type="text" placeholder=""/>
-                        <label htmlFor=""> Correo electrónico </label> <input type="text" placeholder=""/>
-                        <label htmlFor=""> Gestionar contraseña </label> <input type="text" placeholder=""/>
-                        <label htmlFor=""> Cerrar sesión </label> <input type="text" placeholder=""/>
+                    <div className={`${style.profile} rounded-5 w-50 mx-auto d-flex justify-content-center mb-5`}>
+                        <div className={`${style.info} justify-content-center`}>
+                            <div><input type="text" placeholder="Foto"/></div>
+                            <div><input type="text" placeholder="Nombre"/></div>
+                            <div><input type="text" placeholder="Usuario"/></div>
+                        </div>
+                        <div className={style.info}>
+                            <div><input type="text" placeholder="Género"/></div>
+                            <div><input type="text" placeholder="Nacionalidad"/></div>
+                            <div><input type="text" placeholder="Fecha de nacimiento"/></div>
+                            <div><input type="text" placeholder="Correo electrónico"/></div>
+                            <div><input type="text" placeholder="Gestionar contraseña"/></div>
+                        </div>
                     </div>
                 </div>
                 <div className={`${style.historial} tab-pane fade`} id="pills-historial" role="tabpanel" aria-labelledby="historial">
