@@ -16,8 +16,6 @@ class User(db.Model):
     password: Mapped[str] = mapped_column(nullable=False)
     is_active: Mapped[bool] = mapped_column(Boolean(), nullable=False)
     reset_token: Mapped[str] = mapped_column(String(256), nullable=True)
-    is_admin: Mapped[bool] = mapped_column(
-        Boolean(), default=False, nullable=False)
 
     def serialize(self):
         return {
@@ -25,7 +23,6 @@ class User(db.Model):
             "email": self.email,
             "name": self.name,
             "username": self.username,
-            "is_admin": self.is_admin,
             "is_active": self.is_active,
             "reset_token": self.reset_token
             # do not serialize the password, its a security breach
