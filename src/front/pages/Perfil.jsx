@@ -61,51 +61,23 @@ export const Perfil = () => {
                 </ul>
             </Row>
             <div className="tab-content" id="pills-tabContent">
-                <div className={`${style.perfil} tab-pane fade mt-5`} id="pills-perfil" role="tabpanel" aria-labelledby="perfil">
-                    Perfil de usuario
-                </div>
-                <div className={`${style.historial} tab-pane fade show active`} id="pills-historial" role="tabpanel" aria-labelledby="historial">
-                    <div className={style.columns}>
-                        <div className={style.firstColumn}>
-                            <div className={`${style.firstColumnFirstElement} card rounded-5`}>
-                                Nombres y apellidos
-                            </div>
-                            <div className={`${style.firstColumnSecondElement} card rounded-5`}>
-                                Descripción y biografía
-                            </div>
-                            <div className={`${style.firstColumnThirdElement} card rounded-5`}>
-                                Género
-                            </div>
-                            <div className={`${style.firstColumnFourthElement} card rounded-5`}>
-                                Nacionalidad
-                            </div>
-                        </div>
-                        <div className={style.secondColumn}>
-                            <div className={`${style.secondColumnFirstElement} card rounded-5`}>
-                                Foto de usuario
-                            </div>
-                            <div className={`${style.secondColumnSecondElement} card rounded-5`}>
-                                Fecha de nacimiento
-                            </div>
-                            <div className={`${style.secondColumnThirdElement} card rounded-5`}>
-                                Enlaces a redes sociales
-                            </div>
-                        </div>
-                        <div className={style.thirdColumn}>
-                            <div className={`${style.thirdColumnFirstElement} card rounded-5`}>
-                                Nombre de usuario
-                            </div>
-                            <div className={`${style.thirdColumnSecondElement} card rounded-5`}>
-                                Correo electrónico
-                            </div>
-                            <div className={`${style.thirdColumnThirdElement} card rounded-5`}>
-                                Gestionar contraseña
-                            </div>
-                            <div className={`${style.thirdColumnFourthElement} card rounded-5`}>
-                                Cerrar sesión
-                            </div>
-                        </div>
+                <div className={`${style.perfil} tab-pane fade mt-5 show active`} id="pills-perfil" role="tabpanel" aria-labelledby="perfil">
+                    <div className={`${style.profile} rounded-5`}>
+                        <label htmlFor=""> Nombre y apellidos </label> <input type="text" placeholder=""/>
+                        <label htmlFor=""> Descripción y biografía </label> <input type="text" placeholder=""/>
+                        <label htmlFor=""> Género </label> <input type="text" placeholder=""/>
+                        <label htmlFor=""> Nacionalidad </label> <input type="text" placeholder=""/>
+                        <label htmlFor=""> Foto de usuario </label> <input type="text" placeholder=""/>
+                        <label htmlFor=""> Fecha de nacimiento </label> <input type="text" placeholder=""/>
+                        <label htmlFor=""> Enlaces a redes sociales </label> <input type="text" placeholder=""/>
+                        <label htmlFor=""> Nombre de usuario </label> <input type="text" placeholder=""/>
+                        <label htmlFor=""> Correo electrónico </label> <input type="text" placeholder=""/>
+                        <label htmlFor=""> Gestionar contraseña </label> <input type="text" placeholder=""/>
+                        <label htmlFor=""> Cerrar sesión </label> <input type="text" placeholder=""/>
                     </div>
+                </div>
+                <div className={`${style.historial} tab-pane fade`} id="pills-historial" role="tabpanel" aria-labelledby="historial">
+                    x
                 </div>
             </div>
         </Container>
