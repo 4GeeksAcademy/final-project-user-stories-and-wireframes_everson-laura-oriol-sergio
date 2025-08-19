@@ -20,7 +20,7 @@ export const Resetpassword = () => {
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify({ password, token })
+                body: JSON.stringify({ "password": new_password, "token": token })
             });
             const data = await res.json();
             if (res.ok) {
