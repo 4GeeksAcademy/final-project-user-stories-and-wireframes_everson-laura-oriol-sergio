@@ -4,15 +4,19 @@ from sqlalchemy.orm import Mapped, mapped_column
 
 db = SQLAlchemy()
 
+
 class User(db.Model):
     id: Mapped[int] = mapped_column(primary_key=True)
     name: Mapped[str] = mapped_column(String(120), nullable=False)
-    email: Mapped[str] = mapped_column(String(120), unique=True, nullable=False)
-    username: Mapped[str] = mapped_column(String(120), unique=True, nullable=False)
+    email: Mapped[str] = mapped_column(
+        String(120), unique=True, nullable=False)
+    username: Mapped[str] = mapped_column(
+        String(120), unique=True, nullable=False)
     password: Mapped[str] = mapped_column(nullable=False)
     is_active: Mapped[bool] = mapped_column(Boolean(), nullable=False)
     reset_token: Mapped[str] = mapped_column(String(256), nullable=True)
-    is_admin: Mapped[bool] = mapped_column(Boolean(), default=False, nullable=False)
+    is_admin: Mapped[bool] = mapped_column(
+        Boolean(), default=False, nullable=False)
 
     def serialize(self):
         return {
@@ -23,6 +27,7 @@ class User(db.Model):
             "is_admin": self.is_admin,
             "is_active": self.is_active
         }
+
 
 class Card(db.Model):
     __tablename__ = 'cards'
@@ -40,5 +45,6 @@ class Card(db.Model):
             "emoji": self.emoji,
             "value": self.value,
             "relation": self.relation,
-            "img": self.img
+            "img": self.img,
+            "user": self.user.serialize() if self.user else None
         }
