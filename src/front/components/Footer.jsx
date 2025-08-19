@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import "flag-icons/css/flag-icons.min.css";
 
 export const Footer = () => {
   useEffect(() => {
