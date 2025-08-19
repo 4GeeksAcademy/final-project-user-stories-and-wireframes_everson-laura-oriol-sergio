@@ -2,6 +2,9 @@ import os
 import re
 import json
 from dotenv import load_dotenv
+from api.models import db, UserRecommendation
+
+
 
 load_dotenv()
 
@@ -173,3 +176,20 @@ def get_recommendations(category, preferences):
     except Exception as e:
         print(f" AI falló, usando mock: {e}")
         return generate_recommendations(category, preferences)
+
+
+def get_and_save_user_recommendations(user_id, category, preferences):
+    result = get_recommendations(category, preferences)
+
+    recommendation_titles = [r.get("title") for r in result.get("recommendations", [])]
+
+    rec = UserRecommendation(
+        user_id=user_id,
+        category=category,
+        preferences=preferences,
+        recommendations=recommendation_titles
+    )
+    db.session.add(rec)
+    db.session.commit()
+
+    return rec.serialize()

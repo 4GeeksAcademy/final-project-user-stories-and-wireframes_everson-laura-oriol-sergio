@@ -1,6 +1,8 @@
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import String, Boolean
 from sqlalchemy.orm import Mapped, mapped_column
+from sqlalchemy.dialects.postgresql import ARRAY
+from datetime import datetime
 
 db = SQLAlchemy()
 
@@ -47,4 +49,23 @@ class Card(db.Model):
             "relation": self.relation,
             "img": self.img,
             "user": self.user.serialize() if self.user else None
+        }
+
+
+class UserRecommendation(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    category = db.Column(db.String(50), nullable=False)
+    preferences = db.Column(ARRAY(db.String), nullable=False)
+    recommendations = db.Column(ARRAY(db.String), nullable=False)
+    created_at = db.Column(db.DateTime, default=datetime.utcnow)
+
+    def serialize(self):
+        return {
+            "id": self.id,
+            "user_id": self.user_id,
+            "category": self.category,
+            "preferences": self.preferences,
+            "recommendations": self.recommendations,
+            "created_at": self.created_at.isoformat()
         }
