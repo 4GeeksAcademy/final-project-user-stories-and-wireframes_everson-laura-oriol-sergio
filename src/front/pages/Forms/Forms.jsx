@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import style from "./Forms.module.css";
 import { Container } from "react-bootstrap";
 
@@ -38,7 +38,8 @@ export const Forms = () => {
   const [labelOpacity, setLabelOpacity] = useState({ yes: 0, no: 0 });
   const startPos = useRef(null);
   const [answers, setAnswers] = useState([]);
-
+  const [cards,setCards] = useState([]);
+  const [loading, setLoading] = useState(true);
 
 
   const handleStart = (x) => {
@@ -73,6 +74,24 @@ export const Forms = () => {
     }
     startPos.current = null;
   };
+
+  const fetchCards = async () => {
+      setLoading(true);
+      try {
+        const res = await fetch(`${API}/cards`);
+        const data = await res.json();
+        setCards(Array.isArray(data) ? data : []);
+      } catch (e) {
+        console.error(e);
+        setCards([]);
+      } finally {
+        setLoading(false);
+      }
+    };
+  
+    useEffect(() => {
+      fetchCards();
+    }, []);
 
   const animateOut = (direction, cards) => {
     setDragStyle({

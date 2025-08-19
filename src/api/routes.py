@@ -1,7 +1,11 @@
 import os
 from flask import request, jsonify, Blueprint
 from dotenv import load_dotenv
+from flask_jwt_extended import jwt_required, get_jwt_identity
 
+from api.models import User
+from api.ai import get_and_save_user_recommendations
+from api.models import UserRecommendation
 from api.auth import register_user, login_user, forgot_password, reset_password
 from api.ai import get_recommendations
 from api.cards import list_cards, create_card, update_card, delete_card
@@ -80,3 +84,35 @@ def http_delete_card(card_id):
     if not ok:
         return jsonify({"msg": err or "No se pudo eliminar"}), 400
     return jsonify({"msg": "Carta eliminada"}), 200
+
+
+# ---- Recommendations/History ---
+@api.route('/ai/recommend', methods=['POST'])
+@jwt_required()
+def recommend_and_save():
+    user_id = get_jwt_identity()
+    user = User.query.get(user_id)
+    if not user:
+        return jsonify({"msg": "Usuario no encontrado"}), 404
+
+    data = request.get_json() or {}
+    category = data.get("category")
+    preferences = data.get("preferences")
+
+    if category not in ["libros", "peliculas", "series"]:
+        return jsonify({"msg": "Categoría inválida"}), 400
+    if not preferences:
+        return jsonify({"msg": "Debes enviar tus preferencias"}), 400
+
+    try:
+        result = get_and_save_user_recommendations(user_id, category, preferences)
+        return jsonify(result), 201
+    except Exception as e:
+        return jsonify({"msg": f"Error al obtener recomendación: {str(e)}"}), 500
+
+@api.route('/ai/history', methods=['GET'])
+@jwt_required()
+def get_history():
+    user_id = get_jwt_identity()
+    recs = UserRecommendation.query.filter_by(user_id=user_id).order_by(UserRecommendation.created_at.desc()).all()
+    return jsonify([r.serialize() for r in recs]), 200
