@@ -12,7 +12,7 @@ def generate_reset_token(email):
 
 
 def send_reset_email(to_email, token):
-    frontend_url = os.getenv("FRONTEND_URL")
+    frontend_url = os.getenv("VITE_FRONT_END_URL")
     reset_url = f"{frontend_url}/reset-password/{token}"
     print(to_email)
     msg = Message(
