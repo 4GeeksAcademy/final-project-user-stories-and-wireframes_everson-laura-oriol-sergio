@@ -1,3 +1,52 @@
+:root {
+  --profile-bg: #fef9f7;
+  --links-color: #2e2e2e;
+  --links-after: #2e2e2e;
+  --profile-border: #2e2e2e;
+  --card-bg: #2e2e2e;
+  --profile-shadow: #2e2e2e50;
+  --text-color: #fef9f7;
+  --password-buttonBG: #ccccff;
+  --password-buttonTEXT: #2e2e2e;
+  --password-buttonBGhover: #ccccff;
+  --password-buttonTEXThover: #2e2e2e;
+  --password-buttonBGactive: #ccccff;
+  --password-buttonTEXTactive: #2e2e2e;
+  --close-buttonBG: #ffffcc;
+  --close-buttonTEXT: #2e2e2e;
+  --close-buttonBGhover: #ffffcc;
+  --close-buttonTEXThover: #2e2e2e;
+  --close-buttonBGactive: #ffffcc;
+  --close-buttonTEXTactive: #2e2e2e;
+}
+
+[data-theme="dark"] {
+  --profile-bg: linear-gradient(
+    to bottom,
+    #2e2e2e 0%,
+    #1e1e1e 50%,
+    #000000 100%
+  );
+  --links-color: #fef9f7;
+  --links-after: #fef9f7;
+  --profile-border: #fef9f7;
+  --card-bg: #fef9f7;
+  --profile-shadow: #fef9f750;
+  --text-color: #2e2e2e;
+  --password-buttonBG: #5353b2;
+  --password-buttonTEXT: #fef9f7;
+  --password-buttonBGhover: #5353b2;
+  --password-buttonTEXThover: #fef9f7;
+  --password-buttonBGactive: #5353b2;
+  --password-buttonTEXTactive: #fef9f7;
+  --close-buttonBG: #baba50;
+  --close-buttonTEXT: #fef9f7;
+  --close-buttonBGhover: #baba50;
+  --close-buttonTEXThover: #fef9f7;
+  --close-buttonBGactive: #baba50;
+  --close-buttonTEXTactive: #fef9f7;
+}
+
 .container {
   width: 100%;
   gap: 2rem;
@@ -5,10 +54,11 @@
   padding-top: 10%;
   padding-bottom: 5%;
   min-height: 100vh;
-  background: #fef9f7;
+  background: var(--profile-bg);
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-size: cover;
+  color: var(--text-color);
 }
 
 .container {
@@ -17,18 +67,8 @@
   text-align: center;
   font-size: large;
   width: 100vw;
-  min-height: 100vh;
-  background-color: #fef9f7;
-  background-repeat: no-repeat;
-  background-size: cover;
   background-position: center;
   max-width: 100% !important;
-}
-
-.container a {
-  color: #2e2e2e;
-  text-decoration: none;
-  padding-bottom: 5px;
 }
 
 .navs {
@@ -68,24 +108,61 @@
 }
 
 .link {
-  color: #2e2e2e !important;
+  color: var(--links-color);
+  text-decoration: none;
+  padding-bottom: 5px;
 }
 
 .link:hover,
 .link:focus,
 .link:active {
-  color: #2e2e2e !important;
+  color: var(--links-after);
   text-decoration: none;
 }
 
 .profile {
-  border: 1.5px solid #2e2e2e;
-  background-color: #2e2e2e50;
+  border: 1.5px solid var(--profile-border);
+  background-color: var(--card-bg);
   text-align: center;
   gap: 5rem;
+  box-shadow: 0 10px 25px var(--profile-shadow);
 }
 
 .info input {
   margin-top: 2.5rem;
   margin-bottom: 2.5rem;
 }
+
+.passwordButton {
+  color: var(--password-buttonTEXT);
+  background-color: var(--password-buttonBG);
+  margin-bottom: 14%;
+}
+
+.passwordButton:hover {
+  color: var(--password-buttonTEXThover);
+  background-color: var(--password-buttonBGhover);
+  margin-bottom: 14%;
+}
+
+.passwordButton:active {
+  color: var(--password-buttonTEXTactive);
+  background-color: var(--password-buttonBGactive);
+  margin-bottom: 14%;
+}
+
+.closeButton {
+  color: var(--close-buttonTEXT);
+  background-color: var(--close-buttonBG)
+}
+
+.closeButton:hover {
+  color: var(--close-buttonTEXThover);
+  background-color: var(--close-buttonBGhover)
+}
+
+.closeButton:active {
+  color: var(--close-buttonTEXTactive);
+  background-color: var(--close-buttonBGactive)
+}
+

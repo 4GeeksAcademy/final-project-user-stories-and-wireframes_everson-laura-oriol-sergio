@@ -62,18 +62,26 @@ export const Perfil = () => {
             </Row>
             <div className="tab-content" id="pills-tabContent">
                 <div className={`${style.perfil} tab-pane fade mt-5 show active`} id="pills-perfil" role="tabpanel" aria-labelledby="perfil">
-                    <div className={`${style.profile} rounded-5 w-50 mx-auto d-flex justify-content-center mb-5`}>
-                        <div className={`${style.info} justify-content-center`}>
-                            <div><input type="text" placeholder="Foto"/></div>
-                            <div><input type="text" placeholder="Nombre"/></div>
-                            <div><input type="text" placeholder="Usuario"/></div>
+                    <div className={`${style.profile} rounded-5 w-50 mx-auto d-flex justify-content-center mb-5 p-5`}>
+                        <div className={`${style.info} justify-content-center pt-4`}>
+                            <label>Nombre</label>
+                            <div><input type="text" className="form-control text-center w-100" placeholder="Nombre"/></div>
+                             <label>Username</label>
+                            <div><input type="text" className="form-control text-center w-100" placeholder="Username"/></div>
+                            <label>Correo electrónico</label>
+                            <div><input type="email" className="form-control text-center w-100" placeholder="Correo electrónico"/></div>
                         </div>
-                        <div className={style.info}>
-                            <div><input type="text" placeholder="Género"/></div>
-                            <div><input type="text" placeholder="Nacionalidad"/></div>
-                            <div><input type="text" placeholder="Fecha de nacimiento"/></div>
-                            <div><input type="text" placeholder="Correo electrónico"/></div>
-                            <div><input type="text" placeholder="Gestionar contraseña"/></div>
+                        <div className={`${style.info} justify-content-center pt-4`}>
+                            <label>Género</label>
+                            <div><input type="text" className="form-control text-center w-100" placeholder="Género"/></div>
+                            <label>Fecha de nacimiento</label>
+                            <div><input type="date" className="form-control text-center w-100" placeholder="Fecha de nacimiento"/></div>
+                            <div className={style.password}>
+                                <button className={`${style.passwordButton} btn w-100`} id="passwordButton">Gestionar contraseña</button>
+                            </div>
+                            <div className={style.close}>
+                                <button className={`${style.closeButton} btn w-100`} id="closeButton">Cerrar sesión</button>
+                            </div>
                         </div>
                     </div>
                 </div>

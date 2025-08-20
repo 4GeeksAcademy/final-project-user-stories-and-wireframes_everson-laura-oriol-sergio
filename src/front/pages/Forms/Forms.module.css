@@ -1,3 +1,26 @@
+:root {
+  --forms-bg: #fef9f7;
+  --card-text: #fef9f7;
+  --card-bg: #2e2e2e;
+  --card-shadow: #2e2e2e50;
+  --card-yes: rgb(68, 112, 68);
+  --card-no: rgb(136, 41, 41);
+}
+
+[data-theme="dark"] {
+  --forms-bg: linear-gradient(
+    to bottom,
+    #2e2e2e 0%,
+    #1e1e1e 50%,
+    #000000 100%
+  );
+  --card-text: #2e2e2e;
+  --card-bg: #fef9f7;
+  --card-shadow: #fef9f750;
+  --card-yes: rgb(181, 230, 181);
+  --card-no: rgb(240, 100, 100);
+}
+
 .container {
   display: flex;
   align-items: center;
@@ -6,22 +29,21 @@
   width: 100%;
   overflow: hidden;
   position: relative;
-  background: #fef9f7;
+  background: var(--forms-bg);
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-size: cover;
-
 }
 
 .card {
-  color: black;
+  color: var(--card-text);
   position: absolute;
   width: 280px;
   max-width: 90%;
   height: 400px;
-  background: white;
+  background: var(--card-bg);
   border-radius: 20px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 25px var(--card-shadow);
   padding: 30px;
   text-align: center;
   font-size: 20px;
@@ -58,10 +80,10 @@
 
 .yes {
   left: 20px;
-  color: green;
+  color: var(--card-yes);
 }
 
 .no {
   right: 20px;
-  color: red;
+  color: var(--card-no);
 }
