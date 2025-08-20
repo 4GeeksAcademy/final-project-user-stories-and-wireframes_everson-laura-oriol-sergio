@@ -62,76 +62,38 @@ export const Perfil = () => {
             </Row>
             <div className="tab-content" id="pills-tabContent">
                 <div className={`${style.perfil} tab-pane fade mt-5 show active`} id="pills-perfil" role="tabpanel" aria-labelledby="perfil">
-
-                    <div className={`${style.profile} rounded-5`}>
-                        <label>Nombre de usuario</label>
-                        <input type="text" />
-                        <br />
-                        <label>Nombres y apellidos</label>
-                        <input type="text" />
-                        <br />
-                        <label>Descripción y biografía</label>
-                        <input type="text" />
-                        <br />
-                        <label>Fecha de nacimiento</label>
-                        <input type="date" />
-                        <br />
-                        <label>Correo electrónico</label>
-                        <input type="email" />
-                        <label>Gestionar contraseña</label>
-                        <input type="text" />
-                        <label>Género</label>
-                        <input type="text" />
-                        <label>Nacionalidad</label>
-                        <input type="text" />
-                        <label>Enlaces a redes sociales</label>
-                        <input type="text" />
-                        <button>Cerrar sesión</button>
+                    <div className={`${style.profile} rounded-5 w-50 mx-auto d-flex justify-content-center mb-5 p-5`}>
+                        <div className={`${style.info} justify-content-center`}>
+                            <div>
+                                <label>Nombre</label>
+                                <input type="text" className="form-control" placeholder="Nombre" />
+                            </div>
+                            <div>
+                                <label>Usuario</label>
+                                <input type="text" className="form-control" placeholder="Usuario" />
+                            </div>
+                            <div>
+                                <button className="btn btn-primary">Gestionar contraseña</button>
+                            </div>
+                        </div>
+                        <div className={style.info}>
+                            <div>
+                                <label>Género</label>
+                                <input type="text" className="form-control" placeholder="Género" />
+                            </div>
+                            <div>
+                                <label>Fecha de nacimiento</label>
+                                <input type="date" className="form-control" placeholder="Fecha de nacimiento" />
+                            </div>
+                            <div>
+                                <label>Correo electrónico</label>
+                                <input type="email" className="form-control" placeholder="Correo electrónico" />
+                            </div>
+                        </div>
                     </div>
-
                 </div>
-                <div className={`${style.historial} tab-pane fade `} id="pills-historial" role="tabpanel" aria-labelledby="historial">
-                    <div className={style.columns}>
-                        <div className={style.firstColumn}>
-                            <div className={`${style.firstColumnFirstElement} card rounded-5`}>
-                                Nombres y apellidos
-                            </div>
-                            <div className={`${style.firstColumnSecondElement} card rounded-5`}>
-                                Descripción y biografía
-                            </div>
-                            <div className={`${style.firstColumnThirdElement} card rounded-5`}>
-                                Género
-                            </div>
-                            <div className={`${style.firstColumnFourthElement} card rounded-5`}>
-                                Nacionalidad
-                            </div>
-                        </div>
-                        <div className={style.secondColumn}>
-                            <div className={`${style.secondColumnFirstElement} card rounded-5`}>
-                                Foto de usuario
-                            </div>
-                            <div className={`${style.secondColumnSecondElement} card rounded-5`}>
-                                Fecha de nacimiento
-                            </div>
-                            <div className={`${style.secondColumnThirdElement} card rounded-5`}>
-                                Enlaces a redes sociales
-                            </div>
-                        </div>
-                        <div className={style.thirdColumn}>
-                            <div className={`${style.thirdColumnFirstElement} card rounded-5`}>
-                                Nombre de usuario
-                            </div>
-                            <div className={`${style.thirdColumnSecondElement} card rounded-5`}>
-                                Correo electrónico
-                            </div>
-                            <div className={`${style.thirdColumnThirdElement} card rounded-5`}>
-                                Gestionar contraseña
-                            </div>
-                            <div className={`${style.thirdColumnFourthElement} card rounded-5`}>
-                                Cerrar sesión
-                            </div>
-                        </div>
-                    </div>
+                <div className={`${style.historial} tab-pane fade`} id="pills-historial" role="tabpanel" aria-labelledby="historial">
+                    x
                 </div>
             </div>
         </Container>
