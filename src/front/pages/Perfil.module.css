@@ -3,21 +3,19 @@
   --links-color: #2e2e2e;
   --links-after: #2e2e2e;
   --profile-border: #2e2e2e;
-  --card-bg: #2e2e2e;
+  --card-bg: #ccccff;
   --profile-shadow: #2e2e2e50;
-  --text-color: #fef9f7;
-  --password-buttonBG: #ccccff;
+  --text-color: #2e2e2e;
+  --password-buttonBG: #ffffcc;
   --password-buttonTEXT: #2e2e2e;
-  --password-buttonBGhover: #ccccff;
-  --password-buttonTEXThover: #2e2e2e;
-  --password-buttonBGactive: #ccccff;
+  --password-buttonBorder: #2e2e2e;
+  --password-buttonBGhover: #2e2e2e;
+  --password-buttonTEXThover: #ffffcc;
+  --password-buttonBorderHOVER: #ffffcc;
+  --password-buttonBGactive: #ffffcc;
   --password-buttonTEXTactive: #2e2e2e;
-  --close-buttonBG: #ffffcc;
-  --close-buttonTEXT: #2e2e2e;
-  --close-buttonBGhover: #ffffcc;
-  --close-buttonTEXThover: #2e2e2e;
-  --close-buttonBGactive: #ffffcc;
-  --close-buttonTEXTactive: #2e2e2e;
+  --password-buttonBorderACTIVE: #2e2e2e;
+  --zigzag-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='8' viewBox='0 0 40 8'><path d='M0 4 Q10 0 20 4 T40 4' stroke='%232e2e2e' fill='transparent' stroke-width='2'/></svg>");
 }
 
 [data-theme="dark"] {
@@ -30,21 +28,19 @@
   --links-color: #fef9f7;
   --links-after: #fef9f7;
   --profile-border: #fef9f7;
-  --card-bg: #fef9f7;
+  --card-bg: #5353b2;
   --profile-shadow: #fef9f750;
-  --text-color: #2e2e2e;
-  --password-buttonBG: #5353b2;
+  --text-color: #fef9f7;
+  --password-buttonBG: #baba50;
   --password-buttonTEXT: #fef9f7;
-  --password-buttonBGhover: #5353b2;
-  --password-buttonTEXThover: #fef9f7;
-  --password-buttonBGactive: #5353b2;
+  --password-buttonBorder: #fef9f7;
+  --password-buttonBGhover: #fef9f7;
+  --password-buttonTEXThover: #baba50;
+  --password-buttonBorderHOVER: #baba50;
+  --password-buttonBGactive: #baba50;
   --password-buttonTEXTactive: #fef9f7;
-  --close-buttonBG: #baba50;
-  --close-buttonTEXT: #fef9f7;
-  --close-buttonBGhover: #baba50;
-  --close-buttonTEXThover: #fef9f7;
-  --close-buttonBGactive: #baba50;
-  --close-buttonTEXTactive: #fef9f7;
+  --password-buttonBorderACTIVE: #fef9f7;
+  --zigzag-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='8' viewBox='0 0 40 8'><path d='M0 4 Q10 0 20 4 T40 4' stroke='%23fef9f7' fill='transparent' stroke-width='2'/></svg>");
 }
 
 .container {
@@ -81,36 +77,44 @@
   align-items: center;
 }
 
-.zigzagLine {
-  position: absolute;
-  bottom: -5px;
-  height: 6px;
-  width: 0;
-  pointer-events: none;
-  opacity: 0;
-  background-image: url("data:image/svg+xml,%3Csvg width='40' height='6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 6 L10 0 L20 6 L30 0 L40 6' stroke='%232e2e2e' fill='transparent' stroke-width='2'/%3E%3C/svg%3E");
-  background-repeat: repeat-x;
-  background-size: auto 100%;
-  transition: all 5s ease;
+.profile {
+  border: 1.5px solid var(--profile-border);
+  background-color: var(--card-bg);
+  text-align: center;
+  gap: 6rem;
+  box-shadow: 0 10px 25px var(--profile-shadow);
+  padding-top: 3rem;
+  padding-bottom: 3rem;
 }
 
-.animateBackground {
-  animation: zigzagMove 20s linear infinite;
+.info input {
+  margin-top: 1rem;
 }
 
-@keyframes zigzagMove {
-  from {
-    background-position-x: 0;
-  }
-  to {
-    background-position-x: 40px;
-  }
+.passwordButton {
+  color: var(--password-buttonTEXT);
+  background-color: var(--password-buttonBG);
+  padding: 8.5%;
+  border: 1.5px solid var(--password-buttonBorder);
+}
+
+.passwordButton:hover {
+  color: var(--password-buttonTEXThover);
+  background-color: var(--password-buttonBGhover);
+  border: 1.5px solid var(--password-buttonBorderHOVER);
+}
+
+.passwordButton.passwordButton:active {
+  color: var(--password-buttonTEXTactive);
+  background-color: var(--password-buttonBGactive);
+  border: 1.5px solid var(--password-buttonBorderACTIVE);
 }
 
 .link {
   color: var(--links-color);
   text-decoration: none;
-  padding-bottom: 5px;
+  padding-bottom: 10%;
+  position: relative;
 }
 
 .link:hover,
@@ -120,48 +124,33 @@
   text-decoration: none;
 }
 
-.profile {
-  border: 1.5px solid var(--profile-border);
-  background-color: var(--card-bg);
-  text-align: center;
-  gap: 5rem;
-  box-shadow: 0 10px 25px var(--profile-shadow);
+.link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 8px;
+  width: 100%;
+  background-repeat: repeat-x;
+  background-position: 0 100%;
+  background-size: 40px 8px;
+  background-image: var(--zigzag-image);
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-.info input {
-  margin-top: 2.5rem;
-  margin-bottom: 2.5rem;
+.link:hover::after {
+  opacity: 1;
+  transform: translateY(0);
+  animation: wave 0.6s ease;
 }
 
-.passwordButton {
-  color: var(--password-buttonTEXT);
-  background-color: var(--password-buttonBG);
-  margin-bottom: 14%;
-}
-
-.passwordButton:hover {
-  color: var(--password-buttonTEXThover);
-  background-color: var(--password-buttonBGhover);
-  margin-bottom: 14%;
-}
-
-.passwordButton:active {
-  color: var(--password-buttonTEXTactive);
-  background-color: var(--password-buttonBGactive);
-  margin-bottom: 14%;
-}
-
-.closeButton {
-  color: var(--close-buttonTEXT);
-  background-color: var(--close-buttonBG)
-}
-
-.closeButton:hover {
-  color: var(--close-buttonTEXThover);
-  background-color: var(--close-buttonBGhover)
-}
-
-.closeButton:active {
-  color: var(--close-buttonTEXTactive);
-  background-color: var(--close-buttonBGactive)
+@keyframes wave {
+  0% {
+    background-position: 0 100%;
+  }
+  100% {
+    background-position: 40px 100%;
+  }
 }

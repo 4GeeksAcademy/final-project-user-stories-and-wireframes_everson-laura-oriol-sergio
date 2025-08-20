@@ -1,7 +1,7 @@
 :root {
   --forms-bg: #fef9f7;
   --card-text: #fef9f7;
-  --card-bg: #2e2e2e;
+  --cardform-bg: #2e2e2e;
   --card-shadow: #2e2e2e50;
   --card-yes: rgb(68, 112, 68);
   --card-no: rgb(136, 41, 41);
@@ -15,7 +15,7 @@
     #000000 100%
   );
   --card-text: #2e2e2e;
-  --card-bg: #fef9f7;
+  --cardform-bg: #fef9f7;
   --card-shadow: #fef9f750;
   --card-yes: rgb(181, 230, 181);
   --card-no: rgb(240, 100, 100);
@@ -41,7 +41,7 @@
   width: 280px;
   max-width: 90%;
   height: 400px;
-  background: var(--card-bg);
+  background: var(--cardform-bg);
   border-radius: 20px;
   box-shadow: 0 10px 25px var(--card-shadow);
   padding: 30px;
