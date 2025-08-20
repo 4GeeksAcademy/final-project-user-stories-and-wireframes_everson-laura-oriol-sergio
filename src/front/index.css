@@ -38,18 +38,27 @@
   --forget-Hover: #2e2e2e;
   --forget-active: #ccccff;
   --angles-icon: #2e2e2e;
+  --menuList-title: #2e2e2e;
+  --menuList-a: #2e2e2e;
+  --menuList-gradient: linear-gradient(to left, #ccccff 0%, #ffffcc 100%);
+  --menuList-ionIcons: #fef9f7;
+  --name-color: #fef9f7;
+  --world-icon: #fef9f7;
+  --world-Hover: #fef9f750;
+  --idiomas-Hover: #2e2e2e20;
+
 }
 
 [data-theme="dark"] {
-  --footer-bg: #2e2e2e;
+  --footer-bg: #000000;
   --container-main: linear-gradient(
     to bottom,
     #baba50 0%,
     #baba50 24%,
     #5353b2 24%,
     #5353b2 32%,
-    #484848 32%,
-    #484848 100%
+    #2e2e2e 32%,
+    #000000 100%
   );
   --slogan-text: #5353b2;
   --slogan2-text: #baba50;
@@ -80,6 +89,14 @@
   --forget-Hover: #2e2e2e;
   --forget-active: #5353b2;
   --angles-icon: #fef9f7;
+  --menuList-title: #fef9f7;
+  --menuList-a: #fef9f7;
+  --menuList-gradient: linear-gradient(to left, #baba50 0%, #5353b2 100%);
+  --menuList-ionIcons: #fef9f7;
+  --name-color: #fef9f7;
+  --world-icon: #fef9f7;
+  --world-Hover: #fef9f750;
+  --idiomas-Hover: #2e2e2e20;
 }
 
 * {
@@ -659,21 +676,9 @@ a.text-white {
   position: absolute;
   inset: 0;
   border-radius: 15px;
-  background: linear-gradient(45deg, var(--i), var(--j));
+  background: var(--menuList-gradient);
   opacity: 0;
   transition: 0.5s;
-}
-
-.menu-list a {
-  color: #2e2e2e;
-}
-
-.menu-list a:hover {
-  color: #2e2e2e;
-}
-
-.menu-list a:active {
-  color: #2e2e2e;
 }
 
 .menu-list li::after {
@@ -683,11 +688,19 @@ a.text-white {
   width: 100%;
   height: 100%;
   border-radius: 15px;
-  background: linear-gradient(45deg, var(--i), var(--j));
+  background-color: var(--menuList-gradient);
   transition: 0.5s;
   filter: blur(15px);
   z-index: -1;
   opacity: 0;
+}
+
+.menu-list .dropdown-menu li::before {
+  background: var(--idiomas-Hover);
+}
+
+.menu-list .dropdown-menu li::after {
+  background: var(--idiomas-Hover);
 }
 
 .menu-list li:hover {
@@ -703,7 +716,7 @@ a.text-white {
 }
 
 .menu-list li ion-icon {
-  color: #fef9f7;
+  color: var(--menuList-ionIcons);
   font-size: 1.5em;
   transition: 0.5s;
   margin: auto;
@@ -712,7 +725,6 @@ a.text-white {
 
 .menu-list li:hover ion-icon {
   transform: scale(0);
-  color: #fef9f7;
   transition-delay: 0s;
 }
 
@@ -721,7 +733,7 @@ a.text-white {
 }
 
 .menu-list li .title {
-  color: #2e2e2e;
+  color: var(--menuList-title);
   font-weight: 400;
   font-size: 1em;
   letter-spacing: 0.1em;
@@ -730,26 +742,21 @@ a.text-white {
   transition-delay: 0s;
 }
 
+.menu-list li .text-decoration-none {
+  color: var(--menuList-a);
+}
+
 .menu-list li:hover .title {
   transform: scale(1);
   transition-delay: 0.25s;
 }
 
 .correo {
-  color: #ccccff;
   text-decoration: none;
 }
 
-.correo:hover {
-  color: #2e2e2e;
-}
-
-.correo:active {
-  color: #fef9f7;
-}
-
 .name {
-  color: #fef9f7;
+  color: var(--name-color);
 }
 
 .sun-and-moon > :is(.moon, .sun, .sun-beams) {
@@ -841,13 +848,13 @@ a.text-white {
 #language {
   border: 1.5px solid #fef9f7;
   border-radius: 15px;
-  color: #fef9f7;
+  color: var(--world-icon);
 }
 
 #language:hover {
   border: 1.5px solid #fef9f750;
   border-radius: 15px;
-  color: #fef9f750;
+  color: var(--world-Hover)
 }
 
 .no-caret::after {
@@ -862,7 +869,7 @@ a.text-white {
 
 .idiomas .idioma:hover {
   width: 100%;
-  background-color: #2e2e2e50;
+  background-color: var(--idiomas-Hover);
 }
 
 @media (max-width: 768px) {

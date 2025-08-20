@@ -63,11 +63,11 @@ export const Footer = () => {
   return (
     <footer className="footer pb-4 pt-5">
       <ul className="menu-list justify-content-center">
-        <li style={{ '--i': '#ffffcc', '--j': '#ccccff' }}>
+        <li>
           <span className="icon"><ion-icon name="home-outline"></ion-icon></span>
           <span className="title"> <a href="/" className="text-decoration-none">Home</a></span>
         </li>
-        <li style={{ '--i': '#ccccff', '--j': '#ffffcc' }}>
+        <li>
           <span className="icon"><ion-icon name="information-circle-outline"></ion-icon></span>
           <span className="title"> <a href="#" data-bs-toggle="modal" data-bs-target="#aboutUs" className="text-decoration-none"> About us </a></span>
         </li>
@@ -75,11 +75,11 @@ export const Footer = () => {
           <span className="icon"><ion-icon name="document-outline"></ion-icon></span>
           <span className="title uso"> <a href="#" data-bs-toggle="modal" data-bs-target="#condicionesDeServicio2" className="text-decoration-none"> Condiciones de uso </a> </span>
         </li>
-        <li style={{ '--i': '#ccccff', '--j': '#ffffcc' }}>
+        <li>
           <span className="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
           <span className="title"> <a href="#" data-bs-toggle="modal" data-bs-target="#politicaPrivacidad2" className="text-decoration-none"> Política de privacidad</a> </span>
         </li>
-        <li style={{ '--i': '#ffffcc', '--j': '#ccccff' }}>
+        <li>
           <span className="icon"><ion-icon name="at-outline"></ion-icon></span>
           <span className="title">contact@swipestories.com</span>
         </li>
@@ -88,7 +88,7 @@ export const Footer = () => {
           <button id="language" type="button" className="btn px-3 dropdown-toggle no-caret" data-bs-toggle="dropdown">
             <i className="fa-solid fa-globe"></i>
           </button>
-          <ul className="dropdown-menu idiomas p-2">
+          <ul className="dropdown-menu rounded-5 idiomas p-2">
             <li className="idioma mb-2"><a className="dropdown-item" href="#">Español</a></li>
             <li className="idioma"><a className="dropdown-item" href="#">Inglés</a></li>
           </ul>
