@@ -81,6 +81,7 @@ export const Perfil = () => {
                             </div>
                             <div className={style.close}>
                                 <button className={`${style.closeButton} btn w-100`} id="closeButton">Cerrar sesión</button>
+
                             </div>
                         </div>
                     </div>
