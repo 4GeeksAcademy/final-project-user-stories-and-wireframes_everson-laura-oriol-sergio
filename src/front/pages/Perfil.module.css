@@ -154,3 +154,51 @@
     background-position: 40px 100%;
   }
 }
+
+@media (max-width: 992px) {
+
+  .profile {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .info {
+    width: 100%;
+  }
+
+  .info label {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+    padding: 10px;
+  }
+
+  .navs {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .profile {
+    width: 85% !important;
+    padding: 15px;
+  }
+
+  .info label {
+    font-size: 13px;
+  }
+
+  .passwordButton {
+    font-size: 14px;
+    padding: 8px 10px;
+  }
+
+  .navs {
+    margin-top: 30%;
+    display: flex;
+  }
+}

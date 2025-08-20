@@ -69,7 +69,7 @@
   --buttons12-text: #fef9f7;
   --buttons12-border: #fef9f7;
   --buttons12-bg: #2e2e2e00;
-  --buttons12-textHover: #baba50;
+  --buttons12-textHover: #2e2e2e;
   --buttons12-borderHover: #fef9f7;
   --buttons12-bgHover: #fef9f7;
   --buttons12-textActive: #fef9f7;
@@ -315,9 +315,22 @@ body {
 }
 
 @media screen and (max-width: 768px) {
+
+  .swipestories {
+    margin-top: 50%;
+  }
+
+  .swipestories2 {
+    margin-top: -15%;
+  }
+
   .slogan {
     font-size: 3rem;
     padding: 0 1rem;
+  }
+
+  #desliza {
+    margin-top: 10%;
   }
 
   .navbar {
@@ -358,10 +371,6 @@ body {
   #sticker4,
   #sticker5 {
     max-width: 90px;
-  }
-
-  .pageName {
-    font-size: 1.8rem;
   }
 
   #button-1,
@@ -872,6 +881,26 @@ a.text-white {
   background-color: var(--idiomas-Hover);
 }
 
+.aboutUs {
+  justify-content: center;
+  align-content: center;
+}
+
+footer.footer {
+  background-color: var(--footer-bg);
+}
+
+@media (max-width: 480px) {
+  .menu-list {
+    gap: 15px;
+  }
+
+  .menu-list li {
+    width: 50px !important;
+    height: 50px !important;
+  }
+}
+
 @media (max-width: 768px) {
   .menu-list {
     flex-wrap: wrap;
@@ -910,22 +939,60 @@ a.text-white {
   }
 }
 
-@media (max-width: 480px) {
-  .menu-list {
+/* ----------- FOOTER RESPONSIVE ----------- */
+@media (max-width: 768px) {
+
+  .logo {
+    margin-bottom: 10%;
+  }
+
+  .footer {
+    text-align: center;
+    padding: 20px 10px;
+  }
+
+  .footer .menu-list {
+    align-items: center;
     gap: 15px;
+    padding: 0;
   }
 
-  .menu-list li {
-    width: 50px !important;
-    height: 50px !important;
+  .footer .menu-list li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+  }
+
+  .footer .menu-list .icon {
+    font-size: 18px;
+  }
+
+  .footer .btn-group,
+  .footer .theme-toggle {
+    margin-top: 15px;
+  }
+
+  .footer .name {
+    margin-top: 20px;
+    font-size: 13px;
+    display: block;
+    text-align: center;
   }
 }
 
-.aboutUs {
-  justify-content: center;
-  align-content: center;
-}
+/* ----------- PARA PANTALLAS MUY PEQUEÑAS (móviles de 400px o menos) ----------- */
+@media (max-width: 400px) {
+  .footer .menu-list li {
+    font-size: 12px;
+  }
 
-footer.footer {
-  background-color: var(--footer-bg);
+  .footer .menu-list .icon {
+    font-size: 16px;
+  }
+
+  .footer .theme-toggle svg {
+    width: 20px;
+    height: 20px;
+  }
 }

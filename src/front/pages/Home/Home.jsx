@@ -36,14 +36,14 @@ export const Home = () => {
 				<img src="src/front/assets/img/pegatina5.png" class="sticker" draggable="false" id="sticker5" />
 			</div>*/}
 			<div className="wave-container d-flex w-50 m-auto pt-5">
-				<p className="wave-text slogan text-center">
+				<p className="wave-text slogan text-center swipestories">
 					<span>S</span>
 					<span>w</span>
 					<span>i</span>
 					<span>p</span>
 					<span>e</span>
 				</p>
-				<p className="wave-text slogan text-center">
+				<p className="wave-text slogan text-center swipestories2">
 					<span>S</span>
 					<span>t</span>
 					<span>o</span>
@@ -53,7 +53,7 @@ export const Home = () => {
 					<span>s</span>
 				</p>
 			</div>
-			<div className="slogan-2 text-center mb-5">Desliza, descubre</div>
+			<div className="slogan-2 text-center mb-5" id="desliza">Desliza, descubre</div>
 			<div className="text-center mx-auto start">¿Empezamos?</div>
 			<div className="text-center mx-auto mt-2 try">¡Pruébame!</div>
 			<div className="d-flex text-center mx-auto justify-content-center pt-4">

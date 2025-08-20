@@ -38,9 +38,9 @@
 .card {
   color: var(--card-text);
   position: absolute;
-  width: 280px;
+  width: 500px;
   max-width: 90%;
-  height: 400px;
+  height: 500px;
   background: var(--cardform-bg);
   border-radius: 20px;
   box-shadow: 0 10px 25px var(--card-shadow);
