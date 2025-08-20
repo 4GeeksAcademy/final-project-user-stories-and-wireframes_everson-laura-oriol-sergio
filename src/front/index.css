@@ -1,3 +1,87 @@
+:root {
+  --footer-bg: #2e2e2e;
+  --container-main: linear-gradient(
+    to bottom,
+    #ffffcc 0%,
+    #ffffcc 24%,
+    #ccccff 24%,
+    #ccccff 32%,
+    #fef9f7 32%,
+    #fef9f7 100%
+  );
+  --slogan-text: #ccccff;
+  --slogan2-text: #ffffcc;
+  --carousel-text: #2e2e2e;
+  --carousel-bg: radial-gradient(circle, #ffffcc, #ccccff);
+  --start-text: #2e2e2e;
+  --try-text: #2e2e2e;
+  --buttons12-text: #2e2e2e;
+  --buttons12-border: #2e2e2e;
+  --buttons12-bg: #fef9f700;
+  --buttons12-textHover: #fef9f7;
+  --buttons12-borderHover: #2e2e2e;
+  --buttons12-bgHover: #2e2e2e;
+  --buttons12-textActive: #2e2e2e;
+  --buttons12-borderActive: #2e2e2e;
+  --buttons12-bgActive: #fef9f700;
+  --button3-bg: #ffffcc;
+  --button3-text: #2e2e2e;
+  --button3-bgHover: #2e2e2e;
+  --button3-textHover: #ffffcc;
+  --button3-bgActive: #ffffcc;
+  --button3-textActive: #2e2e2e;
+  --tdn-color: #ccccff;
+  --tdn-colorHover: #2e2e2e;
+  --tdn-colorActive: #ccccff;
+  --slogan3-textColor: #2e2e2e;
+  --forget-text: #ccccff;
+  --forget-Hover: #2e2e2e;
+  --forget-active: #ccccff;
+  --angles-icon: #2e2e2e;
+}
+
+[data-theme="dark"] {
+  --footer-bg: #2e2e2e;
+  --container-main: linear-gradient(
+    to bottom,
+    #baba50 0%,
+    #baba50 24%,
+    #5353b2 24%,
+    #5353b2 32%,
+    #484848 32%,
+    #484848 100%
+  );
+  --slogan-text: #5353b2;
+  --slogan2-text: #baba50;
+  --carousel-text: #fef9f7;
+  --carousel-bg: radial-gradient(circle, #baba50, #5353b2);
+  --start-text: #fef9f7;
+  --try-text: #fef9f7;
+  --buttons12-text: #fef9f7;
+  --buttons12-border: #fef9f7;
+  --buttons12-bg: #2e2e2e00;
+  --buttons12-textHover: #baba50;
+  --buttons12-borderHover: #fef9f7;
+  --buttons12-bgHover: #fef9f7;
+  --buttons12-textActive: #fef9f7;
+  --buttons12-borderActive: #fef9f7;
+  --buttons12-bgActive: #2e2e2e00;
+  --button3-bg: #baba50;
+  --button3-text: #2e2e2e;
+  --button3-bgHover: #2e2e2e;
+  --button3-textHover: #baba50;
+  --button3-bgActive: #baba50;
+  --button3-textActive: #2e2e2e;
+  --tdn-color: #5353b2;
+  --tdn-colorHover: #2e2e2e;
+  --tdn-colorActive: #5353b2;
+  --slogan3-textColor: #fef9f7;
+  --forget-text: #5353b2;
+  --forget-Hover: #2e2e2e;
+  --forget-active: #5353b2;
+  --angles-icon: #fef9f7;
+}
+
 * {
   font-family: "Work Sans", sans-serif;
 }
@@ -13,19 +97,10 @@ body {
   background-size: cover;
   width: 100%;
   z-index: 0;
-  color: #2e2e2e;
   margin-bottom: 0;
   padding: 0;
   height: 100%;
-  background: linear-gradient(
-    to bottom,
-    #ffffcc 0%,
-    #ffffcc 24%,
-    #CCCCFF 24%,
-    #CCCCFF 32%,
-    #fef9f7 32%,
-    #fef9f7 100%
-  );
+  background: var(--container-main);
 }
 
 .logo {
@@ -34,11 +109,12 @@ body {
 
 .start {
   margin-top: 6%;
+  color: var(--start-text);
+  font-size: medium;
 }
 
-.start,
 .try {
-  color: #2e2e2e;
+  color: var(--try-text);
   font-size: medium;
 }
 
@@ -80,33 +156,36 @@ body {
   transform: rotate(270deg);
 }
 
-#button-2, #button-1 {
-  color: #2e2e2e;
-  border: 1.5px solid #2e2e2e;
-  background-color: #fef9f700;
+#button-2,
+#button-1 {
+  color: var(--buttons12-text);
+  border: 1.5px solid var(--buttons12-border);
+  background-color: var(--buttons12-bg);
 }
 
-#button-2:hover, #button-1:hover {
-  color: #fef9f7;
-  border: 1.5px solid #2e2e2e;
-  background-color: #2e2e2e;
+#button-2:hover,
+#button-1:hover {
+  color: var(--buttons12-textHover);
+  border: 1.5px solid var(--buttons12-borderHover);
+  background-color: var(--buttons12-bgHover);
 }
 
-#button-2:active, #button-1:active {
-  color: #2e2e2e;
-  border: 1.5px solid #2e2e2e;
-  background-color: #fef9f700;
+#button-2:active,
+#button-1:active {
+  color: var(--buttons12-textActive);
+  border: 1.5px solid var(--buttons12-borderActive);
+  background-color: var(--buttons12-bgActive);
 }
 
 .slogan {
   font-weight: 800;
   padding-top: 5%;
-  color: #ccccff;
+  color: var(--slogan-text);
 }
 
 .slogan-2 {
   font-size: 3rem;
-  color: #ffffcc;
+  color: var(--slogan2-text);
 }
 
 .slogan,
@@ -131,36 +210,36 @@ body {
 }
 
 #button-3 {
-  background-color: #ffffcc;
-  color: #2e2e2e;
+  background-color: var(--button3-bg);
+  color: var(--button3-text);
 }
 
 #button-3:hover {
-  background-color: #2e2e2e;
-  color: #ffffcc;
+  background-color: var(--button3-bgHover);
+  color: var(--button3-textHover);
 }
 
 #button-3:active {
-  background-color: #ffffcc;
-  color: #2e2e2e;
+  background-color: var(--button3-bgActive);
+  color: var(--button3-textActive);
 }
 
 .text-decoration-none {
-  color: #ccccff;
+  color: var(--tdn-color);
 }
 
 .text-decoration-none:hover {
-  color: #2e2e2e;
+  color: var(--tdn-colorHover);
 }
 
 .text-decoration-none:active {
-  color: #ccccff;
+  color: var(--tdn-colorActive);
 }
 
-.form-check-input:checked {
+/*.form-check-input:checked {
   background-color: #2e2e2e !important;
   border: none;
-}
+}*/
 
 .sticker-container {
   position: absolute;
@@ -219,7 +298,6 @@ body {
 }
 
 @media screen and (max-width: 768px) {
-  
   .slogan {
     font-size: 3rem;
     padding: 0 1rem;
@@ -369,7 +447,7 @@ body {
 }
 
 .slogan-3 {
-  color: #2e2e2e;
+  color: var(--slogan3-textColor);
   font-size: large;
   margin-bottom: 5%;
 }
@@ -445,26 +523,27 @@ body {
 }
 
 .forget {
-  color: #ccccff;
+  color: var(--forget-text);
 }
 
 .forget:hover {
-  color: #2e2e2e;
+  color: var(--forget-Hover);
 }
 
 .forget:active {
-  color: #2e2e2e50;
+  color: var(--forget-active);
 }
 
 a.text-white {
   text-decoration: none;
 }
 
-.fa-angle-down, .fa-angle-up {
+.fa-angle-down,
+.fa-angle-up {
   margin-top: 1.5%;
   animation: pulse 0.5s infinite ease-in-out alternate;
   font-size: 1.5em;
-  color: #2e2e2e;
+  color: var(--angles-icon)
 }
 @keyframes pulse {
   from {
@@ -490,15 +569,14 @@ a.text-white {
 }
 
 .carousel-item-padding-40-px {
-  background-image: radial-gradient(circle, #ffffcc, #ccccff);
-  color: #2e2e2e;
+  background-image: var(--carousel-bg);
+  color: var(--carousel-text);
   padding: 0.5%;
   margin-top: 0.25%;
   font-size: x-small;
 }
 
 @media screen and (max-width: 390px) {
-  
   .wave-container {
     flex-direction: column;
     width: 100% !important;
@@ -772,10 +850,6 @@ a.text-white {
   color: #fef9f750;
 }
 
-.footer {
-  background-color: #2e2e2e;
-}
-
 .no-caret::after {
   display: none !important;
 }
@@ -843,4 +917,8 @@ a.text-white {
 .aboutUs {
   justify-content: center;
   align-content: center;
+}
+
+footer.footer {
+  background-color: var(--footer-bg);
 }

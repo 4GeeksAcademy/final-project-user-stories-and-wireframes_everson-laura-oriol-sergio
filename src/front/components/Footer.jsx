@@ -37,14 +37,13 @@ export const Footer = () => {
       setPreference();
     }
 
-    reflectPreference(); // apply on initial render
+    reflectPreference();
 
     const toggleButton = document.querySelector('#theme-toggle');
     if (toggleButton) {
       toggleButton.addEventListener('click', onClick);
     }
 
-    // Escuchar cambios del sistema
     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
     const systemChangeHandler = ({ matches: isDark }) => {
       theme.value = isDark ? 'dark' : 'light';
@@ -53,7 +52,6 @@ export const Footer = () => {
 
     mediaQuery.addEventListener('change', systemChangeHandler);
 
-    // Limpieza al desmontar
     return () => {
       if (toggleButton) {
         toggleButton.removeEventListener('click', onClick);
