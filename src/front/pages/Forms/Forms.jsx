@@ -1,7 +1,9 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import style from "./Forms.module.css";
 import { Container } from "react-bootstrap";
 
+const BASE = (import.meta.env.VITE_BACKEND_URL || "").replace(/\/+$/, "");
+const API = `${BASE}/api`;
 
 const initialCards = [
   { text: "¿Quieres ver una pelicula?", emoji: "🎬", value: "Pelicula" },
@@ -9,29 +11,7 @@ const initialCards = [
   { text: "¿Quieres salir de casa?", emoji: "✈️", value: "Series" },
 ];
 
-const specificCards = {
-  Pelicula: [
-    { text: "¿Te gustan las comedias?", emoji: "😂", value: "Comedia" },
-    { text: "¿Prefieres películas de acción?", emoji: "💥", value: "Accion" },
-    { text: "¿Te interesan los dramas?", emoji: "🎭", value: "Drama" },
-    { text: "¿Te gustan los thrillers?", emoji: "🔍", value: "Thriller" },
-    { text: "¿Prefieres ciencia ficción?", emoji: "🚀", value: "SciFi" },
-  ],
-  Libro: [
-    { text: "¿Te gusta la ficción?", emoji: "📖", value: "Ficcion" },
-    { text: "¿Prefieres biografías?", emoji: "👤", value: "Biografia" },
-    { text: "¿Te interesan los libros de historia?", emoji: "🏛️", value: "Historia" },
-    { text: "¿Te gustan los misterios?", emoji: "🕵️", value: "Misterio" },
-    { text: "¿Prefieres autoayuda?", emoji: "💪", value: "Autoayuda" },
-  ],
-  Viaje: [
-    { text: "¿Te gusta la playa?", emoji: "🏖️", value: "Playa" },
-    { text: "¿Prefieres la montaña?", emoji: "🏔️", value: "Montana" },
-    { text: "¿Te interesan las ciudades?", emoji: "🏙️", value: "Ciudad" },
-    { text: "¿Te gusta la naturaleza?", emoji: "🌿", value: "Naturaleza" },
-    { text: "¿Prefieres aventuras extremas?", emoji: "🎢", value: "Aventura" },
-  ],
-};
+
 
 export const Forms = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -39,7 +19,9 @@ export const Forms = () => {
   const [labelOpacity, setLabelOpacity] = useState({ yes: 0, no: 0 });
   const startPos = useRef(null);
   const [answers, setAnswers] = useState([]);
-
+  const [cards, setCards] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [currentCards, setCurrentCards] = useState([])
 
   const handleStart = (x) => {
     startPos.current = x;
@@ -74,6 +56,23 @@ export const Forms = () => {
     startPos.current = null;
   };
 
+  const fetchCards = async () => {
+    setLoading(true);
+    try {
+      const res = await fetch(`${API}/cards`);
+      const data = await res.json();
+      setCards(Array.isArray(data) ? data : []);
+    } catch (e) {
+      console.error(e);
+      setCards([]);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+
+
+
   const animateOut = (direction, cards) => {
     setDragStyle({
       transform: `translateX(${direction * 1000}px) rotate(${direction * 45}deg)`,
@@ -86,6 +85,19 @@ export const Forms = () => {
     }, 500);
   };
 
+  useEffect(() => {
+    fetchCards();
+  }, []);
+
+  useEffect(() => {
+    setCurrentCards(cards.filter(c => c.relation === answers[answers.length - 1]))
+  }, [answers])
+  console.log(currentCards, "currentCards")
+  console.log(answers)
+
+  if (loading) {
+    return <span>Loading</span>
+  }
   return (
     <Container fluid className={style.container}>
 
@@ -145,11 +157,11 @@ export const Forms = () => {
           </>
         ) : (
           <>
-            {specificCards[answers[0]]
+            {currentCards
               .slice(currentIndex, currentIndex + 3)
               .map((card, index) => {
                 const isTop = index === 0;
-                const zIndex = specificCards[answers[0]].length - index;
+                const zIndex = currentCards.length - index;
                 const scale = 1 - index * 0.05;
                 const translateY = index * 10;
 
@@ -166,11 +178,11 @@ export const Forms = () => {
                     }}
                     onMouseDown={isTop ? (e) => handleStart(e.clientX) : null}
                     onMouseMove={isTop ? (e) => startPos.current !== null && handleMove(e.clientX) : null}
-                    onMouseUp={isTop ? (e) => handleEnd(e.clientX, specificCards[answers[0]]) : null}
-                    onMouseLeave={isTop ? (e) => startPos.current !== null && handleEnd(e.clientX, specificCards[answers[0]]) : null}
+                    onMouseUp={isTop ? (e) => handleEnd(e.clientX, currentCards) : null}
+                    onMouseLeave={isTop ? (e) => startPos.current !== null && handleEnd(e.clientX, currentCards) : null}
                     onTouchStart={isTop ? (e) => handleStart(e.touches[0].clientX) : null}
                     onTouchMove={isTop ? (e) => handleMove(e.touches[0].clientX) : null}
-                    onTouchEnd={isTop ? (e) => handleEnd(e.changedTouches[0].clientX, specificCards[answers[0]]) : null}
+                    onTouchEnd={isTop ? (e) => handleEnd(e.changedTouches[0].clientX, currentCards) : null}
                   >
                     {isTop && (
                       <>
