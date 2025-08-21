@@ -77,9 +77,10 @@ def reset_password():
         return jsonify({"msg": "Missing token or password"}), 400
 
     serializer = URLSafeTimedSerializer(
-        os.getenv('SECRET_KEY', "default_secret_key"))
+        os.getenv('SECRET_KEY'))
     try:
-        email = serializer.loads(token, salt=RESET_SALT, max_age=3600)
+        email = serializer.loads(
+            token, salt="password-reset-salt", max_age=3600)
     except SignatureExpired:
         return jsonify({"msg": "Token expired"}), 400
     except BadSignature:
