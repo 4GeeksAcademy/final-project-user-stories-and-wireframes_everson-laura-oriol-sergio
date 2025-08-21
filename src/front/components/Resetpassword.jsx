@@ -6,9 +6,10 @@ export const Resetpassword = () => {
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const [message, setMessage] = useState("");
-    const backendUrl = import.meta.env.VITE_BACKEND_URL;
+    const backendUrl = import.meta.env.VITE_BACKEND_URL + "/";
 
     const handleSubmit = async (e) => {
+        console.log("Token recibido:", token);
         e.preventDefault();
         if (password !== confirmPassword) {
             setMessage("Las contraseñas no coinciden.");
@@ -20,7 +21,7 @@ export const Resetpassword = () => {
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify({ "password": new_password, "token": token })
+                body: JSON.stringify({ "password": password, "token": token })
             });
             const data = await res.json();
             if (res.ok) {

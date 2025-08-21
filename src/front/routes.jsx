@@ -24,7 +24,7 @@ export const router = createBrowserRouter(
                 <Route path="/forms" element={<Forms />} />
                 <Route path="/admin" element={<AdminDashboard />} />
             </Route>
-            <Route path="/reset-password/:token" element={<Resetpassword />} />
+            <Route path="/reset-password/:token*" element={<Resetpassword />} />
 
         </>
     )
