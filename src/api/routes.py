@@ -3,17 +3,19 @@ from flask import request, jsonify, Blueprint
 from dotenv import load_dotenv
 from flask_jwt_extended import jwt_required, get_jwt_identity
 
+
 from api.models import User
 from api.ai import get_and_save_user_recommendations
 from api.models import UserRecommendation
 from api.auth import register_user, login_user, forgot_password, reset_password
 from api.ai import get_recommendations
-from api.cards import list_cards, create_card, update_card, delete_card
+from api.cards import list_cards, create_card, update_card, delete_card,seed_default_cards
 from api.decorators import admin_required
 
 load_dotenv()
 
 api = Blueprint('api', __name__)
+
 
 
 # ---- Auth ----
@@ -116,3 +118,13 @@ def get_history():
     user_id = get_jwt_identity()
     recs = UserRecommendation.query.filter_by(user_id=user_id).order_by(UserRecommendation.created_at.desc()).all()
     return jsonify([r.serialize() for r in recs]), 200
+
+
+#------ Cards Predeterminadas -------
+
+@api.route("/cards/seed", methods=["POST"])
+@admin_required
+def seed_cards():
+    cards = seed_default_cards()
+    return jsonify({"msg": f"{len(cards)} cartas creadas", "cards": cards}), 201
+

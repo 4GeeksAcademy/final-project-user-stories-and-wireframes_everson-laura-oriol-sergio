@@ -42,8 +42,12 @@ body {
   position: absolute;
 }
 .z-index-f {
-  z-index: 100000;
+  z-index: 10;
 }
+.modal {
+  z-index: 1000000;
+}
+
 .navbar-hori a {
   text-decoration: none;
 }
