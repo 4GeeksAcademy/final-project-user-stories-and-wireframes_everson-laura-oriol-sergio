@@ -48,7 +48,6 @@ class Card(db.Model):
             "value": self.value,
             "relation": self.relation,
             "img": self.img,
-            "user": self.user.serialize() if self.user else None
         }
 
 
