@@ -202,3 +202,34 @@
     display: flex;
   }
 }
+
+.boxtesthori {
+  background-color: crimson;
+  width: 100%;
+  height: 20rem;
+}
+.boxtesthori1 {
+  background-color: crimson;
+  width: 100%;
+  height: 30rem;
+}
+.boxtesthori2 {
+  background-color: crimson;
+  width: 100%;
+  height: 20rem;
+}
+.boxtesthori3 {
+  background-color: crimson;
+  width: 100%;
+  height: 30rem;
+}
+.boxtesthori4 {
+  background-color: crimson;
+  width: 100%;
+  height: 20rem;
+}
+.boxtesthori5 {
+  background-color: crimson;
+  width: 100%;
+  height: 30rem;
+}

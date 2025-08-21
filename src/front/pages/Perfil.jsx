@@ -1,6 +1,7 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import style from "../pages/Perfil.module.css";
 import { Container, Row } from "react-bootstrap";
+import Masonry, { ResponsiveMasonry } from "react-responsive-masonry"
 
 export const Perfil = () => {
     const lineRef = useRef(null);
@@ -61,34 +62,36 @@ export const Perfil = () => {
             </Row>
             <div className="tab-content" id="pills-tabContent">
                 <div className={`${style.perfil} tab-pane fade show active`} id="pills-perfil" role="tabpanel" aria-labelledby="perfil">
-                    <div className={`${style.profile} rounded-5 w-50 mx-auto mt-5 d-flex justify-content-center`}>
+                    <div className={`${style.profile} rounded-5 w-25 mx-auto mt-5 d-flex justify-content-center`}>
                         <div className={`${style.info}`}>
                             <label>Nombre</label>
-                            <div><input type="text" className="form-control text-center w-100" placeholder="Nombre"/></div>
+                            <div><input type="text" className="form-control text-center w-100" placeholder="Nombre" /></div>
+                            <br />
+                            <label>Usuario</label>
+                            <div><input type="text" className="form-control text-center w-100" placeholder="Usuario" /></div>
+                            <br />
+                            <label>Correo</label>
+                            <div><input type="email" className="form-control text-center w-100" placeholder="Correo" /></div>
                             <br />
                             <br />
-                            <label>Username</label>
-                            <div><input type="text" className="form-control text-center w-100" placeholder="Username"/></div>
-                            <br />
-                            <br />
-                            <label>Correo electrónico</label>
-                            <div><input type="email" className="form-control text-center w-100" placeholder="Correo electrónico"/></div>
-                        </div>
-                        <div className={`${style.info}`}>
-                            <label>Género</label>
-                            <div><input type="text" className="form-control text-center w-100" placeholder="Género"/></div>
-                            <br />
-                            <br />
-                            <label>Fecha de nacimiento</label>
-                            <div><input type="date" className="form-control text-center w-100" placeholder="Fecha de nacimiento"/></div>
-                            <br />
-                            <br />
-                            <button className={`${style.passwordButton} btn w-100 rounded-4`} id="passwordButton">Gestionar contraseña</button>
+                            <button className={`${style.passwordButton} btn w-100 rounded-4`} id="passwordButton">Guardar cambios</button>
                         </div>
                     </div>
                 </div>
                 <div className={`${style.historial} tab-pane fade`} id="pills-historial" role="tabpanel" aria-labelledby="historial">
-                    x
+                    <ResponsiveMasonry
+                        columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}
+                        gutterBreakPoints={{ 350: "12px", 750: "16px", 900: "24px" }}
+                    >
+                        <Masonry>
+                            <div className={style.boxtesthori}>1</div>
+                            <div className={style.boxtesthori1}>2</div>
+                            <div className={style.boxtesthori2}>3</div>
+                            <div className={style.boxtesthori3}>4</div>
+                            <div className={style.boxtesthori4}>5</div>
+                            <div className={style.boxtesthori5}>6</div>
+                        </Masonry>
+                    </ResponsiveMasonry>
                 </div>
             </div>
         </Container>
