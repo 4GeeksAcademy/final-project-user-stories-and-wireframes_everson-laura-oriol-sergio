@@ -57,61 +57,38 @@ export const Perfil = () => {
                     <li className={`${style.links} nav-item`} role="presentation">
                         <a href="#" className={`${style.link} nav-link`} id="historial" role="tab" aria-controls="pills-historial" aria-selected="false" data-bs-toggle="pill" data-bs-target="#pills-historial"> Mi historial </a>
                     </li>
-                    <li className={`${style.links} nav-item`} role="presentation">
-                        <a href="#" className={`${style.link} nav-link`} id="favoritos" role="tab" aria-controls="pills-favoritos" aria-selected="false" data-bs-toggle="pill" data-bs-target="#pills-favoritos"> Mis favoritos </a>
-                    </li>
-                    <div ref={lineRef} className={style.zigzagLine}></div>
                 </ul>
             </Row>
             <div className="tab-content" id="pills-tabContent">
                 <div className={`${style.perfil} tab-pane fade show active`} id="pills-perfil" role="tabpanel" aria-labelledby="perfil">
-                    <div className={style.columns}>
-                        <div className={style.firstColumn}>
-                            <div className={`${style.firstColumnFirstElement} card rounded-5`}>
-                                Nombres y apellidos
-                            </div>
-                            <div className={`${style.firstColumnSecondElement} card rounded-5`}>
-                                Descripción y biografía
-                            </div>
-                            <div className={`${style.firstColumnThirdElement} card rounded-5`}>
-                                Género
-                            </div>
-                            <div className={`${style.firstColumnFourthElement} card rounded-5`}>
-                                Nacionalidad
-                            </div>
+                    <div className={`${style.profile} rounded-5 w-50 mx-auto mt-5 d-flex justify-content-center`}>
+                        <div className={`${style.info}`}>
+                            <label>Nombre</label>
+                            <div><input type="text" className="form-control text-center w-100" placeholder="Nombre"/></div>
+                            <br />
+                            <br />
+                            <label>Username</label>
+                            <div><input type="text" className="form-control text-center w-100" placeholder="Username"/></div>
+                            <br />
+                            <br />
+                            <label>Correo electrónico</label>
+                            <div><input type="email" className="form-control text-center w-100" placeholder="Correo electrónico"/></div>
                         </div>
-                        <div className={style.secondColumn}>
-                            <div className={`${style.secondColumnFirstElement} card rounded-5`}>
-                                Foto de usuario
-                            </div>
-                            <div className={`${style.secondColumnSecondElement} card rounded-5`}>
-                                Fecha de nacimiento
-                            </div>
-                            <div className={`${style.secondColumnThirdElement} card rounded-5`}>
-                                Enlaces a redes sociales
-                            </div>
-                        </div>
-                        <div className={style.thirdColumn}>
-                            <div className={`${style.thirdColumnFirstElement} card rounded-5`}>
-                                Nombre de usuario
-                            </div>
-                            <div className={`${style.thirdColumnSecondElement} card rounded-5`}>
-                                Correo electrónico
-                            </div>
-                            <div className={`${style.thirdColumnThirdElement} card rounded-5`}>
-                                Gestionar contraseña
-                            </div>
-                            <div className={`${style.thirdColumnFourthElement} card rounded-5`}>
-                                Cerrar sesión
-                            </div>
+                        <div className={`${style.info}`}>
+                            <label>Género</label>
+                            <div><input type="text" className="form-control text-center w-100" placeholder="Género"/></div>
+                            <br />
+                            <br />
+                            <label>Fecha de nacimiento</label>
+                            <div><input type="date" className="form-control text-center w-100" placeholder="Fecha de nacimiento"/></div>
+                            <br />
+                            <br />
+                            <button className={`${style.passwordButton} btn w-100 rounded-4`} id="passwordButton">Gestionar contraseña</button>
                         </div>
                     </div>
                 </div>
-                <div className={`${style.historial} tab-pane fade mt-5`} id="pills-historial" role="tabpanel" aria-labelledby="historial">
-                    Contenido de historial
-                </div>
-                <div className={`${style.favoritos} tab-pane fade mt-5`} id="pills-favoritos" role="tabpanel" aria-labelledby="favoritos">
-                    Contenido de favoritos
+                <div className={`${style.historial} tab-pane fade`} id="pills-historial" role="tabpanel" aria-labelledby="historial">
+                    x
                 </div>
             </div>
         </Container>
