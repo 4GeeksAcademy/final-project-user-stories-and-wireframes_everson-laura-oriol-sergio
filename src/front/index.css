@@ -155,13 +155,9 @@ body {
 .navbar-hori {
   position: absolute;
 }
-
-/*.z-index-f {
-  z-index: 10;
+.z-index-f {
+  z-index: 1056;
 }
-.modal {
-  z-index: 1000000;
-}*/
 
 .navbar-hori a {
   text-decoration: none;
