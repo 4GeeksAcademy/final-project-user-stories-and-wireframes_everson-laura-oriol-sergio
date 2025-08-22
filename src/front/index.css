@@ -341,14 +341,14 @@ body {
 #sticker4 {
   top: 90%;
   right: 10%;
-  transform: rotate(-8deg);
+  transform: rotate(15deg);
   touch-action: none;
 }
 
 #sticker5 {
   top: 50%;
   left: 70%;
-  transform: rotate(10deg);
+  transform: rotate(-10deg);
   touch-action: none;
 }
 
