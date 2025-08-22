@@ -1,24 +1,29 @@
 :root {
-  --forms-bg: #fef9f7;
-  --card-text: #fef9f7;
-  --cardform-bg: #2e2e2e;
-  --card-shadow: #2e2e2e50;
-  --card-yes: rgb(68, 112, 68);
-  --card-no: rgb(136, 41, 41);
+  --forms-bg: linear-gradient(
+    to bottom,
+    #ffffff 0%,
+    #eeeeee 50%,
+    #dddddd 100%
+  );
+  --card-text: white;
+  --cardform-bg: black;
+  --card-shadow: rgba(0, 0, 0, 0.5);
+  --card-yes: #066BA2;
+  --card-no: #800000;
 }
 
 [data-theme="dark"] {
   --forms-bg: linear-gradient(
     to bottom,
-    #2e2e2e 0%,
-    #1e1e1e 50%,
+    #222222 0%,
+    #111111 50%,
     #000000 100%
   );
-  --card-text: #2e2e2e;
-  --cardform-bg: #fef9f7;
-  --card-shadow: #fef9f750;
-  --card-yes: rgb(181, 230, 181);
-  --card-no: rgb(240, 100, 100);
+  --card-text: black;
+  --cardform-bg: white;
+  --card-shadow: rgba(255, 255, 255, 0.5);
+  --card-yes: #9EC5DA;
+  --card-no: #D34848;
 }
 
 .container {

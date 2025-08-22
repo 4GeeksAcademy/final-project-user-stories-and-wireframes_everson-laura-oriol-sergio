@@ -1,46 +1,51 @@
 :root {
-  --profile-bg: #fef9f7;
-  --links-color: #2e2e2e;
-  --links-after: #2e2e2e;
-  --profile-border: #2e2e2e;
-  --card-bg: #ccccff;
-  --profile-shadow: #2e2e2e50;
-  --text-color: #2e2e2e;
-  --password-buttonBG: #ffffcc;
-  --password-buttonTEXT: #2e2e2e;
-  --password-buttonBorder: #2e2e2e;
-  --password-buttonBGhover: #2e2e2e;
-  --password-buttonTEXThover: #ffffcc;
-  --password-buttonBorderHOVER: #ffffcc;
-  --password-buttonBGactive: #ffffcc;
-  --password-buttonTEXTactive: #2e2e2e;
-  --password-buttonBorderACTIVE: #2e2e2e;
-  --zigzag-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='8' viewBox='0 0 40 8'><path d='M0 4 Q10 0 20 4 T40 4' stroke='%232e2e2e' fill='transparent' stroke-width='2'/></svg>");
+  --profile-bg: linear-gradient(
+    to bottom,
+    #ffffff 0%,
+    #eeeeee 50%,
+    #dddddd 100%
+  );
+  --links-color: black;
+  --links-after: black;
+  --profile-border: black;
+  --card-bg: #D34848;
+  --profile-shadow: rgba(0, 0, 0, 0.5);
+  --text-color: black;
+  --password-buttonBG: #9EC5DA;
+  --password-buttonTEXT: black;
+  --password-buttonBorder: black;
+  --password-buttonBGhover: black;
+  --password-buttonTEXThover: #9EC5DA;
+  --password-buttonBorderHOVER: #9EC5DA;
+  --password-buttonBGactive: #9EC5DA;
+  --password-buttonTEXTactive: black;
+  --password-buttonBorderACTIVE: black;
+  --zigzag-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='8' viewBox='0 0 40 8'><path d='M0 4 Q10 0 20 4 T40 4' stroke='%23000000' fill='transparent' stroke-width='2'/></svg>");
 }
 
 [data-theme="dark"] {
   --profile-bg: linear-gradient(
     to bottom,
-    #2e2e2e 0%,
-    #1e1e1e 50%,
+    #222222 0%,
+    #111111 50%,
     #000000 100%
   );
-  --links-color: #fef9f7;
-  --links-after: #fef9f7;
-  --profile-border: #fef9f7;
-  --card-bg: #5353b2;
-  --profile-shadow: #fef9f750;
-  --text-color: #fef9f7;
-  --password-buttonBG: #baba50;
-  --password-buttonTEXT: #fef9f7;
-  --password-buttonBorder: #fef9f7;
-  --password-buttonBGhover: #fef9f7;
-  --password-buttonTEXThover: #baba50;
-  --password-buttonBorderHOVER: #baba50;
-  --password-buttonBGactive: #baba50;
-  --password-buttonTEXTactive: #fef9f7;
-  --password-buttonBorderACTIVE: #fef9f7;
-  --zigzag-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='8' viewBox='0 0 40 8'><path d='M0 4 Q10 0 20 4 T40 4' stroke='%23fef9f7' fill='transparent' stroke-width='2'/></svg>");
+  --links-color: white;
+  --links-after: white;
+  --profile-border: white;
+  --card-bg: #800000;
+  --profile-shadow: rgba(255, 255, 255, 0.5);
+  --text-color: white;
+  --password-buttonBG: #066BA2;
+  --password-buttonTEXT: white;
+  --password-buttonBorder: white;
+  --password-buttonBGhover: white;
+  --password-buttonTEXThover: #066BA2;
+  --password-buttonBorderHOVER: #066BA2;
+  --password-buttonBGactive: #066BA2;
+  --password-buttonTEXTactive: white;
+  --password-buttonBorderACTIVE: white;
+  --zigzag-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='8' viewBox='0 0 40 8'><path d='M0 4 Q10 0 20 4 T40 4' stroke='%23ffffff' fill='transparent' stroke-width='2'/></svg>");
 }
 
 .container {
