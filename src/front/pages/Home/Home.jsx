@@ -87,31 +87,31 @@ export const Home = () => {
 			{ }
 			<div className="sticker-container">
 				<img
-					src="src/front/assets/img/pegatina1.png"
+					src="src/front/assets/img/stickerEmojiBola.png"
 					className="sticker"
 					draggable="false"
 					id="sticker1"
 				/>
 				<img
-					src="src/front/assets/img/pegatina2.png"
+					src="src/front/assets/img/stickerEmojiCD.png"
 					className="sticker"
 					draggable="false"
 					id="sticker2"
 				/>
 				<img
-					src="src/front/assets/img/pegatina3.png"
+					src="src/front/assets/img/stickerEmojiBooks.png"
 					className="sticker"
 					draggable="false"
 					id="sticker3"
 				/>
 				<img
-					src="src/front/assets/img/pegatina4.png"
+					src="src/front/assets/img/stickerEmojiClaqueta.png"
 					className="sticker"
 					draggable="false"
 					id="sticker4"
 				/>
 				<img
-					src="src/front/assets/img/pegatina5.png"
+					src="src/front/assets/img/stickerEmojiPalomitas.png"
 					className="sticker"
 					draggable="false"
 					id="sticker5"
@@ -141,10 +141,10 @@ export const Home = () => {
 			<div className="text-center mx-auto start">¿Empezamos?</div>
 			<div className="text-center mx-auto mt-2 try">¡Pruébame!</div>
 			<div className="d-flex text-center mx-auto justify-content-center pt-4">
-				<div className="text-center">
+				<div className="text-center">  
 					<i className="fa-solid fa-angle-down"></i>
 				</div>
-			</div>
+			</div>       
 
 			<Carousel
 				responsive={responsive}
@@ -186,7 +186,7 @@ export const Home = () => {
 				</div>
 			</div>
 
-			<div className="text-center slogan-3">
+			<div className="text-center slogan-3">       
 				Deslízame y descubrirás todo lo que te ofrecemos.
 			</div>
 		</div>
