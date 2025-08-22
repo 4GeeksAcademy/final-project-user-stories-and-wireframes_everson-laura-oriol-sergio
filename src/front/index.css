@@ -957,11 +957,15 @@ footer.footer {
   }
 
   .menu-list li:hover {
-    width: 60px !important; /* Evita que crezca en móvil */
+    width: 60px !important;
   }
 
   .menu-list li .title {
-    display: none; /* Oculta texto para no romper diseño */
+    display: none;
+  }
+
+  .menu-list li .contactUs {
+    display: inline;
   }
 
   .footer {
@@ -971,13 +975,17 @@ footer.footer {
 
   .name {
     width: 100%;
-    margin-top: 10px;
+    padding-top: 1rem;
     font-size: 0.9rem;
   }
 
   .dropup,
   #theme-toggle {
     margin-top: 10px;
+  }
+
+  .sun-and-moon {
+    margin-bottom: 1rem;
   }
 }
 
