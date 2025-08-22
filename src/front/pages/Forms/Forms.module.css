@@ -1,3 +1,4 @@
+
 :root {
   --forms-bg: #fef9f7;
   --card-text: #fef9f7;
@@ -38,9 +39,9 @@
 .card {
   color: var(--card-text);
   position: absolute;
-  width: 280px;
+  width: 350px;
   max-width: 90%;
-  height: 400px;
+  height: 525px;
   background: var(--card-bg);
   border-radius: 20px;
   box-shadow: 0 10px 25px var(--card-shadow);
@@ -54,6 +55,14 @@
   flex-direction: column;
   justify-content: center;
   transition: transform 0.3s ease;
+}
+
+@media screen and (max-width: 390px) {
+  .card {
+    width: 280px;
+    height: 400px;
+  }
+  
 }
 
 .emoji {

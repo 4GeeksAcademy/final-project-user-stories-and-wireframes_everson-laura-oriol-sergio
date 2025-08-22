@@ -1,52 +1,46 @@
 :root {
-  --profile-bg: #fef9f7;
-  --links-color: #2e2e2e;
-  --links-after: #2e2e2e;
-  --profile-border: #2e2e2e;
-  --card-bg: #2e2e2e;
+  --profile-bg: #FEF9F7;
+  --links-color: #2E2E2E;
+  --links-after: #2E2E2E;
+  --profile-border: #2E2E2E;
+  --card-bg: #CCCCFF;
   --profile-shadow: #2e2e2e50;
-  --text-color: #fef9f7;
-  --password-buttonBG: #ccccff;
-  --password-buttonTEXT: #2e2e2e;
-  --password-buttonBGhover: #ccccff;
-  --password-buttonTEXThover: #2e2e2e;
-  --password-buttonBGactive: #ccccff;
-  --password-buttonTEXTactive: #2e2e2e;
-  --close-buttonBG: #ffffcc;
-  --close-buttonTEXT: #2e2e2e;
-  --close-buttonBGhover: #ffffcc;
-  --close-buttonTEXThover: #2e2e2e;
-  --close-buttonBGactive: #ffffcc;
-  --close-buttonTEXTactive: #2e2e2e;
+  --text-color: #2E2E2E;
+  --password-buttonBG: #FFFFCC;
+  --password-buttonTEXT: #2E2E2E;
+  --password-buttonBorder: #2E2E2E;
+  --password-buttonBGhover: #2E2E2E;
+  --password-buttonTEXThover: #FFFFCC;
+  --password-buttonBorderHOVER: #FFFFCC;
+  --password-buttonBGactive: #FFFFCC;
+  --password-buttonTEXTactive: #2E2E2E;
+  --password-buttonBorderACTIVE: #2E2E2E;
+  --zigzag-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='8' viewBox='0 0 40 8'><path d='M0 4 Q10 0 20 4 T40 4' stroke='%232e2e2e' fill='transparent' stroke-width='2'/></svg>");
 }
-
 [data-theme="dark"] {
   --profile-bg: linear-gradient(
     to bottom,
-    #2e2e2e 0%,
-    #1e1e1e 50%,
+    #2E2E2E 0%,
+    #1E1E1E 50%,
     #000000 100%
   );
-  --links-color: #fef9f7;
-  --links-after: #fef9f7;
-  --profile-border: #fef9f7;
-  --card-bg: #fef9f7;
+  --links-color: #FEF9F7;
+  --links-after: #FEF9F7;
+  --profile-border: #FEF9F7;
+  --card-bg: #5353B2;
   --profile-shadow: #fef9f750;
-  --text-color: #2e2e2e;
-  --password-buttonBG: #5353b2;
-  --password-buttonTEXT: #fef9f7;
-  --password-buttonBGhover: #5353b2;
-  --password-buttonTEXThover: #fef9f7;
-  --password-buttonBGactive: #5353b2;
-  --password-buttonTEXTactive: #fef9f7;
-  --close-buttonBG: #baba50;
-  --close-buttonTEXT: #fef9f7;
-  --close-buttonBGhover: #baba50;
-  --close-buttonTEXThover: #fef9f7;
-  --close-buttonBGactive: #baba50;
-  --close-buttonTEXTactive: #fef9f7;
+  --text-color: #FEF9F7;
+  --password-buttonBG: #BABA50;
+  --password-buttonTEXT: #FEF9F7;
+  --password-buttonBorder: #FEF9F7;
+  --password-buttonBGhover: #FEF9F7;
+  --password-buttonTEXThover: #BABA50;
+  --password-buttonBorderHOVER: #BABA50;
+  --password-buttonBGactive: #BABA50;
+  --password-buttonTEXTactive: #FEF9F7;
+  --password-buttonBorderACTIVE: #FEF9F7;
+  --zigzag-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='8' viewBox='0 0 40 8'><path d='M0 4 Q10 0 20 4 T40 4' stroke='%23fef9f7' fill='transparent' stroke-width='2'/></svg>");
 }
-
 .container {
   width: 100%;
   gap: 2rem;
@@ -60,7 +54,6 @@
   background-size: cover;
   color: var(--text-color);
 }
-
 .container {
   padding-top: 7%;
   padding-bottom: 5%;
@@ -70,7 +63,6 @@
   background-position: center;
   max-width: 100% !important;
 }
-
 .navs {
   width: 75%;
   gap: 5rem;
@@ -80,88 +72,139 @@
   justify-content: center;
   align-items: center;
 }
-
-.zigzagLine {
-  position: absolute;
-  bottom: -5px;
-  height: 6px;
-  width: 0;
-  pointer-events: none;
-  opacity: 0;
-  background-image: url("data:image/svg+xml,%3Csvg width='40' height='6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 6 L10 0 L20 6 L30 0 L40 6' stroke='%232e2e2e' fill='transparent' stroke-width='2'/%3E%3C/svg%3E");
-  background-repeat: repeat-x;
-  background-size: auto 100%;
-  transition: all 5s ease;
+.profile {
+  border: 1.5px solid var(--profile-border);
+  background-color: var(--card-bg);
+  text-align: center;
+  gap: 6rem;
+  box-shadow: 0 10px 25px var(--profile-shadow);
+  padding-top: 3rem;
+  padding-bottom: 3rem;
 }
-
-.animateBackground {
-  animation: zigzagMove 20s linear infinite;
+.info input {
+  margin-top: 1rem;
 }
-
-@keyframes zigzagMove {
-  from {
-    background-position-x: 0;
-  }
-  to {
-    background-position-x: 40px;
-  }
+.passwordButton {
+  color: var(--password-buttonTEXT);
+  background-color: var(--password-buttonBG);
+  padding: 8.5%;
+  border: 1.5px solid var(--password-buttonBorder);
 }
-
+.passwordButton:hover {
+  color: var(--password-buttonTEXThover);
+  background-color: var(--password-buttonBGhover);
+  border: 1.5px solid var(--password-buttonBorderHOVER);
+}
+.passwordButton.passwordButton:active {
+  color: var(--password-buttonTEXTactive);
+  background-color: var(--password-buttonBGactive);
+  border: 1.5px solid var(--password-buttonBorderACTIVE);
+}
 .link {
   color: var(--links-color);
   text-decoration: none;
-  padding-bottom: 5px;
+  padding-bottom: 10%;
+  position: relative;
 }
-
 .link:hover,
 .link:focus,
 .link:active {
   color: var(--links-after);
   text-decoration: none;
 }
-
-.profile {
-  border: 1.5px solid var(--profile-border);
-  background-color: var(--card-bg);
-  text-align: center;
-  gap: 5rem;
-  box-shadow: 0 10px 25px var(--profile-shadow);
+.link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 8px;
+  width: 100%;
+  background-repeat: repeat-x;
+  background-position: 0 100%;
+  background-size: 40px 8px;
+  background-image: var(--zigzag-image);
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
-
-.info input {
-  margin-top: 2.5rem;
-  margin-bottom: 2.5rem;
+.link:hover::after {
+  opacity: 1;
+  transform: translateY(0);
+  animation: wave 0.6s ease;
 }
-
-.passwordButton {
-  color: var(--password-buttonTEXT);
-  background-color: var(--password-buttonBG);
-  margin-bottom: 14%;
+@keyframes wave {
+  0% {
+    background-position: 0 100%;
+  }
+  100% {
+    background-position: 40px 100%;
+  }
 }
-
-.passwordButton:hover {
-  color: var(--password-buttonTEXThover);
-  background-color: var(--password-buttonBGhover);
-  margin-bottom: 14%;
+@media (max-width: 992px) {
+  .profile {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  .info {
+    width: 100%;
+  }
+  .info label {
+    font-size: 14px;
+  }
 }
-
-.passwordButton:active {
-  color: var(--password-buttonTEXTactive);
-  background-color: var(--password-buttonBGactive);
-  margin-bottom: 14%;
+@media (max-width: 576px) {
+  .container {
+    padding: 10px;
+  }
+  .navs {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+  .profile {
+    width: 85% !important;
+    padding: 15px;
+  }
+  .info label {
+    font-size: 13px;
+  }
+  .passwordButton {
+    font-size: 14px;
+    padding: 8px 10px;
+  }
+  .navs {
+    margin-top: 30%;
+    display: flex;
+  }
 }
-
-.closeButton {
-  color: var(--close-buttonTEXT);
-  background-color: var(--close-buttonBG)
+.boxtesthori {
+  background-color: crimson;
+  width: 100%;
+  height: 20rem;
 }
-
-.closeButton:hover {
-  color: var(--close-buttonTEXThover);
-  background-color: var(--close-buttonBGhover)
+.boxtesthori1 {
+  background-color: crimson;
+  width: 100%;
+  height: 30rem;
 }
-
-.closeButton:active {
-  color: var(--close-buttonTEXTactive);
-  background-color: var(--close-buttonBGactive)
+.boxtesthori2 {
+  background-color: crimson;
+  width: 100%;
+  height: 20rem;
+}
+.boxtesthori3 {
+  background-color: crimson;
+  width: 100%;
+  height: 30rem;
+}
+.boxtesthori4 {
+  background-color: crimson;
+  width: 100%;
+  height: 20rem;
+}
+.boxtesthori5 {
+  background-color: crimson;
+  width: 100%;
+  height: 30rem;
 }
