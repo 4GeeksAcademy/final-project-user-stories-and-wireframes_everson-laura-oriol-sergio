@@ -79,9 +79,9 @@ export const Footer = () => {
           <span className="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
           <span className="title"> <a href="#" className="text-decoration-none"> Política de privacidad</a> </span>
         </li>
-        <li>
+        <li data-bs-toggle="modal" data-bs-target="#sendUsAnEmail">
           <span className="icon"><ion-icon name="at-outline"></ion-icon></span>
-          <span className="title contactUs">contact@swipestories.com</span>
+          <span className="title contactUs"> <a href="#" className="text-decoration-none"> contact@swipestories.com</a></span>
         </li>
         <p className="name my-auto">Swipe Stories © {new Date().getFullYear()}</p>
         <button
@@ -202,6 +202,20 @@ export const Footer = () => {
               <h4>¿De dónde nace este proyecto?</h4>
               <p>Swipe Stories nace como un proyecto de final de curso de Desarrollo Full-Stack, donde cuatro alumnos invierten su tiempo,
                 creatividad y conocimientos aprendidos en crear esta página web para que cualquier persona como tú pueda disfrutarla.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="modal fade sendUsAnEmail" data-bs-backdrop="static" id="sendUsAnEmail" tabindex="-1" aria-labelledby="emailLabel" aria-hidden="true">
+        <div className="modal-dialog modal-dialog-scrollable align-content-center sendUsAnEmail">
+          <div className="modal-content p-4 rounded-5 sendUsAnEmail">
+            <div className="modal-header">
+              <h3 className="modal-title mb-3" id="emailLabel">¡Contacta con nosotros!</h3>
+              <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div className="modal-body text-center">
+              <h5 className="mt-4">Si tienes aldguna duda y/o sugerencia, no dudes en contactarnos a través de: <a href="mailto:contact@swipestories.com" className="text-decoration-none">contact@swipestories.com</a>.</h5>
             </div>
           </div>
         </div>
