@@ -320,7 +320,7 @@ body {
 }
 
 #sticker1 {
-  top: 10%;
+  top: 15%;
   left: 5%;
   transform: rotate(-10deg);
   touch-action: none;
@@ -332,23 +332,30 @@ body {
   touch-action: none;
 }
 #sticker3 {
-  bottom: 10%;
-  left: 10%;
+  top: 45%;
+  right: 70%;
   transform: rotate(12deg);
   touch-action: none;
 }
 
 #sticker4 {
-  bottom: 15%;
+  top: 90%;
   right: 10%;
   transform: rotate(-8deg);
   touch-action: none;
 }
 
 #sticker5 {
-  top: 5%;
-  left: 60%;
+  top: 50%;
+  left: 70%;
   transform: rotate(10deg);
+  touch-action: none;
+}
+
+#sticker6 {
+  top: 85%;
+  left: 10%;
+  transform: rotate(-10deg);
   touch-action: none;
 }
 
