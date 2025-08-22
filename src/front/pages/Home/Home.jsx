@@ -28,13 +28,13 @@ export const Home = () => {
 	return (
 
 		<div className="justify-content-center align-items-center text-center main">
-			<div class="sticker-container">
+			{/*<div class="sticker-container">
 				<img src="src/front/assets/img/pegatina1.png" class="sticker" draggable="false" id="sticker1" />
 				<img src="src/front/assets/img/pegatina2.png" class="sticker" draggable="false" id="sticker2" />
 				<img src="src/front/assets/img/pegatina3.png" class="sticker" draggable="false" id="sticker3" />
 				<img src="src/front/assets/img/pegatina4.png" class="sticker" draggable="false" id="sticker4" />
 				<img src="src/front/assets/img/pegatina5.png" class="sticker" draggable="false" id="sticker5" />
-			</div>
+			</div>*/}
 			<div className="wave-container d-flex w-50 m-auto pt-5">
 				<p className="wave-text slogan text-center swipestories">
 					<span>S</span>
