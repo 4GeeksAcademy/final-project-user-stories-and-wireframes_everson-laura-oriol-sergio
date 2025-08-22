@@ -90,7 +90,6 @@ export const Footer = () => {
           title="Toggles light & dark"
           aria-label="auto"
           aria-live="polite"
-           {darkMode ? "☀️ Modo Claro" : "🌙 Modo Oscuro"}
         >
           <svg className="sun-and-moon" aria-hidden="true" width="24" height="24" viewBox="0 0 24 24">
             <mask className="moon" id="moon-mask">
