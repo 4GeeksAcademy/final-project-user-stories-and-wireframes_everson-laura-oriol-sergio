@@ -6,6 +6,13 @@ import Masonry, { ResponsiveMasonry } from "react-responsive-masonry"
 export const Perfil = () => {
     const lineRef = useRef(null);
     const containerRef = useRef(null);
+    const userLocalStorage = localStorage.getItem("user")
+    const [user, setUser] = useState(null)
+    useEffect(() => {
+        if (userLocalStorage) {
+            setUser(JSON.parse(userLocalStorage))
+        }
+    }, [])
 
     useEffect(() => {
         const container = containerRef.current;
@@ -61,23 +68,39 @@ export const Perfil = () => {
                 </ul>
             </Row>
             <div className="tab-content" id="pills-tabContent">
-                <div className={`${style.perfil} tab-pane fade show active`} id="pills-perfil" role="tabpanel" aria-labelledby="perfil">
-                    <div className={`${style.profile} rounded-5 w-25 mx-auto mt-5 d-flex justify-content-center`}>
-                        <div className={`${style.info}`}>
-                            <label>Nombre</label>
-                            <div><input type="text" className="form-control text-center w-100" placeholder="Nombre" /></div>
-                            <br />
-                            <label>Usuario</label>
-                            <div><input type="text" className="form-control text-center w-100" placeholder="Usuario" /></div>
-                            <br />
-                            <label>Correo</label>
-                            <div><input type="email" className="form-control text-center w-100" placeholder="Correo" /></div>
-                            <br />
-                            <br />
-                            <button className={`${style.passwordButton} btn w-100 rounded-4`} id="passwordButton">Guardar cambios</button>
+                {
+                    !user ? (
+                        <span>Loading</span>
+                    ) : (
+                        <div className={`${style.perfil} tab-pane fade show active`} id="pills-perfil" role="tabpanel" aria-labelledby="perfil">
+                            <div className={`${style.profile} rounded-5 w-50 mx-auto mt-5 d-flex justify-content-center`}>
+                                <div className={`${style.info}`}>
+                                    <label>Nombre</label>
+                                    <div><input type="text" className="form-control text-center w-100" placeholder="Nombre" value={user.name} /></div>
+                                    <br />
+                                    <br />
+                                    <label>Username</label>
+                                    <div><input type="text" className="form-control text-center w-100" placeholder="Username" value={user.username} /></div>
+                                    <br />
+                                    <br />
+                                    <label>Correo electrónico</label>
+                                    <div><input type="email" className="form-control text-center w-100" placeholder="Correo electrónico" value={user.email} /></div>
+                                </div>
+                                <div className={`${style.info}`}>
+                                    <label>Género</label>
+                                    <div><input type="text" className="form-control text-center w-100" placeholder="Género" /></div>
+                                    <br />
+                                    <br />
+                                    <label>Fecha de nacimiento</label>
+                                    <div><input type="date" className="form-control text-center w-100" placeholder="Fecha de nacimiento" /></div>
+                                    <br />
+                                    <br />
+                                    <button className={`${style.passwordButton} btn w-100 rounded-4`} id="passwordButton">Gestionar contraseña</button>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
+                    )
+                }
                 <div className={`${style.historial} tab-pane fade`} id="pills-historial" role="tabpanel" aria-labelledby="historial">
                     <ResponsiveMasonry
                         columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}

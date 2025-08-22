@@ -116,8 +116,10 @@ export const CustomNavbar = () => {
 					</div>
 					{
 						token ? (
-							<button className="rounded-3 btn me-2" onClick={handleLogout}>Cerrar sesión</button>
-
+							<div>
+								<button className="rounded-3 btn me-2 button-4">Mi perfil</button>
+								<button className="rounded-3 btn button-5" onClick={handleLogout}>Cerrar sesión</button>
+							</div>
 						) : (
 							<div>
 								<button id="button-2" className="rounded-3 btn me-2" data-bs-toggle="modal" data-bs-target="#logIn" onClick={() => setShowModal(true)}>Inicia sesión</button>
@@ -170,14 +172,7 @@ export const CustomNavbar = () => {
 													<span className="px-2 text-muted">o</span>
 													<hr className="flex-grow-1" />
 												</div>
-												<div className="mb-3">
-													<button type="button"
-														className="btn btn-light w-100 rounded-pill d-flex align-items-center justify-content-center gap-2 py-2">
-														<img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google" width="20" />
-														<span>Continua con Google</span>
-													</button>
-												</div>
-												<div className="text-center mt-4 mb-2 text-muted">
+												<div className="text-center mt-3 mb-2 text-muted">
 													¿Todavía no tienes cuenta? <a href="#" data-bs-toggle="modal" data-bs-target="#signUp" className="text-decoration-none" onClick={() => handleModal()}>Regístrate</a>
 												</div>
 												<div className="mt-3 text-center">

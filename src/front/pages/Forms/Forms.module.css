@@ -38,9 +38,9 @@
 .card {
   color: var(--card-text);
   position: absolute;
-  width: 500px;
-  max-width: 90%;
-  height: 500px;
+  width: 350px;
+  max-width: 100%;
+  height: 525px;
   background: var(--cardform-bg);
   border-radius: 20px;
   box-shadow: 0 10px 25px var(--card-shadow);
@@ -86,4 +86,11 @@
 .no {
   right: 20px;
   color: var(--card-no);
+}
+
+@media screen and (max-width: 390px) {
+  .card {
+    width: 280px;
+    height: 400px;
+  }
 }

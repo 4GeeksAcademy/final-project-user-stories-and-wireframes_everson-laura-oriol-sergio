@@ -84,15 +84,6 @@ export const Footer = () => {
           <span className="title">contact@swipestories.com</span>
         </li>
         <p className="name my-auto">Swipe Stories © {new Date().getFullYear()}</p>
-        <div className="btn-group dropup dropup-center">
-          <button id="language" type="button" className="btn px-3 dropdown-toggle no-caret" data-bs-toggle="dropdown">
-            <i className="fa-solid fa-globe"></i>
-          </button>
-          <ul className="dropdown-menu rounded-5 idiomas p-2">
-            <li className="idioma mb-2"><a className="dropdown-item" href="#">Español</a></li>
-            <li className="idioma"><a className="dropdown-item" href="#">Inglés</a></li>
-          </ul>
-        </div>
         <button
           className="theme-toggle btn"
           id="theme-toggle"
