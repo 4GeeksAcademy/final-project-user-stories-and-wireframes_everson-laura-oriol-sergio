@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import { Navbar, Nav, Button, Container, NavDropdown } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import logo from "../assets/img/logo.png"
+import logoLight from "../assets/img/logoLight.png"
+import logoDark from "../assets/img/logoDark.png"
 import { useState, useEffect, useRef } from "react";
 
 
@@ -107,12 +108,11 @@ export const CustomNavbar = () => {
 	}
 	return (
 
-
 		<>
 			<div className={`container-fluid navbar-hori ${!showModal && "z-index-f"}`}>
 				<div className="navbar p-3">
 					<div>
-						<a href="/"><img className="logo" src={logo} /></a>
+						<a href="/"><img className="logo" src={logoLight} /></a>
 					</div>
 					{
 						token ? (

@@ -5,83 +5,83 @@ import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 
 const responsive = {
-    superLargeDesktop: {
-        breakpoint: { max: 4000, min: 3000 },
-        items: 1,
-    },
-    desktop: {
-        breakpoint: { max: 3000, min: 1024 },
-        items: 1,
-    },
-    tablet: {
-        breakpoint: { max: 1024, min: 464 },
-        items: 1,
-    },
-    mobile: {
-        breakpoint: { max: 464, min: 0 },
-        items: 1,
-    },
+	superLargeDesktop: {
+		breakpoint: { max: 4000, min: 3000 },
+		items: 1,
+	},
+	desktop: {
+		breakpoint: { max: 3000, min: 1024 },
+		items: 1,
+	},
+	tablet: {
+		breakpoint: { max: 1024, min: 464 },
+		items: 1,
+	},
+	mobile: {
+		breakpoint: { max: 464, min: 0 },
+		items: 1,
+	},
 };
 
 export const Home = () => {
-    useEffect(() => {
-        const stickers = document.querySelectorAll(".sticker");
+	useEffect(() => {
+		const stickers = document.querySelectorAll(".sticker");
 
-        stickers.forEach((sticker) => {
-            let offsetX, offsetY;
+		stickers.forEach((sticker) => {
+			let offsetX, offsetY;
 
-            // Mover stickers en PC
-            const mouseDownHandler = (e) => {
-                offsetX = e.clientX - sticker.getBoundingClientRect().left;
-                offsetY = e.clientY - sticker.getBoundingClientRect().top;
+			// Mover stickers en PC
+			const mouseDownHandler = (e) => {
+				offsetX = e.clientX - sticker.getBoundingClientRect().left;
+				offsetY = e.clientY - sticker.getBoundingClientRect().top;
 
-                document.addEventListener("mousemove", mouseMoveHandler);
-                document.addEventListener("mouseup", mouseUpHandler);
-            };
+				document.addEventListener("mousemove", mouseMoveHandler);
+				document.addEventListener("mouseup", mouseUpHandler);
+			};
 
-            const mouseMoveHandler = (e) => {
-                sticker.style.left = `${e.clientX - offsetX}px`;
-                sticker.style.top = `${e.clientY - offsetY}px`;
-            };
+			const mouseMoveHandler = (e) => {
+				sticker.style.left = `${e.clientX - offsetX}px`;
+				sticker.style.top = `${e.clientY - offsetY}px`;
+			};
 
-            const mouseUpHandler = () => {
-                document.removeEventListener("mousemove", mouseMoveHandler);
-                document.removeEventListener("mouseup", mouseUpHandler);
-            };
+			const mouseUpHandler = () => {
+				document.removeEventListener("mousemove", mouseMoveHandler);
+				document.removeEventListener("mouseup", mouseUpHandler);
+			};
 
-            //  Mover stickers en movil
-            const touchStartHandler = (e) => {
-                const touch = e.touches[0];
-                offsetX = touch.clientX - sticker.getBoundingClientRect().left;
-                offsetY = touch.clientY - sticker.getBoundingClientRect().top;
+			//  Mover stickers en movil
+			const touchStartHandler = (e) => {
+				const touch = e.touches[0];
+				offsetX = touch.clientX - sticker.getBoundingClientRect().left;
+				offsetY = touch.clientY - sticker.getBoundingClientRect().top;
 
-                document.addEventListener("touchmove", touchMoveHandler);
-                document.addEventListener("touchend", touchEndHandler);
-            };
+				document.addEventListener("touchmove", touchMoveHandler);
+				document.addEventListener("touchend", touchEndHandler);
+			};
 
-            const touchMoveHandler = (e) => {
-                const touch = e.touches[0];
-                sticker.style.left = `${touch.clientX - offsetX}px`;
-                sticker.style.top = `${touch.clientY - offsetY}px`;
-            };
+			const touchMoveHandler = (e) => {
+				const touch = e.touches[0];
+				sticker.style.left = `${touch.clientX - offsetX}px`;
+				sticker.style.top = `${touch.clientY - offsetY}px`;
+			};
 
-            const touchEndHandler = () => {
-                document.removeEventListener("touchmove", touchMoveHandler);
-                document.removeEventListener("touchend", touchEndHandler);
-            };
-
-
-            sticker.addEventListener("mousedown", mouseDownHandler);
-            sticker.addEventListener("touchstart", touchStartHandler, { passive: false });
-        });
+			const touchEndHandler = () => {
+				document.removeEventListener("touchmove", touchMoveHandler);
+				document.removeEventListener("touchend", touchEndHandler);
+			};
 
 
-        return () => {
-            stickers.forEach((sticker) => {
-                sticker.replaceWith(sticker.cloneNode(true));
-            });
-        };
-    }, []);
+			sticker.addEventListener("mousedown", mouseDownHandler);
+			sticker.addEventListener("touchstart", touchStartHandler, { passive: false });
+		});
+
+
+		return () => {
+			stickers.forEach((sticker) => {
+				sticker.replaceWith(sticker.cloneNode(true));
+			});
+		};
+	}, []);
 
 	return (
 		<div className="justify-content-center align-items-center text-center main">
