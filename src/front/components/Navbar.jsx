@@ -189,7 +189,7 @@ export const CustomNavbar = () => {
 										<div className="modal-content p-4 rounded-5">
 											<div className="modal-header border-0">
 
-												<h4 className="modal-title w-100 text-center mb-3" id="signUpModalLabel">Registrate a SwipeStories</h4>
+												<h4 className="modal-title w-100 text-center mb-3" id="signUpModalLabel">Bienvenid@ a SwipeStories</h4>
 												<button onClick={() => handleModal()} type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
 											</div>
 											<div className="modal-body">

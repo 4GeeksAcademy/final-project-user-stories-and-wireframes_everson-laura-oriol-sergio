@@ -665,7 +665,6 @@ a.text-white {
     font-size: clamp(1.2rem, 4vw, 2rem);
   }
 
-  /* Carousel en móvil y tablet centrado y con padding */
   .carousel-container {
     width: 90% !important;
     margin: auto;
@@ -989,7 +988,6 @@ footer.footer {
   }
 }
 
-/* ----------- FOOTER RESPONSIVE ----------- */
 @media (max-width: 768px) {
 
   .logo {
@@ -1031,7 +1029,6 @@ footer.footer {
   }
 }
 
-/* ----------- PARA PANTALLAS MUY PEQUEÑAS (móviles de 400px o menos) ----------- */
 @media (max-width: 400px) {
   .footer .menu-list li {
     font-size: 12px;
