@@ -357,7 +357,6 @@ body {
 }
 
 @media screen and (max-width: 768px) {
-
   .swipestories {
     margin-top: 50%;
   }
@@ -611,7 +610,7 @@ a.text-white {
   margin-top: 1.5%;
   animation: pulse 0.5s infinite ease-in-out alternate;
   font-size: 1.5em;
-  color: var(--angles-icon)
+  color: var(--angles-icon);
 }
 @keyframes pulse {
   from {
@@ -904,7 +903,7 @@ a.text-white {
 #language:hover {
   border: 1.5px solid #fef9f750;
   border-radius: 15px;
-  color: var(--world-Hover)
+  color: var(--world-Hover);
 }
 
 .no-caret::after {
@@ -985,7 +984,6 @@ footer.footer {
 }
 
 @media (max-width: 768px) {
-
   .logo {
     margin-bottom: 10%;
   }
