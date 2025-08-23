@@ -8,7 +8,7 @@
   --links-color: black;
   --links-after: black;
   --profile-border: black;
-  --card-bg: #D34848;
+  --card-bg: linear-gradient(to bottom, #9ec5da, #d34848);
   --profile-shadow: rgba(0, 0, 0, 0.5);
   --text-color: black;
   --password-buttonBG: #9EC5DA;
@@ -33,7 +33,7 @@
   --links-color: white;
   --links-after: white;
   --profile-border: white;
-  --card-bg: #800000;
+  --card-bg: linear-gradient(to bottom, #066BA2, #800000);
   --profile-shadow: rgba(255, 255, 255, 0.5);
   --text-color: white;
   --password-buttonBG: #066BA2;
@@ -84,7 +84,7 @@
 
 .profile {
   border: 1.5px solid var(--profile-border);
-  background-color: var(--card-bg);
+  background-image: var(--card-bg);
   text-align: center;
   gap: 6rem;
   box-shadow: 0 10px 25px var(--profile-shadow);

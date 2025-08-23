@@ -50,7 +50,7 @@ export const CustomNavbar = () => {
 				)
 			});
 			const data = await res.json()
-			const user = JSON.stringify(data)
+			const user = JSON.stringify(data.user)
 			localStorage.setItem("token", data.token)
 			localStorage.setItem("user", user)
 			closeModal("logIn");

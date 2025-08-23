@@ -73,7 +73,7 @@ export const Perfil = () => {
                         <span>Loading</span>
                     ) : (
                         <div className={`${style.perfil} tab-pane fade show active`} id="pills-perfil" role="tabpanel" aria-labelledby="perfil">
-                            <div className={`${style.profile} rounded-5 w-50 mx-auto mt-5 d-flex justify-content-center`}>
+                            <div className={`${style.profile} rounded-5 w-25 mx-auto mt-5 d-flex justify-content-center`}>
                                 <div className={`${style.info}`}>
                                     <label>Nombre</label>
                                     <div><input type="text" className="form-control text-center w-100" placeholder="Nombre" value={user.name} /></div>
@@ -82,9 +82,7 @@ export const Perfil = () => {
                                     <div><input type="text" className="form-control text-center w-100" placeholder="Username" value={user.username} /></div>
                                     <br />
                                     <label>Correo electrónico</label>
-                                    <div><input type="email" className="form-control text-center w-100" placeholder="Correo electrónico" value={user.email} /></div>
-                                    <br />
-                                    <button className={`${style.passwordButton} btn w-100 rounded-4`} id="passwordButton">Guardar cambios</button>
+                                    <div><input type="email" className="form-control text-center w-100 mb-3" placeholder="Correo electrónico" value={user.email} /></div>
                                 </div>
                             </div>
                         </div>
