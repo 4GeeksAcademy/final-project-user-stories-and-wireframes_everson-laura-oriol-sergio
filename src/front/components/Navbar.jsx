@@ -50,7 +50,9 @@ export const CustomNavbar = () => {
 				)
 			});
 			const data = await res.json()
+			const user = JSON.stringify(data)
 			localStorage.setItem("token", data.token)
+			localStorage.setItem("user", user)
 			closeModal("logIn");
 			window.location.reload();
 		} catch (error) {
@@ -134,7 +136,7 @@ export const CustomNavbar = () => {
 						token ? (
 							<div>
 								<a href="/perfil"><button className="rounded-3 btn me-2 button-4">Mi perfil</button></a>
-								
+
 								<button className="rounded-3 btn button-5" onClick={handleLogout}>Cerrar sesión</button>
 							</div>
 						) : (
