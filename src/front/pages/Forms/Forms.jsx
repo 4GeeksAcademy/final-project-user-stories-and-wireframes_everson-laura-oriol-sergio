@@ -98,9 +98,17 @@ export const Forms = () => {
   if (loading) {
     return <span>Loading</span>
   }
+  
   return (
     <Container fluid className={style.container}>
-
+      <div class="sticker-container">
+				<img src="src/front/assets/img/stickerEmojiBola.png" class="sticker" draggable="false" id="sticker1" />
+				<img src="src/front/assets/img/stickerEmojiCD.png" class="sticker" draggable="false" id="sticker2" />
+				<img src="src/front/assets/img/stickerEmojiBooks.png" class="sticker" draggable="false" id="sticker3" />
+				<img src="src/front/assets/img/stickerEmojiClaqueta.png" class="sticker" draggable="false" id="sticker4" />
+				<img src="src/front/assets/img/stickerEmojiPalomitas.png" class="sticker" draggable="false" id="sticker5" />
+				<img src="src/front/assets/img/stickerEmojiBombilla.png" class="sticker" draggable="false" id="sticker6" />
+			</div>
       {
         answers.length === 0 ? (
           <>
@@ -166,6 +174,7 @@ export const Forms = () => {
                 const translateY = index * 10;
 
                 return (
+
                   <div
                     key={currentIndex + index}
                     className={style.card}

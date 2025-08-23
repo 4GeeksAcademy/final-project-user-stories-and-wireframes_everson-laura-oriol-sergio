@@ -5,6 +5,7 @@ import Masonry, { ResponsiveMasonry } from "react-responsive-masonry"
 import { SiStryker } from "react-icons/si";
 
 export const Perfil = () => {
+
     const lineRef = useRef(null);
     const containerRef = useRef(null);
     const userLocalStorage = localStorage.getItem("user")
@@ -74,16 +75,24 @@ export const Perfil = () => {
                         <span>Loading</span>
                     ) : (
                         <div className={`${style.perfil} tab-pane fade show active`} id="pills-perfil" role="tabpanel" aria-labelledby="perfil">
+                            <div class="sticker-container">
+                                <img src="src/front/assets/img/stickerEmojiBola.png" class="sticker" draggable="false" id="sticker1" />
+                                <img src="src/front/assets/img/stickerEmojiCD.png" class="sticker" draggable="false" id="sticker2" />
+                                <img src="src/front/assets/img/stickerEmojiBooks.png" class="sticker" draggable="false" id="sticker3" />
+                                <img src="src/front/assets/img/stickerEmojiClaqueta.png" class="sticker" draggable="false" id="sticker4" />
+                                <img src="src/front/assets/img/stickerEmojiPalomitas.png" class="sticker" draggable="false" id="sticker5" />
+                                <img src="src/front/assets/img/stickerEmojiBombilla.png" class="sticker" draggable="false" id="sticker6" />
+                            </div>
                             <div className={`${style.profile} rounded-5 w-25 mx-auto mt-5 d-flex justify-content-center`}>
                                 <div className={`${style.info}`}>
                                     <label>Nombre</label>
-                                    <div><input type="text" className="form-control text-center w-100" placeholder="Nombre" value={user.name} /></div>
+                                    <div><input type="text" className="form-control text-center w-100" placeholder="Nombre" value={user.name} readOnly /></div>
                                     <br />
                                     <label>Username</label>
-                                    <div><input type="text" className="form-control text-center w-100" placeholder="Username" value={user.username} /></div>
+                                    <div><input type="text" className="form-control text-center w-100" placeholder="Username" value={user.username} readOnly /></div>
                                     <br />
                                     <label>Correo electrónico</label>
-                                    <div><input type="email" className="form-control text-center w-100 mb-3" placeholder="Correo electrónico" value={user.email} /></div>
+                                    <div><input type="email" className="form-control text-center w-100 mb-3" placeholder="Correo electrónico" value={user.email} readOnly /></div>
                                 </div>
                             </div>
                         </div>

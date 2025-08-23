@@ -651,6 +651,10 @@ a.text-white {
     gap: 0.5rem;
   }
 
+  #button-4 {
+    font-size: x-small;
+  }
+
   .wave-text span {
     font-size: clamp(2.5rem, 8vw, 4rem);
   }
