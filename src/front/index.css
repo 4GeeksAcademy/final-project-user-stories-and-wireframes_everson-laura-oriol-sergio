@@ -45,15 +45,15 @@
   --menuList-gradient: linear-gradient(to left, #9ec5da 0%, #d34848 100%);
   --menuList-ionIcons: white;
   --name-color: white;
-  --buttons45-text: black;
-  --buttons45-border: black;
-  --buttons45-bg: #00000000;
-  --buttons45-textHover: white;
-  --buttons45-borderHover: black;
-  --buttons45-bgHover: black;
-  --buttons45-textActive: black;
-  --buttons45-borderActive: black;
-  --buttons45-bgActive: #00000000;
+  --button4-text: black;
+  --button4-border: black;
+  --button4-bg: #00000000;
+  --button4-text-hover: white;
+  --button4-border-hover: black;
+  --button4-bg-hover: black;
+  --button4-text-active: black;
+  --button4-border-active: black;
+  --button4-bg-active: #00000000;
   --color-correo: #d34848;
 }
 
@@ -103,15 +103,15 @@
   --menuList-gradient: linear-gradient(to left, #066ba2 0%, #800000 100%);
   --menuList-ionIcons: white;
   --name-color: white;
-  --buttons45-text: white;
-  --buttons45-border: white;
-  --buttons45-bg: #00000000;
-  --buttons45-textHover: black;
-  --buttons45-borderHover: white;
-  --buttons45-bgHover: white;
-  --buttons45-textActive: white;
-  --buttons45-borderActive: white;
-  --buttons45-bgActive: #00000000;
+  --button4-text: white;
+  --button4-border: white;
+  --button4-bg: #00000000;
+  --button4-text-hover: black;
+  --button4-border-hover: white;
+  --button4-bg-hover: white;
+  --button4-text-active: white;
+  --button4-border-active: white;
+  --button4-bg-active: #00000000;
   --color-correo: #800000;
 }
 
@@ -210,25 +210,22 @@ body {
   background-color: var(--buttons12-bgActive);
 }
 
-#button-4,
-#button-5 {
-  color: var(--buttons45-text);
-  border: 1.5px solid var(--buttons45-border);
-  background-color: var(--buttons45-bg);
+#button-4 {
+  color: var(--button4-text);
+  border: 1.5px solid var(--button4-border);
+  background-color: var(--button4-bg);
 }
 
-#button-5:hover,
 #button-4:hover {
-  color: var(--buttons45-textHover);
-  border: 1.5px solid var(--buttons45-borderHover);
-  background-color: var(--buttons45-bgHover);
+  color: var(--button4-text-hover);
+  border: 1.5px solid var(--button4-border-hover);
+  background-color: var(--button4-bg-hover);
 }
 
-#button-4:active,
-#button-5:active {
-  color: var(--buttons45-textActive);
-  border: 1.5px solid var(--buttons45-borderActive);
-  background-color: var(--buttons45-bgActive);
+#button-4:active {
+  color: var(--button4-text-active);
+  border: 1.5px solid var(--button4-border-active);
+  background-color: var(--button4-bg-active);
 }
 
 .slogan {
