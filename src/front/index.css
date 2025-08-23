@@ -85,11 +85,11 @@
   --buttons12-borderActive: white;
   --buttons12-bgActive: #00000000;
   --button3-bg: #066ba2;
-  --button3-text: black;
+  --button3-text: white;
   --button3-bgHover: black;
-  --button3-textHover: #066ba2;
+  --button3-textHover: white;
   --button3-bgActive: #066ba2;
-  --button3-textActive: black;
+  --button3-textActive: white;
   --tdn-color: #800000;
   --tdn-colorHover: black;
   --tdn-colorActive: #800000;
