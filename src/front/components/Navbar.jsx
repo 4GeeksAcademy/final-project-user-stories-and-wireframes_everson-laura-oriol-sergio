@@ -117,7 +117,8 @@ export const CustomNavbar = () => {
 					{
 						token ? (
 							<div>
-								<button className="rounded-3 btn me-2 button-4">Mi perfil</button>
+								<a href="/perfil"><button className="rounded-3 btn me-2 button-4">Mi perfil</button></a>
+								
 								<button className="rounded-3 btn button-5" onClick={handleLogout}>Cerrar sesión</button>
 							</div>
 						) : (
