@@ -1,7 +1,11 @@
 import { useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import useGlobalReducer from "../hooks/useGlobalReducer";
 
 export const Footer = () => {
+
+  const { dispatch } = useGlobalReducer()
+
   useEffect(() => {
     const storageKey = 'theme-preference';
 
@@ -21,6 +25,10 @@ export const Footer = () => {
 
     function setPreference() {
       localStorage.setItem(storageKey, theme.value);
+      dispatch({
+        type: "switchTheme",
+        payload: theme.value
+      })
       reflectPreference();
     }
 
@@ -71,7 +79,7 @@ export const Footer = () => {
           <span className="icon"><ion-icon name="information-circle-outline"></ion-icon></span>
           <span className="title"> <a href="#" className="text-decoration-none"> About us </a></span>
         </li>
-        <li data-bs-toggle="modal" data-bs-target="#condicionesDeServicio2"  style={{ '--i': '#ffffcc', '--j': '#ccccff' }}>
+        <li data-bs-toggle="modal" data-bs-target="#condicionesDeServicio2" style={{ '--i': '#ffffcc', '--j': '#ccccff' }}>
           <span className="icon"><ion-icon name="document-outline"></ion-icon></span>
           <span className="title uso"> <a href="#" className="text-decoration-none"> Condiciones de uso </a> </span>
         </li>
@@ -90,6 +98,12 @@ export const Footer = () => {
           title="Toggles light & dark"
           aria-label="auto"
           aria-live="polite"
+          onClick={() => {
+            dispatch({
+              type: "switchTheme",
+              payload: theme.value
+            })
+          }}
         >
           <svg className="sun-and-moon" aria-hidden="true" width="24" height="24" viewBox="0 0 24 24">
             <mask className="moon" id="moon-mask">

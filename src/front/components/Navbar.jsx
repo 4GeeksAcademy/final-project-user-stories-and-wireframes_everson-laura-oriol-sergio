@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import logoLight from "../assets/img/logoLight.png"
 import logoDark from "../assets/img/logoDark.png"
 import { useState, useEffect, useRef } from "react";
+import useGlobalReducer from "../hooks/useGlobalReducer";
 
 
 export const CustomNavbar = () => {
@@ -18,6 +19,15 @@ export const CustomNavbar = () => {
 	const [showPassword, setShowPassword] = useState(false)
 
 	const token = localStorage.getItem("token")
+	const { store, dispatch } = useGlobalReducer()
+	let theme = localStorage.getItem("theme-preference")
+	useEffect(() => {
+
+		dispatch({
+			type: "switchTheme",
+			payload: theme
+		})
+	}, [])
 
 	const handleLogout = () => {
 		localStorage.removeItem("token");
@@ -112,7 +122,13 @@ export const CustomNavbar = () => {
 			<div className={`container-fluid navbar-hori ${!showModal && "z-index-f"}`}>
 				<div className="navbar p-3">
 					<div>
-						<a href="/"><img className="logo" src={logoLight} /></a>
+						{
+							store.theme == "dark" ? (
+								<a href="/"><img className="logo" src={logoDark} /></a>
+							) : (
+								<a href="/"><img className="logo" src={logoLight} /></a>
+							)
+						}
 					</div>
 					{
 						token ? (
