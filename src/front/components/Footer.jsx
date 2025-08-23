@@ -215,7 +215,7 @@ export const Footer = () => {
               <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div className="modal-body text-center">
-              <h5 className="mt-4">Si tienes aldguna duda y/o sugerencia, no dudes en contactarnos a través de: <a href="mailto:contact@swipestories.com" className="text-decoration-none">contact@swipestories.com</a>.</h5>
+              <h5 className="mt-4">Si tienes alguna duda y/o sugerencia, no dudes en contactarnos a través de: <a href="mailto:contact@swipestories.com" className="text-decoration-none">contact@swipestories.com</a>.</h5>
             </div>
           </div>
         </div>
