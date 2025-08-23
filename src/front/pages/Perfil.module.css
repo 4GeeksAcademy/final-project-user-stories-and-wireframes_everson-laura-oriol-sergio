@@ -23,6 +23,8 @@
   --zigzag-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='8' viewBox='0 0 40 8'><path d='M0 4 Q10 0 20 4 T40 4' stroke='%23000000' fill='transparent' stroke-width='2'/></svg>");
   --boxtest-bg1: #9ec5da;
   --boxtest-bg2: #d34848;
+  --boxtest-border: black;
+  --boxtest-shadow: rgba(0, 0, 0, 0.5);
 }
 
 [data-theme="dark"] {
@@ -50,6 +52,8 @@
   --zigzag-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='8' viewBox='0 0 40 8'><path d='M0 4 Q10 0 20 4 T40 4' stroke='%23ffffff' fill='transparent' stroke-width='2'/></svg>");
   --boxtest-bg1: #066ba2;
   --boxtest-bg2: #800000;
+  --boxtest-border: white;
+  --boxtest-shadow: rgba(255, 255, 255, 0.5);
 }
 
 .container {
@@ -213,31 +217,43 @@
 
 .boxtest {
   background-color: var(--boxtest-bg1);
+  border: 1.5px solid var(--boxtest-border);
+  box-shadow: 0 10px 25px var(--boxtest-shadow);
   width: 100%;
   height: 20rem;
 }
 .boxtest1 {
   background-color: var(--boxtest-bg2);
+  border: 1.5px solid var(--boxtest-border);
+  box-shadow: 0 10px 25px var(--boxtest-shadow);
   width: 100%;
   height: 30rem;
 }
 .boxtest2 {
   background-color: var(--boxtest-bg1);
+  border: 1.5px solid var(--boxtest-border);
+  box-shadow: 0 10px 25px var(--boxtest-shadow);
   width: 100%;
   height: 20rem;
 }
 .boxtest3 {
   background-color: var(--boxtest-bg2);
+  border: 1.5px solid var(--boxtest-border);
+  box-shadow: 0 10px 25px var(--boxtest-shadow);
   width: 100%;
   height: 30rem;
 }
 .boxtest4 {
   background-color: var(--boxtest-bg1);
+  border: 1.5px solid var(--boxtest-border);
+  box-shadow: 0 10px 25px var(--boxtest-shadow);
   width: 100%;
   height: 20rem;
 }
 .boxtest5 {
   background-color: var(--boxtest-bg2);
+  border: 1.5px solid var(--boxtest-border);
+  box-shadow: 0 10px 25px var(--boxtest-shadow);
   width: 100%;
   height: 30rem;
 }
