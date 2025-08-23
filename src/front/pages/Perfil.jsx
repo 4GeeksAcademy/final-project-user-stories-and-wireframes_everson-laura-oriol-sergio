@@ -78,24 +78,13 @@ export const Perfil = () => {
                                     <label>Nombre</label>
                                     <div><input type="text" className="form-control text-center w-100" placeholder="Nombre" value={user.name} /></div>
                                     <br />
-                                    <br />
                                     <label>Username</label>
                                     <div><input type="text" className="form-control text-center w-100" placeholder="Username" value={user.username} /></div>
                                     <br />
-                                    <br />
                                     <label>Correo electrónico</label>
                                     <div><input type="email" className="form-control text-center w-100" placeholder="Correo electrónico" value={user.email} /></div>
-                                </div>
-                                <div className={`${style.info}`}>
-                                    <label>Género</label>
-                                    <div><input type="text" className="form-control text-center w-100" placeholder="Género" /></div>
                                     <br />
-                                    <br />
-                                    <label>Fecha de nacimiento</label>
-                                    <div><input type="date" className="form-control text-center w-100" placeholder="Fecha de nacimiento" /></div>
-                                    <br />
-                                    <br />
-                                    <button className={`${style.passwordButton} btn w-100 rounded-4`} id="passwordButton">Gestionar contraseña</button>
+                                    <button className={`${style.passwordButton} btn w-100 rounded-4`} id="passwordButton">Guardar cambios</button>
                                 </div>
                             </div>
                         </div>
