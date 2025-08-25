@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
 import { Navbar, Nav, Button, Container, NavDropdown } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import logo from "../assets/img/logo.png"
+import logoLight from "../assets/img/logoLight.png"
+import logoDark from "../assets/img/logoDark.png"
 import { useState, useEffect, useRef } from "react";
+import useGlobalReducer from "../hooks/useGlobalReducer";
 
 
 export const CustomNavbar = () => {
@@ -17,6 +19,15 @@ export const CustomNavbar = () => {
 	const [showPassword, setShowPassword] = useState(false)
 
 	const token = localStorage.getItem("token")
+	const { store, dispatch } = useGlobalReducer()
+	let theme = localStorage.getItem("theme-preference")
+	useEffect(() => {
+
+		dispatch({
+			type: "switchTheme",
+			payload: theme
+		})
+	}, [])
 
 	const handleLogout = () => {
 		localStorage.removeItem("token");
@@ -39,7 +50,9 @@ export const CustomNavbar = () => {
 				)
 			});
 			const data = await res.json()
+			const user = JSON.stringify(data.user)
 			localStorage.setItem("token", data.token)
+			localStorage.setItem("user", user)
 			closeModal("logIn");
 			window.location.reload();
 		} catch (error) {
@@ -107,17 +120,27 @@ export const CustomNavbar = () => {
 	}
 	return (
 
-
 		<>
 			<div className={`container-fluid navbar-hori ${!showModal && "z-index-f"}`}>
 				<div className="navbar p-3">
 					<div>
-						<a href="/"><img className="logo" src={logo} /></a>
+						{
+							store.theme == "dark" ? (
+								<a href="/"><img className="logo" src={logoDark} /></a>
+							) : (
+								<a href="/"><img className="logo" src={logoLight} /></a>
+							)
+						}
 					</div>
 					{
 						token ? (
-							<button className="rounded-3 btn me-2" onClick={handleLogout}>Cerrar sesión</button>
+							<div>
+								<a href="/forms"><button type="button" id="button-4" className="rounded-3 btn me-2 button-4">¡Empieza a deslizar!</button></a>
 
+								<a href="/perfil"><button type="button" id="button-4" className="rounded-3 btn me-2 button-4">Ver mi perfil</button></a>
+
+								<button type="button" id="button-4" className="rounded-3 btn button-4" onClick={handleLogout}>Cerrar sesión</button>
+							</div>
 						) : (
 							<div>
 								<button id="button-2" className="rounded-3 btn me-2" data-bs-toggle="modal" data-bs-target="#logIn" onClick={() => setShowModal(true)}>Inicia sesión</button>
@@ -170,15 +193,8 @@ export const CustomNavbar = () => {
 													<span className="px-2 text-muted">o</span>
 													<hr className="flex-grow-1" />
 												</div>
-												<div className="mb-3">
-													<button type="button"
-														className="btn btn-light w-100 rounded-pill d-flex align-items-center justify-content-center gap-2 py-2">
-														<img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google" width="20" />
-														<span>Continua con Google</span>
-													</button>
-												</div>
-												<div className="text-center mt-4 mb-2 text-muted">
-													¿Todavía no tienes cuenta? <a href="#" data-bs-toggle="modal" data-bs-target="#signUp" className="text-decoration-none" onClick={() => handleModal()}>Regístrate</a>
+												<div className="text-center mt-3 mb-2 text-muted">
+													¿Todavía no tienes cuenta? <a href="#" data-bs-toggle="modal" data-bs-target="#signUp" data-bs-dismiss="modal" className="text-decoration-none" onClick={() => handleModal()}>Regístrate</a>
 												</div>
 												<div className="mt-3 text-center">
 													<a href="#" data-bs-toggle="modal" data-bs-target="#forgotPassword" className="forget">¿Has olvidado tu contraseña?</a>
@@ -194,7 +210,7 @@ export const CustomNavbar = () => {
 										<div className="modal-content p-4 rounded-5">
 											<div className="modal-header border-0">
 
-												<h4 className="modal-title w-100 text-center mb-3" id="signUpModalLabel">Registrate a SwipeStories</h4>
+												<h4 className="modal-title w-100 text-center mb-3" id="signUpModalLabel">Bienvenid@ a SwipeStories</h4>
 												<button onClick={() => handleModal()} type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
 											</div>
 											<div className="modal-body">
@@ -244,7 +260,7 @@ export const CustomNavbar = () => {
 														<button type="submit" id="button-3" className="btn w-100 rounded-pill py-2">Regístrame</button>
 													</div>
 													<div className="text-center mb-3 text-muted">
-														¿Ya tienes cuenta? <a href="#" data-bs-toggle="modal" data-bs-target="#logIn" className="text-decoration-none " onClick={() => handleModal()}>Inicia sesión</a>
+														¿Ya tienes cuenta? <a href="#" data-bs-toggle="modal" data-bs-target="#logIn" dats-bs-dismiss="modal" className="text-decoration-none " onClick={() => handleModal()}>Inicia sesión</a>
 													</div>
 													<div className="text-center text-muted">
 														<small>Al continuar, estás aceptando nuestras <a href="#" data-bs-toggle="modal" data-bs-target="#condicionesDeServicio" className="text-decoration-none"> Condiciones de uso </a> y nuestra <a href="#" data-bs-toggle="modal" data-bs-target="#politicaPrivacidad" className="text-decoration-none"> Política de privacidad</a>.</small>

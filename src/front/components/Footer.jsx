@@ -1,7 +1,11 @@
 import { useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import useGlobalReducer from "../hooks/useGlobalReducer";
 
 export const Footer = () => {
+
+  const { dispatch } = useGlobalReducer()
+
   useEffect(() => {
     const storageKey = 'theme-preference';
 
@@ -21,6 +25,10 @@ export const Footer = () => {
 
     function setPreference() {
       localStorage.setItem(storageKey, theme.value);
+      dispatch({
+        type: "switchTheme",
+        payload: theme.value
+      })
       reflectPreference();
     }
 
@@ -64,41 +72,38 @@ export const Footer = () => {
     <footer className="footer pb-4 pt-5">
       <ul className="menu-list justify-content-center">
         <li>
-          <span className="icon"><ion-icon name="home-outline"></ion-icon></span>
-          <span className="title"> <a href="/" className="text-decoration-none">Home</a></span>
+          <span className="icon"> <a href="/" className="text-decoration-none"><ion-icon name="home-outline"></ion-icon></a></span>
+          <span className="title"><a href="/" className="text-decoration-none"> Home </a></span>
         </li>
-        <li>
+        <li data-bs-toggle="modal" data-bs-target="#aboutUs">
           <span className="icon"><ion-icon name="information-circle-outline"></ion-icon></span>
-          <span className="title"> <a href="#" data-bs-toggle="modal" data-bs-target="#aboutUs" className="text-decoration-none"> About us </a></span>
+          <span className="title"> <a href="#" className="text-decoration-none"> About us </a></span>
         </li>
-        <li style={{ '--i': '#ffffcc', '--j': '#ccccff' }}>
+        <li data-bs-toggle="modal" data-bs-target="#condicionesDeServicio2" style={{ '--i': '#ffffcc', '--j': '#ccccff' }}>
           <span className="icon"><ion-icon name="document-outline"></ion-icon></span>
-          <span className="title uso"> <a href="#" data-bs-toggle="modal" data-bs-target="#condicionesDeServicio2" className="text-decoration-none"> Condiciones de uso </a> </span>
+          <span className="title uso"> <a href="#" className="text-decoration-none"> Condiciones de uso </a> </span>
         </li>
-        <li>
+        <li data-bs-toggle="modal" data-bs-target="#politicaPrivacidad2">
           <span className="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
-          <span className="title"> <a href="#" data-bs-toggle="modal" data-bs-target="#politicaPrivacidad2" className="text-decoration-none"> Política de privacidad</a> </span>
+          <span className="title"> <a href="#" className="text-decoration-none"> Política de privacidad</a> </span>
         </li>
-        <li>
+        <li data-bs-toggle="modal" data-bs-target="#sendUsAnEmail">
           <span className="icon"><ion-icon name="at-outline"></ion-icon></span>
-          <span className="title">contact@swipestories.com</span>
+          <span className="title contactUs"> <a href="#" className="text-decoration-none"> contact@swipestories.com</a></span>
         </li>
         <p className="name my-auto">Swipe Stories © {new Date().getFullYear()}</p>
-        <div className="btn-group dropup dropup-center">
-          <button id="language" type="button" className="btn px-3 dropdown-toggle no-caret" data-bs-toggle="dropdown">
-            <i className="fa-solid fa-globe"></i>
-          </button>
-          <ul className="dropdown-menu rounded-5 idiomas p-2">
-            <li className="idioma mb-2"><a className="dropdown-item" href="#">Español</a></li>
-            <li className="idioma"><a className="dropdown-item" href="#">Inglés</a></li>
-          </ul>
-        </div>
         <button
           className="theme-toggle btn"
           id="theme-toggle"
           title="Toggles light & dark"
           aria-label="auto"
           aria-live="polite"
+          onClick={() => {
+            dispatch({
+              type: "switchTheme",
+              payload: theme.value
+            })
+          }}
         >
           <svg className="sun-and-moon" aria-hidden="true" width="24" height="24" viewBox="0 0 24 24">
             <mask className="moon" id="moon-mask">
@@ -211,6 +216,20 @@ export const Footer = () => {
               <h4>¿De dónde nace este proyecto?</h4>
               <p>Swipe Stories nace como un proyecto de final de curso de Desarrollo Full-Stack, donde cuatro alumnos invierten su tiempo,
                 creatividad y conocimientos aprendidos en crear esta página web para que cualquier persona como tú pueda disfrutarla.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="modal fade sendUsAnEmail" data-bs-backdrop="static" id="sendUsAnEmail" tabindex="-1" aria-labelledby="emailLabel" aria-hidden="true">
+        <div className="modal-dialog modal-dialog-scrollable align-content-center sendUsAnEmail">
+          <div className="modal-content p-4 rounded-5 sendUsAnEmail">
+            <div className="modal-header">
+              <h3 className="modal-title mb-3" id="emailLabel">¡Contacta con nosotros!</h3>
+              <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div className="modal-body text-center">
+              <h5 className="mt-4">Si tienes alguna duda y/o sugerencia, no dudes en contactarnos a través de: <a href="mailto:contact@swipestories.com" className="text-decoration-none">contact@swipestories.com</a>.</h5>
             </div>
           </div>
         </div>
