@@ -5,11 +5,7 @@ import { Container } from "react-bootstrap";
 const BASE = (import.meta.env.VITE_BACKEND_URL || "").replace(/\/+$/, "");
 const API = `${BASE}/api`;
 
-const initialCards = [
-  { text: "¿Quieres ver una pelicula?", emoji: "🎬", value: "Pelicula" },
-  { text: "¿Quieres leer un libro?", emoji: "📚", value: "Libro" },
-  { text: "¿Quieres salir de casa?", emoji: "✈️", value: "Series" },
-];
+
 
 
 
@@ -21,7 +17,19 @@ export const Forms = () => {
   const [answers, setAnswers] = useState([]);
   const [cards, setCards] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [currentCards, setCurrentCards] = useState([])
+  const [currentCards, setCurrentCards] = useState([
+    { text: "¿Quieres ver una pelicula?", emoji: "🎬", value: "Pelicula" },
+    { text: "¿Quieres leer un libro?", emoji: "📚", value: "Libro" },
+    { text: "¿Quieres ver una serie?", emoji: "✈️", value: "Series" },]
+  )
+
+
+
+  useEffect(() => {
+    fetchCards();
+  }, []);
+
+
 
   const handleStart = (x) => {
     startPos.current = x;
@@ -40,18 +48,24 @@ export const Forms = () => {
     }
   };
 
-  const handleEnd = (x, cards) => {
+  const handleEnd = (x, cardsParams) => {
     const deltaX = x - startPos.current;
-    let currentCard = cards[currentIndex]
-    console.log(currentCard)
+    let currentCard = cardsParams[currentIndex]
     if (deltaX > 100) {
+      animateOut(1, cardsParams);
       setAnswers([...answers, currentCard.value])
-      animateOut(1, cards);
+      let filterCards = cards.filter(c => c.relation === currentCard.value)
+
+      setTimeout(() => {
+        setCurrentCards(filterCards)
+      }, 250);
+
     } else if (deltaX < -100) {
-      animateOut(-1, cards);
+      animateOut(-1, cardsParams);
     } else {
       setDragStyle({ transform: "translateX(0px) rotate(0deg)" });
       setLabelOpacity({ yes: 0, no: 0 });
+
     }
     startPos.current = null;
   };
@@ -85,39 +99,29 @@ export const Forms = () => {
     }, 500);
   };
 
-  useEffect(() => {
-    fetchCards();
-  }, []);
-
-  useEffect(() => {
-    setCurrentCards(cards.filter(c => c.relation === answers[answers.length - 1]))
-  }, [answers])
-  console.log(currentCards, "currentCards")
   console.log(answers)
 
   if (loading) {
     return <span>Loading</span>
   }
-  
+
   return (
     <Container fluid className={style.container}>
       <div class="sticker-container">
-				<img src="src/front/assets/img/stickerEmojiBola.png" class="sticker" draggable="false" id="sticker1" />
-				<img src="src/front/assets/img/stickerEmojiCD.png" class="sticker" draggable="false" id="sticker2" />
-				<img src="src/front/assets/img/stickerEmojiBooks.png" class="sticker" draggable="false" id="sticker3" />
-				<img src="src/front/assets/img/stickerEmojiClaqueta.png" class="sticker" draggable="false" id="sticker4" />
-				<img src="src/front/assets/img/stickerEmojiPalomitas.png" class="sticker" draggable="false" id="sticker5" />
-				<img src="src/front/assets/img/stickerEmojiBombilla.png" class="sticker" draggable="false" id="sticker6" />
-			</div>
-      {
-        answers.length === 0 ? (
-          <>
+        <img src="src/front/assets/img/stickerEmojiBola.png" class="sticker" draggable="false" id="sticker1" />
+        <img src="src/front/assets/img/stickerEmojiCD.png" class="sticker" draggable="false" id="sticker2" />
+        <img src="src/front/assets/img/stickerEmojiBooks.png" class="sticker" draggable="false" id="sticker3" />
+        <img src="src/front/assets/img/stickerEmojiClaqueta.png" class="sticker" draggable="false" id="sticker4" />
+        <img src="src/front/assets/img/stickerEmojiPalomitas.png" class="sticker" draggable="false" id="sticker5" />
+        <img src="src/front/assets/img/stickerEmojiBombilla.png" class="sticker" draggable="false" id="sticker6" />
+      </div>
+        
             {
-              initialCards
+              currentCards
                 .slice(currentIndex, currentIndex + 3)
                 .map((card, index) => {
                   const isTop = index === 0;
-                  const zIndex = initialCards.length - index;
+                  const zIndex = currentCards.length - index;
                   const scale = 1 - index * 0.05;
                   const translateY = index * 10;
 
@@ -134,11 +138,11 @@ export const Forms = () => {
                       }}
                       onMouseDown={isTop ? (e) => handleStart(e.clientX) : null}
                       onMouseMove={isTop ? (e) => startPos.current !== null && handleMove(e.clientX) : null}
-                      onMouseUp={isTop ? (e) => handleEnd(e.clientX, initialCards) : null}
-                      onMouseLeave={isTop ? (e) => startPos.current !== null && handleEnd(e.clientX, initialCards) : null}
+                      onMouseUp={isTop ? (e) => handleEnd(e.clientX, currentCards) : null}
+                      onMouseLeave={isTop ? (e) => startPos.current !== null && handleEnd(e.clientX, currentCards) : null}
                       onTouchStart={isTop ? (e) => handleStart(e.touches[0].clientX) : null}
                       onTouchMove={isTop ? (e) => handleMove(e.touches[0].clientX) : null}
-                      onTouchEnd={isTop ? (e) => handleEnd(e.changedTouches[0].clientX, initialCards) : null}
+                      onTouchEnd={isTop ? (e) => handleEnd(e.changedTouches[0].clientX, currentCards) : null}
                     >
                       {isTop && (
                         <>
@@ -162,62 +166,7 @@ export const Forms = () => {
                   );
                 })
             }
-          </>
-        ) : (
-          <>
-            {currentCards
-              .slice(currentIndex, currentIndex + 3)
-              .map((card, index) => {
-                const isTop = index === 0;
-                const zIndex = currentCards.length - index;
-                const scale = 1 - index * 0.05;
-                const translateY = index * 10;
-
-                return (
-
-                  <div
-                    key={currentIndex + index}
-                    className={style.card}
-                    style={{
-                      zIndex,
-                      transform: isTop
-                        ? dragStyle.transform || `scale(${scale}) translateY(${translateY}px)`
-                        : `scale(${scale}) translateY(${translateY}px)`,
-                      transition: isTop ? dragStyle.transition : "transform 0.3s ease",
-                    }}
-                    onMouseDown={isTop ? (e) => handleStart(e.clientX) : null}
-                    onMouseMove={isTop ? (e) => startPos.current !== null && handleMove(e.clientX) : null}
-                    onMouseUp={isTop ? (e) => handleEnd(e.clientX, currentCards) : null}
-                    onMouseLeave={isTop ? (e) => startPos.current !== null && handleEnd(e.clientX, currentCards) : null}
-                    onTouchStart={isTop ? (e) => handleStart(e.touches[0].clientX) : null}
-                    onTouchMove={isTop ? (e) => handleMove(e.touches[0].clientX) : null}
-                    onTouchEnd={isTop ? (e) => handleEnd(e.changedTouches[0].clientX, currentCards) : null}
-                  >
-                    {isTop && (
-                      <>
-                        <div
-                          className={`${style.label} ${style.yes}`}
-                          style={{ opacity: labelOpacity.yes }}
-                        >
-                          YES
-                        </div>
-                        <div
-                          className={`${style.label} ${style.no}`}
-                          style={{ opacity: labelOpacity.no }}
-                        >
-                          NO
-                        </div>
-                      </>
-                    )}
-                    <span className={style.emoji}>{card.emoji}</span>
-                    <p className={style.text}>{card.text}</p>
-                  </div>
-                );
-              })
-            }
-          </>
-        )
-      }
+          
 
 
     </Container>
