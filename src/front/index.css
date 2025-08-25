@@ -1,48 +1,39 @@
 :root {
   --footer-bg: black;
-  --container-main: linear-gradient(
-    to bottom,
-    #9ec5da 0%,
-    #9ec5da 24%,
-    #d34848 24%,
-    #d34848 32%,
-    #ffffff 32%,
-    #eeeeee 66%,
-    #dddddd 100%
-  );
-  --slogan-text: #d34848;
-  --slogan2-text: #9ec5da;
+  --container-main: white;
+  --slogan-text: #800000;
+  --slogan2-text: #066ba2;
   --carousel-text: black;
-  --carousel-bg: radial-gradient(circle, #d34848, #9ec5da);
+  --carousel-bg: radial-gradient(circle, #800000, #066ba2);
   --start-text: black;
   --try-text: black;
   --buttons12-text: black;
   --buttons12-border: black;
   --buttons12-bg: #00000000;
-  --buttons12-textHover: #9ec5da;
+  --buttons12-textHover: #066ba2;
   --buttons12-borderHover: black;
   --buttons12-bgHover: black;
   --buttons12-textActive: black;
   --buttons12-borderActive: black;
   --buttons12-bgActive: #00000000;
-  --button3-bg: #9ec5da;
+  --button3-bg: #066ba2;
   --button3-text: black;
   --button3-bgHover: black;
-  --button3-textHover: #9ec5da;
-  --button3-bgActive: #9ec5da;
+  --button3-textHover: #066ba2;
+  --button3-bgActive: #066ba2;
   --button3-textActive: black;
-  --button3-borderActive: #9ec5da;
-  --tdn-color: #d34848;
+  --button3-borderActive: #066ba2;
+  --tdn-color: #800000;
   --tdn-colorHover: black;
-  --tdn-colorActive: #d34848;
+  --tdn-colorActive: #800000;
   --slogan3-textColor: black;
-  --forget-text: #d34848;
+  --forget-text: #800000;
   --forget-Hover: black;
-  --forget-active: #d34848;
+  --forget-active: #800000;
   --angles-icon: black;
   --menuList-title: black;
   --menuList-a: black;
-  --menuList-gradient: linear-gradient(to left, #9ec5da 0%, #d34848 100%);
+  --menuList-gradient: linear-gradient(to left, #066ba2 0%, #800000 100%);
   --menuList-ionIcons: white;
   --name-color: white;
   --button4-text: black;
@@ -59,48 +50,39 @@
 
 [data-theme="dark"] {
   --footer-bg: black;
-  --container-main: linear-gradient(
-    to bottom,
-    #066ba2 0%,
-    #066ba2 24%,
-    #800000 24%,
-    #800000 32%,
-    #222222 32%,
-    #111111 66%,
-    #000000 100%
-  );
-  --slogan-text: #800000;
-  --slogan2-text: #066ba2;
+  --container-main: rgb(23, 23, 23);
+  --slogan-text: #d34848;
+  --slogan2-text: #9ec5da;
   --carousel-text: white;
-  --carousel-bg: radial-gradient(circle, #800000, #066ba2);
+  --carousel-bg: radial-gradient(circle, #d34848, #9ec5da);
   --start-text: white;
   --try-text: white;
   --buttons12-text: white;
   --buttons12-border: white;
   --buttons12-bg: #00000000;
-  --buttons12-textHover: #066ba2;
+  --buttons12-textHover: #9ec5da;
   --buttons12-borderHover: white;
   --buttons12-bgHover: white;
   --buttons12-textActive: white;
   --buttons12-borderActive: white;
   --buttons12-bgActive: #00000000;
-  --button3-bg: #066ba2;
+  --button3-bg: #9ec5da;
   --button3-text: white;
   --button3-bgHover: black;
   --button3-textHover: white;
-  --button3-bgActive: #066ba2;
+  --button3-bgActive: #9ec5da;
   --button3-textActive: white;
-  --tdn-color: #800000;
+  --tdn-color: #d34848;
   --tdn-colorHover: black;
-  --tdn-colorActive: #800000;
+  --tdn-colorActive: #d34848;
   --slogan3-textColor: white;
-  --forget-text: #800000;
+  --forget-text: #d34848;
   --forget-Hover: black;
-  --forget-active: #800000;
+  --forget-active: #d34848;
   --angles-icon: white;
   --menuList-title: white;
   --menuList-a: white;
-  --menuList-gradient: linear-gradient(to left, #066ba2 0%, #800000 100%);
+  --menuList-gradient: linear-gradient(to left, #9ec5da 0%, #d34848 100%);
   --menuList-ionIcons: white;
   --name-color: white;
   --button4-text: white;
@@ -112,9 +94,8 @@
   --button4-text-active: white;
   --button4-border-active: white;
   --button4-bg-active: #00000000;
-  --color-correo: #800000;
+  --color-correo: #d34848;
 }
-
 * {
   font-family: "Work Sans", sans-serif;
 }

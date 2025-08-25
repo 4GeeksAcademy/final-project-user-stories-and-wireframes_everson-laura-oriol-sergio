@@ -41,14 +41,6 @@ def delete_card(card_id: int):
 def seed_default_cards():
     default_cards = [
 
-        # ==== Cartas Iniciales ====
-        {"text": "¿Quieres ver una película?", "emoji": "🎬",
-            "value": "Pelicula", "relation": "inicial", "img": None},
-        {"text": "¿Quieres leer un libro?", "emoji": "📚",
-            "value": "Libro", "relation": "inicial", "img": None},
-        {"text": "¿Quieres ver una serie?", "emoji": "📺",
-            "value": "Serie", "relation": "inicial", "img": None},
-
         # ==== Géneros de Películas ====
         {"text": "Acción", "emoji": "💥", "value": "accion_peliculas",
             "relation": "Pelicula", "img": None},

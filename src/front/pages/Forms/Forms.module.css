@@ -5,8 +5,8 @@
     #eeeeee 50%,
     #dddddd 100%
   );
-  --card-text: white;
-  --cardform-bg: black;
+  --card-text: black;
+  --cardform-bg: white;
   --card-shadow: rgba(0, 0, 0, 0.5);
   --card-yes: #066BA2;
   --card-no: #800000;
@@ -19,9 +19,9 @@
     #111111 50%,
     #000000 100%
   );
-  --card-text: black;
-  --cardform-bg: white;
-  --card-shadow: rgba(255, 255, 255, 0.5);
+  --card-text: white;
+  --cardform-bg: rgb(17, 17, 17);
+  --card-shadow: rgba(0, 0, 0, 0);
   --card-yes: #9EC5DA;
   --card-no: #D34848;
 }

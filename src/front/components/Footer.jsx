@@ -1,27 +1,26 @@
 import { useEffect } from "react";
-import { Container, Row, Col } from "react-bootstrap";
 import useGlobalReducer from "../hooks/useGlobalReducer";
 
 export const Footer = () => {
 
   const { dispatch } = useGlobalReducer()
+  const storageKey = 'theme-preference';
+
+  const theme = {
+    value: getColorPreference(),
+  };
+
+  function getColorPreference() {
+    if (localStorage.getItem(storageKey)) {
+      return localStorage.getItem(storageKey);
+    } else {
+      return window.matchMedia('(prefers-color-scwheme: dark)').matches
+        ? 'dark'
+        : 'light';
+    }
+  }
 
   useEffect(() => {
-    const storageKey = 'theme-preference';
-
-    const theme = {
-      value: getColorPreference(),
-    };
-
-    function getColorPreference() {
-      if (localStorage.getItem(storageKey)) {
-        return localStorage.getItem(storageKey);
-      } else {
-        return window.matchMedia('(prefers-color-scwheme: dark)').matches
-          ? 'dark'
-          : 'light';
-      }
-    }
 
     function setPreference() {
       localStorage.setItem(storageKey, theme.value);

@@ -1,5 +1,4 @@
-import { Link } from "react-router-dom";
-import { Navbar, Nav, Button, Container, NavDropdown } from "react-bootstrap";
+import { Link, useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import logoLight from "../assets/img/logoLight.png"
 import logoDark from "../assets/img/logoDark.png"
@@ -17,10 +16,17 @@ export const CustomNavbar = () => {
 	const [resetEmail, setResetEmail] = useState("")
 	const [showModal, setShowModal] = useState(false)
 	const [showPassword, setShowPassword] = useState(false)
+	const [user, setUser] = useState(null)
 
 	const token = localStorage.getItem("token")
 	const { store, dispatch } = useGlobalReducer()
 	let theme = localStorage.getItem("theme-preference")
+	let userLocalStorage = localStorage.getItem("user")
+	const navigate = useNavigate()
+
+	console.log(user)
+
+
 	useEffect(() => {
 
 		dispatch({
@@ -29,8 +35,16 @@ export const CustomNavbar = () => {
 		})
 	}, [])
 
+	useEffect(() => {
+		if (userLocalStorage) {
+			let parseUser = JSON.parse(userLocalStorage)
+			setUser(parseUser)
+		}
+	}, [userLocalStorage])
+
 	const handleLogout = () => {
 		localStorage.removeItem("token");
+		localStorage.removeItem("user");
 		window.location.reload();
 	}
 
@@ -55,7 +69,7 @@ export const CustomNavbar = () => {
 			alert("Acceso exitoso");
 			localStorage.setItem("user", user)
 			closeModal("logIn");
-			window.location.reload();
+			navigate("/forms");
 		} catch (error) {
 			console.log(error)
 		}
@@ -140,6 +154,18 @@ export const CustomNavbar = () => {
 								<a href="/forms"><button type="button" id="button-4" className="rounded-3 btn me-2 button-4">¡Empieza a deslizar!</button></a>
 
 								<a href="/perfil"><button type="button" id="button-4" className="rounded-3 btn me-2 button-4">Ver mi perfil</button></a>
+
+								{
+									user && (
+										<>
+											{
+												user.is_admin && (
+													<Link to={"/admin"}><button type="button" id="button-4" className="rounded-3 btn me-2 button-4">admin</button> </Link>
+												)
+											}
+										</>
+									)
+								}
 
 								<button type="button" id="button-4" className="rounded-3 btn button-4" onClick={handleLogout}>Cerrar sesión</button>
 							</div>
