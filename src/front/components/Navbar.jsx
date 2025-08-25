@@ -40,6 +40,7 @@ export const CustomNavbar = () => {
 			});
 			const data = await res.json()
 			localStorage.setItem("token", data.token)
+			alert("Acceso exitoso");
 			closeModal("logIn");
 			window.location.reload();
 		} catch (error) {
@@ -66,6 +67,7 @@ export const CustomNavbar = () => {
 				)
 			});
 			closeModal("signUp");
+			alert("Registro exitoso");
 		} catch (error) {
 			console.log(error)
 		}

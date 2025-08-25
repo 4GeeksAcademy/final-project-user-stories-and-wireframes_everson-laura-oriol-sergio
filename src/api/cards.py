@@ -39,60 +39,231 @@ def delete_card(card_id: int):
     return True, None
 
 def seed_default_cards():
+
     default_cards = [
 
-        # ==== Libros ====
-        {"text": "Harry Potter", "emoji": "🧙‍♂️", "value": 1, "relation": "books"},
-        {"text": "1984", "emoji": "👁️", "value": 3, "relation": "books"},
-        {"text": "Cien Años de Soledad", "emoji": "🌳", "value": 4, "relation": "books"},
-        {"text": "El Hobbit", "emoji": "🐉", "value": 2, "relation": "books"},
-        {"text": "Don Quijote", "emoji": "🗡️", "value": 5, "relation": "books"},
-        {"text": "La Odisea", "emoji": "⛵", "value": 6, "relation": "books"},
-        {"text": "Crimen y Castigo", "emoji": "⚖️", "value": 7, "relation": "books"},
-        {"text": "Orgullo y Prejuicio", "emoji": "❤️", "value": 8, "relation": "books"},
-        {"text": "El Principito", "emoji": "🪐", "value": 9, "relation": "books"},
-        {"text": "Drácula", "emoji": "🧛", "value": 10, "relation": "books"},
-        {"text": "Moby Dick", "emoji": "🐋", "value": 11, "relation": "books"},
-        {"text": "Fahrenheit 451", "emoji": "🔥", "value": 12, "relation": "books"},
-        {"text": "Los Juegos del Hambre", "emoji": "🏹", "value": 13, "relation": "books"},
-        {"text": "La Sombra del Viento", "emoji": "📚", "value": 14, "relation": "books"},
-        {"text": "It (Eso)", "emoji": "🎈", "value": 15, "relation": "books"},
+        # ==== Cartas Iniciales ====
+        {"text": "¿Quieres ver una película?", "emoji": "🎬",
+            "value": "Pelicula", "relation": "inicial", "img": None},
+        {"text": "¿Quieres leer un libro?", "emoji": "📚",
+            "value": "Libro", "relation": "inicial", "img": None},
+        {"text": "¿Quieres ver una serie?", "emoji": "📺",
+            "value": "Serie", "relation": "inicial", "img": None},
 
-        # ==== Películas ====
-        {"text": "Titanic", "emoji": "🚢", "value": 1, "relation": "movies"},
-        {"text": "El Padrino", "emoji": "🕴️", "value": 2, "relation": "movies"},
-        {"text": "El Señor de los Anillos", "emoji": "💍", "value": 3, "relation": "movies"},
-        {"text": "Matrix", "emoji": "🕶️", "value": 4, "relation": "movies"},
-        {"text": "Inception", "emoji": "🧠", "value": 5, "relation": "movies"},
-        {"text": "Avengers", "emoji": "🛡️", "value": 6, "relation": "movies"},
-        {"text": "Avatar", "emoji": "🌌", "value": 7, "relation": "movies"},
-        {"text": "Toy Story", "emoji": "🤠", "value": 8, "relation": "movies"},
-        {"text": "Joker", "emoji": "🎭", "value": 9, "relation": "movies"},
-        {"text": "Gladiador", "emoji": "🏛️", "value": 10, "relation": "movies"},
-        {"text": "Jurassic Park", "emoji": "🦖", "value": 11, "relation": "movies"},
-        {"text": "Forrest Gump", "emoji": "🏃‍♂️", "value": 12, "relation": "movies"},
-        {"text": "Star Wars", "emoji": "✨", "value": 13, "relation": "movies"},
-        {"text": "Batman: El Caballero de la Noche", "emoji": "🦇", "value": 14, "relation": "movies"},
-        {"text": "Up", "emoji": "🎈", "value": 15, "relation": "movies"},
+        # ==== Géneros de Películas ====
+        {"text": "Acción", "emoji": "💥", "value": "accion_peliculas",
+            "relation": "Pelicula", "img": None},
+        {"text": "Drama", "emoji": "🎭", "value": "drama_peliculas",
+            "relation": "Pelicula", "img": None},
+        {"text": "Comedia", "emoji": "😂", "value": "comedia_peliculas",
+            "relation": "Pelicula", "img": None},
+        {"text": "Ciencia Ficción", "emoji": "🚀",
+            "value": "scifi_peliculas", "relation": "Pelicula", "img": None},
+        {"text": "Terror", "emoji": "👻", "value": "terror_peliculas",
+            "relation": "Pelicula", "img": None},
+        {"text": "Animación", "emoji": "🎨", "value": "animacion_peliculas",
+            "relation": "Pelicula", "img": None},
 
-        # ==== Series ====
-        {"text": "Breaking Bad", "emoji": "🧪", "value": 1, "relation": "series"},
-        {"text": "Game of Thrones", "emoji": "🐉", "value": 2, "relation": "series"},
-        {"text": "Stranger Things", "emoji": "⚡", "value": 3, "relation": "series"},
-        {"text": "The Office", "emoji": "📎", "value": 4, "relation": "series"},
-        {"text": "Friends", "emoji": "☕", "value": 5, "relation": "series"},
-        {"text": "The Mandalorian", "emoji": "🚀", "value": 6, "relation": "series"},
-        {"text": "The Crown", "emoji": "👑", "value": 7, "relation": "series"},
-        {"text": "Dark", "emoji": "⏳", "value": 8, "relation": "series"},
-        {"text": "The Witcher", "emoji": "⚔️", "value": 9, "relation": "series"},
-        {"text": "Black Mirror", "emoji": "🖥️", "value": 10, "relation": "series"},
-        {"text": "Vikingos", "emoji": "🛡️", "value": 11, "relation": "series"},
-        {"text": "Sherlock", "emoji": "🔍", "value": 12, "relation": "series"},
-        {"text": "Loki", "emoji": "🌀", "value": 13, "relation": "series"},
-        {"text": "The Boys", "emoji": "💥", "value": 14, "relation": "series"},
-        {"text": "Better Call Saul", "emoji": "📞", "value": 15, "relation": "series"}
+        # ==== Géneros de Libros ====
+        {"text": "Ficción", "emoji": "📖", "value": "ficcion_libros",
+            "relation": "Libro", "img": None},
+        {"text": "Ciencia Ficción", "emoji": "🛸",
+            "value": "scifi_libros", "relation": "Libro", "img": None},
+        {"text": "Fantasía", "emoji": "🧙‍♂️", "value": "fantasia_libros",
+            "relation": "Libro", "img": None},
+        {"text": "Misterio", "emoji": "🔍", "value": "misterio_libros",
+            "relation": "Libro", "img": None},
+        {"text": "Romance", "emoji": "💕", "value": "romance_libros",
+            "relation": "Libro", "img": None},
+        {"text": "No Ficción", "emoji": "📊", "value": "noficcion_libros",
+            "relation": "Libro", "img": None},
+
+        # ==== Géneros de Series ====
+        {"text": "Drama", "emoji": "🎭", "value": "drama_series",
+            "relation": "Serie", "img": None},
+        {"text": "Comedia", "emoji": "😄", "value": "comedia_series",
+            "relation": "Serie", "img": None},
+        {"text": "Acción", "emoji": "⚔️", "value": "accion_series",
+            "relation": "Serie", "img": None},
+        {"text": "Ciencia Ficción", "emoji": "👽",
+            "value": "scifi_series", "relation": "Serie", "img": None},
+        {"text": "Crimen/Thriller", "emoji": "🕵️",
+            "value": "crimen_series", "relation": "Serie", "img": None},
+        {"text": "Documentales", "emoji": "🎥",
+            "value": "documental_series", "relation": "Serie", "img": None},
+
+        # ==== Duración de Películas de Acción ====
+        {"text": "Película Corta (< 90 min)", "emoji": "⏰", "value": "accion_corta",
+         "relation": "accion_peliculas", "img": None},
+        {"text": "Duración Media (90-120 min)", "emoji": "🕐", "value": "accion_media",
+         "relation": "accion_peliculas", "img": None},
+        {"text": "Película Larga (> 120 min)", "emoji": "⏳", "value": "accion_larga",
+         "relation": "accion_peliculas", "img": None},
+
+        # ==== Actores de Películas de Acción Cortas ====
+        {"text": "Con Tom Cruise", "emoji": "🎬", "value": "final",
+            "relation": "accion_corta", "img": "https://example.com/cruise.jpg"},
+        {"text": "Con Jason Statham", "emoji": "💪", "value": "final",
+            "relation": "accion_corta", "img": "https://example.com/statham.jpg"},
+        {"text": "Con Keanu Reeves", "emoji": "🕴️", "value": "final",
+            "relation": "accion_corta", "img": "https://example.com/keanu.jpg"},
+
+        # ==== Actores de Películas de Acción Media ====
+        {"text": "Con Will Smith", "emoji": "😎", "value": "final",
+            "relation": "accion_media", "img": "https://example.com/will.jpg"},
+        {"text": "Con Dwayne Johnson", "emoji": "🗿", "value": "final",
+            "relation": "accion_media", "img": "https://example.com/rock.jpg"},
+        {"text": "Con Chris Evans", "emoji": "🛡️", "value": "final",
+            "relation": "accion_media", "img": "https://example.com/evans.jpg"},
+
+        # ==== Directores de Películas de Acción Largas ====
+        {"text": "Dirigida por Christopher Nolan", "emoji": "🧠", "value": "final",
+            "relation": "accion_larga", "img": "https://example.com/nolan.jpg"},
+        {"text": "Dirigida por Zack Snyder", "emoji": "🦸", "value": "final",
+            "relation": "accion_larga", "img": "https://example.com/snyder.jpg"},
+        {"text": "Dirigida por Russo Brothers", "emoji": "👥", "value": "final",
+            "relation": "accion_larga", "img": "https://example.com/russo.jpg"},
+
+        # ==== Época de Dramas ====
+        {"text": "Películas Clásicas (antes 1990)", "emoji": "🎞️",
+         "value": "drama_clasico", "relation": "drama_peliculas", "img": None},
+        {"text": "Películas Modernas (1990-2010)", "emoji": "📼",
+         "value": "drama_moderno", "relation": "drama_peliculas", "img": None},
+        {"text": "Películas Actuales (2010+)", "emoji": "🆕", "value": "drama_actual",
+         "relation": "drama_peliculas", "img": None},
+
+        # ==== Actores de Drama Clásico ====
+        {"text": "Con Marlon Brando", "emoji": "👑", "value": "final",
+            "relation": "drama_clasico", "img": "https://example.com/brando.jpg"},
+        {"text": "Con Al Pacino", "emoji": "🕴️", "value": "final",
+            "relation": "drama_clasico", "img": "https://example.com/pacino.jpg"},
+        {"text": "Con Robert De Niro", "emoji": "🎭", "value": "final",
+            "relation": "drama_clasico", "img": "https://example.com/deniro.jpg"},
+
+        # ==== Actores de Drama Moderno ====
+        {"text": "Con Tom Hanks", "emoji": "🏃‍♂️", "value": "final",
+            "relation": "drama_moderno", "img": "https://example.com/hanks.jpg"},
+        {"text": "Con Leonardo DiCaprio", "emoji": "🌊", "value": "final",
+            "relation": "drama_moderno", "img": "https://example.com/leo.jpg"},
+        {"text": "Con Russell Crowe", "emoji": "🏛️", "value": "final",
+            "relation": "drama_moderno", "img": "https://example.com/crowe.jpg"},
+
+        # ==== Actores de Drama Actual ====
+        {"text": "Con Joaquin Phoenix", "emoji": "🃏", "value": "final",
+            "relation": "drama_actual", "img": "https://example.com/phoenix.jpg"},
+        {"text": "Con Ryan Gosling", "emoji": "🌙", "value": "final",
+            "relation": "drama_actual", "img": "https://example.com/gosling.jpg"},
+        {"text": "Con Oscar Isaac", "emoji": "🎵", "value": "final",
+            "relation": "drama_actual", "img": "https://example.com/isaac.jpg"},
+
+        # ==== Tipo de Comedia ====
+        {"text": "Comedia Romántica", "emoji": "💕", "value": "comedia_romantica",
+            "relation": "comedia_peliculas", "img": None},
+        {"text": "Comedia de Acción", "emoji": "💥", "value": "comedia_accion",
+            "relation": "comedia_peliculas", "img": None},
+        {"text": "Comedia Familiar", "emoji": "👨‍👩‍👧‍👦",
+            "value": "comedia_familiar", "relation": "comedia_peliculas", "img": None},
+
+        # ==== Actores de Comedia Romántica ====
+        {"text": "Con Ryan Reynolds", "emoji": "😏", "value": "final",
+            "relation": "comedia_romantica", "img": "https://example.com/reynolds.jpg"},
+        {"text": "Con Jennifer Aniston", "emoji": "💛", "value": "final",
+            "relation": "comedia_romantica", "img": "https://example.com/aniston.jpg"},
+        {"text": "Con Hugh Grant", "emoji": "🇬🇧", "value": "final",
+            "relation": "comedia_romantica", "img": "https://example.com/grant.jpg"},
+
+        # ==== Escritores de Ciencia Ficción ====
+        {"text": "Isaac Asimov", "emoji": "🤖", "value": "asimov_libros",
+            "relation": "scifi_libros", "img": None},
+        {"text": "Philip K. Dick", "emoji": "🧠", "value": "dick_libros",
+            "relation": "scifi_libros", "img": None},
+        {"text": "Ursula K. Le Guin", "emoji": "🌌", "value": "leguin_libros",
+            "relation": "scifi_libros", "img": None},
+        {"text": "Ray Bradbury", "emoji": "🔥", "value": "bradbury_libros",
+            "relation": "scifi_libros", "img": None},
+
+        # ==== Temática de Asimov ====
+        {"text": "Robots y Inteligencia Artificial", "emoji": "🤖", "value": "final",
+            "relation": "asimov_libros", "img": "https://example.com/robots.jpg"},
+        {"text": "Imperio Galáctico", "emoji": "🌟", "value": "final",
+            "relation": "asimov_libros", "img": "https://example.com/empire.jpg"},
+        {"text": "Fundación", "emoji": "🏛️", "value": "final",
+            "relation": "asimov_libros", "img": "https://example.com/foundation.jpg"},
+
+        # ==== Temática de Philip K. Dick ====
+        {"text": "Realidad Virtual", "emoji": "🕶️", "value": "final",
+            "relation": "dick_libros", "img": "https://example.com/vr.jpg"},
+        {"text": "Distopías Futuristas", "emoji": "🏙️", "value": "final",
+            "relation": "dick_libros", "img": "https://example.com/dystopia.jpg"},
+        {"text": "Identidad y Memoria", "emoji": "🧩", "value": "final",
+            "relation": "dick_libros", "img": "https://example.com/memory.jpg"},
+
+        # ==== Longitud de Libros de Fantasía ====
+        {"text": "Novela Corta (< 300 páginas)", "emoji": "📖",
+         "value": "fantasia_corta", "relation": "fantasia_libros", "img": None},
+        {"text": "Novela Media (300-500 páginas)", "emoji": "📚",
+         "value": "fantasia_media", "relation": "fantasia_libros", "img": None},
+        {"text": "Saga Épica (500+ páginas)", "emoji": "📜", "value": "fantasia_epica",
+         "relation": "fantasia_libros", "img": None},
+
+        # ==== Autores de Fantasía Épica ====
+        {"text": "J.R.R. Tolkien", "emoji": "🧙‍♂️", "value": "final",
+            "relation": "fantasia_epica", "img": "https://example.com/tolkien.jpg"},
+        {"text": "George R.R. Martin", "emoji": "🗡️", "value": "final",
+            "relation": "fantasia_epica", "img": "https://example.com/martin.jpg"},
+        {"text": "Brandon Sanderson", "emoji": "⚔️", "value": "final",
+            "relation": "fantasia_epica", "img": "https://example.com/sanderson.jpg"},
+
+        # ==== Duración de Series de Drama ====
+        {"text": "Series Cortas (1-2 temporadas)", "emoji": "⏱️",
+         "value": "drama_series_corta", "relation": "drama_series", "img": None},
+        {"text": "Series Largas (3+ temporadas)", "emoji": "📺",
+         "value": "drama_series_larga", "relation": "drama_series", "img": None},
+        {"text": "Miniseries (episodios limitados)", "emoji": "🎬",
+         "value": "drama_miniserie", "relation": "drama_series", "img": None},
+
+        # ==== Protagonistas de Series de Drama Largas ====
+        {"text": "Con Bryan Cranston", "emoji": "🧪", "value": "final",
+            "relation": "drama_series_larga", "img": "https://example.com/cranston.jpg"},
+        {"text": "Con Claire Foy", "emoji": "👑", "value": "final",
+            "relation": "drama_series_larga", "img": "https://example.com/foy.jpg"},
+        {"text": "Con Kevin Spacey", "emoji": "🏛️", "value": "final",
+            "relation": "drama_series_larga", "img": "https://example.com/spacey.jpg"},
+
+        # ==== Estilo de Comedia en Series ====
+        {"text": "Comedia de Oficina", "emoji": "💼", "value": "comedia_oficina",
+            "relation": "comedia_series", "img": None},
+        {"text": "Comedia Situacional", "emoji": "🏠",
+            "value": "comedia_situacional", "relation": "comedia_series", "img": None},
+        {"text": "Comedia Absurda", "emoji": "🤪", "value": "comedia_absurda",
+            "relation": "comedia_series", "img": None},
+
+        # ==== Protagonistas de Comedia de Oficina ====
+        {"text": "Con Steve Carell", "emoji": "📎", "value": "final",
+            "relation": "comedia_oficina", "img": "https://example.com/carell.jpg"},
+        {"text": "Con Ricky Gervais", "emoji": "😏", "value": "final",
+            "relation": "comedia_oficina", "img": "https://example.com/gervais.jpg"},
+        {"text": "Con Amy Poehler", "emoji": "🏛️", "value": "final",
+            "relation": "comedia_oficina", "img": "https://example.com/poehler.jpg"},
+
+        # ==== Temática de Documentales ====
+        {"text": "Naturaleza", "emoji": "🌍", "value": "doc_naturaleza",
+            "relation": "documental_series", "img": None},
+        {"text": "Crimen Real", "emoji": "🔍", "value": "doc_crimen",
+            "relation": "documental_series", "img": None},
+        {"text": "Historia", "emoji": "🏛️", "value": "doc_historia",
+            "relation": "documental_series", "img": None},
+        {"text": "Ciencia", "emoji": "🔬", "value": "doc_ciencia",
+            "relation": "documental_series", "img": None},
+
+        # ==== Narradores de Documentales de Naturaleza ====
+        {"text": "Narrado por David Attenborough", "emoji": "🎙️", "value": "final",
+            "relation": "doc_naturaleza", "img": "https://example.com/attenborough.jpg"},
+        {"text": "Narrado por Morgan Freeman", "emoji": "🌟", "value": "final",
+            "relation": "doc_naturaleza", "img": "https://example.com/freeman.jpg"},
+        {"text": "Documental Nacional Geographic", "emoji": "📸", "value": "final",
+            "relation": "doc_naturaleza", "img": "https://example.com/natgeo.jpg"},
     ]
-
     created = []
     for card in default_cards:
         new_card = Card(**card)
