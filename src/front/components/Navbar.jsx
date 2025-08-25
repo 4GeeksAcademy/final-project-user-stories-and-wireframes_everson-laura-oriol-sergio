@@ -52,6 +52,7 @@ export const CustomNavbar = () => {
 			const data = await res.json()
 			const user = JSON.stringify(data.user)
 			localStorage.setItem("token", data.token)
+			alert("Acceso exitoso");
 			localStorage.setItem("user", user)
 			closeModal("logIn");
 			window.location.reload();
@@ -79,6 +80,7 @@ export const CustomNavbar = () => {
 				)
 			});
 			closeModal("signUp");
+			alert("Registro exitoso");
 		} catch (error) {
 			console.log(error)
 		}
