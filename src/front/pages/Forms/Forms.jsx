@@ -1,12 +1,12 @@
 import { useState, useRef, useEffect } from "react";
 import style from "./Forms.module.css";
 import { Container, Modal, Button } from "react-bootstrap";
-import stickerBola from '../assets/img/stickerEmojiBola.png';
-import stickerCD from '../assets/img/stickerEmojiCD.png';
-import stickerBooks from '../assets/img/stickerEmojiBooks.png';
-import stickerClaqueta from '../assets/img/stickerEmojiClaqueta.png';
-import stickerPalomitas from '../assets/img/stickerEmojiPalomitas.png';
-import stickerBombilla from '../assets/img/stickerEmojiBombilla.png';
+import stickerBola from '../../assets/img/stickerEmojiBola.png';
+import stickerCD from '../../assets/img/stickerEmojiCD.png';
+import stickerBooks from '../../assets/img/stickerEmojiBooks.png';
+import stickerClaqueta from '../../assets/img/stickerEmojiClaqueta.png';
+import stickerPalomitas from '../../assets/img/stickerEmojiPalomitas.png';
+import stickerBombilla from '../../assets/img/stickerEmojiBombilla.png';
 
 const BASE = (import.meta.env.VITE_BACKEND_URL || "").replace(/\/+$/, "");
 const API = `${BASE}/api`;
