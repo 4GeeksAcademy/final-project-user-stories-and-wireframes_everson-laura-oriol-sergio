@@ -2,26 +2,26 @@
   --footer-bg: black;
   --container-main: white;
   --slogan-text: #800000;
-  --slogan2-text: #066ba2;
-  --carousel-text: black;
+  --slogan2-text: hsl(201, 93%, 33%);
+  --carousel-text: white;
   --carousel-bg: radial-gradient(circle, #800000, #066ba2);
   --start-text: black;
   --try-text: black;
   --buttons12-text: black;
   --buttons12-border: black;
   --buttons12-bg: #00000000;
-  --buttons12-textHover: #066ba2;
-  --buttons12-borderHover: black;
-  --buttons12-bgHover: black;
+  --buttons12-textHover: white;
+  --buttons12-borderHover: rgba(0, 0, 0, 0);
+  --buttons12-bgHover: #066ba2;
   --buttons12-textActive: black;
   --buttons12-borderActive: black;
   --buttons12-bgActive: #00000000;
   --button3-bg: #066ba2;
-  --button3-text: black;
+  --button3-text: white;
   --button3-bgHover: black;
-  --button3-textHover: #066ba2;
+  --button3-textHover: white;
   --button3-bgActive: #066ba2;
-  --button3-textActive: black;
+  --button3-textActive: white;
   --button3-borderActive: #066ba2;
   --tdn-color: #800000;
   --tdn-colorHover: black;
@@ -47,7 +47,6 @@
   --button4-bg-active: #00000000;
   --color-correo: #d34848;
 }
-
 [data-theme="dark"] {
   --footer-bg: black;
   --container-main: rgb(23, 23, 23);
@@ -60,18 +59,19 @@
   --buttons12-text: white;
   --buttons12-border: white;
   --buttons12-bg: #00000000;
-  --buttons12-textHover: #9ec5da;
-  --buttons12-borderHover: white;
-  --buttons12-bgHover: white;
+  --buttons12-textHover: black;
+  --buttons12-borderHover: rgba(15, 15, 15, 0);
+  --buttons12-bgHover: #9ec5da;
   --buttons12-textActive: white;
   --buttons12-borderActive: white;
   --buttons12-bgActive: #00000000;
-  --button3-bg: #9ec5da;
+  --button3-bg: #066ba2;
   --button3-text: white;
   --button3-bgHover: black;
   --button3-textHover: white;
-  --button3-bgActive: #9ec5da;
+  --button3-bgActive: #066ba2;
   --button3-textActive: white;
+  --button3-borderActive: #066ba2;
   --tdn-color: #d34848;
   --tdn-colorHover: black;
   --tdn-colorActive: #d34848;

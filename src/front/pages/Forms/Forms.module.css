@@ -1,29 +1,19 @@
 :root {
-  --forms-bg: linear-gradient(
-    to bottom,
-    #ffffff 0%,
-    #eeeeee 50%,
-    #dddddd 100%
-  );
+  --forms-bg: linear-gradient(to bottom, #ffffff 0%, #eeeeee 50%, #dddddd 100%);
   --card-text: black;
   --cardform-bg: white;
   --card-shadow: rgba(0, 0, 0, 0.5);
-  --card-yes: #066BA2;
+  --card-yes: #066ba2;
   --card-no: #800000;
 }
 
 [data-theme="dark"] {
-  --forms-bg: linear-gradient(
-    to bottom,
-    #222222 0%,
-    #111111 50%,
-    #000000 100%
-  );
+  --forms-bg: linear-gradient(to bottom, #222222 0%, #111111 50%, #000000 100%);
   --card-text: white;
   --cardform-bg: rgb(17, 17, 17);
   --card-shadow: rgba(0, 0, 0, 0);
-  --card-yes: #9EC5DA;
-  --card-no: #D34848;
+  --card-yes: #9ec5da;
+  --card-no: #d34848;
 }
 
 .container {
@@ -98,4 +88,27 @@
     width: 280px;
     height: 400px;
   }
+}
+
+@keyframes cardAppear {
+  0% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+/* Opcional: Si quieres una animación más suave para el contenedor */
+.container {
+  position: relative;
+  overflow: hidden;
+}
+/* Mejora la transición entre estados de carga */
+.card {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
