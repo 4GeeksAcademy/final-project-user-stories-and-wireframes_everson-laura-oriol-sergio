@@ -3,6 +3,12 @@ import useGlobalReducer from "../../hooks/useGlobalReducer.jsx";
 import { Container } from "react-bootstrap";
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
+import stickerBola from '../assets/img/stickerEmojiBola.png';
+import stickerCD from '../assets/img/stickerEmojiCD.png';
+import stickerBooks from '../assets/img/stickerEmojiBooks.png';
+import stickerClaqueta from '../assets/img/stickerEmojiClaqueta.png';
+import stickerPalomitas from '../assets/img/stickerEmojiPalomitas.png';
+import stickerBombilla from '../assets/img/stickerEmojiBombilla.png';
 
 const responsive = {
 	superLargeDesktop: {
@@ -85,13 +91,13 @@ export const Home = () => {
 
 	return (
 		<div className="justify-content-center align-items-center text-center main">
-			<div class="sticker-container">
-				<img src="src/front/assets/img/stickerEmojiBola.png" class="sticker" draggable="false" id="sticker1" />
-				<img src="src/front/assets/img/stickerEmojiCD.png" class="sticker" draggable="false" id="sticker2" />
-				<img src="src/front/assets/img/stickerEmojiBooks.png" class="sticker" draggable="false" id="sticker3" />
-				<img src="src/front/assets/img/stickerEmojiClaqueta.png" class="sticker" draggable="false" id="sticker4" />
-				<img src="src/front/assets/img/stickerEmojiPalomitas.png" class="sticker" draggable="false" id="sticker5" />
-				<img src="src/front/assets/img/stickerEmojiBombilla.png" class="sticker" draggable="false" id="sticker6" />
+			<div className="sticker-container">
+				<img src={stickerBola} className="sticker" draggable={false} id="sticker1" alt="Sticker Bola" />
+				<img src={stickerCD} className="sticker" draggable={false} id="sticker2" alt="Sticker CD" />
+				<img src={stickerBooks} className="sticker" draggable={false} id="sticker3" alt="Sticker Books" />
+				<img src={stickerClaqueta} className="sticker" draggable={false} id="sticker4" alt="Sticker Claqueta" />
+				<img src={stickerPalomitas} className="sticker" draggable={false} id="sticker5" alt="Sticker Palomitas" />
+				<img src={stickerBombilla} className="sticker" draggable={false} id="sticker6" alt="Sticker Bombilla" />
 			</div>
 			<div className="wave-container d-flex w-50 m-auto pt-5">
 				<p className="wave-text slogan text-center swipestories">

@@ -1,6 +1,12 @@
 import { useState, useRef, useEffect } from "react";
 import style from "./Forms.module.css";
 import { Container, Modal, Button } from "react-bootstrap";
+import stickerBola from '../assets/img/stickerEmojiBola.png';
+import stickerCD from '../assets/img/stickerEmojiCD.png';
+import stickerBooks from '../assets/img/stickerEmojiBooks.png';
+import stickerClaqueta from '../assets/img/stickerEmojiClaqueta.png';
+import stickerPalomitas from '../assets/img/stickerEmojiPalomitas.png';
+import stickerBombilla from '../assets/img/stickerEmojiBombilla.png';
 
 const BASE = (import.meta.env.VITE_BACKEND_URL || "").replace(/\/+$/, "");
 const API = `${BASE}/api`;
@@ -178,12 +184,12 @@ export const Forms = () => {
     <Container fluid className={style.container}>
       {width > 480 && (
         <div className="sticker-container">
-          <img src="src/front/assets/img/stickerEmojiBola.png" className="sticker" draggable="false" id="sticker1" />
-          <img src="src/front/assets/img/stickerEmojiCD.png" className="sticker" draggable="false" id="sticker2" />
-          <img src="src/front/assets/img/stickerEmojiBooks.png" className="sticker" draggable="false" id="sticker3" />
-          <img src="src/front/assets/img/stickerEmojiClaqueta.png" className="sticker" draggable="false" id="sticker4" />
-          <img src="src/front/assets/img/stickerEmojiPalomitas.png" className="sticker" draggable="false" id="sticker5" />
-          <img src="src/front/assets/img/stickerEmojiBombilla.png" className="sticker" draggable="false" id="sticker6" />
+          <img src={stickerBola} className="sticker" draggable={false} id="sticker1" alt="Sticker Bola" />
+          <img src={stickerCD} className="sticker" draggable={false} id="sticker2" alt="Sticker CD" />
+          <img src={stickerBooks} className="sticker" draggable={false} id="sticker3" alt="Sticker Books" />
+          <img src={stickerClaqueta} className="sticker" draggable={false} id="sticker4" alt="Sticker Claqueta" />
+          <img src={stickerPalomitas} className="sticker" draggable={false} id="sticker5" alt="Sticker Palomitas" />
+          <img src={stickerBombilla} className="sticker" draggable={false} id="sticker6" alt="Sticker Bombilla" />
         </div>
       )}
 
