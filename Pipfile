@@ -24,6 +24,7 @@ openai = "*"
 flask-mail = "*"
 flask-migrate = "*"
 flask = "*"
+tomli = "*"
 
 [requires]
 python_version = "3.13"
