@@ -3,12 +3,13 @@ import useGlobalReducer from "../../hooks/useGlobalReducer.jsx";
 import { Container } from "react-bootstrap";
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import stickerBola from '../assets/img/stickerEmojiBola.png';
-import stickerCD from '../assets/img/stickerEmojiCD.png';
-import stickerBooks from '../assets/img/stickerEmojiBooks.png';
-import stickerClaqueta from '../assets/img/stickerEmojiClaqueta.png';
-import stickerPalomitas from '../assets/img/stickerEmojiPalomitas.png';
-import stickerBombilla from '../assets/img/stickerEmojiBombilla.png';
+import stickerBola from '../../assets/img/stickerEmojiBola.png';
+import stickerCD from '../../assets/img/stickerEmojiCD.png';
+import stickerBooks from '../../assets/img/stickerEmojiBooks.png';
+import stickerClaqueta from '../../assets/img/stickerEmojiClaqueta.png';
+import stickerPalomitas from '../../assets/img/stickerEmojiPalomitas.png';
+import stickerBombilla from '../../assets/img/stickerEmojiBombilla.png';
+
 
 const responsive = {
 	superLargeDesktop: {
