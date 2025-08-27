@@ -7,6 +7,9 @@ import stickerBooks from '../../assets/img/stickerEmojiBooks.png';
 import stickerClaqueta from '../../assets/img/stickerEmojiClaqueta.png';
 import stickerPalomitas from '../../assets/img/stickerEmojiPalomitas.png';
 import stickerBombilla from '../../assets/img/stickerEmojiBombilla.png';
+import { useNavigate } from "react-router-dom";
+
+
 
 const BASE = (import.meta.env.VITE_BACKEND_URL || "").replace(/\/+$/, "");
 const API = `${BASE}/api`;
@@ -20,12 +23,15 @@ export const Forms = () => {
   const [cards, setCards] = useState([]);
   const [loading, setLoading] = useState(true);
   const [currentCards, setCurrentCards] = useState([
-    { text: "¿Quieres ver una pelicula?", emoji: "🎬", value: "Pelicula" },
-    { text: "¿Quieres leer un libro?", emoji: "📚", value: "Libro" },
-    { text: "¿Quieres ver una serie?", emoji: "✈️", value: "Serie" },
+    { text: "¿Quieres ver una pelicula?", emoji: "🎬", value: "peliculas" },
+    { text: "¿Quieres leer un libro?", emoji: "📚", value: "libros" },
+    { text: "¿Quieres ver una serie?", emoji: "✈️", value: "series" },
   ]);
   const [width, setwidth] = useState(0);
   const [showModal, setShowModal] = useState(false);
+  const [iaResultado, setIaResultado] = useState("");
+  const navigate = useNavigate()
+
 
   useEffect(() => {
     fetchCards();
@@ -86,7 +92,7 @@ export const Forms = () => {
     if (deltaX > 100) {
       animateOut(1, cardsParams);
       setAnswers([...answers, currentCard.value]);
-      let filterCards = cards.filter(c => c.relation === currentCard.value);
+      let filterCards = cards.filter(c => c.relation.toLowerCase() === currentCard.value.toLowerCase());
 
       // Temporizador para que las nuevas tarjetas aparezcan suavemente
       setTimeout(() => {
@@ -144,6 +150,7 @@ export const Forms = () => {
 
   const handleCloseModal = () => {
     setShowModal(false);
+    navigate("/")
   };
 
   const handleRestart = () => {
@@ -157,13 +164,18 @@ export const Forms = () => {
     ]);
   };
 
-  const getRecommendationMessage = () => {
-    if (answers.length === 0) return "No se realizaron selecciones.";
-
-    return `Basado en tus selecciones: ${answers.join(" → ")}, te recomendamos explorar contenido relacionado con estas categorías.`;
-  };
-
-  console.log(answers);
+  const getResponse = async () => {
+    let res = await fetch(API + "/recommendations", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        preferences: answers,
+        category: answers[0]
+      })
+    })
+    let data = await res.json()
+    setIaResultado(data)
+  }
 
   if (loading) {
     return <div style={{
@@ -264,31 +276,48 @@ export const Forms = () => {
         </Modal.Header>
         <Modal.Body>
           <div style={{ textAlign: 'center' }}>
-            <h5>¡Genial! Has completado tu selección</h5>
+            {
+              !iaResultado ? (
+                <h5>¡Genial! Has completado tu selección</h5>
 
-            {answers.length > 0 && (
-              <div style={{ margin: '20px 0' }}>
-                <h6>Tu recorrido:</h6>
-                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap', gap: '10px' }}>
-                  {answers.map((answer, index) => (
-                    <div key={index} style={{ display: 'flex', alignItems: 'center' }}>
-                      <span style={{
-                        background: '#f8f9fa',
-                        padding: '8px 16px',
-                        borderRadius: '20px',
-                        border: '2px solid #dee2e6',
-                        fontWeight: 'bold'
-                      }}>
-                        {answer}
-                      </span>
-                      {index < answers.length - 1 && (
-                        <span style={{ margin: '0 10px', fontSize: '18px' }}>→</span>
-                      )}
+              ) : (
+                <h3 style={{ margin: 0, color: '#1565c0' }}>
+                  {iaResultado.category}
+                </h3>
+              )
+            }
+            {
+              !iaResultado ? (
+                <>
+                  {answers.length > 0 && (
+                    <div style={{ margin: '20px 0' }}>
+                      <h6>Tu recorrido:</h6>
+                      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap', gap: '10px' }}>
+                        {answers.map((answer, index) => (
+                          <div key={index} style={{ display: 'flex', alignItems: 'center' }}>
+                            <span style={{
+                              background: '#f8f9fa',
+                              padding: '8px 16px',
+                              borderRadius: '20px',
+                              border: '2px solid #dee2e6',
+                              fontWeight: 'bold'
+                            }}>
+                              {answer}
+                            </span>
+                            {index < answers.length - 1 && (
+                              <span style={{ margin: '0 10px', fontSize: '18px' }}>→</span>
+                            )}
+                          </div>
+                        ))}
+                      </div>
                     </div>
-                  ))}
-                </div>
-              </div>
-            )}
+                  )}
+                </>
+              ) : (
+                <></>
+              )
+            }
+
 
             <div style={{
               background: '#e3f2fd',
@@ -297,16 +326,49 @@ export const Forms = () => {
               marginTop: '20px',
               border: '1px solid #bbdefb'
             }}>
-              <p style={{ margin: 0, color: '#1565c0' }}>
-                Basados en tus elecciones tenemos una respuesta para ti:
-              </p>
+              {
+                !iaResultado ? (
+                  <p style={{ margin: 0, color: '#1565c0' }}>
+                    Basados en tus elecciones tenemos una respuesta para ti...
+                  </p>
+                ) : (
+                  <div style={{ display: "flex", alignItems: 'center', flexDirection: "column" }}>
+
+                    <ul style={{ listStyle: "none", display: "flex", alignItems: 'center', flexDirection: "column", padding: 0 }} >
+                      {
+                        iaResultado.recommendations.map(r => {
+                          return (
+                            <li>
+                              <h5>{r.title}</h5>
+                              <p>{r.description}</p>
+                            </li>
+                          )
+                        })
+                      }
+                    </ul>
+                  </div>
+
+                )
+              }
+
+
             </div>
           </div>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleCloseModal}>
-            Cerrar
-          </Button>
+          {
+            !iaResultado ? (
+
+              <Button variant="secondary" onClick={getResponse}>
+                Ver resultado
+              </Button>
+            ) : (
+              <Button variant="secondary" onClick={handleCloseModal}>
+                Salir
+              </Button>
+            )
+          }
+
           <Button variant="primary" onClick={handleRestart}>
             Comenzar de nuevo
           </Button>
@@ -315,4 +377,3 @@ export const Forms = () => {
     </Container>
   );
 };
-

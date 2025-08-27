@@ -127,7 +127,7 @@ def get_ai_recommendations(category, preferences):
 
     try:
         parsed = json.loads(json_str)
-        # Validar que tenga la estructura esperada
+    
         if "category" in parsed and "recommendations" in parsed:
             return parsed
         else:

@@ -132,13 +132,6 @@ body {
   font-size: medium;
 }
 
-.navbar-hori {
-  position: absolute;
-}
-.z-index-f {
-  z-index: 1056;
-}
-
 .navbar-hori a {
   text-decoration: none;
 }
@@ -624,7 +617,7 @@ a.text-white {
   font-size: x-small;
 }
 
-@media screen and (max-width: 390px) {
+@media screen and (max-width: 450px){
   .wave-container {
     flex-direction: column;
     width: 100% !important;
